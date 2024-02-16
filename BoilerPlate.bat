@@ -10,5 +10,5 @@ call node KCode\Backend.js
 call node KCode\Database.js
 
 if not "%arg2%"=="-sampledata" (
-    call node KCode\ForDatabase\ForSample\CreateData.js
+    call node KCode/CrudGenerator/ForDatabase/ForSample/CreateData.js
 )
