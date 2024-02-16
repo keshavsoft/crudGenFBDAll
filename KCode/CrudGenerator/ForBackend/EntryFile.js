@@ -6,7 +6,7 @@ import { StartFunc as StartFuncForkSequelize } from './ForkSequelize/EntryFile.j
 
 import fs from "fs-extra";
 
-let StartFunc = ({ inTablesCollection, inFrom, inTo }) => {
+let StartFunc = async ({ inTablesCollection, inFrom, inTo }) => {
     let LocalTablesCollection = inTablesCollection;
 
     if ("children" in LocalTablesCollection === false) {

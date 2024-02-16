@@ -5,7 +5,9 @@ if not "%arg1%"=="-npm" (
     call npm i
 )
 
-call node KCode\EntryFile.js
+call node KCode\Backend.js
+
+call node KCode\Database.js
 
 if not "%arg2%"=="-sampledata" (
     call node KCode\ForDatabase\ForSample\CreateData.js
