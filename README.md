@@ -140,7 +140,7 @@ CrudGenerator/Config.json is the configuration file
 
 the meaning of the repo
 
-crud  :  CRUD
-Gem   :  Generate
-FBD   :  Frontend, Backend and Database
-All   :  Selection at 3 stages
+crud  :  CRUD <br>
+Gen   :  Generate <br>
+FBD   :  Frontend, Backend and Database <br>
+All   :  Selection at 3 stages <br>
