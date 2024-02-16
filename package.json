@@ -1,0 +1,19 @@
+{
+  "name": "crudgenfbdall",
+  "version": "1.0.0",
+  "description": "generata crud as FBD for json schema",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/keshavsoft/crudGenFBDAll.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/keshavsoft/crudGenFBDAll/issues"
+  },
+  "homepage": "https://github.com/keshavsoft/crudGenFBDAll#readme"
+}
