@@ -138,3 +138,9 @@ DataSchema define your schema
 
 CrudGenerator/Config.json is the configuration file
 
+the meaning of the repo
+
+crud  :  CRUD
+Gem   :  Generate
+FBD   :  Frontend, Backend and Database
+All   :  Selection at 3 stages
