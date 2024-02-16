@@ -2,11 +2,12 @@
   "name": "crudgenfbdall",
   "version": "1.0.0",
   "description": "generata crud as FBD for json schema",
-  "main": "app1.js",
+  "main": "app.js",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app"
+    "start": "node app",
+    "dev": "node src"
   },
   "repository": {
     "type": "git",

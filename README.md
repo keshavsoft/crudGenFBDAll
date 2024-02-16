@@ -146,3 +146,25 @@ FBD     ``Frontend, Backend and Database`` <br>
 All       ``Selection at 3 stages`` <br>
 
 UI or FrontEnd repository ``https://github.com/keshavsoft/UiAsHtml``
+
+
+for Source only (src), to test the application 
+
+1. Create a folder and navigate into it using the command prompt.
+
+2. Clone the repository
+   ```
+   git clone https://github.com/keshavsoft/crudGenFBDAll
+   ```
+3. Change Directory to crudGenByPath or Open the cloned folder, navigate to crudGenFBDAll, and open the command prompt.
+   ```
+    cd crudGenFBDAll
+   ```
+4. Run the batch file (For Windows)
+   ```
+   Simple.bat
+   ```
+ 5. For Executing:
+   ```
+      npm run dev
+   ```
