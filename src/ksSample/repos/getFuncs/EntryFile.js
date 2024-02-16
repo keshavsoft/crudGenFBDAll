@@ -8,7 +8,8 @@ import {
 
 import {
     GetDataOnlyFunc as GetDataOnlyFuncDalsForSequelize,
-    GetRowCountFunc as GetRowCountFuncDalsForSequelize
+    GetRowCountFunc as GetRowCountFuncDalsForSequelize,
+    GetColumnsSchemaFunc as GetColumnsSchemaFuncDalsForSequelize
 } from '../../dalsForSequelize/getFuncs/EntryFile.js';
 
 import ConfigJson from '../../../Config.json' assert {type: 'json'};
@@ -53,8 +54,17 @@ let GetRowCountFunc = async () => {
     return GetFuncDal();
 };
 
+let GetColumnsSchemaFunc = async () => {
+    if (ConfigJson.isSequelize) {
+        return await GetColumnsSchemaFuncDalsForSequelize();
+    };
+
+    return GetColumnsSchemaFuncDal();
+};
+
 export {
     GetFunc, GetDataOnlyFunc, GetFromModalFunc,
     GetFromModalUuidFunc, GetFromModalUuidAndTSFunc,
-    GetIdFunc, GetBodyCheckFunc, GetRowCountFunc
+    GetIdFunc, GetBodyCheckFunc, GetRowCountFunc,
+    GetColumnsSchemaFunc
 };

@@ -2,7 +2,9 @@ import {
     GetFunc as GetFuncRepo, GetDataOnlyFunc as GetDataOnlyFuncRepo,
     GetFromModalUuidFunc as GetFromModalUuidFuncRepo,
     GetFromModalUuidAndTSFunc as GetFromModalUuidAndTSFuncRepo, GetFromModalFunc as GetFromModalFuncRepo,
-    GetIdFunc as GetIdFuncRepo, GetBodyCheckFunc as GetBodyCheckFuncRepo,GetRowCountFunc as GetRowCountFuncRepo
+    GetIdFunc as GetIdFuncRepo, GetBodyCheckFunc as GetBodyCheckFuncRepo,
+    GetRowCountFunc as GetRowCountFuncRepo,
+    GetColumnsSchemaFunc as GetColumnsSchemaFuncRepo
 } from '../../repos/getFuncs/EntryFile.js';
 
 
@@ -50,9 +52,16 @@ let GetRowCountFunc = async (req, res) => {
     res.json(LocalFromRepo);
 };
 
+let GetColumnsSchemaFunc = async (req, res) => {
+    let LocalFromRepo = await GetColumnsSchemaFuncRepo();
+    console.log("LocalFromRepo : ", LocalFromRepo);
+    res.json(LocalFromRepo);
+};
+
 export {
     GetFunc, GetDataOnlyFunc, GetFromModalFunc,
     GetFromModalUuidFunc, GetFromModalUuidAndTSFunc,
     GetIdFunc,
-    GetBodyCheckFunc,GetRowCountFunc
+    GetBodyCheckFunc, GetRowCountFunc,
+    GetColumnsSchemaFunc
 };

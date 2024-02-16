@@ -4,10 +4,12 @@ var router = express.Router();
 
 import {
     GetFunc, GetDataOnlyFunc, GetFromModalUuidFunc, GetFromModalUuidAndTSFunc,
-    GetFromModalFunc, GetIdFunc, GetBodyCheckFunc,GetRowCountFunc
+    GetFromModalFunc, GetIdFunc, GetBodyCheckFunc, GetRowCountFunc,
+    GetColumnsSchemaFunc
 } from '../../controllers/getFuncs/EntryFile.js';
 
 router.get('/FromModal', GetFromModalFunc);
+router.get('/ColumnsSchema', GetColumnsSchemaFunc);
 router.get('/', GetFunc);
 router.get('/FromModalUuid', GetFromModalUuidFunc);
 router.get('/FromModalUuidAndTS', GetFromModalUuidAndTSFunc);
