@@ -1,4 +1,5 @@
 import { StartFunc as StartFuncCommonFuncs } from './CommonFuncs.js';
+import { StartFunc as StartFuncTestEndPoint } from './testEndPoint.js';
 
 let StartFunc = ({ inTablesCollection, inTo, inFrom }) => {
     let LocalTypeName = "restClients/crud";
@@ -39,6 +40,10 @@ let StartFunc = ({ inTablesCollection, inTo, inFrom }) => {
         inFilesCollection: LocalFirstLevelFolders,
         inTo: LocalTo, inTypeName: LocalTypeName, inFileName: "put.http",
         inFrom: LocalFrom
+    });
+
+    StartFuncTestEndPoint({
+        inTo: LocalTo, inFrom: LocalFrom
     });
 };
 
