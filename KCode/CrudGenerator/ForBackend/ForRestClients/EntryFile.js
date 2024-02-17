@@ -75,6 +75,13 @@ let LocalFuncForTestEndPoint = ({ inTablesCollection, inTo, inFrom }) => {
         inTo: LocalTo, inFrom: LocalFrom,
         inFileName: "3InsertNewRow.http"
     });
+    
+    StartFuncCommonFuncs({
+        inTypeName: LocalTypeName,
+        inFilesCollection: LocalFirstLevelFolders,
+        inTo: LocalTo, inFrom: LocalFrom,
+        inFileName: "4InsertMultipleRows.http"
+    });
 };
 
 export { StartFunc };
