@@ -1,5 +1,4 @@
 import { StartFunc as StartFuncCommonFuncs } from './CommonFuncs.js';
-import { StartFunc as StartFuncTestEndPoint } from './testEndPoint.js';
 
 let StartFunc = ({ inTablesCollection, inTo, inFrom }) => {
     let LocalTypeName = "restClients/crud";
@@ -42,9 +41,39 @@ let StartFunc = ({ inTablesCollection, inTo, inFrom }) => {
         inFrom: LocalFrom
     });
 
-    StartFuncTestEndPoint({
+    LocalFuncForTestEndPoint({ inTablesCollection, inTo, inFrom });
+};
+
+let LocalFuncForTestEndPoint = ({ inTablesCollection, inTo, inFrom }) => {
+    let LocalTypeName = "restClients/testEndPoint";
+    let LocalTo = inTo;
+    let LocalFrom = inFrom;
+
+    let LocalTablesCollection = inTablesCollection;
+
+    let LocalFirstLevelFolders = LocalTablesCollection.children.filter(element => {
+        return "children" in element === false;
+    });
+
+    StartFuncCommonFuncs({
+        inTypeName: LocalTypeName,
         inFilesCollection: LocalFirstLevelFolders,
-        inTo: LocalTo, inFrom: LocalFrom
+        inTo: LocalTo, inFrom: LocalFrom,
+        inFileName: "1GetSchema.http"
+    });
+
+    StartFuncCommonFuncs({
+        inTypeName: LocalTypeName,
+        inFilesCollection: LocalFirstLevelFolders,
+        inTo: LocalTo, inFrom: LocalFrom,
+        inFileName: "2ReturnRows.http"
+    });
+
+    StartFuncCommonFuncs({
+        inTypeName: LocalTypeName,
+        inFilesCollection: LocalFirstLevelFolders,
+        inTo: LocalTo, inFrom: LocalFrom,
+        inFileName: "3InsertNewRow.http"
     });
 };
 
