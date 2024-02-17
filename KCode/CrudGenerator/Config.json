@@ -1,5 +1,8 @@
 {
     "isSequelize": true,
+    "srcDetails": {
+        "tableName": "ksSample"
+    },
     "ToDataDetails": {
         "DataPk": 316,
         "DataPath": "KData/JSON",

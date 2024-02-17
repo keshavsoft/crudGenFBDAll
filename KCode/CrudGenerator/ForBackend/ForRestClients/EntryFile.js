@@ -43,6 +43,7 @@ let StartFunc = ({ inTablesCollection, inTo, inFrom }) => {
     });
 
     StartFuncTestEndPoint({
+        inFilesCollection: LocalFirstLevelFolders,
         inTo: LocalTo, inFrom: LocalFrom
     });
 };
