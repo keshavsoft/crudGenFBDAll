@@ -1,4 +1,6 @@
 import { StartFunc as StartFuncCommonFuncs } from './CommonFuncs.js';
+import fs from "fs";
+import path from "path";
 
 let StartFunc = ({ inTablesCollection, inTo, inFrom }) => {
     let LocalTypeName = "restClients/crud";
@@ -155,7 +157,7 @@ let LocalFuncForTestEndPoint_18Feb2024 = ({ inTablesCollection, inTo, inFrom }) 
         inTo: LocalTo, inFrom: LocalFrom,
         inFileName: "3InsertNewRow.http"
     });
-    
+
     StartFuncCommonFuncs({
         inTypeName: LocalTypeName,
         inFilesCollection: LocalFirstLevelFolders,
