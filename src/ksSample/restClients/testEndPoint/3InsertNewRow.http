@@ -1,10 +1,10 @@
-
-
 ###copy the table schema from step 1(GET)
 POST http://localhost:7017/src/ksSample
 content-type: application/json
 
 {
-"Name":"1111111"
+"Name":"1111111",
+"Mobile":9999999,
+"City":"Kkd"
 }
 
