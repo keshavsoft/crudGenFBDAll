@@ -16,7 +16,7 @@ let StartFunc = async ({ inTablesCollection, inFrom, inTo }) => {
     LocalFuncCreateFolders({ inTo });
 
     StartFuncForRoutesFile({ inTablesCollection, inFrom, inTo });
-    StartFuncForConfigJson({ inTablesCollection, inFrom, inTo })
+    await StartFuncForConfigJson({ inTablesCollection, inFrom, inTo })
     StartFuncForRestClients({ inTablesCollection, inFrom, inTo });
     StartFuncForTableName({ inTablesCollection, inTo });
     StartFuncForkSequelize({ inFrom, inTo });
