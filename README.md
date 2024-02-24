@@ -168,3 +168,9 @@ for Source only (src), to test the application
    ```
       npm run dev
    ```
+
+24 Feb 2024
+
+added support for reference or foreign key of the database, and tested it with 320 in sqlite
+
+in kcode config.json is keep in kcode root for much more cleaner look of the code
