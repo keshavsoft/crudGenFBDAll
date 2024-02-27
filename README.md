@@ -174,3 +174,16 @@ for Source only (src), to test the application
 added support for reference or foreign key of the database, and tested it with 320 in sqlite
 
 in kcode config.json is keep in kcode root for much more cleaner look of the code
+
+
+for mock testing the end points:
+
+visual studio code extensions, helpfull :
+
+for est client or http calling
+
+https://marketplace.visualstudio.com/items?itemName=humao.rest-client
+
+code runner for executing batch files and js files
+
+https://marketplace.visualstudio.com/items?itemName=formulahendry.code-runner
