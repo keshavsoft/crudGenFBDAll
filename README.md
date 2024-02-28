@@ -187,3 +187,24 @@ https://marketplace.visualstudio.com/items?itemName=humao.rest-client
 code runner for executing batch files and js files
 
 https://marketplace.visualstudio.com/items?itemName=formulahendry.code-runner
+
+
+for Backend :
+
+root : bin folder the code is generated from 
+
+when running the file from kcode/Backend.js
+
+for Database :
+
+root : KData/JSON folder the code is generated from 
+
+when running the file from kcode/Database.js
+
+it takes the configuration file ( config.json )
+
+and it takes the data path also from that file only
+
+28 Feb 2024
+
+
