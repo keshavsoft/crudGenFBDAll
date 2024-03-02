@@ -10,6 +10,7 @@
         "model": {
           "tableName": "Customers"
         },
+        "FolderName": "Table",
         "key": "id"
       },
       "allowNull": false,
