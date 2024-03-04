@@ -1,25 +1,30 @@
 const StartFunc = ({ inData, inDataToInsert, inSchema }) => {
     let LocalInData = inData;
-    let LocalinSchema = inSchema;
+    let LocalTableSchema = inSchema;
     let LocalReturnData = { KTF: false, JSONFolderPath: "", CreatedLog: {} };
 
-    let LocalQrCodeId = inDataToInsert.QrCodeId
+    let LocalKeysNeeded = {};
 
     for (const prop in LocalTableSchema) {
-        if ("unique" in LocalTableSchema.fileData[prop]) {
-            LocalKeysNeeded[prop] = LocalTableSchema.fileData[prop];
+        if (LocalTableSchema[prop].unique) {
+            LocalKeysNeeded[prop] = LocalTableSchema[prop];
         };
     };
 
-    let LocalArrayChech = LocalInData.some(element => element.QrCodeId == LocalQrCodeId);
+    for (const prop in LocalKeysNeeded) {
+        let LoopInsideFilter = LocalInData.find(element => {
+            return element[prop] === inDataToInsert[prop];
+        });
 
-    if (LocalArrayChech) {
-        LocalReturnData.KReason = "Already in it"
-        return LocalReturnData
+        if (LoopInsideFilter === undefined === false) {
+            LocalReturnData.KReason = `Unique error : ${prop}`;
+            return LocalReturnData;
+        };
     };
-    LocalReturnData.KTF = true;
-    return LocalReturnData;
 
+    LocalReturnData.KTF = true;
+
+    return LocalReturnData;
 };
 
 export { StartFunc };

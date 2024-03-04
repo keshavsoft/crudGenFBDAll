@@ -21,6 +21,7 @@ let StartFunc = ({ inDataToInsert }) => {
             LocalKeysNeeded[prop] = LocalTableSchema.fileData[prop];
         };
     };
+
     if ((Object.keys(LocalKeysNeeded).length === 0) === false) {
         let LocalKeyNeeded = Object.keys(LocalKeysNeeded)[0];
         let LocalValueNeeded = inDataToInsert[LocalKeyNeeded];
@@ -35,9 +36,8 @@ let StartFunc = ({ inDataToInsert }) => {
 
     };
 
-
-
     let LocalStartFuncChecksQrCodeId = StartFuncUniqueKeyCheck({ inData: db.data, inDataToInsert: LocalinDataToInsert, inSchema: LocalTableSchema.fileData });
+
     if (LocalStartFuncChecksQrCodeId.KTF === false) {
         LocalReturnData.KReason = LocalStartFuncChecksQrCodeId.KReason;
         return LocalReturnData;
