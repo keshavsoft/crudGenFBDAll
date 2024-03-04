@@ -1,5 +1,7 @@
 import { Sequelize } from "sequelize";
 import Configjson from '../Config.json' assert { type: 'json' };
+
+// this is commented as this is only useful when creating sample database
 // import dotenv from 'dotenv';
 // dotenv.config();
 
@@ -35,6 +37,7 @@ let StartFunc = async () => {
             storage: `${commonJonPth}/${commonDataPk}/${commonDbName}` // You can specify the path for your SQLite database file
         });
     } catch (error) {
+        console.log(`error from sequelize : ${process.cwd()}`);
         return await { KTF: false, KReason: error, ErrorFrom: process.cwd() };
     };
 
