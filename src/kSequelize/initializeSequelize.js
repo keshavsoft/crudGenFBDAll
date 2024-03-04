@@ -20,11 +20,21 @@ let StartFunc = async () => {
                 return await false;
             };
 
+            if ("KS_USERNAME_FORMYSQL" in process.env === false) {
+                console.log("KS_USERNAME_FORMYSQL not found in .env file");
+                return await false;
+            };
+
+            if ("KS_HOST_FORMYSQL" in process.env === false) {
+                console.log("KS_HOST_FORMYSQL not found in .env file");
+                return await false;
+            };
+
             sequelize = new Sequelize(Configjson.sequelizeConfig.DbName,
-                'root',
+                process.env.KS_USERNAME_FORMYSQL,
                 process.env.KS_PASSWORD_FORMYSQL,
                 {
-                    host: 'localhost',
+                    host: process.env.KS_HOST_FORMYSQL,
                     dialect: 'mysql'
                 });
 
