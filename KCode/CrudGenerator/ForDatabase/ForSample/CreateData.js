@@ -1,18 +1,14 @@
-// import { StartFunc as StartFuncInitializeSequelize } from "../../../../src/kSequelize/initializeSequelize.js";
-
-import { StartFunc as StartFuncAssignSchema } from "../../../../src/kSequelize/AssignSchema.js";
-
-// import ConfigJson from '../../../../src/Config.json' assert {type: 'json'};
-// import path from "path";
+import { StartFunc as StartFuncSequilizeData } from "./SequilizeData.js";
+import { StartFunc as StartFuncEntryFile } from "./ForFlatJson/EntryFile.js";
+import Config from '../../../Config.json' assert {type: 'json'};
 
 let StartFunc = async () => {
-    const sequelize = await StartFuncAssignSchema();
 
-    // ConfigJson.jsonConfig.tableAndColumns.children.forEach(element => {
-    //     sequelize.define(path.parse(element.name).name, element.fileData, { freezeTableName: true });
-    // });
-
-    sequelize.sync({ force: true });
+    if (Config.isSequelize) {
+        await StartFuncSequilizeData();
+        return;
+    };
+    StartFuncEntryFile();
 };
 
 // export { StartFunc }
