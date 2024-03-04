@@ -1,7 +1,7 @@
 {
-    "isSequelize": true,
+    "isSequelize": false,
     "jsonConfig": {
-        "DataPk": 316,
+        "DataPk": 321,
         "DataPath": "KData/JSON",
         "tableAndColumns": {
             "path": "FromTableColumns/317",
