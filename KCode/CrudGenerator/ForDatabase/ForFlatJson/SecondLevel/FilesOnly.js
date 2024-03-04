@@ -1,5 +1,5 @@
 import fs from "fs-extra";
-import ConfigJson from '../../../Config.json' assert {type: 'json'};
+import ConfigJson from '../../../../Config.json' assert {type: 'json'};
 
 let StartFunc = ({ inTablesCollection }) => {
     let LocalTablesCollection = inTablesCollection;
@@ -9,7 +9,10 @@ let StartFunc = ({ inTablesCollection }) => {
     });
 
     LocalFirstLevelFolders.forEach(LoopSecondLevel => {
-        fs.writeFileSync(LoopSecondLevel.path.replace("FromTableColumns", ConfigJson.ToDataDetails.DataPath), JSON.stringify([]));
+        let LoopInsideFirstChar = LoopSecondLevel.path.replaceAll("\\", "/");
+        let LoopInside = LoopInsideFirstChar.replace(ConfigJson.ToDataDetails.DataSchemaLocation, ConfigJson.ToDataDetails.DataPath);
+
+        fs.writeFileSync(LoopInside, JSON.stringify([]));
     });
 };
 
