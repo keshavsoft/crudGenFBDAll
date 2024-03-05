@@ -41,6 +41,5 @@
         "url": "mongodb+srv://nknnkumar:<password>@cluster0.xafoxqs.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0",
         "DbName": "data",
         "collectionName": "collection"
-        "DbName": "sample"
     }
 }
