@@ -207,4 +207,23 @@ and it takes the data path also from that file only
 
 28 Feb 2024
 
+5 March 2024 
+
+for Database 
+Mysql dosent have a datatype named NUMBER
+
+We have covered the below datatypes
+
+STRING
+INTEGER
+NUMBER ( converted to INTEGER )
+DATE
+
+Databases covered
+
+Flat JSON
+SQLite
+Mysql
+Postgres
+MongoDB
 

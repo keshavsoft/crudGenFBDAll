@@ -14,8 +14,17 @@ let StartFunc = async () => {
             };
 
             if (element.fileData[property].type === "NUMBER") {
-                element.fileData[property].type = DataTypes.NUMBER;
+                element.fileData[property].type = DataTypes.INTEGER;
             };
+
+            if (element.fileData[property].type === "INTEGER") {
+                element.fileData[property].type = DataTypes.INTEGER;
+            };
+
+            if (element.fileData[property].type === "DATE") {
+                element.fileData[property].type = DataTypes.DATE;
+            };
+            
         };
 
         sequelize.define(path.parse(element.name).name, element.fileData, { freezeTableName: true });
