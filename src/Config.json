@@ -38,7 +38,7 @@
         "DbName": "data"
     },
     "mongoDbConfig": {
-        "url": "mongodb+srv://nknnkumar:<password>@cluster0.xafoxqs.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0",
+        "url": "",
         "DbName": "data",
         "collectionName": "collection"
     }
