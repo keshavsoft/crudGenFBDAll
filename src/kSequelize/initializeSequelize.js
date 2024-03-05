@@ -40,6 +40,7 @@ let StartFunc = async () => {
 
             return await sequelize;
         };
+        
         if (CommonsequelizeConfig.isPostgres) {
             if ("KS_PASSWORD_FORPOSTGRES" in process.env === false) {
                 console.log("KS_PASSWORD_FORPOSTGRES not found in .env file");
