@@ -1,6 +1,6 @@
 {
-    "isSequelize": false,
-    "isMongoDb": true,
+    "isSequelize": true,
+    "isMongoDb": false,
     "jsonConfig": {
         "DataPk": 321,
         "DataPath": "KData/JSON",
@@ -31,8 +31,8 @@
         }
     },
     "sequelizeConfig": {
-        "isMysql": false,
-        "isPostgres": true,
+        "isMysql": true,
+        "isPostgres": false,
         "DataPk": 316,
         "DataPath": "KData/JSON",
         "DbName": "data"
