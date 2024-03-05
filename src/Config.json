@@ -1,5 +1,6 @@
 {
-    "isSequelize": true,
+    "isSequelize": false,
+    "isMongoDb": true,
     "jsonConfig": {
         "DataPk": 321,
         "DataPath": "KData/JSON",
@@ -35,5 +36,10 @@
         "DataPk": 316,
         "DataPath": "KData/JSON",
         "DbName": "postdata"
+    },
+    "mongoDbConfig": {
+        "url": "mongodb+srv://nknnkumar:<password>@cluster0.xafoxqs.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0",
+        "DbName": "data",
+        "collectionName": "collection"
     }
 }

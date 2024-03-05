@@ -12,6 +12,10 @@ import {
     GetColumnsSchemaFunc as GetColumnsSchemaFuncDalsForSequelize
 } from '../../dalsForSequelize/getFuncs/EntryFile.js';
 
+import {
+    GetDataOnlyFunc as GetDataOnlyFuncDalsForMongoDb
+} from '../../dalsForMongoDb/getFuncs/EntryFile.js';
+
 import ConfigJson from '../../../Config.json' assert {type: 'json'};
 
 let GetFunc = async () => {
@@ -21,6 +25,10 @@ let GetFunc = async () => {
 let GetDataOnlyFunc = async () => {
     if (ConfigJson.isSequelize) {
         return GetDataOnlyFuncDalsForSequelize();
+    };
+
+    if (ConfigJson.isMongoDb) {
+        return GetDataOnlyFuncDalsForMongoDb();
     };
 
     return GetDataOnlyFuncDal();
