@@ -35,15 +35,12 @@
         "isPostgres": true,
         "DataPk": 316,
         "DataPath": "KData/JSON",
-<<<<<<< HEAD
-        "DbName": "postdata"
+        "DbName": "data"
     },
     "mongoDbConfig": {
         "url": "mongodb+srv://nknnkumar:<password>@cluster0.xafoxqs.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0",
         "DbName": "data",
         "collectionName": "collection"
-=======
         "DbName": "sample"
->>>>>>> 0c17503463e09280dd34ffefdccd82228601b1f6
     }
 }
