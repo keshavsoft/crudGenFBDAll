@@ -3,7 +3,7 @@
     "ToDataDetails": {
         "DataPk": 321,
         "DataPath": "KData/JSON",
-        "DbName": "data.db",
+        "DbName": "data",
         "DataSchemaLocation": "KCode/DataSchema"
 
     }
