@@ -30,7 +30,8 @@
         }
     },
     "sequelizeConfig": {
-        "isMysql": true,
+        "isMysql": false,
+        "isPostgres": true,
         "DataPk": 316,
         "DataPath": "KData/JSON",
         "DbName": "sample"

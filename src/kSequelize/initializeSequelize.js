@@ -2,8 +2,8 @@ import { Sequelize } from "sequelize";
 import Configjson from '../Config.json' assert { type: 'json' };
 
 // this is commented as this is only useful when creating sample database
-// import dotenv from 'dotenv';
-// dotenv.config();
+import dotenv from 'dotenv';
+dotenv.config();
 
 let CommonsequelizeConfig = Configjson.sequelizeConfig;
 let commonJonPth = Configjson.sequelizeConfig.DataPath;
@@ -36,6 +36,32 @@ let StartFunc = async () => {
                 {
                     host: process.env.KS_HOST_FORMYSQL,
                     dialect: 'mysql'
+                });
+
+            return await sequelize;
+        };
+        if (CommonsequelizeConfig.isPostgres) {
+            if ("KS_PASSWORD_FORPOSTGRES" in process.env === false) {
+                console.log("KS_PASSWORD_FORPOSTGRES not found in .env file");
+                return await false;
+            };
+
+            if ("KS_USERNAME_FORPOSTGRES" in process.env === false) {
+                console.log("KS_USERNAME_FORPOSTGRES not found in .env file");
+                return await false;
+            };
+
+            if ("KS_HOST_FORPOSTGRES" in process.env === false) {
+                console.log("KS_HOST_FORPOSTGRES not found in .env file");
+                return await false;
+            };
+
+            sequelize = new Sequelize(Configjson.sequelizeConfig.DbName,
+                process.env.KS_USERNAME_FORPOSTGRES,
+                process.env.KS_PASSWORD_FORPOSTGRES,
+                {
+                    host: process.env.KS_HOST_FORPOSTGRES,
+                    dialect: 'postgres'
                 });
 
             return await sequelize;
