@@ -1,0 +1,10 @@
+{
+    "StudentName": {
+        "type": "STRING",
+        "allowNull": true
+    },
+    "RollNumber": {
+        "type": "INTEGER",
+        "allowNull": false
+    }
+}

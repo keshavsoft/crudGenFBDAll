@@ -1,1 +1,15 @@
-[]
+
+    {
+        "CustomerName": {
+          "type": "STRING",
+          "allowNull": true
+        },
+        "CustomerMobile": {
+          "type": "NUMBER",
+          "allowNull": false
+        },
+        "customeremail":{
+            "type":"STRING",
+            "allowNull":true
+        }
+      }
