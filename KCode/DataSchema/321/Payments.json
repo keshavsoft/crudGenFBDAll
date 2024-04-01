@@ -1,0 +1,14 @@
+{
+  "AccountName": {
+    "type": "STRING",
+    "allowNull": false
+  },
+  "Amount": {
+    "type": "INTEGER",
+    "allowNull": true
+  },
+  "Payments":{
+    "type": "INTEGER",
+    "allowNull": true
+  }
+}
