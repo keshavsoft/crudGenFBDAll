@@ -11,7 +11,11 @@
     "type": "STRING",
     "allowNull": true
   },
-  "Amount": {
+  "Credit": {
+    "type": "INTEGER",
+    "allowNull": true
+  },
+  "Debit": {
     "type": "INTEGER",
     "allowNull": true
   }

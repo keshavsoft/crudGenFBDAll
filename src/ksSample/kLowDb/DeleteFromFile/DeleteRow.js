@@ -1,7 +1,7 @@
 import { StartFunc as StartFuncPullData } from "../PullData/EntryFile.js";
 
 let StartFunc = async ({ inId }) => {
-  let LocalId = inId;
+  let LocalId = parseInt(inId);
   
   let LocalStartFuncPullData = StartFuncPullData();
 
