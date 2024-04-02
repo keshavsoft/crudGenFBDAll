@@ -372,10 +372,8 @@
     <!-- End Sidebar-->
 
     <main id="main" class="main">
-        <datalist id="FactoryId">
-            <option>Vizag</option>
-            <option>Vzm</option>
-            <option>GD</option>
+        <datalist id="AccountNamesDataListId">
+            <option>Keshav</option>
         </datalist>
 
         <div class="pagetitle">
@@ -405,9 +403,9 @@
                                                 <label class="col-md-4 col-form-label">Account Name</label>
                     
                                                 <div class="col-md-8">
-                                                    <input id="AccountNameId" name="AccountName"
-                                                        data-dataattribute="Description" value="" data-clienteval="" type=""
-                                                        class="form-control KeshavSoftHtmlAttributes" min="" max="" step=""
+                                                    <input name="AccountName"
+                                                        data-dataattribute="Description" list="AccountNamesDataListId"
+                                                        class="form-control" required
                                                         placeholder="Enter AccountName" autocomplete="off" autofocus>
                                                     <div class="invalid-feedback">
                                                         Should not be Empty!!
@@ -419,9 +417,9 @@
                     
                                                 <div class="col-md-8">
                                                     <input name="Date"
-                                                        data-dataattribute="Description" value="" 
+                                                        data-dataattribute="Description" required
                                                         class="form-control" type="date"
-                                                        placeholder="Enter Date" autocomplete="off" required>
+                                                        placeholder="Enter Date" autocomplete="off" >
                                                     <div class="invalid-feedback">
                                                         Should not be Empty!!
                                                     </div>
@@ -434,7 +432,7 @@
                                                     <input name="Description"
                                                         data-dataattribute="Description" value=""
                                                         class="form-control"
-                                                        placeholder="Enter AccountName" autocomplete="off">
+                                                        placeholder="Enter AccountName">
                                                     <div class="invalid-feedback">
                                                         Should not be Empty!!
                                                     </div>
@@ -446,9 +444,9 @@
                     
                                                 <div class="col-md-8">
                                                     <input id="AmountId" name="Amount"
-                                                        data-dataattribute="Description" value="" data-clienteval="" type=""
-                                                        class="form-control KeshavSoftHtmlAttributes" min="" max="" step=""
-                                                        placeholder="Enter Amount" autocomplete="off" autofocus>
+                                                        data-dataattribute="Description" type="number"
+                                                        class="form-control" required
+                                                        placeholder="Enter Amount">
                                                     <div class="invalid-feedback">
                                                         Should not be Empty!!
                                                     </div>
