@@ -3,11 +3,15 @@
     "type": "STRING",
     "allowNull": false
   },
-  "Amount": {
-    "type": "INTEGER",
+  "Date": {
+    "type": "STRING",
     "allowNull": true
   },
-  "Payments":{
+  "Description": {
+    "type": "STRING",
+    "allowNull": true
+  },
+  "Debit": {
     "type": "INTEGER",
     "allowNull": true
   }
