@@ -314,12 +314,6 @@
                     <span>ShowAll</span>
                 </a>
             </li>
-            <li class="nav-item">
-                <a  class="nav-link " href="../Delete/ShowAll.html" >
-                    <i class="bi bi-c-circle-fill"></i></i>
-                    <span>Delete</span>
-                </a>
-            </li>
             <!-- End Create Nav -->
 
             <li class="nav-item">
@@ -378,8 +372,10 @@
     <!-- End Sidebar-->
 
     <main id="main" class="main">
-        <datalist id="AccountNamesDataListId">
-            <option>Keshav</option>
+        <datalist id="FactoryId">
+            <option>Vizag</option>
+            <option>Vzm</option>
+            <option>GD</option>
         </datalist>
 
         <div class="pagetitle">
@@ -405,75 +401,36 @@
                                 <div class="col-md-8">
                                     <form href="#" class="form-horizontal needs-validation" id="FormId">
                                         <div class="row">
+                    
+                    
                                             <div class="col-md-12">
                                                 <label class="col-md-4 col-form-label">Account Name</label>
                     
                                                 <div class="col-md-8">
-                                                    <input name="AccountName"
-                                                        data-dataattribute="Description" list="AccountNamesDataListId"
-                                                        class="form-control" required
+                                                    <input id="AccountNameId" name="AccountName"
+                                                        data-dataattribute="Description" value="" data-clienteval="" type=""
+                                                        class="form-control KeshavSoftHtmlAttributes" min="" max="" step=""
                                                         placeholder="Enter AccountName" autocomplete="off" autofocus>
                                                     <div class="invalid-feedback">
                                                         Should not be Empty!!
                                                     </div>
                                                 </div>
+                    
                                             </div>
                                             <div class="col-md-12">
-                                                <label class="col-md-4 col-form-label">Date</label>
+                                                <label class="col-md-4 col-form-label">Amount</label>
                     
                                                 <div class="col-md-8">
-                                                    <input name="Date"
-                                                        data-dataattribute="Description" required
-                                                        class="form-control" type="date"
-                                                        placeholder="Enter Date" autocomplete="off" >
-                                                    <div class="invalid-feedback">
-                                                        Should not be Empty!!
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <label class="col-md-4 col-form-label">Description</label>
-                    
-                                                <div class="col-md-8">
-                                                    <input name="Description"
-                                                        data-dataattribute="Description" value=""
-                                                        class="form-control"
-                                                        placeholder="Enter AccountName">
-                                                    <div class="invalid-feedback">
-                                                        Should not be Empty!!
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="col-md-12">
-                                                <label class="col-md-4 col-form-label">Credit</label>
-                    
-                                                <div class="col-md-8">
-                                                    <input name="Credit"
-                                                        data-dataattribute="Description" type="number"
-                                                        class="form-control" 
-                                                        placeholder="Enter Amount">
+                                                    <input id="AmountId" name="Amount"
+                                                        data-dataattribute="Description" value="" data-clienteval="" type=""
+                                                        class="form-control KeshavSoftHtmlAttributes" min="" max="" step=""
+                                                        placeholder="Enter Amount" autocomplete="off" autofocus>
                                                     <div class="invalid-feedback">
                                                         Should not be Empty!!
                                                     </div>
                                                 </div>
                     
                                             </div>
-                                            <div class="col-md-12">
-                                                <label class="col-md-4 col-form-label">Debit</label>
-                    
-                                                <div class="col-md-8">
-                                                    <input name="Debit"
-                                                        data-dataattribute="Description" type="number"
-                                                        class="form-control" 
-                                                        placeholder="Enter Amount">
-                                                    <div class="invalid-feedback">
-                                                        Should not be Empty!!
-                                                    </div>
-                                                </div>
-                    
-                                            </div>
-                                            
                                             <div class="col-md-12 m-3">
                     
                                                 <div class="col-md-8">
