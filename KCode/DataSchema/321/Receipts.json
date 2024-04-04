@@ -3,7 +3,15 @@
     "type": "STRING",
     "allowNull": false
   },
-  "Amount": {
+  "Date": {
+    "type": "STRING",
+    "allowNull": true
+  },
+  "Description": {
+    "type": "STRING",
+    "allowNull": true
+  },
+  "Credit": {
     "type": "INTEGER",
     "allowNull": true
   }
