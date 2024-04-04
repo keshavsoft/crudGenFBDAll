@@ -286,30 +286,39 @@
 
         <ul class="sidebar-nav" id="sidebar-nav">
             <li class="nav-item">
-                <a  class="nav-link collapsed" href="../../index.html">
-                    <i class="bi bi-grid"></i>
+                <a class="nav-link collapsed" href="../../../../index.html">
+                    <i class="bi bi-house-door-fill"></i>
                     <span>Home</span>
                 </a>
             </li>
 
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="../index.html">
+                    <i class="bi bi-arrow-90deg-left"></i>
+                    <span>Parent</span>
+                </a>
+            </li>
+           
+
             <!-- End Dashboard Nav -->
 
-            <li class="nav-item ">
-                <a  class="nav-link " href="#" >
-                    <i class="bi bi-c-circle-fill"></i></i>
+            <li class="nav-item">
+                <a class="nav-link " href="#">
+                    <i class="bi bi-database-add"></i></i>
                     <span>Create</span>
                 </a>
             </li>
 
             <li class="nav-item ">
                 <a  class="nav-link collapsed" href="../ShowAll/ShowAll.html" >
-                    <i class="bi bi-c-circle-fill"></i></i>
+                    <i class="bi bi-table"></i></i>
                     <span>ShowAll</span>
                 </a>
             </li>
+
             <li class="nav-item ">
-                <a  class="nav-link collapsed" href="../Delete/ShowAll.html" >
-                    <i class="bi bi-c-circle-fill"></i></i>
+                <a  class="nav-link collapsed" href="../Delete/Delete.html" >
+                    <i class="bi bi-trash"></i></i>
                     <span>Delete</span>
                 </a>
             </li>
@@ -335,9 +344,10 @@
 
             <nav>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="../../Dashboard/Dashboard.html">Home</a></li>
-                    <li class="breadcrumb-item"><a href="../Dashboard/Dashboard.html">Dashbard</a></li>
-                    <li class="breadcrumb-item active">Create</li>
+                    <li class="breadcrumb-item"><a href="../../../../index.html">Home</a></li>
+                    <li class="breadcrumb-item"><a href="../../../index.html">Accounts</a></li>
+                    <li class="breadcrumb-item"><a href="../../index.html">Masters</a></li>
+                    <li class="breadcrumb-item active">Accounts</li>
                 </ol>
             </nav>
         </div>
@@ -352,101 +362,62 @@
                                 <div class="col-md-8">
                                     <form href="#" class="form-horizontal needs-validation" id="FormId">
                                         <div class="row">
+
+
                                             <div class="col-md-12">
                                                 <label class="col-md-4 col-form-label">Account Name</label>
-                    
+
                                                 <div class="col-md-8">
-                                                    <input name="AccountName"
-                                                        data-dataattribute="Description" list="AccountNamesDataListId"
-                                                        class="form-control" required
+                                                    <input id="AccountNameId" name="AccountName"
+                                                        data-dataattribute="Description" value="" required
+                                                        class="form-control KeshavSoftHtmlAttributes"
                                                         placeholder="Enter AccountName" autocomplete="off" autofocus>
                                                     <div class="invalid-feedback">
                                                         Should not be Empty!!
                                                     </div>
                                                 </div>
+
                                             </div>
+
                                             <div class="col-md-12">
-                                                <label class="col-md-4 col-form-label">Date</label>
-                    
+                                                <label class="col-md-4 col-form-label">BS Group</label>
+
                                                 <div class="col-md-8">
-                                                    <input name="Date"
-                                                        data-dataattribute="Description" required
-                                                        class="form-control" type="date"
-                                                        placeholder="Enter Date" autocomplete="off" >
+                                                    <input name="BSGroup" class="form-control"
+                                                        placeholder="Enter AccountName" autocomplete="off">
                                                     <div class="invalid-feedback">
                                                         Should not be Empty!!
                                                     </div>
                                                 </div>
+
                                             </div>
-                                            <div class="col-md-12">
-                                                <label class="col-md-4 col-form-label">Description</label>
-                    
-                                                <div class="col-md-8">
-                                                    <input name="Description"
-                                                        data-dataattribute="Description" value=""
-                                                        class="form-control"
-                                                        placeholder="Enter AccountName">
-                                                    <div class="invalid-feedback">
-                                                        Should not be Empty!!
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="col-md-12">
-                                                <label class="col-md-4 col-form-label">Credit</label>
-                    
-                                                <div class="col-md-8">
-                                                    <input name="Credit"
-                                                        data-dataattribute="Description" type="number"
-                                                        class="form-control" 
-                                                        placeholder="Enter Amount">
-                                                    <div class="invalid-feedback">
-                                                        Should not be Empty!!
-                                                    </div>
-                                                </div>
-                    
-                                            </div>
-                                            <div class="col-md-12">
-                                                <label class="col-md-4 col-form-label">Debit</label>
-                    
-                                                <div class="col-md-8">
-                                                    <input name="Debit"
-                                                        data-dataattribute="Description" type="number"
-                                                        class="form-control" 
-                                                        placeholder="Enter Amount">
-                                                    <div class="invalid-feedback">
-                                                        Should not be Empty!!
-                                                    </div>
-                                                </div>
-                    
-                                            </div>
-                                            
+
                                             <div class="col-md-12 m-3">
-                    
+
                                                 <div class="col-md-8">
-                                                    <button type="button" id="CreateCustomerButtonId" class="btn btn-success">
+                                                    <button type="button" id="CreateCustomerButtonId"
+                                                        class="btn btn-success">
                                                         Save New
                                                     </button>
-                                                    
+
                                                 </div>
-                    
+
                                             </div>
-                    
-                    
-                    
+
+
+
                                         </div>
                                     </form>
-                
+
                                 </div>
                             </div>
-                          
+
 
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-
     </main>
     <!-- End #main -->
 
