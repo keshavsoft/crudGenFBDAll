@@ -286,96 +286,47 @@
 
         <ul class="sidebar-nav" id="sidebar-nav">
             <li class="nav-item">
-                <a  class="nav-link collapsed" href="../../Dashboard/Dashboard.html">
+                <a  class="nav-link collapsed" href="../../index.html">
                     <i class="bi bi-grid"></i>
                     <span>Home</span>
                 </a>
             </li>
 
-            <li class="nav-item">
-                <a  class="nav-link collapsed" href="../Dashboard/Dashboard.html" >
-                    <i class="bi bi-columns-gap"></i></i>
-                    <span>ToFactory-Dashboard</span>
-                </a>
-            </li>
-
             <!-- End Dashboard Nav -->
 
-            <li class="nav-item">
+            <li class="nav-item ">
                 <a  class="nav-link " href="#" >
                     <i class="bi bi-c-circle-fill"></i></i>
                     <span>Create</span>
                 </a>
             </li>
 
-            <li class="nav-item">
-                <a  class="nav-link " href="../ShowAll/ShowAll.html" >
+            <li class="nav-item ">
+                <a  class="nav-link collapsed" href="../ShowAll/ShowAll.html" >
                     <i class="bi bi-c-circle-fill"></i></i>
                     <span>ShowAll</span>
                 </a>
             </li>
+            <li class="nav-item ">
+                <a  class="nav-link collapsed" href="../Delete/ShowAll.html" >
+                    <i class="bi bi-c-circle-fill"></i></i>
+                    <span>Delete</span>
+                </a>
+            </li>
             <!-- End Create Nav -->
 
-            <li class="nav-item">
-                <a class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">
-                    <i class="bi bi-record-circle-fill"></i><span>DCAll</span><i class="bi bi-chevron-down ms-auto"></i>
-                </a>
-                <ul id="charts-nav" class="nav-content  collapse" data-bs-parent="#sidebar-nav">
-                    <li>
-                        <a href="../ShowAll/ShowAll.html" class="">
-                            <i class="bi bi-circle"></i><span>ShowAll</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="../DCAll/ShowAll/ShowAll.html" class="">
-                            <i class="bi bi-circle"></i><span>QrPrint</span>
-                        </a>
-                    </li>
-
-                </ul>
-            </li><!-- End  DCALL Nav -->
+            <!-- End  DCALL Nav -->
             
-            <li class="nav-item">
-                <a class="nav-link collapsed" data-bs-target="#TodayDC-nav" data-bs-toggle="collapse" href="#">
-                    <i class="bi bi-clock-fill"></i><span>Todat-DC</span><i class="bi bi-chevron-down ms-auto"></i>
-                </a>
-                <ul id="TodayDC-nav" class="nav-content  collapse" data-bs-parent="#sidebar-nav">
-                    <li>
-                        <a href="../TodayDc/ShowAll/ShowAll.html" class="">
-                            <i class="bi bi-circle"></i><span>ShowAll</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="../TodayDc/QrPrint/QrPrint.html" class="">
-                            <i class="bi bi-circle"></i><span>QrPrint</span>
-                        </a>
-                    </li>
+            <!-- End  DCALL Nav -->
 
-                </ul>
-            </li><!-- End  DCALL Nav -->
-
-            <li class="nav-item">
-                <a class="nav-link collapsed" data-bs-target="#Qrcodes-nav" data-bs-toggle="collapse" href="#">
-                    <i class="bi bi-qr-code"></i><span>Qrcodes</span><i class="bi bi-chevron-down ms-auto"></i>
-                </a>
-                <ul id="Qrcodes-nav" class="nav-content  collapse" data-bs-parent="#sidebar-nav">
-                    <li>
-                        <a href="../QrCodes/ShowAll/ShowAll.html" class="">
-                            <i class="bi bi-circle"></i><span>ShowAll</span>
-                        </a>
-                    </li>
-
-                </ul>
-            </li><!-- End Today Qrcodes Nav -->
+            <!-- End Today Qrcodes Nav -->
         </ul>
     </aside>
     <!-- End Sidebar-->
 
     <main id="main" class="main">
-        <datalist id="FactoryId">
-            <option>Vizag</option>
-            <option>Vzm</option>
-            <option>GD</option>
+        <datalist id="AccountNamesDataListId">
+            <option>Keshav</option>
         </datalist>
 
         <div class="pagetitle">
@@ -401,36 +352,75 @@
                                 <div class="col-md-8">
                                     <form href="#" class="form-horizontal needs-validation" id="FormId">
                                         <div class="row">
-                    
-                    
                                             <div class="col-md-12">
                                                 <label class="col-md-4 col-form-label">Account Name</label>
                     
                                                 <div class="col-md-8">
-                                                    <input id="AccountNameId" name="AccountName"
-                                                        data-dataattribute="Description" value="" data-clienteval="" type=""
-                                                        class="form-control KeshavSoftHtmlAttributes" min="" max="" step=""
+                                                    <input name="AccountName"
+                                                        data-dataattribute="Description" list="AccountNamesDataListId"
+                                                        class="form-control" required
                                                         placeholder="Enter AccountName" autocomplete="off" autofocus>
                                                     <div class="invalid-feedback">
                                                         Should not be Empty!!
                                                     </div>
                                                 </div>
-                    
                                             </div>
                                             <div class="col-md-12">
-                                                <label class="col-md-4 col-form-label">Amount</label>
+                                                <label class="col-md-4 col-form-label">Date</label>
                     
                                                 <div class="col-md-8">
-                                                    <input id="AmountId" name="Amount"
-                                                        data-dataattribute="Description" value="" data-clienteval="" type=""
-                                                        class="form-control KeshavSoftHtmlAttributes" min="" max="" step=""
-                                                        placeholder="Enter Amount" autocomplete="off" autofocus>
+                                                    <input name="Date"
+                                                        data-dataattribute="Description" required
+                                                        class="form-control" type="date"
+                                                        placeholder="Enter Date" autocomplete="off" >
+                                                    <div class="invalid-feedback">
+                                                        Should not be Empty!!
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <label class="col-md-4 col-form-label">Description</label>
+                    
+                                                <div class="col-md-8">
+                                                    <input name="Description"
+                                                        data-dataattribute="Description" value=""
+                                                        class="form-control"
+                                                        placeholder="Enter AccountName">
+                                                    <div class="invalid-feedback">
+                                                        Should not be Empty!!
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="col-md-12">
+                                                <label class="col-md-4 col-form-label">Credit</label>
+                    
+                                                <div class="col-md-8">
+                                                    <input name="Credit"
+                                                        data-dataattribute="Description" type="number"
+                                                        class="form-control" 
+                                                        placeholder="Enter Amount">
                                                     <div class="invalid-feedback">
                                                         Should not be Empty!!
                                                     </div>
                                                 </div>
                     
                                             </div>
+                                            <div class="col-md-12">
+                                                <label class="col-md-4 col-form-label">Debit</label>
+                    
+                                                <div class="col-md-8">
+                                                    <input name="Debit"
+                                                        data-dataattribute="Description" type="number"
+                                                        class="form-control" 
+                                                        placeholder="Enter Amount">
+                                                    <div class="invalid-feedback">
+                                                        Should not be Empty!!
+                                                    </div>
+                                                </div>
+                    
+                                            </div>
+                                            
                                             <div class="col-md-12 m-3">
                     
                                                 <div class="col-md-8">

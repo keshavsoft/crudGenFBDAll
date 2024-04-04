@@ -10,6 +10,6 @@ const LocalClickFunc = () => {
     if (StartFuncCheckFunc()) {
         StartFuncFetchFromFuncs().then();
     };
-}
+};
 
 export { StartFunc };
