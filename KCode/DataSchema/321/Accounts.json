@@ -3,5 +3,9 @@
     "type": "STRING",
     "allowNull": false,
     "unique": true
+  },
+  "BSGroup": {
+    "type": "STRING",
+    "allowNull": true
   }
 }
