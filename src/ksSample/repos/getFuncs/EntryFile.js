@@ -35,7 +35,7 @@ let GetDataOnlyFunc = async () => {
 };
 
 let GetIdFunc = async ({ inId }) => {
-    return GetIdFuncDal({ inId });
+    return await GetIdFuncDal({ inId });
 };
 
 let GetFromModalFunc = () => {
