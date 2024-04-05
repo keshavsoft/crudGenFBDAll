@@ -2,6 +2,7 @@ import { StartFunc as StartFuncreadFile } from '../../kLowDb/ReadFileList/readFi
 import { StartFunc as StartFuncReadFileFromModal } from '../../kLowDb/ReadFileList/readFileFromModal.js';
 import { StartFunc as StartFunReadFileById } from '../../kLowDb/ReadFileList/readFileById.js';
 import { StartFunc as StartFuncGetTableSchema } from '../../kLowDb/GetTableSchema/GetColumns.js';
+import { StartFunc as StartFunreadFileById } from '../../kLowDb/ReadFile/readFileById.js';
 
 let GetFunc = () => {
     return StartFuncreadFile();
@@ -17,8 +18,8 @@ let GetDataOnlyFunc = () => {
     return LocalFromLowDb.JsonData;
 };
 
-let GetIdFunc = ({ inId }) => {
-    let LocalFromLowDb = StartFunReadFileById({ inId });
+let GetIdFunc = async ({ inId }) => {
+    let LocalFromLowDb = await StartFunreadFileById({ inId });
 
     if (LocalFromLowDb === false) {
         return false;
