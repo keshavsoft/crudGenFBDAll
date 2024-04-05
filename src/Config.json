@@ -1,5 +1,5 @@
 {
-    "isSequelize": false,
+    "isSequelize": true,
     "isMongoDb": false,
     "jsonConfig": {
         "DataPk": 321,
