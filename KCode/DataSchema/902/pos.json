@@ -1,0 +1,35 @@
+{
+    "BillNumber": {
+      "type": "STRING",
+      "allowNull": false,
+      "unique": true
+    },
+    "Date": {
+      "type": "STRING",
+      "allowNull": true
+    },
+    "CustomerName": {
+      "type": "STRING",
+      "allowNull": true
+    },
+    "ContactNumber": {
+      "type": "STRING",
+      "allowNull": true
+    },
+    "CustomerNumber": {
+      "type": "STRING",
+      "allowNull": true
+    },
+    "PaymentMode": {
+      "type": "STRING",
+      "allowNull": true
+    },
+    "GSTNumber": {
+      "type": "STRING",
+      "allowNull": true
+    },
+    "DateTime": {
+      "type": "STRING",
+      "allowNull": true
+    }
+  }
