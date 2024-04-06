@@ -2,10 +2,15 @@ let StartFunc = () => {
     jFLocalHideSpinner();
 
     var $table = $('#table');
-
+    // $table.bootstrapTable({
+    //     onClickRow: function (row, $element, field) {
+    //         console.log("aaaaaaaa : ", row, field, $element);
+    //     }
+    // });
     $table.bootstrapTable({
         onClickRow: jFLocalClickRow
     });
+
 };
 
 let jFLocalHideSpinner = () => {
@@ -14,7 +19,8 @@ let jFLocalHideSpinner = () => {
 };
 
 let jFLocalClickRow = (row, $element, field) => {
-    if (field === 6) {
+    // console.log(field);
+    if (field === 3) {
         jFLocalClickRowForDelete(row).then();
     };
 };
@@ -22,7 +28,7 @@ let jFLocalClickRow = (row, $element, field) => {
 let jFLocalClickRowForDelete = async (inRow) => {
     let LocalRowPk = inRow.pk;
 
-    let jVarLocalFetchUrl = `/bin/Openings/${LocalRowPk}`;
+    let jVarLocalFetchUrl = `/bin/Accounts/${LocalRowPk}`;
     let LocalBodyData = {
         method: "DELETE"
     };
@@ -31,7 +37,7 @@ let jFLocalClickRowForDelete = async (inRow) => {
 
     if (response.status === 200) {
         var $table = $('#table');
-
+  
         $table.bootstrapTable('refresh');
     };
 };
