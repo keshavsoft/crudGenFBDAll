@@ -6,14 +6,17 @@ let StartFunc = async (row, $element, field) => {
             text: "You won't be able to revert this!",
             icon: "warning",
             showCancelButton: true,
-            confirmButtonColor: "grey",
-            cancelButtonColor: "#d33",
+            confirmButtonColor: "#d33",
+            cancelButtonColor: "grey",
             returnInputValueOnDismiss: true,
-            confirmButtonText: "Cancel",
-            cancelButtonText: "Yes, delete it!"
+            confirmButtonText: "Yes, delete it!",
+            // returnFocus:false,
+            reverseButtons:true,
+            focusCancel:true,
+            cancelButtonText: "Cancel"
         });
 
-        if (jVarLocalFromSwal.isDismissed) {
+        if (jVarLocalFromSwal.isConfirmed) {
             await jFLocalClickRowForDelete(row);
         };
     };
