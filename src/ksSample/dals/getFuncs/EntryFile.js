@@ -1,9 +1,11 @@
 import { StartFunc as StartFuncreadFile } from '../../kLowDb/ReadFileList/readFile.js';
 import { StartFunc as StartFuncReadFileFromModal } from '../../kLowDb/ReadFileList/readFileFromModal.js';
 import { StartFunc as StartFunReadFileById } from '../../kLowDb/ReadFileList/readFileById.js';
-import { StartFunc as StartFuncGetTableSchema } from '../../kLowDb/GetTableSchema/GetColumns.js';
 import { StartFunc as StartFunreadFileById } from '../../kLowDb/ReadFile/readFileById.js';
 import { StartFunc as StartFunFilterDataByKeyId } from '../../kLowDb/ReadFile/FilterInKeyInValue.js';
+
+import { StartFunc as StartFuncGetTableSchema } from '../../kLowDb/GetTableSchema/GetColumns.js';
+import { StartFunc as StartFuncColumnsAsObject } from "../../kLowDb/GetTableSchema/ColumnsAsObject.js";
 
 let GetFunc = () => {
     return StartFuncreadFile();
@@ -42,6 +44,10 @@ let GetFromModalUuidAndTSFunc = () => {
 };
 
 let GetBodyCheckFunc = () => {
+    return StartFuncColumnsAsObject();
+};
+
+let GetColumnsSchemaFunc = () => {
     return StartFuncGetTableSchema();
 };
 
@@ -57,5 +63,6 @@ let GetFilterDataFunc = async ({ inKey, inValue }) => {
 export {
     GetFunc, GetDataOnlyFunc, GetFromModalFunc,
     GetFromModalUuidFunc, GetFromModalUuidAndTSFunc,
-    GetIdFunc, GetBodyCheckFunc, GetRowCountFunc, GetFilterDataFunc
+    GetIdFunc, GetBodyCheckFunc, GetRowCountFunc, GetFilterDataFunc,
+    GetColumnsSchemaFunc
 };

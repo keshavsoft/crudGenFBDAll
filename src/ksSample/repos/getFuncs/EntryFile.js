@@ -4,7 +4,8 @@ import {
     GetFromModalUuidAndTSFunc as GetFromModalUuidAndTSFuncDal,
     GetFromModalFunc as GetFromModalFuncDal,
     GetIdFunc as GetIdFuncDal, GetBodyCheckFunc as GetBodyCheckFuncDal,
-    GetFilterDataFunc as GetFilterDataFuncDal
+    GetFilterDataFunc as GetFilterDataFuncDal,
+    GetColumnsSchemaFunc as GetColumnsSchemaFuncDal
 } from '../../dals/getFuncs/EntryFile.js';
 
 import {
