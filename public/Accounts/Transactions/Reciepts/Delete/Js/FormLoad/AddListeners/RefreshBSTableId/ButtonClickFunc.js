@@ -19,8 +19,8 @@ let jFLocalHideSpinner = () => {
 };
 
 let jFLocalClickRow = (row, $element, field) => {
-    // console.log(field);
-    if (field === 3) {
+    console.log(field);
+    if (field === 5) {
         jFLocalClickRowForDelete(row).then();
     };
 };
@@ -28,7 +28,7 @@ let jFLocalClickRow = (row, $element, field) => {
 let jFLocalClickRowForDelete = async (inRow) => {
     let LocalRowPk = inRow.pk;
 
-    let jVarLocalFetchUrl = `/bin/Accounts/${LocalRowPk}`;
+    let jVarLocalFetchUrl = `/bin/Receipts/${LocalRowPk}`;
     let LocalBodyData = {
         method: "DELETE"
     };
