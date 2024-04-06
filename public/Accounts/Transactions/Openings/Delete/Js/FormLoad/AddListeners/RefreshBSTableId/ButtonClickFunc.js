@@ -15,7 +15,23 @@ let jFLocalHideSpinner = () => {
 
 let jFLocalClickRow = (row, $element, field) => {
     if (field === 6) {
-        jFLocalClickRowForDelete(row).then();
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "grey",
+            cancelButtonColor: "#d33",
+            returnInputValueOnDismiss: true,
+            confirmButtonText: "Cancel",
+            cancelButtonText: "Yes, delete it!"
+          }).then((result) => {
+            if (result.isDismissed) {
+                jFLocalClickRowForDelete(row).then();
+            }else if(result.isConfirmed){
+
+            }
+          });
     };
 };
 
