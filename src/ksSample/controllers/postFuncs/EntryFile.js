@@ -3,7 +3,8 @@ import {
     PostFromModalFunc as PostFromModalFuncRepo,
     PostUploadFunc as PostUploadFuncRepo,
     PostGetSelectColumnsFunc as PostGetSelectColumnsFuncRepo,
-    PostUploadFromModalFunc as PostUploadFromModalFuncRepo,PostFilterFunc as PostFilterFuncRepo
+    PostUploadFromModalFunc as PostUploadFromModalFuncRepo,PostFilterFunc as PostFilterFuncRepo,
+    PostWithKeysCheckFunc as PostWithKeysCheckFuncRepo
 } from '../../repos/postFuncs/EntryFile.js';
 
 import {
@@ -100,7 +101,17 @@ let PostGetSelectColumnsFunc = (req, res) => {
     res.json(LocalFromRepo);
 };
 
+let PostWithKeysCheckFunc = async (req, res) => {
+    let LocalBody = req.body;
+    let LocalFromRepo = await PostWithKeysCheckFuncRepo({ ...LocalBody });
+
+
+    res.json(LocalFromRepo);
+};
+
 export {
     PostFunc, PostFromModalFunc,
-    PostUploadFunc, PostGetSelectColumnsFunc, PostUploadFromModalFunc, PostUploadImageFunc,PostFilterFunc
+    PostUploadFunc, PostGetSelectColumnsFunc,
+     PostUploadFromModalFunc, PostUploadImageFunc,
+     PostFilterFunc,PostWithKeysCheckFunc
 };

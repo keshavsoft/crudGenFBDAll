@@ -1,10 +1,8 @@
-// import ApiConfigJson from '../../../../../Admin/ApiConfig.json' assert {type: 'json'};
-import { ConfigObject } from '../../../../../ApiConfig.js';
 import { StartFunc as StartFuncAfterFetchFunc } from "./6-AfterFetchFunc.js";
 
 
 const StartFunc = async ({ inFetchBody }) => {
-    let jFetchUrl = `/${ConfigObject.ProjectName}/Api/Data/FromFolder/FromFile/Items/FromDataFolder/WithScreens/WithChecking/InsertWithPk`;
+    let jFetchUrl = `/bin/BillsQrCode/WithKeysCheck`;
 
     let jLocalFetchConfig = {
         method: "post",
@@ -21,8 +19,6 @@ const StartFunc = async ({ inFetchBody }) => {
 
     StartFuncAfterFetchFunc({ inResponse: jVarLocalResponseData });
 
-    // return await response.status;
-
-}
+};
 
 export { StartFunc };

@@ -9,10 +9,10 @@ let StartFunc = async ({ inFolderName, inFileName, inItemName, inProjectName }) 
             FileNameOnly: inFileName,
             ItemName: inItemName,
             ScreenName: "Create",
-            JsonPk:jVarLocalRowPK
+            JsonPk: jVarLocalRowPK
         };
 
-        let jVarLocalFetchUrl = `/${inProjectName}/API/Data/FromFolder/FromFile/Items/FromDataFolder/RowData`;
+        let jVarLocalFetchUrl = `/bin/pos/${jVarLocalRowPK}`;
 
         let jVarLocalFetchHeaders = {
             method: "post",
@@ -23,11 +23,11 @@ let StartFunc = async ({ inFolderName, inFileName, inItemName, inProjectName }) 
             body: JSON.stringify(inFetchPostData)
         };
 
-        const response = await fetch(jVarLocalFetchUrl, jVarLocalFetchHeaders);
+        const response = await fetch(jVarLocalFetchUrl);
         const data = await response.json();
 
-        if (data.KTF) {
-            LocalReturnObject.JsonData = data.JsonData;
+        if (data) {
+            LocalReturnObject.JsonData = data;
         };
 
         LocalReturnObject.KTF = true;
