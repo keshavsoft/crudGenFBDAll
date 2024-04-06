@@ -4,16 +4,16 @@ let StartFunc = async ({ inFolderName, inFileName, inItemName, inProjectName }) 
     try {
         let LocalReturnObject = { KTF: false, KResult: "", JsonData: {} };
 
-        let inFetchPostData = {
-            FolderName: inFolderName,
-            FileNameOnly: inFileName,
-            ItemName: inItemName,
-            ScreenName: "Create"
-        };
+        // let inFetchPostData = {
+        //     FolderName: inFolderName,
+        //     FileNameOnly: inFileName,
+        //     ItemName: inItemName,
+        //     ScreenName: "Create"
+        // };
 
-        inFetchPostData.inPostData = PreparePostDataStartFunc();
+        let inFetchPostData = PreparePostDataStartFunc();
         
-        let jVarLocalFetchUrl = `/${inProjectName}/Api/Data/FromFolder/FromFile/Items/FromDataFolder/WithScreens/WithChecking/Insert`;
+        let jVarLocalFetchUrl = `/bin/Voucher`;
 
         let jVarLocalFetchHeaders = {
             method: "post",
