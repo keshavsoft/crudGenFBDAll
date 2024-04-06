@@ -342,14 +342,21 @@
                                 <span class="visually-hidden">Loading...</span>
                             </div>
                             <table id="table" data-toolbar="#toolbar" data-search="true" data-searchable="true"
-                                data-url="/bin/Generate/DataOnly"
-                                data-pagination="true">
+                                data-filter-control="true" data-pagination="true"
+                                data-show-footer="true">
                                 <thead>
                                     <tr id="tableHeadRow">
                                         <th data-field="id" data-formatter="jFGlobalSerialColumn">#</th>
                                         <th data-field="pk">QRCode</th>
                                         <th data-field="ProductName">ProductName</th>
-                                        <th data-field="SalePrice">SalePrice</th>
+                                        <th data-field="SalePrice" data-footer-formatter="jFLocalColumnTotal">SalePrice</th>
+                                        <th data-field="PurchasePk" data-filter-control="select">PurchasePk</th>
+                                        <th data-field="InventorySerial" data-filter-control="select">InventorySerial
+                                        </th>
+                                        <th data-field="Purchased" data-filter-control="select">Purchased</th>
+                                        <th data-field="PurchaseDate" data-filter-control="select">PurchaseDate</th>
+
+                                        <th data-field="Sold" data-filter-control="select">Sold</th>
                                     </tr>
                                 </thead>
                             </table>
@@ -444,6 +451,8 @@
     <script src="https://unpkg.com/tableexport.jquery.plugin/tableExport.min.js"></script>
     <script
         src="https://unpkg.com/bootstrap-table@1.22.1/dist/extensions/export/bootstrap-table-export.min.js"></script>
+    <script
+        src="https://unpkg.com/bootstrap-table@1.22.1/dist/extensions/filter-control/bootstrap-table-filter-control.min.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
