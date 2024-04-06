@@ -13,8 +13,7 @@ let FromNode = async ({ inFolderName, inFileName, inItemName, inRowPK, inProject
         };
 
         // let jVarLocalFetchUrl = `/${inProjectName}/API/Data/FromFolder/FromFile/Items/FromDataFolder/AsArrayWithPK`;
-        let jVarLocalFetchUrl = `/${inProjectName}/Api/Data/FromFolder/FromFile/Items/FromDataFolder/FilterData/ByColumn/IsEqual
-        `;
+        let jVarLocalFetchUrl = `/bin/BillsQrCode/FilterData/BillPk/${inRowPK}`;
 
         let jVarLocalFetchHeaders = {
             method: "post",
@@ -25,15 +24,15 @@ let FromNode = async ({ inFolderName, inFileName, inItemName, inRowPK, inProject
             body: JSON.stringify(fetchBodyObj)
         };
 
-        const response = await fetch(jVarLocalFetchUrl, jVarLocalFetchHeaders);
+        const response = await fetch(jVarLocalFetchUrl);
         const data = await response.json();
 
-        if (data.KTF === false) {
-            LocalReturnObject.KReason = data.KReason;
-            return await LocalReturnObject;
-        };
+        // if (data.KTF === false) {
+        //     LocalReturnObject.KReason = data.KReason;
+        //     return await LocalReturnObject;
+        // };
 
-        LocalReturnObject.JsonData = data.JsonData;
+        LocalReturnObject.JsonData = data;
 
         LocalReturnObject.KTF = true;
         return await LocalReturnObject;

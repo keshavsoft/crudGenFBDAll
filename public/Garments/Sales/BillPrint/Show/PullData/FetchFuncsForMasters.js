@@ -9,7 +9,7 @@ let StartFunc = async ({ inProjectName }) => {
             ScreenName: "ForDataList"
         };
 
-        let jVarLocalFetchUrl = `/${inProjectName}/API/Data/FromFolder/FromFile/Items/FromDataFolder/AsArrayWithPK`;
+        let jVarLocalFetchUrl = `/bin/Items/DataOnly`;
 
         let jVarLocalFetchHeaders = {
             method: "post",
@@ -20,12 +20,12 @@ let StartFunc = async ({ inProjectName }) => {
             body: JSON.stringify(inFetchPostData)
         };
 
-        const response = await fetch(jVarLocalFetchUrl, jVarLocalFetchHeaders);
+        const response = await fetch(jVarLocalFetchUrl);
         const data = await response.json();
 
-        if (data.KTF) {
-            LocalReturnObject.JsonData = data.JsonData;
-            let localStrogeData = JSON.stringify(data.JsonData);
+        if (data) {
+            LocalReturnObject.JsonData = data;
+            let localStrogeData = JSON.stringify(data);
             window.localStorage.setItem("Masters",[localStrogeData]);
         };
 
