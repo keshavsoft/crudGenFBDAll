@@ -298,7 +298,7 @@
                     <span>Parent</span>
                 </a>
             </li>
-           
+
 
             <!-- End Dashboard Nav -->
 
@@ -310,14 +310,14 @@
             </li>
 
             <li class="nav-item ">
-                <a  class="nav-link collapsed" href="../ShowAll/ShowAll.html" >
+                <a class="nav-link collapsed" href="../ShowAll/ShowAll.html">
                     <i class="bi bi-table"></i></i>
                     <span>ShowAll</span>
                 </a>
             </li>
 
             <li class="nav-item ">
-                <a  class="nav-link collapsed" href="../Delete/Delete.html" >
+                <a class="nav-link collapsed" href="../Delete/Delete.html">
                     <i class="bi bi-trash"></i></i>
                     <span>Delete</span>
                 </a>
@@ -325,7 +325,7 @@
             <!-- End Create Nav -->
 
             <!-- End  DCALL Nav -->
-            
+
             <!-- End  DCALL Nav -->
 
             <!-- End Today Qrcodes Nav -->
@@ -364,8 +364,8 @@
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <label class="col-md-4 col-form-label">Account Name</label>
-                    
-                                                <div class="col-md-8">
+
+                                                <!-- <div class="col-md-8">
                                                     <input name="AccountName"
                                                         data-dataattribute="Description" list="AccountNamesDataListId"
                                                         class="form-control" required
@@ -373,16 +373,23 @@
                                                     <div class="invalid-feedback">
                                                         Should not be Empty!!
                                                     </div>
-                                                </div>
+                                                </div> -->
+                                                <label for="cars">Choose a car:</label>
+
+                                                <select name="AccountName" id="cars">
+                                                    <option value="volvo">Volvo</option>
+                                                    <option value="saab">Saab</option>
+                                                    <option value="mercedes">Mercedes</option>
+                                                    <option value="audi">Audi</option>
+                                                </select>
                                             </div>
                                             <div class="col-md-12">
                                                 <label class="col-md-4 col-form-label">Date</label>
-                    
+
                                                 <div class="col-md-8">
-                                                    <input name="Date"
-                                                        data-dataattribute="Description" required
-                                                        class="form-control" type="date"
-                                                        placeholder="Enter Date" autocomplete="off" >
+                                                    <input name="Date" data-dataattribute="Description" required
+                                                        class="form-control" type="date" placeholder="Enter Date"
+                                                        autocomplete="off">
                                                     <div class="invalid-feedback">
                                                         Should not be Empty!!
                                                     </div>
@@ -390,63 +397,58 @@
                                             </div>
                                             <div class="col-md-12">
                                                 <label class="col-md-4 col-form-label">Description</label>
-                    
+
                                                 <div class="col-md-8">
-                                                    <input name="Description"
-                                                        data-dataattribute="Description" value=""
-                                                        class="form-control"
-                                                        placeholder="Enter AccountName">
+                                                    <input name="Description" data-dataattribute="Description" value=""
+                                                        class="form-control" placeholder="Enter AccountName">
                                                     <div class="invalid-feedback">
                                                         Should not be Empty!!
                                                     </div>
                                                 </div>
                                             </div>
-                                            
+
                                             <div class="col-md-12">
                                                 <label class="col-md-4 col-form-label">Credit</label>
-                    
+
                                                 <div class="col-md-8">
-                                                    <input name="Credit"
-                                                        data-dataattribute="Description" type="number"
-                                                        class="form-control" 
-                                                        placeholder="Enter Amount">
+                                                    <input name="Credit" data-dataattribute="Description" type="number"
+                                                        class="form-control" placeholder="Enter Amount">
                                                     <div class="invalid-feedback">
                                                         Should not be Empty!!
                                                     </div>
                                                 </div>
-                    
+
                                             </div>
                                             <div class="col-md-12">
                                                 <label class="col-md-4 col-form-label">Debit</label>
-                    
+
                                                 <div class="col-md-8">
-                                                    <input name="Debit"
-                                                        data-dataattribute="Description" type="number"
-                                                        class="form-control" 
-                                                        placeholder="Enter Amount">
+                                                    <input name="Debit" data-dataattribute="Description" type="number"
+                                                        class="form-control" placeholder="Enter Amount">
                                                     <div class="invalid-feedback">
                                                         Should not be Empty!!
                                                     </div>
                                                 </div>
-                    
+
                                             </div>
-                                            
+
                                             <div class="col-md-12 m-3">
-                    
+
                                                 <div class="col-md-8">
-                                                    <button type="button" id="CreateCustomerButtonId" class="btn btn-success">
+                                                    <button type="button" id="CreateCustomerButtonId"
+                                                        class="btn btn-success">
                                                         Save New
                                                     </button>
-                                                    
+
                                                 </div>
-                    
+
                                             </div>
-                    
-                    
-                    
+
+
+
                                         </div>
                                     </form>
-                
+
                                 </div>
                             </div>
 
@@ -469,7 +471,7 @@
     <!-- End Footer -->
     <!-- Vendor JS Files -->
     <script>
-     
+
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
