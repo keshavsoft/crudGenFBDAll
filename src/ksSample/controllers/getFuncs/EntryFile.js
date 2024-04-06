@@ -4,7 +4,8 @@ import {
     GetFromModalUuidAndTSFunc as GetFromModalUuidAndTSFuncRepo, GetFromModalFunc as GetFromModalFuncRepo,
     GetIdFunc as GetIdFuncRepo, GetBodyCheckFunc as GetBodyCheckFuncRepo,
     GetRowCountFunc as GetRowCountFuncRepo,
-    GetColumnsSchemaFunc as GetColumnsSchemaFuncRepo
+    GetColumnsSchemaFunc as GetColumnsSchemaFuncRepo,
+    GetfilterDataFunc as GetfilterDataFuncRepo
 } from '../../repos/getFuncs/EntryFile.js';
 
 
@@ -58,10 +59,25 @@ let GetColumnsSchemaFunc = async (req, res) => {
     res.json(LocalFromRepo);
 };
 
+let GetFilterDataFunc = async (req, res) => {
+    let LocalParams = req.params;
+    let LocalKeyFromParam = LocalParams.Key;
+    let LocalValueFromParam = LocalParams.Value;
+
+    let LocalFromRepo = await GetfilterDataFuncRepo({ inKey: LocalKeyFromParam, inValue: LocalValueFromParam });
+
+    if (LocalFromRepo.KTF === false) {
+        res.status(500).send(LocalFromRepo.KReason);
+        return;
+    };
+
+    res.json(LocalFromRepo.JsonData);
+};
+
 export {
     GetFunc, GetDataOnlyFunc, GetFromModalFunc,
     GetFromModalUuidFunc, GetFromModalUuidAndTSFunc,
     GetIdFunc,
     GetBodyCheckFunc, GetRowCountFunc,
-    GetColumnsSchemaFunc
+    GetColumnsSchemaFunc, GetFilterDataFunc
 };

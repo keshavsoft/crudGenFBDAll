@@ -23,3 +23,6 @@ GET http://localhost:7017/src/ksSample/FromModalUuidAndTS
 
 ###Get for as is data
 GET http://localhost:7017/src/ksSample/1
+
+###
+GET http://localhost:7017/src/ksSample/FilterData/<Key>/<Value>
