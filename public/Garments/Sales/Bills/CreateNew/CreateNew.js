@@ -10,10 +10,10 @@ let jVarCommonKeys = KeysObject.CommonKeys;
 let jVarCommonProjectName = ConfigObject.ProjectName;
 
 let StartFunc = async () => {
-    CheckUserFuncsjFStartFunc({
-        inUserKey: jVarLocalStorageKeyName,
-        inKTokenKey: jVarCommonKToken
-    });
+    // CheckUserFuncsjFStartFunc({
+    //     inUserKey: jVarLocalStorageKeyName,
+    //     inKTokenKey: jVarCommonKToken
+    // });
 
     AddListenersStartFunc({ ...jVarCommonKeys, inProjectName: jVarCommonProjectName });   
     await FormLoadFuncsStartFunc({ ...jVarCommonKeys, inProjectName: jVarCommonProjectName });
