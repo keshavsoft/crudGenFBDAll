@@ -2,23 +2,14 @@ let StartFunc = () => {
     jFLocalHideSpinner();
 
     var $table = $('#table');
-    // $table.bootstrapTable({
-    //     onClickRow: function (row, $element, field) {
-    //         console.log("aaaaaaaa : ", row, field, $element);
-    //     }
-    // });
+
     $table.bootstrapTable({
         onClickRow: jFLocalClickRow
     });
 
 };
 
-let jFLocalHideSpinner = () => {
-    let jVarLocalSpinnerId = document.getElementById("SpinnerId");
-    jVarLocalSpinnerId.style.display = "none";
-};
-
-let jFLocalClickRow = (row, $element, field) => {
+let jFLocalClickRow_Keshav_6Apr = async (row, $element, field) => {
     // console.log(field);
     if (field === 3) {
         Swal.fire({
@@ -31,14 +22,40 @@ let jFLocalClickRow = (row, $element, field) => {
             returnInputValueOnDismiss: true,
             confirmButtonText: "Cancel",
             cancelButtonText: "Yes, delete it!"
-          }).then((result) => {
+        }).then((result) => {
             if (result.isDismissed) {
                 jFLocalClickRowForDelete(row).then();
-            }else if(result.isConfirmed){
+            } else if (result.isConfirmed) {
 
             }
-          });
+        });
         // jFLocalClickRowForDelete(row).then();
+    };
+};
+
+let jFLocalHideSpinner = () => {
+    let jVarLocalSpinnerId = document.getElementById("SpinnerId");
+    jVarLocalSpinnerId.style.display = "none";
+};
+
+let jFLocalClickRow = async (row, $element, field) => {
+    // console.log(field);
+    if (field === 3) {
+        let jVarLocalFromSwal = await Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "grey",
+            cancelButtonColor: "#d33",
+            returnInputValueOnDismiss: true,
+            confirmButtonText: "Cancel",
+            cancelButtonText: "Yes, delete it!"
+        });
+
+        if (jVarLocalFromSwal.isDismissed) {
+            await jFLocalClickRowForDelete(row);
+        };
     };
 };
 
@@ -54,7 +71,7 @@ let jFLocalClickRowForDelete = async (inRow) => {
 
     if (response.status === 200) {
         var $table = $('#table');
-  
+
         $table.bootstrapTable('refresh');
     };
 };
