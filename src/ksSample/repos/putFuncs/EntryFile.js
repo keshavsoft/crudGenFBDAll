@@ -13,7 +13,7 @@ let PutFunc = async ({ inDataToUpdate, inId }) => {
     return PutFuncDalsForSequelize({ inDataToUpdate, inId });
   };
 
-  return PutFuncDal(inPostBody);
+  return PutFuncDal({ inDataToUpdate, inId });
 };
 
 export { PutFunc };
