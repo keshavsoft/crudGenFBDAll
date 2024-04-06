@@ -5,27 +5,12 @@ let StartFunc = async ({ inFolderName, inFileName, inItemName, inProjectName }) 
 
     try {
 
-        let inFetchPostData = {
+        let inFetchPostData = PreparePostDataStartFunc();
 
-            inJsonConfig: {
-                inFolderName: inFolderName,
-                inJsonFileName: `${inFileName}.json`
-            },
-            inItemConfig: {
-                inItemName: inItemName
-            },
-            inPostData: {
-                PaymentMode: ""
-            },
-            inJsonPK: jVarLocalRowPK
-        };
-
-        inFetchPostData.inPostData = PreparePostDataStartFunc();
-
-        let jVarLocalFetchUrl = `/${inProjectName}/Api/Data/FromFolder/FromFile/Items/FromDataFolder/MainTable/Update`;
+        let jVarLocalFetchUrl = `/bin/pos/${jVarLocalRowPK}`;
 
         let jVarLocalFetchHeaders = {
-            method: "post",
+            method: "put",
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'

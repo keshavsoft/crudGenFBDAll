@@ -1,0 +1,50 @@
+{
+  "VoucherName": {
+    "type": "STRING",
+    "allowNull": false
+  },
+  "BillNumber": {
+    "type": "STRING",
+    "allowNull": true
+  },
+  "Date": {
+    "type": "STRING",
+    "allowNull": true
+  },
+  "VoucherValue": {
+    "type": "INTEGER",
+    "allowNull": true
+  },
+  "VoucherSign": {
+    "type": "STRING",
+    "allowNull": true
+  },
+  "ParentVoucherName": {
+    "type": "STRING",
+    "allowNull": true
+  },
+  "AccountCode": {
+    "type": "STRING",
+    "allowNull": true
+  },
+  "AccountName": {
+    "type": "STRING",
+    "allowNull": true
+  },
+  "SupplierName": {
+    "type": "STRING",
+    "allowNull": true
+  },
+  "AliasName": {
+    "type": "STRING",
+    "allowNull": true
+  },
+  "TotalAmount": {
+    "type": "STRING",
+    "allowNull": true
+  },
+  "InvGrid": {
+    "type": "STRING",
+    "allowNull": true
+  }
+}
