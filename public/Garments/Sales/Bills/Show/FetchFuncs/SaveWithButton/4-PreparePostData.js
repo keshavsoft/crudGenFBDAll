@@ -58,14 +58,8 @@ let StartFunc = () => {
     jVarLocalReturnData.BillPk = jVarLocalRowPK;
 
     // return jVarLocalReturnData;
-    return {
-        inPostData: jVarLocalReturnData,
-        FileNameOnly: jVarCommonKeys.inFileName,
-        FolderName: jVarCommonKeys.inFolderName,
-        ItemName: "BillsQrCode",
-        ScreenName: "Create"
-
-    }
+    return jVarLocalReturnData
+    
 };
 
 

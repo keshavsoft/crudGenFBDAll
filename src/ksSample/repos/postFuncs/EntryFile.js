@@ -3,6 +3,7 @@ import {
     PostFromModalFunc as PostFromModalFuncDal,
     PostUploadFunc as PostUploadFuncDal, PostGetSelectColumnsFunc as PostGetSelectColumnsFuncDal,
     PostUploadFromModalFunc as PostUploadFromModalFuncDal,
+    PostWithKeysCheckFunc as PostWithKeysCheckFuncDal
 } from '../../dals/postFuncs/EntryFile.js';
 
 import {
@@ -44,7 +45,13 @@ let PostGetSelectColumnsFunc = ({ LocalBodyAsModal }) => {
     return PostGetSelectColumnsFuncDal({ LocalBodyAsModal });
 };
 
+let PostWithKeysCheckFunc = async (inModalObject) => {
+    return PostWithKeysCheckFuncDal({ inBodyKeys: inModalObject });
+};
+
 export {
     PostFunc, PostFromModalFunc,
-    PostUploadFunc, PostGetSelectColumnsFunc, PostUploadFromModalFunc, PostFilterFunc
+    PostUploadFunc, PostGetSelectColumnsFunc, 
+    PostUploadFromModalFunc, PostFilterFunc,
+    PostWithKeysCheckFunc
 };

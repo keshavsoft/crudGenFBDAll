@@ -1,45 +1,6 @@
 import { StartFunc as StartFucToFooter } from "../ToDom/ToFooter.js";
 import { StartFunc as StartFuncDiscount } from "../ToDom/ProductDetails/Table/Footer/Discount.js";
 
-let StartFunc2 = async ({ inProjectName, inJsonPK }) => {
-    let inFolderName = "Generate";
-    let inFileName = "QrCodes";
-    let inItemName = "Barcodes";
-    try {
-        let LocalReturnObject = { KTF: false, KResult: "", JsonData: {} };
-        let jVarLocalRowPK = inJsonPK;
-        //  jVarLocalRowPK = 2;
-
-        let jVarLocalFetchUrl = `/${inProjectName}/API/Data/FromFolder/FromFile/Items/FromDataFolder/RowData`;
-
-        let jVarLocalFetchHeaders = {
-            method: "post",
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                FolderName: inFileName,
-                FileNameOnly: inFolderName,
-                ItemName: inItemName,
-                JsonPk: jVarLocalRowPK,
-            })
-        };
-
-        const response = await fetch(jVarLocalFetchUrl, jVarLocalFetchHeaders);
-        const data = await response.json();
-
-        Object.freeze(data.JsonData)
-
-        StartFucToFooter({ inJSONData: data.JsonData });
-
-        return await LocalReturnObject;
-
-    } catch (error) {
-        console.log("error:", error);
-    }
-
-};
 
 let StartFunc = async ({ inProjectName, inJsonPK }) => {
     let jVarLocalQrCodeData = await jFLocalFetchQrCodeData({ inProjectName, inJsonPK });
@@ -50,7 +11,7 @@ let StartFunc = async ({ inProjectName, inJsonPK }) => {
 
     if (jVarLocalDiscountData.KTF) {
         let jVarLocalMaxPk = jFLocalLatestDiscount({ inDiscountArray: jVarLocalDiscountData.JsonData });
-        
+
         StartFuncDiscount({ inJSONData: jVarLocalDiscountData.JsonData[jVarLocalMaxPk] });
     };
 };
@@ -72,7 +33,8 @@ let jFLocalFetchQrCodeData = async ({ inProjectName, inJsonPK }) => {
         let jVarLocalRowPK = inJsonPK;
         //  jVarLocalRowPK = 2;
 
-        let jVarLocalFetchUrl = `/${inProjectName}/API/Data/FromFolder/FromFile/Items/FromDataFolder/RowData`;
+        // let jVarLocalFetchUrl = `/${inProjectName}/API/Data/FromFolder/FromFile/Items/FromDataFolder/RowData`;
+        let jVarLocalFetchUrl = `/bin/Generate/${jVarLocalRowPK}`;
 
         let jVarLocalFetchHeaders = {
             method: "post",
@@ -88,12 +50,12 @@ let jFLocalFetchQrCodeData = async ({ inProjectName, inJsonPK }) => {
             })
         };
 
-        const response = await fetch(jVarLocalFetchUrl, jVarLocalFetchHeaders);
+        const response = await fetch(jVarLocalFetchUrl);
         const data = await response.json();
 
         // Object.freeze(data.JsonData);
-        LocalReturnObject.JsonData = data.JsonData;
-        Object.freeze(LocalReturnObject.JsonData);
+        LocalReturnObject.JsonData = data;
+        Object.freeze(LocalReturnObject);
         //  StartFucToFooter({ inJSONData: data.JsonData });
 
         return await LocalReturnObject;
@@ -113,7 +75,7 @@ let jFLocalFetchQrDiscountData = async ({ inProjectName, inRowPK }) => {
         let LocalReturnObject = { KTF: false, KResult: "", JsonData: {} };
         let jVarLocalRowPK = inRowPK;
 
-        let jVarLocalFetchUrl = `/${inProjectName}/API/Data/FromFolder/FromFile/Items/FromDataFolder/FilterData/ByColumn/IsEqual`;
+        let jVarLocalFetchUrl = `/bin/Discounts/${jVarLocalRowPK}`;
 
         let jVarLocalFetchHeaders = {
             method: "post",
@@ -130,7 +92,7 @@ let jFLocalFetchQrDiscountData = async ({ inProjectName, inRowPK }) => {
             })
         };
 
-        const response = await fetch(jVarLocalFetchUrl, jVarLocalFetchHeaders);
+        const response = await fetch(jVarLocalFetchUrl);
         const data = await response.json();
 
         LocalReturnObject.JsonData = data.JsonData;

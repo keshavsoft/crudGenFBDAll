@@ -30,5 +30,12 @@
     "BillPk": {
         "type": "STRING",
         "allowNull": true
-    }
+    },
+    "pk": {
+        "type": "INTEGER",
+        "unique": true,
+        "allowNull": false,
+        "onUpdate": "cascade",
+        "onDelete": "cascade"
+      }
 }
