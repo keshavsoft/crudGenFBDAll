@@ -3,7 +3,8 @@ import {
     GetFromModalUuidFunc as GetFromModalUuidFuncDal,
     GetFromModalUuidAndTSFunc as GetFromModalUuidAndTSFuncDal,
     GetFromModalFunc as GetFromModalFuncDal,
-    GetIdFunc as GetIdFuncDal, GetBodyCheckFunc as GetBodyCheckFuncDal
+    GetIdFunc as GetIdFuncDal, GetBodyCheckFunc as GetBodyCheckFuncDal,
+    GetFilterDataFunc as GetFilterDataFuncDal
 } from '../../dals/getFuncs/EntryFile.js';
 
 import {
@@ -70,9 +71,13 @@ let GetColumnsSchemaFunc = async () => {
     return GetColumnsSchemaFuncDal();
 };
 
+let GetfilterDataFunc = async ({ inKey, inValue }) => {
+    return await GetFilterDataFuncDal({ inKey, inValue });
+};
+
 export {
     GetFunc, GetDataOnlyFunc, GetFromModalFunc,
     GetFromModalUuidFunc, GetFromModalUuidAndTSFunc,
     GetIdFunc, GetBodyCheckFunc, GetRowCountFunc,
-    GetColumnsSchemaFunc
+    GetColumnsSchemaFunc, GetfilterDataFunc
 };

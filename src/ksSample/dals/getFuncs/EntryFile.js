@@ -3,6 +3,7 @@ import { StartFunc as StartFuncReadFileFromModal } from '../../kLowDb/ReadFileLi
 import { StartFunc as StartFunReadFileById } from '../../kLowDb/ReadFileList/readFileById.js';
 import { StartFunc as StartFuncGetTableSchema } from '../../kLowDb/GetTableSchema/GetColumns.js';
 import { StartFunc as StartFunreadFileById } from '../../kLowDb/ReadFile/readFileById.js';
+import { StartFunc as StartFunFilterDataByKeyId } from '../../kLowDb/ReadFile/FilterInKeyInValue.js';
 
 let GetFunc = () => {
     return StartFuncreadFile();
@@ -48,8 +49,13 @@ let GetRowCountFunc = () => {
     return StartFuncGetTableSchema();
 };
 
+let GetFilterDataFunc = async ({ inKey, inValue }) => {
+    return await StartFunFilterDataByKeyId({ inKey, inValue });
+
+};
+
 export {
     GetFunc, GetDataOnlyFunc, GetFromModalFunc,
     GetFromModalUuidFunc, GetFromModalUuidAndTSFunc,
-    GetIdFunc, GetBodyCheckFunc, GetRowCountFunc
+    GetIdFunc, GetBodyCheckFunc, GetRowCountFunc, GetFilterDataFunc
 };
