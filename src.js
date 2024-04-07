@@ -5,7 +5,7 @@ import { StartFunc as StartFuncKWSServer } from "./Projects/KWSServer/EntryFile.
 import { StartFunc as StartFuncPortListen } from "./PortListen.js";
 
 import packageJSON from './package.json' assert {type: 'json'};
-
+//import packageJSON from './package.json' assert {type: 'json'};
 import express from 'express';
 import http from 'http';
 import path from 'path';
