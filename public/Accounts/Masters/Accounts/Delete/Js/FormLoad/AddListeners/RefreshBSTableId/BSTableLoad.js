@@ -17,7 +17,10 @@ let StartFunc = async (row, $element, field) => {
         });
 
         if (jVarLocalFromSwal.isConfirmed) {
+            let jVarDeletedAccountName=row.AccountName;
+            document.getElementById("deletedAccountName").textContent=jVarDeletedAccountName;
             await jFLocalClickRowForDelete(row);
+            document.getElementById("AlertId").style.display="block";
         };
     };
 };
