@@ -15,6 +15,7 @@ let StartFunc = async ({ inFolderName, inFileName, inItemName, inProjectName, in
         inRowPK: jVarLocalRowPk.RowPK,
         inProjectName
     });
+    console.log("jVarLocalDat---a:", jVarLocalData);
 
     if (jVarLocalData.KTF) {
         let localindataJson = jVarLocalData.JsonData
@@ -34,14 +35,19 @@ let localInventeryShow = async ({ inFolderName, inFileName, inItemName, inProjec
         inProjectName
     });
 
-    if (jVarLocalDataToShow.KTF) {
-        let localdata = jVarLocalDataToShow.JsonData;
+    if (jVarLocalDataToShow.status === 500) {
+        console.log("Status-500");
+
+    } else {
+        const data = await jVarLocalDataToShow.json();
+        let localdata = data;
 
         await InvGridStartFunc({ inDataAsArray: localdata });
         jVarLocalShowInventorySerial({ inData: localdata });
         StartFuncTableFooterTotals({ inData: localdata });
 
-    };
+    }
+
 };
 
 let ShowOnDom = ({ inData, inShowSuccess }) => {
@@ -50,7 +56,7 @@ let ShowOnDom = ({ inData, inShowSuccess }) => {
     let jVarLocalDateId = document.getElementById("DateId");
 
     if (jVarLocalVoucherNameId !== null) {
-        jVarLocalVoucherNameId.innerHTML = inData.Date;
+        jVarLocalVoucherNameId.innerHTML = inData.CustomerName;
     };
     if (jVarLocalBillNumberId !== null) {
         jVarLocalBillNumberId.innerHTML = inData.BillNumber;
