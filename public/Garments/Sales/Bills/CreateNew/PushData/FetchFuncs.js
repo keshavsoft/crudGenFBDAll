@@ -13,7 +13,7 @@ let StartFunc = async ({ inFolderName, inFileName, inItemName, inProjectName }) 
 
         let inFetchPostData = PreparePostDataStartFunc();
         
-        let jVarLocalFetchUrl = `/bin/Voucher`;
+        let jVarLocalFetchUrl = `/bin/pos/WithKeysCheck`;
 
         let jVarLocalFetchHeaders = {
             method: "post",
