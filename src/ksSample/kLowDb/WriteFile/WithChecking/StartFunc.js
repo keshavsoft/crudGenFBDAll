@@ -48,7 +48,7 @@ let StartFunc = ({ inDataToInsert }) => {
 
     let LocalDataWithUuid = LocalFuncGeneratePk({
         inDataToInsert: LocalinDataToInsert,
-        inData: db.data
+        inData: db.data, inTableSchema: LocalTableSchema.fileData
     });
 
     if (LocalDataWithUuid.KTF === false) {
@@ -64,7 +64,7 @@ let StartFunc = ({ inDataToInsert }) => {
     return LocalReturnData;
 };
 
-const LocalFuncGeneratePk = ({ inDataToInsert, inData }) => {
+const LocalFuncGeneratePk = ({ inDataToInsert, inData, inTableSchema }) => {
     let LocalInData = inData;
     let LocalReturnData = { KTF: false, JSONFolderPath: "", CreatedLog: {} };
 
@@ -77,13 +77,14 @@ const LocalFuncGeneratePk = ({ inDataToInsert, inData }) => {
     let numberArray = LocalRemoveUndefined.map(Number);
 
     let MaxPk = (Math.max(...numberArray, 0) + 1);
+    LocalFuncForPrimaryKey({ inDataToInsert, inTableSchema, inData: LocalInData })
 
     LocalReturnData.InsertData = { ...inDataToInsert, UuId: MaxPk, DateTime: Timestamp() };
     LocalReturnData.KTF = true;
     return LocalReturnData
 };
 
-const LocalFuncForPrimaryKey = ({ inPKvalue, inData, inTableSchema}) => {
+const LocalFuncForPrimaryKey = ({ inData, inTableSchema, inDataToInsert }) => {
     let LocalInData = inData;
     let LocalTableSchema = inTableSchema;
     let LocalKeysNeeded = {};
@@ -93,7 +94,16 @@ const LocalFuncForPrimaryKey = ({ inPKvalue, inData, inTableSchema}) => {
         };
     };
     for (const prop in LocalKeysNeeded) {
-        LocalInData[prop] = inPKvalue;
+        let LocalArrayPk = LocalInData.map(element => element[prop]);
+
+        let LocalRemoveUndefined = LocalArrayPk.filter(function (element) {
+            return element !== undefined && element !== NaN;
+        });
+
+        let numberArray = LocalRemoveUndefined.map((LoopItem) => parseInt(LoopItem, 0));
+        let MaxPk = (Math.max(...numberArray, 0) + 1);
+
+        inDataToInsert[prop] = MaxPk;
     };
 };
 
