@@ -54,11 +54,11 @@ let StartFunc = ({ inDataToInsert }) => {
     };
 
     db.data.push(LocalDataWithUuid.InsertData);
-    let LocalFromWrite = db.write();
+    db.write();
 
     LocalReturnData.KTF = true;
-    LocalReturnData.ScanNo = LocalDataWithUuid.InsertData.QrCodeId
-    return LocalReturnData;
+    LocalReturnData.pk = LocalDataWithUuid.InsertData.pk;
+    return LocalReturnData.pk;
 };
 
 const LocalFuncGeneratePk = ({ inDataToInsert, inData }) => {
