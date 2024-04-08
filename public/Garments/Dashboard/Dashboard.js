@@ -6,10 +6,10 @@ let jVarCommonKToken = ConfigObject.TokenName;
 let jVarLocalStorageKeyName = ConfigObject.LocalStorageKeyName;
 
 let jFStartFunc = () => {
-    CheckUserFuncsjFStartFunc({
-        inUserKey: jVarLocalStorageKeyName,
-        inKTokenKey: jVarCommonKToken
-    });
+    // CheckUserFuncsjFStartFunc({
+    //     inUserKey: jVarLocalStorageKeyName,
+    //     inKTokenKey: jVarCommonKToken
+    // });
 
     StartFuncToDom({});
 };
