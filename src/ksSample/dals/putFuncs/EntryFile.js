@@ -6,8 +6,8 @@ let PutFunc = ({ inDataToUpdate, inId }) => {
     return StartFuncUpdateRow({ inDataToUpdate, inId });
 };
 
-let PutToValueFunc = ({ inDataToUpdate, inId }) => {
-    return StartFuncUpdateRowValue({ inDataToUpdate, inId });
+let PutToValueFunc = ({ inDataToUpdate, inId, inKeyName }) => {
+    return StartFuncUpdateRowValue({ inDataToUpdate, inId, inKeyName });
 };
 
 export {

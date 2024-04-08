@@ -16,12 +16,12 @@ let PutFunc = async ({ inDataToUpdate, inId }) => {
   return PutFuncDal({ inDataToUpdate, inId });
 };
 
-let PutToValueFunc = async ({ inDataToUpdate, inId }) => {
+let PutToValueFunc = async ({ inDataToUpdate, inId, inKeyName }) => {
   if (ConfigJson.isSequelize) {
     return PutFuncDalsForSequelize({ inDataToUpdate, inId });
   };
 
-  return PutToValueFuncDal({ inDataToUpdate, inId });
+  return PutToValueFuncDal({ inDataToUpdate, inId, inKeyName });
 };
 
 export { PutFunc, PutToValueFunc };

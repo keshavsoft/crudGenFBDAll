@@ -22,10 +22,12 @@ let PutToValueFunc = async (req, res) => {
   let LocalDataToUpdate = req.body;
 
   let LocalIfFromParam = req.params.id;
+  let LocalKeyName = req.params.KeyName;
 
   let LocalFromRepo = await PutToValueRepo({
     inDataToUpdate: LocalDataToUpdate,
     inId: LocalIfFromParam,
+    inKeyName: LocalKeyName
   });
 
   if (LocalFromRepo.KTF === false) {
