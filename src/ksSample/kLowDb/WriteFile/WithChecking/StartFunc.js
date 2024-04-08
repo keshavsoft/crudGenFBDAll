@@ -83,6 +83,20 @@ const LocalFuncGeneratePk = ({ inDataToInsert, inData }) => {
     return LocalReturnData
 };
 
+const LocalFuncForPrimaryKey = ({ inPKvalue, inData, inTableSchema}) => {
+    let LocalInData = inData;
+    let LocalTableSchema = inTableSchema;
+    let LocalKeysNeeded = {};
+    for (const prop in LocalTableSchema) {
+        if (LocalTableSchema[prop].primaryKey) {
+            LocalKeysNeeded[prop] = LocalTableSchema[prop];
+        };
+    };
+    for (const prop in LocalKeysNeeded) {
+        LocalInData[prop] = inPKvalue;
+    };
+};
+
 const Timestamp = () => {
     let currentDate = new Date();
     let formattedDate = currentDate.toISOString();
