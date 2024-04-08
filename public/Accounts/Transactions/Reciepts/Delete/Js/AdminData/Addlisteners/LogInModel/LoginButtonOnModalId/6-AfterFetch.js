@@ -1,7 +1,6 @@
 import { StartFunc as StartFuncCheckEntry } from "../../../Check/Entry.js";
 
 let StartFunc = ({ inFromFetch, inBodyData, inFormLoadFuncToRun }) => {
-    console.log("inFormLoadFuncToRunaaaaaaaaaaaaaaa:", inFormLoadFuncToRun);
     if (inFromFetch.KTF) {
         let localinFormLoadFuncToRun = inFormLoadFuncToRun;
 

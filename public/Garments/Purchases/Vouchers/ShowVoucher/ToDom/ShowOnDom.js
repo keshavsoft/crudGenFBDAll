@@ -6,7 +6,7 @@ import { StartFunc as StartFuncQrCodesData } from "../FetchFuncs/QrCodesData/ToL
 import { StartFunc as StartFuncButtonClickFunc } from "../PullData/ShowOnDom/2-ButtonClickFunc.js";
 let StartFunc = async ({ inFolderName, inFileName, inItemName, inProjectName, inShowSuccess }) => {
     let jVarLocalRowPk = ReturnRowPK();
-
+    console.log("jVarLocalRowPk : ", jVarLocalRowPk);
     // let jVarLocalData = await FromNode({
     //     inFolderName,
     //     inFileName,

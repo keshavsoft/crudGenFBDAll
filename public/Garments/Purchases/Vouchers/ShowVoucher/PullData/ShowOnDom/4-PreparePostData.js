@@ -1,10 +1,8 @@
 import PrepareKeysJson from "./PrepareKeys.json" assert {type: 'json'};
 import {ReturnRowPK } from "../../urlSearchParams.js";
 
-
 const StartFunc = () => {
     let jVarLocalRowPk = ReturnRowPK();
-
 
     let inFetchPostData = {
         FileNameOnly: PrepareKeysJson.inFileName,

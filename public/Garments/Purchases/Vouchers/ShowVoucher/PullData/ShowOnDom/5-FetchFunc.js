@@ -1,6 +1,6 @@
 let StartFunc = async ({ inBodyData }) => {
     let jVarLocalBodyData = inBodyData;
-
+    console.log("jVarLocalBodyData : ", jVarLocalBodyData);
     let jVarLocalFetchUrl = `/JSONApi/API/Data/FromFolder/FromFile/Items/FromDataFolder/RowData`;
 
     let jVarLocalFetchHeaderObject = {

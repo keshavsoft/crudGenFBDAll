@@ -28,10 +28,10 @@ let LocalShowTabFuncFromurlSearchParams = () => {
 };
 
 let jFStartFunc = async () => {
-    CheckUserFuncsjFStartFunc({
-        inUserKey: jVarLocalStorageKeyName,
-        inKTokenKey: jVarCommonKToken
-    });
+    // CheckUserFuncsjFStartFunc({
+    //     inUserKey: jVarLocalStorageKeyName,
+    //     inKTokenKey: jVarCommonKToken
+    // });
 
     await FormLoadStartFunc({ inProjectName: jVarCommonProjectName });
 
