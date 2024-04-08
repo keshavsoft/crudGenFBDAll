@@ -36,6 +36,12 @@
         "unique": true,
         "allowNull": false,
         "onUpdate": "cascade",
-        "onDelete": "cascade"
-      }
+        "onDelete": "cascade",
+        "references": {
+            "model": {
+                "tableName": "Generate"
+            },
+            "key": "pk"
+        }
+    }
 }

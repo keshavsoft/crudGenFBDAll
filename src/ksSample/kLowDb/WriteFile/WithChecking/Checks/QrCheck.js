@@ -24,7 +24,7 @@ const StartFunc = ({ inFileName, NeededKey, inSearchKey }) => {
         return element[LocalSearchKey] == NeededKey;
     });
 
-    if (LocalFindValue.length === 0) {
+    if (LocalFindValue.length > 0) {
         LocalReturnData.KTF = true;
 
         return LocalReturnData;
