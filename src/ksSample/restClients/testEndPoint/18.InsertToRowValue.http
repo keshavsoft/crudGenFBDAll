@@ -1,4 +1,5 @@
-###copy the table schema from step 1(GET)
+###We can get the value of the given id
+### This end point is to insert inside a key in a row
 PUT  http://localhost:7017/src/ksSample/toValue/:id/:KeyName
 content-type: application/json
 
