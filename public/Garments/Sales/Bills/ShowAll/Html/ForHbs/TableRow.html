@@ -1,5 +1,11 @@
 <tr>
+    {{#if pk}}
     <td class="text-center">{{pk}}</td>
+
+    {{else}}
+    <td class="text-center">{{UuId}}</td>
+    {{/if}}
+    <!-- <td class="text-center">{{UuId}}</td> -->
 
     <td class="text-right">{{BillNumber}}</td>
     <td>
@@ -17,7 +23,8 @@
         <a href="../../BillPrint/Show/Show.html?RowPK={{pk}}" class="mx-3 ">
             <i class="fa fa-print text-secondary" aria-hidden="true"></i>
         </a>
-        <a href="javascript:;" class="DeleteButtonClass" data-rowpk="{{pk}}" data-bs-toggle="tooltip" data-bs-original-title="Delete product">
+        <a href="javascript:;" class="DeleteButtonClass" data-rowpk="{{pk}}" data-bs-toggle="tooltip"
+            data-bs-original-title="Delete product">
             <i class="fas fa-trash text-secondary"></i>
         </a>
     </td>

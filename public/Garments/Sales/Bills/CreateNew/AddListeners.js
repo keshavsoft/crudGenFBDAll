@@ -20,11 +20,10 @@ let StartFunc = ({ inFolderName, inFileName, inItemName, inProjectName }) => {
 };
 
 let LocalAfterSaveFunc = ({ inFetchPostData }) => {
-    console.log("inFetchPostData : ", inFetchPostData);
     if (inFetchPostData.KTF) {
-        if ("NewRowPK" in inFetchPostData) {
-            window.location = `../../Bills/Show/Show.html?RowPK=${inFetchPostData.NewRowPK}&ToProducts=true`;
-        };
+        // if ("NewRowPK" in inFetchPostData) {
+            window.location = `../../Bills/Show/Show.html?RowPK=${inFetchPostData.MaxPk}&ToProducts=true`;
+        // };
         //   window.location = "../ShowAll/ShowAll.html?FromSave=true";
     } else {
         if ("KReason" in inFetchPostData) {
