@@ -1,5 +1,5 @@
 import {
-  PutFunc as PutFuncDal,
+  PutFunc as PutFuncDal, PutToValueFunc as PutToValueFuncDal
 } from '../../dals/putFuncs/EntryFile.js';
 
 import {
@@ -16,4 +16,12 @@ let PutFunc = async ({ inDataToUpdate, inId }) => {
   return PutFuncDal({ inDataToUpdate, inId });
 };
 
-export { PutFunc };
+let PutToValueFunc = async ({ inDataToUpdate, inId }) => {
+  if (ConfigJson.isSequelize) {
+    return PutFuncDalsForSequelize({ inDataToUpdate, inId });
+  };
+
+  return PutToValueFuncDal({ inDataToUpdate, inId });
+};
+
+export { PutFunc, PutToValueFunc };
