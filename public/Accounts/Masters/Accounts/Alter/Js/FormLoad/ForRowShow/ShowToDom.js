@@ -2,6 +2,8 @@ let StartFunc = ({ inDataToShow }) => {
     let data = inDataToShow;
     jFLocalToInputAccountNameId(data.AccountName);
     jFLocalToInputBSGroupId(data.BSGroup);
+    jFLocalToInputSubGroupId(data.SubGroup);
+
 };
 
 let jFLocalToInputAccountNameId = (inValue) => {
@@ -20,6 +22,15 @@ let jFLocalToInputBSGroupId = (inValue) => {
     if (jVarLocalBSGroupId === null === false) {
         jVarLocalBSGroupId.value = inValue;
     };
+};
+
+let jFLocalToInputSubGroupId = (inValue) => {
+    let jVarLocalHtmlId = 'SubGroupId';
+   let jVarLocalSubGroupId = document.getElementById(jVarLocalHtmlId);
+   
+   if (jVarLocalSubGroupId === null === false) {
+      jVarLocalSubGroupId.value = inValue;
+   };
 };
 
 export { StartFunc };
