@@ -23,6 +23,7 @@ let StartFunc = async (row, $element, field) => {
             console.log(toastContainer);
             let toast=document.createElement("div");
             toast.classList.add("toast");
+            toast.style.backgroundColor = "#F8D7DA";
             toast.setAttribute("role", "alert");
             toast.setAttribute("aria-live", "assertive");
             toast.setAttribute("aria-atomic", "true");
