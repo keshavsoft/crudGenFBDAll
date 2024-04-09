@@ -5,12 +5,9 @@ import fs from 'fs';
 import * as url from 'url';
 const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
 
-// import configJson from '../../../ToConfig.json' assert { type: 'json' };
-
 import configJson from '../../../../src/Config.json' assert { type: 'json' };
 
 const LocalDataPath = `../../../../${configJson.sequelizeConfig.DataPath}`;
-// const LocalDataPath = `${configJson.sequelizeConfig.DataPath}`;
 
 let GetFunc = ({ inResponse, callback }) => {
 
@@ -34,7 +31,7 @@ let GetFunc = ({ inResponse, callback }) => {
         archive.on('end', function () {
             console.log('Archive wrote %d bytes', archive.pointer());
             //console.log('output', output);
-            callback("", null);
+            callback(archive.pointer(), null);
         });
 
         //set the archive name
@@ -44,8 +41,7 @@ let GetFunc = ({ inResponse, callback }) => {
         archive.pipe(inResponse);
 
         var directories = [path.resolve(__dirname, `${LocalDataPath}/${LocalUserPK}`)];
-        // var directories = [`/${LocalDataPath}/${LocalUserPK}`];
-console.log("aaaaaaaa : ",directories);
+
         for (var i in directories) {
             archive.directory(directories[i], directories[i].replace(__dirname, ''));
         }
