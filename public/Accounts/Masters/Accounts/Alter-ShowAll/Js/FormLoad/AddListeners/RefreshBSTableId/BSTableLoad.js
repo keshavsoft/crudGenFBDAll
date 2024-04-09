@@ -1,6 +1,6 @@
 let StartFunc = async (row, $element, field) => {
     // console.log(field);
-    if (field === 3) {
+    if (field === 4) {
         let jVarLocalFromSwal = await Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this!",
