@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>To factory Dashboard</title>
+    <title>KS Items</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -150,7 +150,7 @@
 
                     <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
                         <i class="bi bi-chat-left-text"></i>
-                        <span class="badge bg-success badge-number">3</span>
+                        <span class="badge bg-success badge-number" id="NotificationSpanId">16</span>
                     </a>
                     <!-- End Messages Icon -->
 
@@ -298,19 +298,18 @@
                     <span>Parent</span>
                 </a>
             </li>
-           
+
 
             <!-- End Dashboard Nav -->
 
             <li class="nav-item">
-                <a class="nav-link " href="#">
+                <a class="nav-link collapsed" href="../Create/Create.html">
                     <i class="bi bi-database-add"></i></i>
                     <span>Create</span>
                 </a>
             </li>
-
             <li class="nav-item ">
-                <a  class="nav-link collapsed" href="../ShowAll/ShowAll.html" >
+                <a class="nav-link collapsed" href="../ShowAll/ShowAll.html">
                     <i class="bi bi-table"></i></i>
                     <span>ShowAll</span>
                 </a>
@@ -320,9 +319,9 @@
                 <a class="nav-link collapsed" data-bs-target="#delete-nav" data-bs-toggle="collapse" href="#">
                   <i class="bi bi-trash"></i><span>Delete</span><i class="bi bi-chevron-down ms-auto"></i>
                 </a>
-                <ul id="delete-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                <ul id="delete-nav" class="nav-content collapse show" data-bs-parent="#sidebar-nav">
                   <li>
-                    <a href="../Delete-simple/Delete.html">
+                    <a href="Delete.html" class="active">
                       <i class="bi bi-circle"></i><span>Simple</span>
                     </a>
                   </li>
@@ -342,36 +341,22 @@
                     </a>
                   </li>
                 </ul>
-            </li>
+              </li>
+            <!-- End Create Nav -->
 
-            <li class="nav-item">
-                <a class="nav-link collapsed" data-bs-target="#Alter-nav" data-bs-toggle="collapse" href="#">
-                  <i class="bi bi-trash"></i><span>Alter</span><i class="bi bi-chevron-down ms-auto"></i>
-                </a>
-                <ul id="Alter-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-                  <li>
-                    <a href="../Alter-ShowAll/Alter-ShowAll.html">
-                      <i class="bi bi-circle"></i><span>ShowAll</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="../Alter/Alter.html">
-                      <i class="bi bi-circle"></i><span>Alter</span>
-                    </a>
-                  </li>
-                </ul>
-            </li>
+            <!-- End  DCALL Nav -->
+
+            <!-- End  DCALL Nav -->
+
+            <!-- End Today Qrcodes Nav -->
         </ul>
     </aside>
     <!-- End Sidebar-->
 
     <main id="main" class="main">
-        <datalist id="AccountNamesDataListId">
-            <option>Keshav</option>
-        </datalist>
 
         <div class="pagetitle">
-            <h1>Create</h1>
+            <h1> <a href="#" id="RefreshBSTableId"></a>Delete</h1>
 
 
             <nav>
@@ -390,66 +375,29 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-8">
-                                    <form href="#" class="form-horizontal needs-validation" id="FormId">
-                                        <div class="row">
-
-
-                                            <div class="col-md-12">
-                                                <label class="col-md-4 col-form-label">Account Name</label>
-
-                                                <div class="col-md-8">
-                                                    <input id="AccountNameId" name="AccountName"
-                                                        data-dataattribute="Description" value="" required
-                                                        class="form-control KeshavSoftHtmlAttributes"
-                                                        placeholder="Enter AccountName" autocomplete="off" autofocus>
-                                                    <div class="invalid-feedback">
-                                                        Should not be Empty!!
-                                                    </div>
-                                                </div>
-
-                                            </div>
-
-                                            <div class="col-md-12">
-                                                <label class="col-md-4 col-form-label">BS Group</label>
-
-                                                <div class="col-md-8">
-                                                    <input name="BSGroup" class="form-control"
-                                                        placeholder="Enter AccountName" autocomplete="off">
-                                                    <div class="invalid-feedback">
-                                                        Should not be Empty!!
-                                                    </div>
-                                                </div>
-
-                                            </div>
-
-                                            <div class="col-md-12 m-3">
-
-                                                <div class="col-md-8">
-                                                    <button type="button" id="CreateCustomerButtonId"
-                                                        class="btn btn-success">
-                                                        Save New
-                                                    </button>
-
-                                                </div>
-
-                                            </div>
-
-
-
-                                        </div>
-                                    </form>
-
-                                </div>
+                            <div class="spinner-border" id="SpinnerId" role="status">
+                                <span class="visually-hidden">Loading...</span>
                             </div>
-
-
+                            <table id="table" data-toolbar="#toolbar" data-search="true" data-searchable="true"
+                                data-show-footer="true" data-show-columns="true" data-show-columns-toggle-all="true"
+                                data-click-to-select="true" data-filter-control="true" data-show-export="true"
+                                data-detail-formatter="detailFormatter" data-id-field="pk" data-show-toggle="true"
+                                data-url="/bin/Accounts/DataOnly">
+                                <thead>
+                                    <tr id="tableHeadRow">
+                                        <th data-field="id" data-formatter="jFGlobalSerialColumn">#</th>
+                                        <th data-field="AccountName">Account Name</th>
+                                        <th data-field="BSGroup">BS Group</th>
+                                        <th data-formatter="jFLocalAlterColumn">Alter</th>
+                                    </tr>
+                                </thead>
+                            </table>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+
     </main>
     <!-- End #main -->
 
@@ -463,14 +411,35 @@
     <!-- End Footer -->
     <!-- Vendor JS Files -->
     <script>
-     
+
+        function jFGlobalSerialColumn(value, row, index) {
+            return index + 1;
+        };
+
+        function jFLocalAlterColumn(value, row, index) {
+            return [
+                `<a href="#" class="btn btn-warning">`,
+                `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">`,
+                `<path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"/>`,
+                `<path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z"/>`,
+                `</svg>`,
+                `</a>`
+            ].join('');
+
+        };
     </script>
+
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
     <script src="https://unpkg.com/bootstrap-table@1.22.1/dist/bootstrap-table.min.js"></script>
+
+    <!-- sweetalert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 
     <script src="https://unpkg.com/tableexport.jquery.plugin/tableExport.min.js"></script>
     <script
@@ -484,7 +453,7 @@
 
     <!-- Template Main JS File -->
     <script src="./assets/js/main.js"></script>
-    <script type="module" src="./Js/Create.js"></script>
+    <script type="module" src="./Js/StartFunc.js"></script>
 </body>
 
 </html>
