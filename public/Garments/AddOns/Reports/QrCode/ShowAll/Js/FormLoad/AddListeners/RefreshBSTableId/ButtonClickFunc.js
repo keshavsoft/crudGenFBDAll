@@ -17,6 +17,7 @@ let jFLocalPromiseAll = async () => {
     let [a, b, c] = await Promise.allSettled(jVarLocalPromises);
 
     let jVarLocalReturnArray = a.value.map(LoopQrCode => {
+
         LoopQrCode.Purchased = "false";
         LoopQrCode.Sold = "false";
 
@@ -27,7 +28,9 @@ let jFLocalPromiseAll = async () => {
         if (LoopInideFind === undefined === false) if ("Date" in LoopInideFind) LoopQrCode.PurchaseDate = LoopInideFind.Date;
 
         let LoopInideSales = c.value.find(LoopPurchase => LoopPurchase.pk === LoopQrCode.pk);
-
+        // if (LoopQrCode.pk === "1") {
+        //     console.log(" LoopQrCode.pk : ", LoopQrCode, LoopInideSales,c);
+        // };
         if (LoopInideSales === undefined === false) LoopQrCode.Sold = "true";
 
         return LoopQrCode;
