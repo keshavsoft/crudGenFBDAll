@@ -386,15 +386,14 @@
     <main id="main" class="main">
 
         <div class="pagetitle">
-            <h1> <a href="#" id="RefreshBSTableId"></a>ShowAll</h1>
-
+            <h1> <a href="#" id="RefreshBSTableId">ShowAll</a></h1>
 
             <nav>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="../../../../index.html">Home</a></li>
                     <li class="breadcrumb-item"><a href="../../../index.html">Accounts</a></li>
                     <li class="breadcrumb-item"><a href="../../index.html">Masters</a></li>
-                    <li class="breadcrumb-item active">Accounts</li>
+                    <li class="breadcrumb-item active"> <a href="#" onclick="jF1()">Accounts</a></li>
                 </ol>
             </nav>
         </div>
@@ -428,43 +427,6 @@
             </div>
         </div><!-- End Large Modal-->
 
-        <!-- End Page Title -->
-        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-            aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <table id="Modaltable" data-toolbar="#toolbar" data-search="true" data-searchable="true"
-                            data-show-footer="true" data-show-columns="true" data-show-columns-toggle-all="true"
-                            data-click-to-select="true" data-filter-control="true" data-show-export="true"
-                            data-detail-formatter="detailFormatter" data-id-field="pk" data-show-toggle="true"
-                            data-url="/bin/Accounts/DataOnly">
-                            <thead>
-                                <tr id="tableHeadRow">
-                                    <th data-field="id" data-formatter="jFGlobalSerialColumn">#</th>
-
-                                    <th data-field="AccountName">Account Name</th>
-                                    <th data-field="BSGroup">BS Group</th>
-                                    <th data-field="SubGroup">SubGroup</th>
-
-                                </tr>
-                            </thead>
-
-                        </table>
-                        ...
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Understood</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
         <section class="section">
 
             <div class="row">
@@ -475,11 +437,7 @@
                             <div class="spinner-border" id="SpinnerId" role="status">
                                 <span class="visually-hidden">Loading...</span>
                             </div>
-                            <table id="table" data-toolbar="#toolbar" data-search="true" data-searchable="true"
-                                data-show-footer="true" data-show-columns="true" data-show-columns-toggle-all="true"
-                                data-click-to-select="true" data-filter-control="true" data-show-export="true"
-                                data-detail-formatter="detailFormatter" data-id-field="pk" data-show-toggle="true"
-                                data-url="/bin/Accounts/DataOnly">
+                            <table id="table" data-show-footer="true" data-url="/bin/Accounts/DataOnly">
                                 <thead>
                                     <tr id="tableHeadRow">
                                         <th data-field="id" data-formatter="jFGlobalSerialColumn">#</th>
@@ -487,26 +445,40 @@
                                         <th data-field="AccountName">Account Name</th>
                                         <th data-field="BSGroup">BS Group</th>
                                         <th data-field="SubGroup">SubGroup</th>
-
+                                        <th>Options</th>
                                     </tr>
                                 </thead>
                                 <tfoot>
                                     <tr>
                                         <th>
-                                            <input type="text" class="form-control InputClass" autocomplete="off"
-                                                list="WarrantyTypeDatalistId" name="Search" id="WarrantyTypeid"
-                                                autofocus="">
+                                        </th>
+                                        <th>
+                                            <div class="row mb-3">
+                                                <div class="col">316</div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col">
+                                                    <div class="input-group">
+                                                        <input type="text" class="form-control"
+                                                            id="TableFooterAccountNameId">
+                                                        <button class="btn btn-outline-secondary" type="button"
+                                                            id="searchButtonId">Search</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
 
                                         </th>
                                         <th>
-                                            <div class="input-group">
-                                                <input type="text" class="form-control" id="search"
-                                                    aria-describedby="inputGroupFileAddon04" aria-label="Upload">
-                                                <button class="btn btn-outline-secondary" type="button"
-                                                    id="searcButtonId">Search</button>
+                                            <div class="row">
+                                                <div class="col-12">hai</div>
+                                                <div class="col">Keshav</div>
                                             </div>
-
                                         </th>
+                                        <th></th>
+                                        <th> <button class="btn btn-outline-success" type="button"
+                                                id="TableFooterSaveButtonId">Save</button></th>
                                     </tr>
                                 </tfoot>
                             </table>
@@ -580,6 +552,25 @@
 
             ].join('')
 
+        };
+
+
+        let jFLocalButtonClick1 = () => {
+            let jVarLocalHtmlId = "largeModal";
+            let jVarLocallargeModal = document.getElementById(jVarLocalHtmlId);
+
+            jVarLocallargeModal.addEventListener('shown.bs.modal', event => {
+                let jVarLocalHtmlId = "customSearch";
+                let jVarLocalcustomSearch = document.getElementById(jVarLocalHtmlId);
+                jVarLocalcustomSearch.focus();
+            });
+        };
+
+        jFLocalButtonClick1();
+
+        let jF1 = () => {
+            var $table = $('#table');
+            $table.bootstrapTable("refresh");
         };
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
