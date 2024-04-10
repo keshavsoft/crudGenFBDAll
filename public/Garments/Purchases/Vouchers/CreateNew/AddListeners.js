@@ -20,6 +20,7 @@ let StartFunc = ({ inFolderName, inFileName, inItemName, inProjectName }) => {
 };
 
 let LocalAfterSaveFunc = ({ inFetchPostData }) => {
+    console.log("inFetchPostData:",inFetchPostData);
     if (inFetchPostData.KTF) {
         let RowPk = inFetchPostData.NewRowPK;
 

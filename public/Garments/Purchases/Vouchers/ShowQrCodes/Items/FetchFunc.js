@@ -11,7 +11,8 @@ let StartFunc = async ({ inProjectName }) => {
 
         
         //   let jVarLocalFetchUrl = `/${inProjectName}/Api/Data/FromFolder/FromFile/Items/FromDataFolder/WithScreens/WithChecking/CreateNew`;
-        let jVarLocalFetchUrl = `/${inProjectName}/API/Data/FromFolder/FromFile/Items/FromDataFolder/AsArrayWithPK`;
+        // let jVarLocalFetchUrl = `/${inProjectName}/API/Data/FromFolder/FromFile/Items/FromDataFolder/AsArrayWithPK`;
+        let jVarLocalFetchUrl = `/bin/Items/DataOnly`;
 
         let jVarLocalFetchHeaders = {
             method: "post",
@@ -22,11 +23,11 @@ let StartFunc = async ({ inProjectName }) => {
             body: JSON.stringify(inFetchPostData)
         };
 
-        const response = await fetch(jVarLocalFetchUrl, jVarLocalFetchHeaders);
+        const response = await fetch(jVarLocalFetchUrl);
         const data = await response.json();
         
         if (data.KTF) {
-            LocalReturnObject.JsonData = data.JsonData;
+            LocalReturnObject.JsonData = data;
         };
 
         LocalReturnObject.KTF = true;

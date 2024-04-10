@@ -12,7 +12,7 @@ let FromNode = async ({ inFolderName, inFileName, inItemName, inRowPK, inProject
 
         //        let jVarLocalFetchUrl = /${inProjectName}/API/Data/FromFolder/FromFile/Items/FromDataFolder/RowData;
         // let jVarLocalFetchUrl = `/bin/pos/${inRowPK}`;
-        let jVarLocalFetchUrl = `/bin/pos/FilterData/BillNumber/${inRowPK}`;
+        let jVarLocalFetchUrl = `/bin/Bills2425/FilterData/pk/${inRowPK}`;
 
         let jVarLocalFetchHeaders = {
             method: "post",
@@ -24,12 +24,7 @@ let FromNode = async ({ inFolderName, inFileName, inItemName, inRowPK, inProject
         };
 
         const response = await fetch(jVarLocalFetchUrl);
-        const data = await response.json();
-
-        LocalReturnObject.JsonData = data[0];
-
-        LocalReturnObject.KTF = true;
-        return await LocalReturnObject;
+        return await response;
 
     } catch (error) {
         console.log("error:", error);
