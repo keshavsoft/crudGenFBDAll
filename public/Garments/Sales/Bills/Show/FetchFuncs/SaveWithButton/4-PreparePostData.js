@@ -26,7 +26,7 @@ let StartFunc = () => {
         let jVarLocalQrCodeArray = jVarLocalQrCode.value.split("/");
         let jVarLocalQrCodeArrayFirstValue = jVarLocalQrCodeArray[0];
 
-        let localpk = parseInt((jVarLocalQrCodeArrayFirstValue).substring(2));
+        let localpk = (jVarLocalQrCodeArrayFirstValue).substring(2);
 
         jVarLocalReturnData.pk = localpk;
     };
