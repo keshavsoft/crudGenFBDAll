@@ -10,7 +10,8 @@ let FromNode = async ({ inFolderName, inFileName, inItemName, inRowPK, inProject
             Screenname: "Create"
         };
 
-        let jVarLocalFetchUrl = `/${inProjectName}/API/Data/FromFolder/FromFile/Items/FromDataFolder/RowData`;
+        // let jVarLocalFetchUrl = `/${inProjectName}/API/Data/FromFolder/FromFile/Items/FromDataFolder/RowData`;
+        let jVarLocalFetchUrl = `/bin/Vouchers/DataOnly`;
 
         let jVarLocalFetchHeaders = {
             method: "post",
@@ -21,15 +22,15 @@ let FromNode = async ({ inFolderName, inFileName, inItemName, inRowPK, inProject
             body: JSON.stringify(inFetchPostData)
         };
 
-        const response = await fetch(jVarLocalFetchUrl, jVarLocalFetchHeaders);
+        const response = await fetch(jVarLocalFetchUrl);
         const data = await response.json();
 
         if (data.KTF === false) {
-            LocalReturnObject.KReason = data.KReason;
+            LocalReturnObject.KReason = data;
             return await LocalReturnObject;
         };
 
-        LocalReturnObject.JsonData = data.JsonData;
+        LocalReturnObject.JsonData = data;
 
         LocalReturnObject.KTF = true;
         return await LocalReturnObject;

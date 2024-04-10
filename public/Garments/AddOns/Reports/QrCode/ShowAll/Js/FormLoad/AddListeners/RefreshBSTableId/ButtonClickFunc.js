@@ -26,7 +26,7 @@ let jFLocalPromiseAll = async () => {
         if (LoopInideFind === undefined === false) if ("Date" in LoopInideFind) LoopQrCode.Purchased = "true";
         if (LoopInideFind === undefined === false) if ("Date" in LoopInideFind) LoopQrCode.PurchaseDate = LoopInideFind.Date;
 
-        let LoopInideSales = b.value.find(LoopPurchase => LoopPurchase.pk === LoopQrCode.pk);
+        let LoopInideSales = c.value.find(LoopPurchase => LoopPurchase.pk === LoopQrCode.pk);
 
         if (LoopInideSales === undefined === false) LoopQrCode.Sold = "true";
 

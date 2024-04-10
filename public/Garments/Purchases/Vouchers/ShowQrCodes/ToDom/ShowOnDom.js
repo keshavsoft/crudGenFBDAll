@@ -13,6 +13,7 @@ let StartFunc = async ({ inFolderName, inFileName, inItemName, inProjectName, in
         inRowPK: jVarLocalRowPk.RowPK,
         inProjectName
     });
+    console.log("jVarLocalData:",jVarLocalData);
 
     if (jVarLocalData.KTF) {
         jVarLocalData.JsonData.pk = jVarLocalRowPk.RowPK;
@@ -55,15 +56,15 @@ let jVarLocalShowInventorySerial = ({ inData }) => {
     console.log("inData : ", inData);
     let jVarLocalSnoid = document.getElementById("Snoid");
 
-    if ("InvGrid" in inData) {
-        jVarLocalSnoid.value = Object.keys(inData.InvGrid).length + 1;
+    // if ("InvGrid" in inData) {
+    //     jVarLocalSnoid.value = Object.keys(inData.InvGrid).length + 1;
 
-        if (Object.keys(inData.InvGrid).length === 0) {
-            // jVarLocalSnoid.value = 1;
-        } else {
+    //     if (Object.keys(inData.InvGrid).length === 0) {
+    //         // jVarLocalSnoid.value = 1;
+    //     } else {
 
-        };
-    };
+    //     };
+    // };
 };
 
 let ShowSuccessFunc = async ({ inShowSuccess }) => {

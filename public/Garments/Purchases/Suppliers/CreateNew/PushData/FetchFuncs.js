@@ -11,9 +11,10 @@ let StartFunc = async ({ inFolderName, inFileName, inItemName, inProjectName }) 
             ScreenName: "Create"
         };
 
-        inFetchPostData.inPostData = PreparePostDataStartFunc();
+        let inPostData = PreparePostDataStartFunc();
 
-        let jVarLocalFetchUrl = `/${inProjectName}/Api/Data/FromFolder/FromFile/Items/FromDataFolder/WithScreens/WithChecking/Insert`;
+        // let jVarLocalFetchUrl = `/${inProjectName}/Api/Data/FromFolder/FromFile/Items/FromDataFolder/WithScreens/WithChecking/Insert`;
+        let jVarLocalFetchUrl = `/bin/Suppliers/WithKeysCheck`;
 
         let jVarLocalFetchHeaders = {
             method: "post",
@@ -21,7 +22,7 @@ let StartFunc = async ({ inFolderName, inFileName, inItemName, inProjectName }) 
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(inFetchPostData)
+            body: JSON.stringify(inPostData)
         };
 
         const response = await fetch(jVarLocalFetchUrl, jVarLocalFetchHeaders);

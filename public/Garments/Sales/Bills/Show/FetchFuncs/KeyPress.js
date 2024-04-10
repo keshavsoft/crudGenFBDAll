@@ -5,6 +5,13 @@ import { StartFunc as StartFuncDiscount } from "../ToDom/ProductDetails/Table/Fo
 let StartFunc = async ({ inProjectName, inJsonPK }) => {
     let jVarLocalQrCodeData = await jFLocalFetchQrCodeData({ inProjectName, inJsonPK });
 
+    if (jVarLocalQrCodeData === undefined) {
+        swal.fire({ title: "No Data", icon: "error" })
+        return;
+    };
+
+    console.log("jVarLocalQrCodeData::", jVarLocalQrCodeData);
+
     StartFucToFooter({ inJSONData: jVarLocalQrCodeData.JsonData });
 
     let jVarLocalDiscountData = await jFLocalFetchQrDiscountData({ inProjectName, inRowPK: inJsonPK });
@@ -24,40 +31,19 @@ const jFLocalLatestDiscount = ({ inDiscountArray }) => {
     return max;
 };
 
-let jFLocalFetchQrCodeData = async ({ inProjectName, inJsonPK }) => {
-    let inFolderName = "Generate";
-    let inFileName = "QrCodes";
-    let inItemName = "Barcodes";
+let jFLocalFetchQrCodeData = async ({ inJsonPK }) => {
+
     try {
         let LocalReturnObject = { KTF: false, KResult: "", JsonData: {} };
         let jVarLocalRowPK = inJsonPK;
         //  jVarLocalRowPK = 2;
 
-        // let jVarLocalFetchUrl = `/${inProjectName}/API/Data/FromFolder/FromFile/Items/FromDataFolder/RowData`;
         let jVarLocalFetchUrl = `/bin/Generate/${jVarLocalRowPK}`;
-
-        let jVarLocalFetchHeaders = {
-            method: "post",
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                FolderName: inFileName,
-                FileNameOnly: inFolderName,
-                ItemName: inItemName,
-                JsonPk: jVarLocalRowPK,
-            })
-        };
 
         const response = await fetch(jVarLocalFetchUrl);
         const data = await response.json();
-
-        // Object.freeze(data.JsonData);
         LocalReturnObject.JsonData = data;
         Object.freeze(LocalReturnObject);
-        //  StartFucToFooter({ inJSONData: data.JsonData });
-
         return await LocalReturnObject;
 
     } catch (error) {
@@ -66,31 +52,13 @@ let jFLocalFetchQrCodeData = async ({ inProjectName, inJsonPK }) => {
 
 };
 
-let jFLocalFetchQrDiscountData = async ({ inProjectName, inRowPK }) => {
-    let inFolderName = "QrCodes";
-    let inFileName = "Discounts";
-    let inItemName = "QrCodeWise";
+let jFLocalFetchQrDiscountData = async ({ inRowPK }) => {
 
     try {
         let LocalReturnObject = { KTF: false, KResult: "", JsonData: {} };
         let jVarLocalRowPK = inRowPK;
 
         let jVarLocalFetchUrl = `/bin/Discounts/${jVarLocalRowPK}`;
-
-        let jVarLocalFetchHeaders = {
-            method: "post",
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                inFolderName: inFolderName,
-                inFileNameOnly: inFileName,
-                inItemName: inItemName,
-                inColumnName: "QrCode",
-                inValueToCheck: jVarLocalRowPK
-            })
-        };
 
         const response = await fetch(jVarLocalFetchUrl);
         const data = await response.json();
@@ -99,47 +67,6 @@ let jFLocalFetchQrDiscountData = async ({ inProjectName, inRowPK }) => {
         LocalReturnObject.KTF = true;
 
         Object.freeze(LocalReturnObject.JsonData);
-        //  StartFucToFooter({ inJSONData: data.JsonData });
-
-        return await LocalReturnObject;
-
-    } catch (error) {
-        console.log("error:", error);
-    }
-
-};
-
-let StartFunc1 = async ({ inProjectName, inJsonPK }) => {
-    let inFolderName = "Generate";
-    let inFileName = "QrCodes";
-    let inItemName = "Barcodes";
-    try {
-        let LocalReturnObject = { KTF: false, KResult: "", JsonData: {} };
-        let jVarLocalRowPK = inJsonPK;
-        //  jVarLocalRowPK = 2;
-
-        let jVarLocalFetchUrl = `/${inProjectName}/API/Data/FromFolder/FromFile/Items/FromDataFolder/RowData`;
-
-        let jVarLocalFetchHeaders = {
-            method: "post",
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                FolderName: inFileName,
-                FileNameOnly: inFolderName,
-                ItemName: inItemName,
-                JsonPk: jVarLocalRowPK,
-            })
-        };
-
-        const response = await fetch(jVarLocalFetchUrl, jVarLocalFetchHeaders);
-        const data = await response.json();
-
-        Object.freeze(data.JsonData)
-
-        StartFucToFooter({ inJSONData: data.JsonData });
 
         return await LocalReturnObject;
 

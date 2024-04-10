@@ -17,6 +17,7 @@
   },
   "Phone": {
     "type": "INTEGER",
-    "allowNull": true
+    "allowNull": true,
+    "unique": true
   }
 }

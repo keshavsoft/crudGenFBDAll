@@ -15,7 +15,17 @@ let StartFunc = async ({ inFolderName, inFileName, inItemName, inProjectName, in
         inRowPK: jVarLocalRowPk.RowPK,
         inProjectName
     });
-    console.log("jVarLocalDat---a:", jVarLocalData);
+
+    if (jVarLocalData.status === 500) {
+        console.log("Status-500");
+
+    } else {
+        const data = await jVarLocalData.json();
+        // let localdata = data;
+        let localindataJson = data[0]
+        ShowOnDom({ inData: localindataJson, inShowSuccess });
+        await localInventeryShow({ inFolderName, inFileName, inItemName, inProjectName, inShowSuccess, inRowPk: jVarLocalRowPk.RowPK })
+    }
 
     if (jVarLocalData.KTF) {
         let localindataJson = jVarLocalData.JsonData
