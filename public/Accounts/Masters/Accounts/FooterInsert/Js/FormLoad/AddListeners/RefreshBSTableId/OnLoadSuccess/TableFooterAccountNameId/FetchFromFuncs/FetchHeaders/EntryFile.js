@@ -8,9 +8,22 @@ let StartFunc = () => {
 
 let jFLocalPrepareBody = () => {
     return {
-        "AccountName": LocalFuncForjVarLocalTableFooterAccountNameId()
+        "AccountName": LocalFuncForjVarLocalTableFooterAccountNameId(),
+        "BSGroup": LocalFuncForjVarLocalTableFooterBSGroupId()
     }
 };
+
+let LocalFuncForjVarLocalTableFooterBSGroupId = () => {
+    let jVarLocalTableFooterBSGroupId = 'TableFooterBSGroupId'
+    let jVarLocalHtmlId = document.getElementById(jVarLocalTableFooterBSGroupId);
+
+    if (jVarLocalHtmlId === null === false) {
+        return jVarLocalHtmlId.value.trim();
+
+    };
+
+};
+
 let LocalFuncForjVarLocalTableFooterAccountNameId = () => {
     let jVarLocalTableFooterAccountNameId = document.getElementById('TableFooterAccountNameId');
 
@@ -19,22 +32,4 @@ let LocalFuncForjVarLocalTableFooterAccountNameId = () => {
     };
 };
 
-function jFLocalserializeFormData(form) {
-    var formData = new FormData(form);
-    var serializedData = {};
-
-    for (var [name, value] of formData) {
-        if (serializedData[name]) {
-            if (!Array.isArray(serializedData[name])) {
-                serializedData[name] = [serializedData[name]];
-            }
-            serializedData[name].push(value);
-        } else {
-            serializedData[name] = value;
-        }
-    }
-
-    return serializedData;
-};
-
-export { StartFunc }
+export { StartFunc };

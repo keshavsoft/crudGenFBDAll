@@ -4,20 +4,24 @@ import ConfigJson from '../../../Config.json' with {type: 'json'};
 
 let StartFunc = async () => {
     await StartFuncFetchFromEndPoint();
+
     jFLocalHideSpinner();
+
     let jVarLocalDataNeeded = localStorage.getItem(ConfigJson.tableName);
 
     var $table = $('#table');
+
     $table.bootstrapTable('destroy');
 
     $table.bootstrapTable({
         data: JSON.parse(jVarLocalDataNeeded),
         onPostBody: function () {
-            $("#TableFooterAccountNameId").focus()
+            $("#TableFooterAccountNameId").focus();
+            StartFuncOnLoadSuccess();
         }
     });
 
-    StartFuncOnLoadSuccess();
+    // StartFuncOnLoadSuccess();
 };
 
 let jFLocalHideSpinner = () => {
