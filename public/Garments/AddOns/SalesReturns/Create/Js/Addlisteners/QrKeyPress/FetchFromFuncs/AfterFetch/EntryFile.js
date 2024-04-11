@@ -14,7 +14,7 @@ let StartFunc = ({ inData }) => {
     LocalFuncForPercentageValueAddition({ inValue: LocalData.PercentageValueAddition })
     LocalFuncForPurchasePk({ inValue: LocalData.PurchasePk })
     LocalFuncForSalePrice({ inValue: LocalData.CostPrice })
-    LocalFuncForSupplierName({ inValue: LocalData.CostPrice })
+    LocalFuncForSupplierName({ inValue: LocalData.SupplierName })
     LocalFuncForUserDescription({ inValue: LocalData.UserDescription })
 };
 

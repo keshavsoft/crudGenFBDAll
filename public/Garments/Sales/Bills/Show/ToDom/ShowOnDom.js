@@ -47,6 +47,9 @@ let localInventeryShow = async ({ inFolderName, inFileName, inItemName, inProjec
 
     if (jVarLocalDataToShow.status === 500) {
         console.log("Status-500");
+        let jVarLocalSnoid = document.getElementById("Snoid");
+        jVarLocalSnoid.value =  1;
+        return
 
     } else {
         const data = await jVarLocalDataToShow.json();

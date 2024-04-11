@@ -10,7 +10,7 @@ let FromNode = async ({ inFolderName, inFileName, inItemName, inRowPK, inProject
             Screenname: "Create"
         };
 
-        let jVarLocalFetchUrl = `/bin/pos/${inRowPK}`;
+        let jVarLocalFetchUrl = `/bin/Bills2425/${inRowPK}`;
 
         let jVarLocalFetchHeaders = {
             method: "post",
