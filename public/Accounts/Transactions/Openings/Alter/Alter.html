@@ -298,7 +298,7 @@
                     <span>Parent</span>
                 </a>
             </li>
-           
+
 
             <!-- End Dashboard Nav -->
 
@@ -310,7 +310,7 @@
             </li>
 
             <li class="nav-item ">
-                <a  class="nav-link collapsed" href="../ShowAll/ShowAll.html" >
+                <a class="nav-link collapsed" href="../ShowAll/ShowAll.html">
                     <i class="bi bi-table"></i></i>
                     <span>ShowAll</span>
                 </a>
@@ -318,53 +318,53 @@
 
             <li class="nav-item">
                 <a class="nav-link collapsed" data-bs-target="#delete-nav" data-bs-toggle="collapse" href="#">
-                  <i class="bi bi-trash"></i><span>Delete</span><i class="bi bi-chevron-down ms-auto"></i>
+                    <i class="bi bi-trash"></i><span>Delete</span><i class="bi bi-chevron-down ms-auto"></i>
                 </a>
                 <ul id="delete-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-                  <li>
-                    <a href="../Delete/Delete-simple/Delete.html">
-                      <i class="bi bi-circle"></i><span>Simple</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="../Delete/Delete-withAlert/Delete.html">
-                      <i class="bi bi-circle"></i><span>With Alert</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="../Delete/Delete-BSToast/Delete.html">
-                      <i class="bi bi-circle"></i><span>With BS-Toast</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="../Delete/Delete-SAToast/Delete.html">
-                      <i class="bi bi-circle"></i><span>With sweetAlert</span>
-                    </a>
-                  </li>
+                    <li>
+                        <a href="../Delete/Delete-simple/Delete.html">
+                            <i class="bi bi-circle"></i><span>Simple</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../Delete/Delete-withAlert/Delete.html">
+                            <i class="bi bi-circle"></i><span>With Alert</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../Delete/Delete-BSToast/Delete.html">
+                            <i class="bi bi-circle"></i><span>With BS-Toast</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../Delete/Delete-SAToast/Delete.html">
+                            <i class="bi bi-circle"></i><span>With sweetAlert</span>
+                        </a>
+                    </li>
                 </ul>
             </li>
 
             <li class="nav-item">
                 <a class="nav-link collapsed" data-bs-target="#Alter-nav" data-bs-toggle="collapse" href="#">
-                  <i class="bi bi-trash"></i><span>Alter</span><i class="bi bi-chevron-down ms-auto"></i>
+                    <i class="bi bi-trash"></i><span>Alter</span><i class="bi bi-chevron-down ms-auto"></i>
                 </a>
                 <ul id="Alter-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-                  <li>
-                    <a href="../Alter-ShowAll/Alter-ShowAll.html">
-                      <i class="bi bi-circle"></i><span>ShowAll</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="../Alter/Alter.html" class="active">
-                      <i class="bi bi-circle"></i><span>Alter</span>
-                    </a>
-                  </li>
+                    <li>
+                        <a href="../Alter-ShowAll/Alter-ShowAll.html">
+                            <i class="bi bi-circle"></i><span>ShowAll</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../Alter/Alter.html" class="active">
+                            <i class="bi bi-circle"></i><span>Alter</span>
+                        </a>
+                    </li>
                 </ul>
             </li>
             <!-- End Create Nav -->
 
             <!-- End  DCALL Nav -->
-            
+
             <!-- End  DCALL Nav -->
 
             <!-- End Today Qrcodes Nav -->
@@ -399,148 +399,101 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-8">
-                                    <!-- <form href="#" class="form-horizontal needs-validation" id="FormId">
-                                        <div class="row">
-
-
-                                            <div class="col-md-12">
-                                                <label class="col-md-4 col-form-label">Account Name</label>
-
-                                                <div class="col-md-8">
-                                                    <input id="AccountNameId" name="AccountName"
-                                                        data-dataattribute="Description" value="" required
-                                                        class="form-control KeshavSoftHtmlAttributes"
-                                                        placeholder="Enter AccountName" autocomplete="off" autofocus>
-                                                    <div class="invalid-feedback">
-                                                        Should not be Empty!!
-                                                    </div>
-                                                </div>
-
-                                            </div>
-
-                                            <div class="col-md-12">
-                                                <label class="col-md-4 col-form-label">BS Group</label>
-
-                                                <div class="col-md-8">
-                                                    <input id="BSGroupId" name="BSGroup" class="form-control"
-                                                        placeholder="Enter AccountName" autocomplete="off">
-                                                    <div class="invalid-feedback">
-                                                        Should not be Empty!!
-                                                    </div>
-                                                </div>
-
-                                            </div>
-
-                                            <div class="col-md-12 m-3">
-
-                                                <div class="col-md-8">
-                                                    <button type="button" id="UpdateButtonId"
-                                                        class="btn btn-success">
-                                                        Update
-                                                    </button>
-
-                                                </div>
-
-                                            </div>
-
-
-
-                                        </div>
-                                    </form> -->
                                     <form href="#" class="form-horizontal needs-validation" id="FormId">
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <label class="col-md-4 col-form-label">Account Name</label>
+                                        <div class="col-md-12">
+                                            <label class="col-md-4 col-form-label">Account Name</label>
+                                            <select name="AccountName" id="AccountNamesSelectId"
+                                                class="form-control">
+                                            </select>
+                                        </div>
+                                        <!-- <div class="col-md-12">
+                                            <label class="col-md-4 col-form-label">Account Name</label>
 
-                                                <!-- <div class="col-md-8">
-                                                    <input name="AccountName"
-                                                        data-dataattribute="Description" list="AccountNamesDataListId"
-                                                        class="form-control" required
-                                                        placeholder="Enter AccountName" autocomplete="off" autofocus>
-                                                    <div class="invalid-feedback">
-                                                        Should not be Empty!!
-                                                    </div>
-                                                </div> -->
-                                                <!-- <label for="cars">Choose a car:</label> -->
-
-                                                <select name="AccountName" id="AccountNamesSelectId"
-                                                    class="form-control">
-                                                </select>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <label class="col-md-4 col-form-label">Date</label>
-
-                                                <div class="col-md-8">
-                                                    <input name="Date" id="idFdate" data-dataattribute="Description"
-                                                        required class="form-control" type="date"
-                                                        placeholder="Enter Date" autocomplete="off">
-                                                    <div class="invalid-feedback">
-                                                        Should not be Empty!!
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12">
-                                                <label class="col-md-4 col-form-label">Description</label>
-
-                                                <div class="col-md-8">
-                                                    <input name="Description" data-dataattribute="Description" value=""
-                                                        class="form-control" placeholder="Enter AccountName">
-                                                    <div class="invalid-feedback">
-                                                        Should not be Empty!!
-                                                    </div>
+                                            <div class="col-md-8">
+                                                <input id="AccountNameId" name="AccountName"
+                                                    data-dataattribute="Description" value="" required
+                                                    class="form-control KeshavSoftHtmlAttributes"
+                                                    placeholder="Enter AccountName" autocomplete="off" autofocus>
+                                                <div class="invalid-feedback">
+                                                    Should not be Empty!!
                                                 </div>
                                             </div>
 
-                                            <div class="col-md-12">
-                                                <label class="col-md-4 col-form-label">Credit</label>
+                                        </div> -->
+                                        <div class="col-md-12">
+                                            <label class="col-md-4 col-form-label">Date</label>
 
-                                                <div class="col-md-8">
-                                                    <input name="Credit" data-dataattribute="Description" type="number"
-                                                        class="form-control" placeholder="Enter Amount">
-                                                    <div class="invalid-feedback">
-                                                        Should not be Empty!!
-                                                    </div>
+                                            <div class="col-md-8">
+                                                <input name="Date" id="DateId" data-dataattribute="Description" required
+                                                    class="form-control" type="date" placeholder="Enter Date"
+                                                    autocomplete="off">
+                                                <div class="invalid-feedback">
+                                                    Should not be Empty!!
                                                 </div>
-
                                             </div>
-                                            <div class="col-md-12">
-                                                <label class="col-md-4 col-form-label">Debit</label>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <label class="col-md-4 col-form-label">Description</label>
 
-                                                <div class="col-md-8">
-                                                    <input name="Debit" data-dataattribute="Description" type="number"
-                                                        class="form-control" placeholder="Enter Amount">
-                                                    <div class="invalid-feedback">
-                                                        Should not be Empty!!
-                                                    </div>
+                                            <div class="col-md-8">
+                                                <input name="Description" id="DescriptionId"
+                                                    data-dataattribute="Description" value="" class="form-control"
+                                                    placeholder="Enter AccountName">
+                                                <div class="invalid-feedback">
+                                                    Should not be Empty!!
                                                 </div>
-
                                             </div>
+                                        </div>
 
-                                            <div class="col-md-12 m-3">
+                                        <div class="col-md-12">
+                                            <label class="col-md-4 col-form-label">Credit</label>
 
-                                                <div class="col-md-8">
-                                                    <button type="button" id="UpdateButtonId"
-                                                        class="btn btn-success">
-                                                        Update
-                                                    </button>
-
+                                            <div class="col-md-8">
+                                                <input name="Credit" data-dataattribute="Description" type="number"
+                                                    class="form-control" placeholder="Enter Amount">
+                                                <div class="invalid-feedback">
+                                                    Should not be Empty!!
                                                 </div>
-
                                             </div>
-
-
 
                                         </div>
-                                    </form>
+                                        <div class="col-md-12">
+                                            <label class="col-md-4 col-form-label">Debit</label>
+
+                                            <div class="col-md-8">
+                                                <input name="Debit" data-dataattribute="Description" type="number"
+                                                    class="form-control" placeholder="Enter Amount">
+                                                <div class="invalid-feedback">
+                                                    Should not be Empty!!
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="col-md-12 m-3">
+
+                                            <div class="col-md-8">
+                                                <button type="button" id="UpdateButtonId" class="btn btn-success">
+                                                    Update
+                                                </button>
+
+                                            </div>
+
+                                        </div>
+
 
 
                                 </div>
+                                </form>
+
+
                             </div>
-
-
                         </div>
+
+
                     </div>
                 </div>
+            </div>
             </div>
         </section>
     </main>
@@ -556,7 +509,7 @@
     <!-- End Footer -->
     <!-- Vendor JS Files -->
     <script>
-     
+
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"

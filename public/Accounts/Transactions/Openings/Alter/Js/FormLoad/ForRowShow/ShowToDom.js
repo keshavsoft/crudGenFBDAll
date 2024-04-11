@@ -1,27 +1,35 @@
 let StartFunc = ({ inDataToShow }) => {
     let data = inDataToShow;
+    console.log(data);
     jFLocalToInputAccountNameId(data.AccountName);
-    jFLocalToInputBSGroupId(data.BSGroup);
+    jFLocalToInputDateId(data.Date);
+    jFLocalToInputDescriptionId(data.Description);
 };
 
 let jFLocalToInputAccountNameId = (inValue) => {
-    let jVarLocalHtmlId = 'AccountNamesSelectId';
+    let jVarLocalHtmlId = 'AccountNameId';
     let jVarLocalAccountNameId = document.getElementById(jVarLocalHtmlId);
 
     if (jVarLocalAccountNameId === null === false) {
         jVarLocalAccountNameId.value = inValue;
     };
 };
-
-let jFLocalToInputBSGroupId = (inValue) => {
-    let jVarLocalHtmlId = 'BSGroupId';
-    let jVarLocalBSGroupId = document.getElementById(jVarLocalHtmlId);
-
-    if (jVarLocalBSGroupId === null === false) {
-        jVarLocalBSGroupId.value = inValue;
-    };
+let jFLocalToInputDateId = (inValue) => {
+    let jVarLocalHtmlId = 'DateId';
+   let jVarLocalDateId = document.getElementById(jVarLocalHtmlId);
+   
+   if (jVarLocalDateId === null === false) {
+      jVarLocalDateId.value = inValue;
+   };
 };
 
-
+let jFLocalToInputDescriptionId = (inValue) => {
+    let jVarLocalHtmlId = 'DescriptionId';
+   let jVarLocalDescriptionId = document.getElementById(jVarLocalHtmlId);
+   
+   if (jVarLocalDescriptionId === null === false) {
+      jVarLocalDescriptionId.value = inValue;
+   };
+};
 
 export { StartFunc };
