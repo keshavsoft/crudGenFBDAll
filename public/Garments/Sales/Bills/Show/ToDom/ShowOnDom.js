@@ -72,7 +72,7 @@ let ShowOnDom = ({ inData, inShowSuccess }) => {
         jVarLocalVoucherNameId.innerHTML = inData.CustomerName;
     };
     if (jVarLocalBillNumberId !== null) {
-        jVarLocalBillNumberId.innerHTML = inData.BillNumber;
+        jVarLocalBillNumberId.innerHTML = inData.pk;
     };
 
     if (jVarLocalDateId !== null) {
