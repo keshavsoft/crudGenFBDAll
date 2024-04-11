@@ -8,19 +8,7 @@ let StartFunc = async () => {
     jFLocalToSelectOptions();
 };
 
-let jFLocalToDataList = () => {
-    let jVarLocalArray = localStorage.getItem("AccountNames");
-    let jVarLocalArrayJson = JSON.parse(jVarLocalArray);
-    let str = "";
 
-    for (var i = 0; i < jVarLocalArrayJson.length; ++i) {
-        str += '<option value="' + jVarLocalArrayJson[i].AccountName + '" />'; // Storing options in variable
-    };
-
-    let jVarLocalAccountNamesDataListId = document.getElementById("AccountNamesDataListId");
-    jVarLocalAccountNamesDataListId.innerHTML = str;
-
-};
 
 let jFLocalToSelectOptions = () => {
     let jVarLocalArray = localStorage.getItem("AccountNames");
