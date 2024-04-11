@@ -395,13 +395,13 @@
 
 
                                             <div class="col-md-12">
-                                                <label class="col-md-4 col-form-label">Qr Number</label>
+                                                <label class="col-md-2 col-form-label">Qr Scan</label>
 
-                                                <div class="col-md-8">
-                                                    <input id="AccountNameId" name="AccountName"
-                                                        data-dataattribute="Description" value="" required
+                                                <div class="col-md-10">
+                                                    <input id="AccountNameId" name="ScanCode"
+                                                        data-dataattribute="Description" value="" required 
                                                         class="form-control KeshavSoftHtmlAttributes"
-                                                        placeholder="Enter AccountName" autocomplete="off" autofocus>
+                                                        placeholder="Scan" autocomplete="off" autofocus>
                                                     <div class="invalid-feedback">
                                                         Should not be Empty!!
                                                     </div>
@@ -412,7 +412,7 @@
                                                 <label class="col-md-4 col-form-label">QrCode</label>
 
                                                 <div class="col-md-8">
-                                                    <input name="QrCode" id="QrCode" class="form-control"
+                                                    <input name="QrCode" id="QrCode" class="form-control" readonly
                                                         placeholder="Enter QrCode" autocomplete="off">
                                                     <div class="invalid-feedback">
                                                         Should not be Empty!!
@@ -425,7 +425,7 @@
                                                 <label class="col-md-4 col-form-label">ProductName</label>
 
                                                 <div class="col-md-8">
-                                                    <input name="ProductName" id="ProductName" class="form-control"
+                                                    <input name="ProductName" id="ProductName" class="form-control" readonly
                                                         placeholder="Enter ProductName" autocomplete="off">
                                                     <div class="invalid-feedback">
                                                         Should not be Empty!!
@@ -437,7 +437,7 @@
                                                 <label class="col-md-4 col-form-label">CostPrice</label>
 
                                                 <div class="col-md-8">
-                                                    <input name="CostPrice" id="CostPrice" class="form-control"
+                                                    <input name="CostPrice" id="CostPrice" class="form-control" readonly
                                                         placeholder="Enter AccountName" autocomplete="off">
                                                     <div class="invalid-feedback">
                                                         Should not be Empty!!
@@ -449,7 +449,7 @@
                                                 <label class="col-md-4 col-form-label">BillNumber</label>
 
                                                 <div class="col-md-8">
-                                                    <input name="BillNumber" id="BillNumber" class="form-control"
+                                                    <input name="BillNumber" id="BillNumber" class="form-control" readonly
                                                         placeholder="Enter AccountName" autocomplete="off">
                                                     <div class="invalid-feedback">
                                                         Should not be Empty!!
@@ -461,7 +461,7 @@
                                                 <label class="col-md-4 col-form-label">InventorySerial</label>
 
                                                 <div class="col-md-8">
-                                                    <input name="InventorySerial" id="InventorySerial" class="form-control"
+                                                    <input name="InventorySerial" id="InventorySerial" class="form-control" readonly
                                                         placeholder="Enter InventorySerial" autocomplete="off">
                                                     <div class="invalid-feedback">
                                                         Should not be Empty!!
@@ -473,7 +473,7 @@
                                                 <label class="col-md-4 col-form-label">PercentageValueAddition</label>
 
                                                 <div class="col-md-8">
-                                                    <input name="PercentageValueAddition" id="PercentageValueAddition" class="form-control"
+                                                    <input name="PercentageValueAddition" id="PercentageValueAddition" class="form-control" readonly
                                                         placeholder="Enter PercentageValueAddition" autocomplete="off">
                                                     <div class="invalid-feedback">
                                                         Should not be Empty!!
@@ -486,7 +486,7 @@
                                                 <label class="col-md-4 col-form-label">PurchasePk</label>
 
                                                 <div class="col-md-8">
-                                                    <input name="PurchasePk" id="PurchasePk" class="form-control"
+                                                    <input name="PurchasePk" id="PurchasePk" class="form-control" readonly
                                                         placeholder="Enter PurchasePk" autocomplete="off">
                                                     <div class="invalid-feedback">
                                                         Should not be Empty!!
@@ -498,7 +498,7 @@
                                                 <label class="col-md-4 col-form-label">SalePrice</label>
 
                                                 <div class="col-md-8">
-                                                    <input name="SalePrice" id="SalePrice" class="form-control"
+                                                    <input name="SalePrice" id="SalePrice" class="form-control" readonly
                                                         placeholder="Enter SalePrice" autocomplete="off">
                                                     <div class="invalid-feedback">
                                                         Should not be Empty!!
@@ -510,7 +510,7 @@
                                                 <label class="col-md-4 col-form-label">SupplierName</label>
 
                                                 <div class="col-md-8">
-                                                    <input name="SupplierName" id="SupplierName" class="form-control"
+                                                    <input name="SupplierName" id="SupplierName" class="form-control" readonly
                                                         placeholder="Enter SupplierName" autocomplete="off">
                                                     <div class="invalid-feedback">
                                                         Should not be Empty!!
@@ -522,8 +522,21 @@
                                                 <label class="col-md-4 col-form-label">UserDescription</label>
 
                                                 <div class="col-md-8">
-                                                    <input name="UserDescription" id="UserDescription" class="form-control"
+                                                    <input name="UserDescription" id="UserDescription" class="form-control" readonly
                                                         placeholder="Enter UserDescription" autocomplete="off">
+                                                    <div class="invalid-feedback">
+                                                        Should not be Empty!!
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                            <div class="col-md-12">
+                                                <label class="col-md-4 col-form-label">Sale Return Description</label>
+
+                                                <div class="col-md-8">
+                                                    <input name="SalereturnDescription" id="SalereturnDescription" class="form-control"
+                                                        placeholder="Enter Description" autocomplete="off">
                                                     <div class="invalid-feedback">
                                                         Should not be Empty!!
                                                     </div>
