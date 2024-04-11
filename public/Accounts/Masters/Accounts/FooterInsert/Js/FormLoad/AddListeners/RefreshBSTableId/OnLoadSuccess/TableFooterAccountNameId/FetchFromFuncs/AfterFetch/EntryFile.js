@@ -1,7 +1,11 @@
 let StartFunc = (inFromFetch) => {
-    var $table = $('#table');
+    let jVarLocalHtmlId = 'RefreshBSTableId';
+    let jVarLocalRefreshBSTableId = document.getElementById(jVarLocalHtmlId);
+    jVarLocalRefreshBSTableId.click();
 
-    $table.bootstrapTable("refresh");
+    // var $table = $('#table');
+
+    // $table.bootstrapTable("refresh");
 };
 
 export { StartFunc }

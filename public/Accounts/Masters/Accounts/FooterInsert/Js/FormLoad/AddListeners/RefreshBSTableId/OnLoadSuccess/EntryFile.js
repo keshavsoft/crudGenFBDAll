@@ -2,7 +2,6 @@ import { StartFunc as StartFuncTableFooterAccountNameId } from "./TableFooterAcc
 import { StartFunc as StartFuncTableFooterAccountNameSearchButtonId } from "./TableFooterAccountNameSearchButtonId/EntryFile.js";
 
 let StartFunc = () => {
-    console.log("aaaaaaaa");
     StartFuncTableFooterAccountNameId();
     StartFuncTableFooterAccountNameSearchButtonId();
 };
