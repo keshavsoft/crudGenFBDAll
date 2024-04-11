@@ -5,6 +5,7 @@ let StartFunc = async () => {
     let jVarLocalFetchUrl = `/bin/Openings/${LocalRowPk}`;
     let response = await fetch(jVarLocalFetchUrl);
     let data = await response.json();
+    console.log(data);
     StartFuncShowToDom({ inDataToShow: data });
 };
 

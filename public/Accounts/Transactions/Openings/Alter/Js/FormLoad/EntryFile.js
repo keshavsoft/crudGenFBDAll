@@ -2,8 +2,9 @@ import { StartFunc as StartFuncForAccountNames } from "./ForDataList/AccountName
 import { StartFunc as StartFuncForRowShow } from "./ForRowShow/GetFetch.js";
 
 const StartFunc = () => {
-    StartFuncForRowShow();
     StartFuncForAccountNames();
+    StartFuncForRowShow();
+    
 };
 
 export { StartFunc };
