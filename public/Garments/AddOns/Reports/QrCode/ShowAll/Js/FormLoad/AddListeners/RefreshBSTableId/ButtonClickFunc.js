@@ -12,14 +12,15 @@ let StartFunc = async () => {
 };
 
 let jFLocalPromiseAll = async () => {
-    let jVarLocalPromises = [jFLocalFetchQrCodes(), jFLocalFetchPurchases(), jFLocalFetchBillsQrCode()];
+    let jVarLocalPromises = [jFLocalFetchQrCodes(), jFLocalFetchPurchases(), jFLocalFetchBillsQrCode(), jFLocalFetchSalesReturns()];
 
-    let [a, b, c] = await Promise.allSettled(jVarLocalPromises);
+    let [a, b, c, d] = await Promise.allSettled(jVarLocalPromises);
 
     let jVarLocalReturnArray = a.value.map(LoopQrCode => {
 
         LoopQrCode.Purchased = "false";
         LoopQrCode.Sold = "false";
+        LoopQrCode.ReturnStatus = "false";
 
         let LoopInideFind = b.value.find(LoopPurchase => LoopPurchase.pk === LoopQrCode.PurchasePk);
         // let LoopInideInvGrid = LoopInideFind.InvGrid[LoopQrCode.InventorySerial];
@@ -32,6 +33,12 @@ let jFLocalPromiseAll = async () => {
         //     console.log(" LoopQrCode.pk : ", LoopQrCode, LoopInideSales,c);
         // };
         if (LoopInideSales === undefined === false) LoopQrCode.Sold = "true";
+
+        let LoopInideSalesReturn = d.value.find(LoopSaleReturn => LoopSaleReturn.QrCode === LoopQrCode.pk);
+
+        if (LoopInideSalesReturn === undefined === false) LoopQrCode.ReturnStatus = "true";
+
+
 
         return LoopQrCode;
 
@@ -63,6 +70,14 @@ let jFLocalFetchPurchases = async () => {
 
 let jFLocalFetchBillsQrCode = async () => {
     let jVarLocalFetchUrl = "/bin/BillsQrCode/DataOnly";
+    const response = await fetch(jVarLocalFetchUrl);
+
+    const text = await response.json();
+    return text;
+};
+
+let jFLocalFetchSalesReturns = async () => {
+    let jVarLocalFetchUrl = "/bin/SalesReturns/DataOnly";
     const response = await fetch(jVarLocalFetchUrl);
 
     const text = await response.json();
