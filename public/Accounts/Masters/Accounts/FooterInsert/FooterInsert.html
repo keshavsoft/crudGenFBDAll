@@ -408,12 +408,12 @@
                     <div class="modal-body">
                         <input type="text" id="customSearch" class="form-control mb-3" autofocus>
 
-                        <table id="ModalItemsTable" data-search="true" data-click-to-select="true"
+                        <table id="ModalTable" data-search="true" data-click-to-select="true"
                             data-search-selector="#customSearch">
                             <thead>
-                                <tr id="tableHeadRow">
+                                <tr>
                                     <th data-field="pk">#</th>
-                                    <th data-field="Category">Category</th>
+                                    <th data-field="AccountName" data-formatter="jFItemNameATag">AccountName</th>
                                     <th data-field="ItemName" data-formatter="jFItemNameATag">Item Name</th>
                                     <th data-field="DryWashRate">Rate</th>
                                 </tr>
@@ -437,7 +437,7 @@
                             <div class="spinner-border" id="SpinnerId" role="status">
                                 <span class="visually-hidden">Loading...</span>
                             </div>
-                            <table id="table" data-show-footer="true" data-url="/bin/Accounts/DataOnly">
+                            <table id="table" data-show-footer="true">
                                 <thead>
                                     <tr id="tableHeadRow">
                                         <th data-field="id" data-formatter="jFGlobalSerialColumn">#</th>
@@ -462,7 +462,7 @@
                                                         <input type="text" class="form-control"
                                                             id="TableFooterAccountNameId">
                                                         <button class="btn btn-outline-secondary" type="button"
-                                                            id="searchButtonId">Search</button>
+                                                            id="TableFooterAccountNameSearchButtonId">Search</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -555,22 +555,24 @@
         };
 
 
-        let jFLocalButtonClick1 = () => {
-            let jVarLocalHtmlId = "largeModal";
-            let jVarLocallargeModal = document.getElementById(jVarLocalHtmlId);
+        // let jFLocalButtonClick1 = () => {
+        //     let jVarLocalHtmlId = "largeModal";
+        //     let jVarLocallargeModal = document.getElementById(jVarLocalHtmlId);
 
-            jVarLocallargeModal.addEventListener('shown.bs.modal', event => {
-                let jVarLocalHtmlId = "customSearch";
-                let jVarLocalcustomSearch = document.getElementById(jVarLocalHtmlId);
-                jVarLocalcustomSearch.focus();
-            });
-        };
+        //     jVarLocallargeModal.addEventListener('shown.bs.modal', event => {
+        //         let jVarLocalHtmlId = "customSearch";
+        //         let jVarLocalcustomSearch = document.getElementById(jVarLocalHtmlId);
+        //         jVarLocalcustomSearch.focus();
+        //     });
+        // };
 
-        jFLocalButtonClick1();
-
-        let jF1 = () => {
-            var $table = $('#table');
-            $table.bootstrapTable("refresh");
+        // jFLocalButtonClick1();
+        jFItemNameATag = function (value, row, index) {
+            return [
+                `<a href="#">`,
+                value,
+                `</a>`
+            ].join('');
         };
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
