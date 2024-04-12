@@ -298,7 +298,7 @@
                     <span>Parent</span>
                 </a>
             </li>
-           
+
 
             <!-- End Dashboard Nav -->
 
@@ -309,80 +309,80 @@
                 </a>
             </li>
             <li class="nav-item ">
-                <a  class="nav-link " href="#" >
+                <a class="nav-link " href="#">
                     <i class="bi bi-table"></i></i>
                     <span>ShowAll</span>
                 </a>
             </li>
             <li class="nav-item ">
-                <a  class="nav-link collapsed" href="../FooterInsert/FooterInsert.html" >
+                <a class="nav-link collapsed" href="../FooterInsert/FooterInsert.html">
                     <i class="bi bi-table"></i></i>
                     <span>FooterInsert</span>
                 </a>
             </li>
-            
+
             <li class="nav-item ">
                 <a class="nav-link " href="../SubTable/SubTable.html">
                     <i class="bi bi-table"></i></i>
                     <span>SubTable</span>
                 </a>
             </li>
-            
+
             <li class="nav-item">
                 <a class="nav-link collapsed" data-bs-target="#delete-nav" data-bs-toggle="collapse" href="#">
-                  <i class="bi bi-trash"></i><span>Delete</span><i class="bi bi-chevron-down ms-auto"></i>
+                    <i class="bi bi-trash"></i><span>Delete</span><i class="bi bi-chevron-down ms-auto"></i>
                 </a>
                 <ul id="delete-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-                  <li>
-                    <a href="../Delete/Delete-simple/Delete.html">
-                      <i class="bi bi-circle"></i><span>Simple</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="../Delete/Delete-withAlert/Delete.html">
-                      <i class="bi bi-circle"></i><span>With Alert</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="../Delete/Delete-BSToast/Delete.html">
-                      <i class="bi bi-circle"></i><span>With BS-Toast</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="../Delete/Delete-SAToast/Delete.html">
-                      <i class="bi bi-circle"></i><span>With sweetAlert</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="../Delete/MultiSelect/MultiSelect.html">
-                      <i class="bi bi-circle"></i><span>Multi Select</span>
-                    </a>
-                  </li>
+                    <li>
+                        <a href="../Delete/Delete-simple/Delete.html">
+                            <i class="bi bi-circle"></i><span>Simple</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../Delete/Delete-withAlert/Delete.html">
+                            <i class="bi bi-circle"></i><span>With Alert</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../Delete/Delete-BSToast/Delete.html">
+                            <i class="bi bi-circle"></i><span>With BS-Toast</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../Delete/Delete-SAToast/Delete.html">
+                            <i class="bi bi-circle"></i><span>With sweetAlert</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../Delete/MultiSelect/MultiSelect.html">
+                            <i class="bi bi-circle"></i><span>Multi Select</span>
+                        </a>
+                    </li>
                 </ul>
             </li>
 
             <li class="nav-item">
                 <a class="nav-link collapsed" data-bs-target="#Alter-nav" data-bs-toggle="collapse" href="#">
-                  <i class="bi bi-pencil-square"></i><span>Alter</span><i class="bi bi-chevron-down ms-auto"></i>
+                    <i class="bi bi-pencil-square"></i><span>Alter</span><i class="bi bi-chevron-down ms-auto"></i>
                 </a>
                 <ul id="Alter-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-                  <li>
-                    <a href="../Alter-ShowAll/Alter-ShowAll.html">
-                      <i class="bi bi-circle"></i><span>ShowAll</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="../Alter/Alter.html">
-                      <i class="bi bi-circle"></i><span>Alter</span>
-                    </a>
-                  </li>
+                    <li>
+                        <a href="../Alter-ShowAll/Alter-ShowAll.html">
+                            <i class="bi bi-circle"></i><span>ShowAll</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../Alter/Alter.html">
+                            <i class="bi bi-circle"></i><span>Alter</span>
+                        </a>
+                    </li>
                 </ul>
             </li>
             <!-- End Create Nav -->
 
-           <!-- End  DCALL Nav -->
+            <!-- End  DCALL Nav -->
 
-           <!-- End  DCALL Nav -->
+            <!-- End  DCALL Nav -->
 
             <!-- End Today Qrcodes Nav -->
         </ul>
@@ -392,7 +392,7 @@
     <main id="main" class="main">
 
         <div class="pagetitle">
-            <h1 > <a href="#" id="RefreshBSTableId"></a>ShowAll</h1>
+            <h1> <a href="#" id="RefreshBSTableId"></a>ShowAll</h1>
 
 
             <nav>
@@ -415,15 +415,15 @@
                             <div class="spinner-border" id="SpinnerId" role="status">
                                 <span class="visually-hidden">Loading...</span>
                             </div>
+
                             <table id="table" data-toolbar="#toolbar" data-search="true" data-searchable="true"
-                                data-show-footer="true" data-show-columns="true" data-show-columns-toggle-all="true"
-                                data-click-to-select="true" data-filter-control="true" data-show-export="true"
-                                data-detail-formatter="detailFormatter" data-id-field="pk" data-show-toggle="true"
+                                data-show-footer="true" data-detail-view="true" data-detail-formatter="detailFormatter"
+                                data-id-field="pk" data-show-toggle="true"
                                 data-url="/Common/bin/FileNames/AsCollection">
                                 <thead>
                                     <tr id="tableHeadRow">
                                         <th data-field="id" data-formatter="jFGlobalSerialColumn">#</th>
-                                        
+
                                         <th data-field="FileName">File Name</th>
 
 
@@ -468,12 +468,16 @@
             ].join('')
         }
 
-        function detailFormatter(index, row) {
-            var html = []
-            $.each(row, function (key, value) {
-                html.push('<p><b>' + key + ':</b> ' + value + '</p>')
-            })
-            return html.join('')
+         function detailFormatter(index, row) {
+            // let jVarLocalDataAsArray = await jFFetchData({ inTableName: row.FileName });
+            // console.log("row : ", row, jVarLocalDataAsArray);
+            return  `<table id="SubTableId"></table>`;
+        };
+
+        let jFFetchData = async ({ inTableName }) => {
+            let jVarLocalFetchUrl = `/bin/${inTableName}/DataOnly`;
+            const response = await fetch(jVarLocalFetchUrl);
+            return await response.json();
         };
 
         function priceFormatter(data) {

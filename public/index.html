@@ -286,41 +286,41 @@
 
         <ul class="sidebar-nav" id="sidebar-nav">
             <li class="nav-item">
-                <a  class="nav-link collapsed" href="../../Dashboard/Dashboard.html">
+                <a class="nav-link collapsed" href="../../Dashboard/Dashboard.html">
                     <i class="bi-house-door-fill"></i>
                     <span>Home</span>
                 </a>
             </li>
 
             <li class="nav-item">
-                <a  class="nav-link collapsed" href="./Accounts/index.html" >
+                <a class="nav-link collapsed" href="./Accounts/index.html">
                     <i class="bi bi-person-fill-add"></i></i>
                     <span>Accounts</span>
                 </a>
             </li>
 
             <li class="nav-item">
-                <a  class="nav-link collapsed" href="./Garments/Dashboard/Dashboard.html" >
+                <a class="nav-link collapsed" href="./Garments/Dashboard/Dashboard.html">
                     <i class="bi bi-person-fill-add"></i></i>
                     <span>Maguvaa</span>
                 </a>
             </li>
 
             <li class="nav-item">
-                <a  class="nav-link collapsed" href="./Garments/AddOns/Reports/index.html" >
+                <a class="nav-link collapsed" href="./Garments/AddOns/Reports/index.html">
                     <i class="bi bi-person-fill-add"></i></i>
                     <span>Reports</span>
                 </a>
             </li>
 
             <li class="nav-item">
-                <a  class="nav-link collapsed" href="./Stiching/POS/ShowAll/ShowAll.html" >
+                <a class="nav-link collapsed" href="./Stiching/POS/ShowAll/ShowAll.html">
                     <i class="bi bi-person-fill-add"></i></i>
                     <span>Stiching</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a  class="nav-link collapsed" href="./ToLocalStroge/ShowAll/ShowAll.html" >
+                <a class="nav-link collapsed" href="./ToLocalStroge/ShowAll/ShowAll.html">
                     <i class="bi bi-person-fill-add"></i></i>
                     <span>ToLocalStroge</span>
                 </a>
@@ -328,35 +328,34 @@
 
             <!-- End Dashboard Nav -->
 
-        
+
 
             <!-- End Create Nav -->
 
-            
-            
+
+
             <!-- End Today Qrcodes Nav -->
         </ul>
     </aside>
     <!-- End Sidebar-->
 
-    
+
     <main id="main" class="main">
 
-        <button type="button" class="btn btn-primary" id="liveToastBtn">Show live toast</button>
+        <table id="table"></table>
 
-        <div class="toast-container position-fixed bottom-0 end-0 p-3">
-          <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-            <div class="toast-header">
-              <img src="..." class="rounded me-2" alt="...">
-              <strong class="me-auto">Bootstrap</strong>
-              <small>11 mins ago</small>
-              <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-            </div>
-            <div class="toast-body">
-              Hello, world! This is a toast message.
-            </div>
-          </div>
-        </div>
+        <table id="table1">
+            <thead>
+                <th>#</th>
+                <th data-field="ItemGroup">Item Group</th>
+                <th data-field="ItemName">Item Name</th>
+                <th>Add Ons</th>
+                <th data-field="Rate">Rate</th>
+                <th data-field="Pcs">Pcs</th>
+                <th data-field="Factory">Factory</th>
+                <th data-field="Delivery">Delivery</th>
+            </thead>
+        </table>
     </main>
     <!-- End #main -->
 
@@ -369,13 +368,80 @@
     </footer>
     <!-- End Footer -->
     <!-- Vendor JS Files -->
-    <script>
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+        integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+        crossorigin="anonymous"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
-    
+    <script src="https://unpkg.com/bootstrap-table@1.22.1/dist/bootstrap-table.min.js"></script>
+
+    <script>
+        var $table = $('#table1')
+
+        function buildTable($el, cells, rows) {
+            var i; var j; var row
+            var columns = []
+            var data = []
+
+            for (i = 0; i < cells; i++) {
+                columns.push({
+                    field: 'field' + i,
+                    title: 'Cell' + i,
+                    sortable: true
+                })
+            }
+            for (i = 0; i < rows; i++) {
+                row = {}
+                for (j = 0; j < cells; j++) {
+                    row['field' + j] = 'Row-' + i + '-' + j
+                }
+                data.push(row);
+                data.push(row);
+                data.push(row);
+
+            }
+            $el.bootstrapTable({
+                columns: columns,
+                data: data,
+                detailView: cells > 1,
+                onExpandRow: function (index, row, $detail) {
+                    console.log("aaaa : ", $detail.html = "aaaaaaaaaa");
+                    /* eslint no-use-before-define: ["error", { "functions": false }]*/
+                    // expandTable($detail, cells - 1)
+                }
+            })
+        }
+
+        function expandTable($detail, cells) {
+            buildTable($detail.html('<table></table>').find('table'), cells, 1)
+        }
+        // buildTable($table, 8, 1)
+
+        $table.bootstrapTable({
+            data: [{
+                "ItemGroup": "Men",
+                "ItemName": "M Shirt DW",
+                "Rate": 60,
+                "Pcs": 6,
+                "Factory": "Vizag",
+                "Delivery": "17-04-2024"
+            },
+            {
+                "ItemGroup": "Women",
+                "ItemName": "W Shirt DW",
+                "Rate": 60,
+                "Pcs": 1,
+                "Factory": "Vizag",
+                "Delivery": "17-04-2024"
+            }]
+        })
+    </script>
+
     <!-- Template Main JS File -->
     <script src="./assets/js/main.js"></script>
 </body>
