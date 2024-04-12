@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>To factory Dashboard</title>
+    <title>KS Items</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -286,71 +286,196 @@
 
         <ul class="sidebar-nav" id="sidebar-nav">
             <li class="nav-item">
-                <a  class="nav-link collapsed" href="../../Dashboard/Dashboard.html">
-                    <i class="bi-house-door-fill"></i>
+                <a class="nav-link collapsed" href="../../../../index.html">
+                    <i class="bi bi-house-door-fill"></i>
                     <span>Home</span>
                 </a>
             </li>
 
             <li class="nav-item">
-                <a  class="nav-link collapsed" href="./Accounts/index.html" >
-                    <i class="bi bi-person-fill-add"></i></i>
-                    <span>Accounts</span>
+                <a class="nav-link collapsed" href="../../index.html">
+                    <i class="bi bi-arrow-90deg-left"></i>
+                    <span>Parent</span>
                 </a>
             </li>
 
-            <li class="nav-item">
-                <a  class="nav-link collapsed" href="./Garments/Dashboard/Dashboard.html" >
-                    <i class="bi bi-person-fill-add"></i></i>
-                    <span>Maguvaa</span>
-                </a>
-            </li>
-
-            <li class="nav-item">
-                <a  class="nav-link collapsed" href="./Garments/AddOns/Reports/index.html" >
-                    <i class="bi bi-person-fill-add"></i></i>
-                    <span>Reports</span>
-                </a>
-            </li>
-
-            <li class="nav-item">
-                <a  class="nav-link collapsed" href="./Stiching/POS/ShowAll/ShowAll.html" >
-                    <i class="bi bi-person-fill-add"></i></i>
-                    <span>Stiching</span>
-                </a>
-            </li>
 
             <!-- End Dashboard Nav -->
 
-        
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="../Create/Create.html">
+                    <i class="bi bi-database-add"></i></i>
+                    <span>Create</span>
+                </a>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link collapsed" href="../ShowAll/ShowAll.html">
+                    <i class="bi bi-table"></i></i>
+                    <span>ShowAll</span>
+                </a>
+            </li>
 
+            <li class="nav-item ">
+                <a class="nav-link " href="#">
+                    <i class="bi bi-table"></i></i>
+                    <span>FooterInsert</span>
+                </a>
+            </li>
+
+            
+            <li class="nav-item">
+                <a class="nav-link collapsed" data-bs-target="#delete-nav" data-bs-toggle="collapse" href="#">
+                    <i class="bi bi-trash"></i><span>Delete</span><i class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id="delete-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                    <li>
+                        <a href="../Delete/Delete-simple/Delete.html">
+                            <i class="bi bi-circle"></i><span>Simple</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../Delete/Delete-withAlert/Delete.html">
+                            <i class="bi bi-circle"></i><span>With Alert</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../Delete/Delete-BSToast/Delete.html">
+                            <i class="bi bi-circle"></i><span>With BS-Toast</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../Delete/Delete-SAToast/Delete.html">
+                            <i class="bi bi-circle"></i><span>With sweetAlert</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../Delete/MultiSelect/MultiSelect.html">
+                            <i class="bi bi-circle"></i><span>Multi Select</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" data-bs-target="#Alter-nav" data-bs-toggle="collapse" href="#">
+                    <i class="bi bi-pencil-square"></i><span>Alter</span><i class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id="Alter-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                    <li>
+                        <a href="../Alter-ShowAll/Alter-ShowAll.html">
+                            <i class="bi bi-circle"></i><span>ShowAll</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="../Alter/Alter.html">
+                            <i class="bi bi-circle"></i><span>Alter</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
             <!-- End Create Nav -->
 
-            
-            
+            <!-- End  DCALL Nav -->
+
+            <!-- End  DCALL Nav -->
+
             <!-- End Today Qrcodes Nav -->
         </ul>
     </aside>
     <!-- End Sidebar-->
 
-    
     <main id="main" class="main">
 
-        <button type="button" class="btn btn-primary" id="liveToastBtn">Show live toast</button>
+        <div class="pagetitle">
+            <h1> <a href="#" id="RefreshBSTableId">ShowAll</a></h1>
 
-        <div class="toast-container position-fixed bottom-0 end-0 p-3">
-          <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-            <div class="toast-header">
-              <img src="..." class="rounded me-2" alt="...">
-              <strong class="me-auto">Bootstrap</strong>
-              <small>11 mins ago</small>
-              <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-            </div>
-            <div class="toast-body">
-              Hello, world! This is a toast message.
-            </div>
-          </div>
+            <nav>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="../../../../index.html">Home</a></li>
+                    <li class="breadcrumb-item"><a href="../../../index.html">Accounts</a></li>
+                    <li class="breadcrumb-item"><a href="../../index.html">Masters</a></li>
+                    <li class="breadcrumb-item active"> <a href="#" onclick="jF1()">Accounts</a></li>
+                </ol>
+            </nav>
         </div>
+
+        <div class="modal fade" id="largeModal" tabindex="-1">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Show Items</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <input type="text" id="customSearch" class="form-control mb-3" autofocus>
+
+                        <table id="ModalTable" data-search="true" data-click-to-select="true"
+                            data-search-selector="#customSearch">
+                            <thead>
+                                <tr>
+                                    <th data-field="pk">#</th>
+                                    <th data-field="AccountName" data-formatter="jFItemNameATag">AccountName</th>
+                                    <th data-field="ItemName" data-formatter="jFItemNameATag">Item Name</th>
+                                    <th data-field="DryWashRate">Rate</th>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+
+                    </div>
+                </div>
+            </div>
+        </div><!-- End Large Modal-->
+
+        <section class="section">
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-body">
+
+                            <div class="spinner-border" id="SpinnerId" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                            <table id="table" data-show-footer="true">
+                                <thead>
+                                    <tr id="tableHeadRow">
+                                        <th data-field="id" data-formatter="jFGlobalSerialColumn">#</th>
+
+                                        <th data-field="AccountName">Account Name</th>
+                                        <th data-field="BSGroup">BS Group</th>
+                                        <th data-field="SubGroup">SubGroup</th>
+                                        <th>Options</th>
+                                    </tr>
+                                </thead>
+                                <tfoot>
+                                    <tr>
+                                        <th>
+                                        </th>
+                                        <th>
+                                            <div class="input-group">
+                                                <input type="text" class="form-control" id="TableFooterAccountNameId"
+                                                    autofocus>
+                                                <button class="btn btn-outline-secondary" type="button"
+                                                    id="TableFooterAccountNameSearchButtonId">Search</button>
+                                            </div>
+                                        </th>
+                                        <th>
+                                            <input type="text" class="form-control" id="TableFooterBSGroupId">
+                                        </th>
+                                        <th></th>
+                                        <th> <button class="btn btn-outline-success" type="button"
+                                                id="TableFooterSaveButtonId">Save</button></th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </main>
     <!-- End #main -->
 
@@ -364,14 +489,87 @@
     <!-- End Footer -->
     <!-- Vendor JS Files -->
     <script>
+
+        function jFGlobalSerialColumn(value, row, index) {
+            return index + 1;
+        };
+
+        function operateFormatter(value, row, index) {
+            return [
+                `<a class="like" href="../../Scan/ShowAlert/ShowAlert.html?BranchName=${row.BranchName}&VoucherRef=${row.pk}" title="Scan">`,
+                '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-qr-code" viewBox="0 0 16 16">',
+                '<path d="M2 2h2v2H2V2Z"/>',
+                '<path d="M6 0v6H0V0h6ZM5 1H1v4h4V1ZM4 12H2v2h2v-2Z"/>',
+                '<path d="M6 10v6H0v-6h6Zm-5 1v4h4v-4H1Zm11-9h2v2h-2V2Z"/>',
+                '<path d="M10 0v6h6V0h-6Zm5 1v4h-4V1h4ZM8 1V0h1v2H8v2H7V1h1Zm0 5V4h1v2H8ZM6 8V7h1V6h1v2h1V7h5v1h-4v1H7V8H6Zm0 0v1H2V8H1v1H0V7h3v1h3Zm10 1h-1V7h1v2Zm-1 0h-1v2h2v-1h-1V9Zm-4 0h2v1h-1v1h-1V9Zm2 3v-1h-1v1h-1v1H9v1h3v-2h1Zm0 0h3v1h-2v1h-1v-2Zm-4-1v1h1v-2H7v1h2Z"/>',
+                '<path d="M7 12h1v3h4v1H7v-4Zm9 2v2h-3v-1h2v-1h1Z"/>',
+                '</svg>',
+                '</a>  '
+            ].join('')
+        }
+
+        function detailFormatter(index, row) {
+            var html = []
+            $.each(row, function (key, value) {
+                html.push('<p><b>' + key + ':</b> ' + value + '</p>')
+            })
+            return html.join('')
+        };
+
+        function jfFooter(data, row, index) {
+            console.log("data--:", data);
+            console.log("row--:", row);
+            console.log("index--:", index);
+            var field = this.field
+            return row + 'kkkk'
+        }
     </script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+
+    <script>
+        function ItemsFormatter(value, row, index) {
+            // console.log("row:", row);
+            return [
+                `<a class="like btn btn-primary" href="../../Scan/DcQrs/DcQrs.html?VoucherRef=${row.pk}" title="Show">`,
+                '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">',
+                '<path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z"/>',
+                '<path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"/>',
+                '</svg>',
+                ' ',
+                row.ItemDetails,
+                '</a>',
+
+            ].join('')
+
+        };
+
+        jFItemNameATag = function (value, row, index) {
+            return [
+                `<a href="#">`,
+                value,
+                `</a>`
+            ].join('');
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
-    
+    <script src="https://unpkg.com/bootstrap-table@1.22.1/dist/bootstrap-table.min.js"></script>
+
+    <script src="https://unpkg.com/tableexport.jquery.plugin/tableExport.min.js"></script>
+    <script
+        src="https://unpkg.com/bootstrap-table@1.22.1/dist/extensions/export/bootstrap-table-export.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"
+        integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
     <!-- Template Main JS File -->
     <script src="./assets/js/main.js"></script>
+    <script type="module" src="./Js/StartFunc.js"></script>
 </body>
 
 </html>
