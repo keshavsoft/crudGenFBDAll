@@ -453,13 +453,24 @@
 
             <form href="#" class="form-horizontal needs-validation" id="FormId">
               <div class="row">
+                <div class="col-md-12">
+                  <label class="col-md-4 col-form-label">Bill No</label>
+
+                  <div class="col-md-8">
+                    <input kvs1="" id="BillNumber" name="BillNumber" data-clienteval="" type="number" min="0" readonly
+                      max="100000" step="1" class="form-control" autocomplete="off">
+                    <div class="invalid-feedback">
+                      Should not be Empty!!
+                    </div>
+                  </div>
+                </div>
 
                 <div class="col-md-12">
                   <label class="col-md-4 col-form-label">Date</label>
 
                   <div class="col-md-8">
-                    <input kvs1="" id="Date" name="Date" data-clienteval="" type="Date"
-                      class="form-control" placeholder="Enter Customer Name" autocomplete="off" required >
+                    <input kvs1="" id="Date" name="Date" data-clienteval="" type="Date" class="form-control"
+                      placeholder="Enter Customer Name" autocomplete="off" required>
                     <div class="invalid-feedback">
                       Should not be Empty!!
                     </div>
