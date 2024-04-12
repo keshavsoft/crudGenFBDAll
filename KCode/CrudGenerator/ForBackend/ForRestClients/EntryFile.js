@@ -44,6 +44,7 @@ let StartFunc = ({ inTablesCollection, inTo, inFrom }) => {
     });
 
     LocalFuncForTestEndPoint({ inTablesCollection, inTo, inFrom });
+    LocalFuncForgetEndPoints({ inTablesCollection, inTo, inFrom });
 };
 
 let LocalFuncForTestEndPoint = ({ inTablesCollection, inTo, inFrom }) => {
@@ -126,8 +127,9 @@ let LocalFuncForTestEndPoint = ({ inTablesCollection, inTo, inFrom }) => {
 
 
 };
-let LocalFuncForTestEndPoint_18Feb2024 = ({ inTablesCollection, inTo, inFrom }) => {
-    let LocalTypeName = "restClients/testEndPoint";
+
+let LocalFuncForgetEndPoints = ({ inTablesCollection, inTo, inFrom }) => {
+    let LocalTypeName = "restClients/getEndPoints";
     let LocalTo = inTo;
     let LocalFrom = inFrom;
 
@@ -135,34 +137,25 @@ let LocalFuncForTestEndPoint_18Feb2024 = ({ inTablesCollection, inTo, inFrom }) 
 
     let LocalFirstLevelFolders = LocalTablesCollection.children.filter(element => {
         return "children" in element === false;
-    });
+    }).filter(element => element.name.endsWith(".json"))
 
-    StartFuncCommonFuncs({
-        inTypeName: LocalTypeName,
-        inFilesCollection: LocalFirstLevelFolders,
-        inTo: LocalTo, inFrom: LocalFrom,
-        inFileName: "1GetSchema.http"
-    });
+    LocalFirstLevelFolders.forEach(element => {
+        let LoopInsideFileName = path.parse(element.name).name;
+        let LocalFilePath = `${LocalTo}/${LoopInsideFileName}/${LocalTypeName}`;
 
-    StartFuncCommonFuncs({
-        inTypeName: LocalTypeName,
-        inFilesCollection: LocalFirstLevelFolders,
-        inTo: LocalTo, inFrom: LocalFrom,
-        inFileName: "2ReturnRows.http"
-    });
+        let LoopInsideFiles = fs.readdirSync(LocalFilePath, { withFileTypes: true })
+            .filter(item => !item.name.endsWith(".json"))
+            .map(item => item.name);
 
-    StartFuncCommonFuncs({
-        inTypeName: LocalTypeName,
-        inFilesCollection: LocalFirstLevelFolders,
-        inTo: LocalTo, inFrom: LocalFrom,
-        inFileName: "3InsertNewRow.http"
-    });
 
-    StartFuncCommonFuncs({
-        inTypeName: LocalTypeName,
-        inFilesCollection: LocalFirstLevelFolders,
-        inTo: LocalTo, inFrom: LocalFrom,
-        inFileName: "4InsertMultipleRows.http"
+        LoopInsideFiles.forEach(LoopFile => {
+            let LocalFileData = fs.readFileSync(`${LocalFilePath}/${LoopFile}`);
+
+            let LocalFileDataReplaced = LocalFileData.toString().replaceAll("ksSample", LoopInsideFileName);
+            let LocalBinReplaced = LocalFileDataReplaced.replaceAll(LocalFrom, LocalTo);
+
+            fs.writeFileSync(`${LocalFilePath}/${LoopFile}`, LocalBinReplaced);
+        });
     });
 };
 
