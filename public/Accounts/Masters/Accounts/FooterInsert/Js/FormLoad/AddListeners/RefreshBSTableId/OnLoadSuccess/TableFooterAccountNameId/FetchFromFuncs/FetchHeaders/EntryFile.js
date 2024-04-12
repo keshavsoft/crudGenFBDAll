@@ -7,9 +7,12 @@ let StartFunc = () => {
 };
 
 let jFLocalPrepareBody = () => {
+    let jVarLocalTableFooterSubGroup = jFLocalTableFooterSubGroupId();
+    
     return {
         "AccountName": LocalFuncForjVarLocalTableFooterAccountNameId(),
-        "BSGroup": LocalFuncForjVarLocalTableFooterBSGroupId()
+        "BSGroup": LocalFuncForjVarLocalTableFooterBSGroupId(),
+        "SubGroup" : jVarLocalTableFooterSubGroup
     }
 };
 
@@ -29,6 +32,23 @@ let LocalFuncForjVarLocalTableFooterAccountNameId = () => {
 
     if (jVarLocalTableFooterAccountNameId === null === false) {
         return jVarLocalTableFooterAccountNameId.value.trim();
+    };
+};
+
+let LocalFuncForjVarLocalTableFooterSubGroupId = () => {
+    let jVarLocalTableFooterAccountNameId = document.getElementById('TableFooterSubGroupId');
+
+    if (jVarLocalTableFooterAccountNameId === null === false) {
+        return jVarLocalTableFooterAccountNameId.value.trim();
+    };
+};
+
+let jFLocalTableFooterSubGroupId = () => {
+    let jVarLocalTableFooterSubGroupId = 'TableFooterSubGroupId'
+    let jVarLocalHtmlId = document.getElementById(jVarLocalTableFooterSubGroupId);
+
+    if (jVarLocalHtmlId === null === false) {
+    return jVarLocalHtmlId.value.trim();
     };
 };
 
