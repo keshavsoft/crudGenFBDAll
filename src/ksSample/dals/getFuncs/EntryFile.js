@@ -6,6 +6,7 @@ import { StartFunc as StartFunFilterDataByKeyId } from '../../kLowDb/ReadFile/Fi
 
 import { StartFunc as StartFuncGetTableSchema } from '../../kLowDb/GetTableSchema/GetColumns.js';
 import { StartFunc as StartFuncColumnsAsObject } from "../../kLowDb/GetTableSchema/ColumnsAsObject.js";
+import { StartFunc as StartFunMaxWithKey } from '../../kLowDb/ReadFile/MaxWithKey.js';
 
 let GetFunc = () => {
     return StartFuncreadFile();
@@ -60,9 +61,14 @@ let GetFilterDataFunc = async ({ inKey, inValue }) => {
 
 };
 
+let GetMaxWithKeyFunc = async ({ inKey }) => {
+    return await StartFunMaxWithKey({ inKey });
+
+};
+
 export {
     GetFunc, GetDataOnlyFunc, GetFromModalFunc,
     GetFromModalUuidFunc, GetFromModalUuidAndTSFunc,
     GetIdFunc, GetBodyCheckFunc, GetRowCountFunc, GetFilterDataFunc,
-    GetColumnsSchemaFunc
+    GetColumnsSchemaFunc,GetMaxWithKeyFunc
 };

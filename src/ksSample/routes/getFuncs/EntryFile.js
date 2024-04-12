@@ -5,7 +5,7 @@ var router = express.Router();
 import {
     GetFunc, GetDataOnlyFunc, GetFromModalUuidFunc, GetFromModalUuidAndTSFunc,
     GetFromModalFunc, GetIdFunc, GetBodyCheckFunc, GetRowCountFunc,
-    GetColumnsSchemaFunc,GetFilterDataFunc
+    GetColumnsSchemaFunc,GetFilterDataFunc,GetMaxWithKeyFunc
 } from '../../controllers/getFuncs/EntryFile.js';
 
 router.get('/FromModal', GetFromModalFunc);
@@ -19,6 +19,7 @@ router.get('/RowCount', GetRowCountFunc);
 
 router.get('/:id', GetIdFunc);
 router.get('/FilterData/:Key/:Value', GetFilterDataFunc);
+router.get('/Max/:Key', GetMaxWithKeyFunc);
 
 // BodyCheck
 

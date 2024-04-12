@@ -22,5 +22,9 @@
   "GSTNumber": {
     "type": "STRING",
     "allowNull": true
+  },
+  "BillNumber": {
+    "type": "INTEGER",
+    "allowNull": false
   }
 }

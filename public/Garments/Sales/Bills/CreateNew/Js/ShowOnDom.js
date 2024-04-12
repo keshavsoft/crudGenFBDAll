@@ -1,7 +1,9 @@
+import { StartFunc as StartFuncBillNumber } from "./fetch.js";
+
 const StartFunc = () => {
     jFShowDateTime()
+    StartFuncBillNumber();
 };
-export { StartFunc };
 
 const jFShowDateTime = () => {
     var sevenDaysAgo = new Date();
@@ -11,3 +13,5 @@ const jFShowDateTime = () => {
 
     document.getElementById('Date').value = formattedSevenDaysAgo;
 };
+
+export { StartFunc }
