@@ -287,14 +287,14 @@
 
         <ul class="sidebar-nav" id="sidebar-nav">
             <li class="nav-item">
-                <a class="nav-link collapsed" href="../../../../index.html">
+                <a class="nav-link collapsed" href="../../../../../index.html">
                     <i class="bi bi-house-door-fill"></i>
                     <span>Home</span>
                 </a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="../../index.html">
+                <a class="nav-link collapsed" href="../../../index.html">
                     <i class="bi bi-arrow-90deg-left"></i>
                     <span>Parent</span>
                 </a>
@@ -304,40 +304,41 @@
             <!-- End Dashboard Nav -->
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="../Create/Create.html">
+                <a class="nav-link collapsed" href="../../Create/Create.html">
                     <i class="bi bi-database-add"></i></i>
                     <span>Create</span>
                 </a>
             </li>
             <li class="nav-item ">
-                <a class="nav-link collapsed" href="../ShowAll/ShowAll.html">
+                <a class="nav-link collapsed" href="../../ShowAll/ShowAll.html">
                     <i class="bi bi-table"></i></i>
                     <span>ShowAll</span>
                 </a>
             </li>
 
             <li class="nav-item ">
-                <a class="nav-link " data-bs-target="#Footer-nav" data-bs-toggle="collapse" href="#">
+                <a class="nav-link collapsed" data-bs-target="#Footer-nav" data-bs-toggle="collapse"  href="#">
                     <i class="bi bi-table"></i></i>
-                    <span>FooterInsert</span>
+                    <span>FooterInsert</span><i class="bi bi-chevron-down ms-auto"></i>
                 </a>
-                <ul id="Footer-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-                    <li>
-                        <a href="./FooterInsertSimple/FooterInsert.html">
-                            <i class="bi bi-circle"></i><span>SimpleFooterInsert</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="./FooterInsertSearch/FooterInsert.html">
-                            <i class="bi bi-circle"></i><span>SearchFooterInsert</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="./FooterInsertSuggestion/FooterInsert.html">
-                            <i class="bi bi-circle"></i><span>FooterInsertSuggestion</span>
-                        </a>
-                    </li>
-                </ul>
+                    <ul id="Footer-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                        <li>
+                            <a href="../FooterInsertSimple/FooterInsert.html">
+                                <i class="bi bi-circle"></i><span>SimpleFooterInsert</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="../FooterInsertSearch/FooterInsert.html">
+                                <i class="bi bi-circle"></i><span>SearchFooterInsert</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="bi bi-circle"></i><span>FooterInsertSuggestion</span>
+                            </a>
+                        </li>
+                    </ul>
+               
             </li>
 
             
@@ -347,27 +348,27 @@
                 </a>
                 <ul id="delete-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                     <li>
-                        <a href="../Delete/Delete-simple/Delete.html">
+                        <a href="../../Delete/Delete-simple/Delete.html">
                             <i class="bi bi-circle"></i><span>Simple</span>
                         </a>
                     </li>
                     <li>
-                        <a href="../Delete/Delete-withAlert/Delete.html">
+                        <a href="../../Delete/Delete-withAlert/Delete.html">
                             <i class="bi bi-circle"></i><span>With Alert</span>
                         </a>
                     </li>
                     <li>
-                        <a href="../Delete/Delete-BSToast/Delete.html">
+                        <a href="../../Delete/Delete-BSToast/Delete.html">
                             <i class="bi bi-circle"></i><span>With BS-Toast</span>
                         </a>
                     </li>
                     <li>
-                        <a href="../Delete/Delete-SAToast/Delete.html">
+                        <a href="../../Delete/Delete-SAToast/Delete.html">
                             <i class="bi bi-circle"></i><span>With sweetAlert</span>
                         </a>
                     </li>
                     <li>
-                        <a href="../Delete/MultiSelect/MultiSelect.html">
+                        <a href="../../Delete/MultiSelect/MultiSelect.html">
                             <i class="bi bi-circle"></i><span>Multi Select</span>
                         </a>
                     </li>
@@ -380,12 +381,12 @@
                 </a>
                 <ul id="Alter-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                     <li>
-                        <a href="../Alter-ShowAll/Alter-ShowAll.html">
+                        <a href="../../Alter-ShowAll/Alter-ShowAll.html">
                             <i class="bi bi-circle"></i><span>ShowAll</span>
                         </a>
                     </li>
                     <li>
-                        <a href="../Alter/Alter.html">
+                        <a href="../../Alter/Alter.html">
                             <i class="bi bi-circle"></i><span>Alter</span>
                         </a>
                     </li>
@@ -403,15 +404,18 @@
     <!-- End Sidebar-->
 
     <main id="main" class="main">
+        <datalist id="AccountNamesDataListId">
+            <option>Keshav</option>
+        </datalist>
 
         <div class="pagetitle">
             <h1> <a href="#" id="RefreshBSTableId">ShowAll</a></h1>
 
             <nav>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="../../../../index.html">Home</a></li>
-                    <li class="breadcrumb-item"><a href="../../../index.html">Accounts</a></li>
-                    <li class="breadcrumb-item"><a href="../../index.html">Masters</a></li>
+                    <li class="breadcrumb-item"><a href="../../../../../index.html">Home</a></li>
+                    <li class="breadcrumb-item"><a href="../../../../index.html">Accounts</a></li>
+                    <li class="breadcrumb-item"><a href="../../../index.html">Masters</a></li>
                     <li class="breadcrumb-item active"> <a href="#" onclick="jF1()">Accounts</a></li>
                 </ol>
             </nav>
@@ -473,7 +477,7 @@
                                         </th>
                                         <th>
                                             <div class="input-group">
-                                                <input type="text" class="form-control" id="TableFooterAccountNameId"
+                                                <input type="text" class="form-control" id="TableFooterAccountNameId" list="AccountNamesDataListId"
                                                     autofocus>
                                                 <button class="btn btn-outline-secondary" type="button"
                                                     id="TableFooterAccountNameSearchButtonId">Search</button>
