@@ -3,8 +3,10 @@ import {
     PostFromModalFunc as PostFromModalFuncRepo,
     PostUploadFunc as PostUploadFuncRepo,
     PostGetSelectColumnsFunc as PostGetSelectColumnsFuncRepo,
-    PostUploadFromModalFunc as PostUploadFromModalFuncRepo,PostFilterFunc as PostFilterFuncRepo,
-    PostWithKeysCheckFunc as PostWithKeysCheckFuncRepo
+    PostUploadFromModalFunc as PostUploadFromModalFuncRepo,
+    PostFilterFunc as PostFilterFuncRepo,
+    PostWithKeysCheckFunc as PostWithKeysCheckFuncRepo,
+    PostFuncGenUuId as PostFuncGenUuIdRepo
 } from '../../repos/postFuncs/EntryFile.js';
 
 import {
@@ -18,6 +20,20 @@ let PostFunc = async (req, res) => {
     // let LocalModalObject = new ClassSample({ ...LocalBody });
 
     let LocalFromRepo = await PostFuncRepo({ ...LocalBody });
+
+    if (LocalFromRepo.KTF === false) {
+        res.status(500).send(LocalFromRepo.KReason);
+        return;
+    };
+
+    res.json(LocalFromRepo);
+};
+
+let PostFuncGenUuId = async (req, res) => {
+    let LocalBody = req.body;
+    // let LocalModalObject = new ClassSample({ ...LocalBody });
+
+    let LocalFromRepo = await PostFuncGenUuIdRepo({ ...LocalBody });
 
     if (LocalFromRepo.KTF === false) {
         res.status(500).send(LocalFromRepo.KReason);
@@ -113,5 +129,5 @@ export {
     PostFunc, PostFromModalFunc,
     PostUploadFunc, PostGetSelectColumnsFunc,
      PostUploadFromModalFunc, PostUploadImageFunc,
-     PostFilterFunc,PostWithKeysCheckFunc
+     PostFilterFunc,PostWithKeysCheckFunc,PostFuncGenUuId
 };
