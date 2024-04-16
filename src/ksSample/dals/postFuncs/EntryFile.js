@@ -5,9 +5,14 @@ import { StartFunc as StartFuncImportToFile } from '../../kLowDb/WriteFileList/I
 import { StartFunc as StartFuncUploadToFile } from '../../kLowDb/WriteFileList/UploadToFile.js';
 import { StartFunc as StartFuncWriteTofile } from '../../kLowDb/WriteTofile/WithChecking/StartFunc.js';
 import { StartFunc as StartFuncWriteFileKeysCheck } from '../../kLowDb/WriteFile/WithChecking/StartFunc.js';
+import { StartFunc as StartFuncGenUuId } from '../../kLowDb/WriteFile/GenUuId.js';
 
 let PostFunc = (inPostBody) => {
     return StartFuncWriteTofile({ inDataToInsert: inPostBody });
+};
+
+let PostFuncGenUuId = (inPostBody) => {
+    return StartFuncGenUuId({ inDataToInsert: inPostBody });
 };
 
 let PostFromModalFunc = ({ LocalBodyAsModal }) => {
@@ -32,6 +37,7 @@ let PostWithKeysCheckFunc = ({ inBodyKeys }) => {
 
 export {
     PostFunc, PostFromModalFunc,
-    PostUploadFunc, PostGetSelectColumnsFunc, 
-    PostUploadFromModalFunc,PostWithKeysCheckFunc
+    PostUploadFunc, PostGetSelectColumnsFunc,
+    PostUploadFromModalFunc, PostWithKeysCheckFunc,
+    PostFuncGenUuId
 };

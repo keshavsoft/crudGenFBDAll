@@ -3,7 +3,8 @@ import {
     PostFromModalFunc as PostFromModalFuncDal,
     PostUploadFunc as PostUploadFuncDal, PostGetSelectColumnsFunc as PostGetSelectColumnsFuncDal,
     PostUploadFromModalFunc as PostUploadFromModalFuncDal,
-    PostWithKeysCheckFunc as PostWithKeysCheckFuncDal
+    PostWithKeysCheckFunc as PostWithKeysCheckFuncDal,
+    PostFuncGenUuId as PostFuncGenUuIdDal
 } from '../../dals/postFuncs/EntryFile.js';
 
 import {
@@ -19,6 +20,14 @@ let PostFunc = async (inPostBody) => {
     };
 
     return PostFuncDal(inPostBody);
+};
+
+let PostFuncGenUuId = async (inPostBody) => {
+    if (ConfigJson.isSequelize) {
+        return PostFuncDalsForSequelize(inPostBody);
+    };
+
+    return PostFuncGenUuIdDal(inPostBody);
 };
 
 let PostFilterFunc = async (inModalObject) => {
@@ -53,5 +62,5 @@ export {
     PostFunc, PostFromModalFunc,
     PostUploadFunc, PostGetSelectColumnsFunc, 
     PostUploadFromModalFunc, PostFilterFunc,
-    PostWithKeysCheckFunc
+    PostWithKeysCheckFunc,PostFuncGenUuId
 };
