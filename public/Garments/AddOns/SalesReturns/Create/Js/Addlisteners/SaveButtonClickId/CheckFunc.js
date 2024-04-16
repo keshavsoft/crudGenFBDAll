@@ -1,9 +1,13 @@
 let StartFunc = async () => {
     let jVarLocalQrCode = jFLocalQrCode();
-    let jVarLocalUrl = `/bin/BillsQrCode/${jVarLocalQrCode}`;
+    let jVarLocalUrl = `/bin/BillsQrCode/FilterData/pk/${jVarLocalQrCode}`;
     const response = await fetch(jVarLocalUrl);
-    console.log("response : ", response);
-    return false;
+
+    if (response.status === 200) {
+        return true;
+    } else {
+        swal.fire({ icon: "erroe", title: "Not Sale" })
+    }
 };
 
 let jFLocalQrCode = () => {
