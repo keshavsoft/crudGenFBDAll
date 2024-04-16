@@ -25,11 +25,7 @@ let GetDataOnlyFunc = () => {
 let GetIdFunc = async ({ inId }) => {
     let LocalFromLowDb = await StartFunreadFileById({ inId });
 
-    if (LocalFromLowDb === false) {
-        return false;
-    };
-
-    return LocalFromLowDb.JsonData;
+    return LocalFromLowDb;
 };
 
 let GetFromModalFunc = () => {

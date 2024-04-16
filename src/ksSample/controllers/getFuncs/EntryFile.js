@@ -26,6 +26,12 @@ let GetIdFunc = async (req, res) => {
     let LocalIfFromParam = LocalParams.id;
 
     let LocalFromRepo = await GetIdFuncRepo({ inId: LocalIfFromParam });
+    
+    if (LocalFromRepo.KTF === false) {
+        res.status(500).send(LocalFromRepo.KReason);
+        return;
+    };
+
     res.json(LocalFromRepo);
 };
 
