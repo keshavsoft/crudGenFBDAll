@@ -1,6 +1,6 @@
 let StartFunc = ({ inData }) => {
     let LocalData = inData;
-    console.log("inData:", inData);
+    // console.log("inData:", inData);
     const url = new URL(window.location.href);
     const params1 = new URLSearchParams(url.search);
     let NewURl = new URL("../ShowAll/ShowAll.html", url);

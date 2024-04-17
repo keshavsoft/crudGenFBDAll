@@ -6,7 +6,7 @@ let StartFunc = () => {
     if (jVarLocalNewSaveId === null === false) {
         jVarLocalNewSaveId.addEventListener("keypress", (event) => {
             if (event.keyCode === 13) { // key code of the keybord key
-                StartFuncButtonClickFunc()
+                StartFuncButtonClickFunc();
             };
 
         });

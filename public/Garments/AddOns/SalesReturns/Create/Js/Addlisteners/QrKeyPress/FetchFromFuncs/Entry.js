@@ -7,7 +7,7 @@ let StartFunc = async ({ inRowpk }) => {
 
     if (jVarLocalDataNeeded !== null) {
         if (jVarLocalDataNeeded) {
-            StartFuncAfterFetch({ inData: jVarLocalDataNeeded });
+            StartFuncAfterFetch({ inData: jVarLocalDataNeeded.JsonData });
         };
     };
 };
