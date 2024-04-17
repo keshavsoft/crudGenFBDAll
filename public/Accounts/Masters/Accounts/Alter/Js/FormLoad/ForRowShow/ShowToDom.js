@@ -1,5 +1,7 @@
 let StartFunc = ({ inDataToShow }) => {
     let data = inDataToShow;
+
+    console.log("data : ", data);
     jFLocalToInputAccountNameId(data.AccountName);
     jFLocalToInputBSGroupId(data.BSGroup);
     jFLocalToInputSubGroupId(data.SubGroup);
@@ -26,11 +28,11 @@ let jFLocalToInputBSGroupId = (inValue) => {
 
 let jFLocalToInputSubGroupId = (inValue) => {
     let jVarLocalHtmlId = 'SubGroupId';
-   let jVarLocalSubGroupId = document.getElementById(jVarLocalHtmlId);
-   
-   if (jVarLocalSubGroupId === null === false) {
-      jVarLocalSubGroupId.value = inValue;
-   };
+    let jVarLocalSubGroupId = document.getElementById(jVarLocalHtmlId);
+
+    if (jVarLocalSubGroupId === null === false) {
+        jVarLocalSubGroupId.value = inValue;
+    };
 };
 
 export { StartFunc };

@@ -3,10 +3,11 @@ import { StartFunc as StartFuncShowToDom } from "./ShowToDom.js";
 let StartFunc = async () => {
     let LocalRowPk = getUrlQueryParams({ inGetKey: "inRowPk" });
     let jVarLocalFetchUrl = `/bin/Accounts/${LocalRowPk}`;
-    console.log(jVarLocalFetchUrl);
+
     let response = await fetch(jVarLocalFetchUrl);
     let data = await response.json();
-    StartFuncShowToDom({ inDataToShow: data });
+
+    StartFuncShowToDom({ inDataToShow: data.JsonData });
 };
 
 let getUrlQueryParams = ({ inGetKey }) => {
