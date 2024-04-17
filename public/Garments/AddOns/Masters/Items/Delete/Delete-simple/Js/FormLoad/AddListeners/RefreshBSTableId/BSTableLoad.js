@@ -25,7 +25,7 @@ let StartFunc = async (row, $element, field) => {
 let jFLocalClickRowForDelete = async (inRow) => {
     let LocalRowPk = inRow.pk;
 
-    let jVarLocalFetchUrl = `/bin/Accounts/${LocalRowPk}`;
+    let jVarLocalFetchUrl = `/bin/Items/${LocalRowPk}`;
     let LocalBodyData = {
         method: "DELETE"
     };
