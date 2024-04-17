@@ -1,5 +1,6 @@
 import {
-  PutFunc as PutFuncDal, PutToValueFunc as PutToValueFuncDal
+  PutFunc as PutFuncDal, PutToValueFunc as PutToValueFuncDal,
+  PutFromBodyFunc as PutFromBodyFuncDal
 } from '../../dals/putFuncs/EntryFile.js';
 
 import {
@@ -24,4 +25,8 @@ let PutToValueFunc = async ({ inDataToUpdate, inId, inKeyName }) => {
   return PutToValueFuncDal({ inDataToUpdate, inId, inKeyName });
 };
 
-export { PutFunc, PutToValueFunc };
+let PutFromBodyFunc = async ({ inDataToUpdate, inId }) => {
+  return PutFromBodyFuncDal({ inDataToUpdate, inId });
+};
+
+export { PutFunc, PutToValueFunc, PutFromBodyFunc };
