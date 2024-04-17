@@ -228,4 +228,5 @@ Postgres
 MongoDB
 
 errors can occur for mysql2 npm package for python
+sqlite3 npm also error can come
 
