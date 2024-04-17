@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Maguva</title>
+    <title>To factory Dashboard</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -42,7 +42,7 @@
     <header id="header" class="header fixed-top d-flex align-items-center">
 
         <div class="d-flex align-items-center justify-content-between">
-            <a href="../../../../Dashboard/Dashboard.html" class="logo d-flex align-items-center">
+            <a href="../../../Dashboard/Dashboard.html" class="logo d-flex align-items-center">
                 <img src="./assets/img/logo.png" alt="">
                 <span class="d-none d-lg-block" id="BranchNameId">Maguva</span>
             </a>
@@ -286,7 +286,7 @@
 
         <ul class="sidebar-nav" id="sidebar-nav">
             <li class="nav-item">
-                <a class="nav-link collapsed" href="../../../../Dashboard/Dashboard.html">
+                <a class="nav-link collapsed" href="../../../../index.html">
                     <i class="bi bi-house-door-fill"></i>
                     <span>Home</span>
                 </a>
@@ -300,40 +300,84 @@
             </li>
 
 
-
             <!-- End Dashboard Nav -->
 
+            <li class="nav-item">
+                <a class="nav-link " href="#">
+                    <i class="bi bi-database-add"></i></i>
+                    <span>Create</span>
+                </a>
+            </li>
 
             <li class="nav-item ">
-                <a class="nav-link " href="#">
+                <a class="nav-link collapsed" href="../ShowAll/ShowAll.html">
                     <i class="bi bi-table"></i></i>
                     <span>ShowAll</span>
                 </a>
             </li>
-            <li class="nav-item ">
-                <a class="nav-link collapsed" href="../Show/Show.html">
-                    <i class="bi bi-table"></i></i>
-                    <span>Show</span>
+
+            <!-- <li class="nav-item">
+                <a class="nav-link collapsed" data-bs-target="#delete-nav" data-bs-toggle="collapse" href="#">
+                  <i class="bi bi-trash"></i><span>Delete</span><i class="bi bi-chevron-down ms-auto"></i>
                 </a>
+                <ul id="delete-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                  <li>
+                    <a href="../Delete/Delete-simple/Delete.html">
+                      <i class="bi bi-circle"></i><span>Simple</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="../Delete/Delete-withAlert/Delete.html">
+                      <i class="bi bi-circle"></i><span>With Alert</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="../Delete/Delete-BSToast/Delete.html">
+                      <i class="bi bi-circle"></i><span>With BS-Toast</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="../Delete/Delete-SAToast/Delete.html">
+                      <i class="bi bi-circle"></i><span>With sweetAlert</span>
+                    </a>
+                  </li>
+                </ul>
             </li>
 
-
+            <li class="nav-item">
+                <a class="nav-link collapsed" data-bs-target="#Alter-nav" data-bs-toggle="collapse" href="#">
+                  <i class="bi bi-pencil-square"></i><span>Alter</span><i class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id="Alter-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                  <li>
+                    <a href="../Alter-ShowAll/Alter-ShowAll.html">
+                      <i class="bi bi-circle"></i><span>ShowAll</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="../Alter/Alter.html">
+                      <i class="bi bi-circle"></i><span>Alter</span>
+                    </a>
+                  </li>
+                </ul>
+            </li> -->
         </ul>
     </aside>
     <!-- End Sidebar-->
 
     <main id="main" class="main">
+        <datalist id="AccountNamesDataListId">
+            <option>Keshav</option>
+        </datalist>
 
         <div class="pagetitle">
-            <h1> <a href="#" id="RefreshBSTableId"></a>ShowAll</h1>
+            <h1>Create</h1>
 
 
             <nav>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="../../../../Dashboard/Dashboard.html">Home</a></li>
-                    <li class="breadcrumb-item"><a href="../../../index.html">Accounts</a></li>
-                    <li class="breadcrumb-item"><a href="../../index.html">Reports</a></li>
-                    <li class="breadcrumb-item active">Ledger</li>
+                    <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+                    <li class="breadcrumb-item active">Create</li>
                 </ol>
             </nav>
         </div>
@@ -344,38 +388,203 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <form href="#" class="form-horizontal needs-validation" id="FormId">
+                                        <div class="row">
 
-                            <div class="spinner-border" id="SpinnerId" role="status">
-                                <span class="visually-hidden">Loading...</span>
+
+                                            <div class="col-md-12">
+                                                <label class="col-md-2 col-form-label">Qr Scan</label>
+
+                                                <div class="col-md-10">
+                                                    <input id="AccountNameId" name="ScanCode"
+                                                        data-dataattribute="Description" value="" required
+                                                        class="form-control KeshavSoftHtmlAttributes" placeholder="Scan"
+                                                        autocomplete="off" autofocus>
+                                                    <div class="invalid-feedback">
+                                                        Should not be Empty!!
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="col-md-12">
+                                                <label class="col-md-4 col-form-label">QrCode</label>
+
+                                                <div class="col-md-8">
+                                                    <input name="QrCode" id="QrCode" class="form-control" readonly
+                                                        autocomplete="off">
+                                                    <div class="invalid-feedback">
+                                                        Should not be Empty!!
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                            <div class="col-md-12">
+                                                <label class="col-md-4 col-form-label">ProductName</label>
+
+                                                <div class="col-md-8">
+                                                    <input name="ProductName" id="ProductName" class="form-control"
+                                                        readonly autocomplete="off">
+                                                    <div class="invalid-feedback">
+                                                        Should not be Empty!!
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="col-md-12">
+                                                <label class="col-md-4 col-form-label">CostPrice</label>
+
+                                                <div class="col-md-8">
+                                                    <input name="CostPrice" id="CostPrice" class="form-control" readonly
+                                                        autocomplete="off">
+                                                    <div class="invalid-feedback">
+                                                        Should not be Empty!!
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="col-md-12">
+                                                <label class="col-md-4 col-form-label">BillNumber</label>
+
+                                                <div class="col-md-8">
+                                                    <input name="BillNumber" id="BillNumber" class="form-control"
+                                                        readonly autocomplete="off">
+                                                    <div class="invalid-feedback">
+                                                        Should not be Empty!!
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="col-md-12">
+                                                <label class="col-md-4 col-form-label">InventorySerial</label>
+
+                                                <div class="col-md-8">
+                                                    <input name="InventorySerial" id="InventorySerial"
+                                                        class="form-control" readonly autocomplete="off">
+                                                    <div class="invalid-feedback">
+                                                        Should not be Empty!!
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="col-md-12">
+                                                <label class="col-md-4 col-form-label">PercentageValueAddition</label>
+
+                                                <div class="col-md-8">
+                                                    <input name="PercentageValueAddition" id="PercentageValueAddition"
+                                                        class="form-control" readonly autocomplete="off">
+                                                    <div class="invalid-feedback">
+                                                        Should not be Empty!!
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                            <div class="col-md-12">
+                                                <label class="col-md-4 col-form-label">PurchasePk</label>
+
+                                                <div class="col-md-8">
+                                                    <input name="PurchasePk" id="PurchasePk" class="form-control"
+                                                        readonly autocomplete="off">
+                                                    <div class="invalid-feedback">
+                                                        Should not be Empty!!
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="col-md-12">
+                                                <label class="col-md-4 col-form-label">SalePrice</label>
+
+                                                <div class="col-md-8">
+                                                    <input name="SalePrice" id="SalePrice" class="form-control" readonly
+                                                        autocomplete="off">
+                                                    <div class="invalid-feedback">
+                                                        Should not be Empty!!
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="col-md-12">
+                                                <label class="col-md-4 col-form-label">SupplierName</label>
+
+                                                <div class="col-md-8">
+                                                    <input name="SupplierName" id="SupplierName" class="form-control"
+                                                        readonly autocomplete="off">
+                                                    <div class="invalid-feedback">
+                                                        Should not be Empty!!
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="col-md-12">
+                                                <label class="col-md-4 col-form-label">UserDescription</label>
+
+                                                <div class="col-md-8">
+                                                    <input name="UserDescription" id="UserDescription"
+                                                        class="form-control" readonly autocomplete="off">
+                                                    <div class="invalid-feedback">
+                                                        Should not be Empty!!
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                            <div class="col-md-12">
+                                                <label class="col-md-4 col-form-label">Sale Return Description</label>
+
+                                                <div class="col-md-8">
+                                                    <input name="SalereturnDescription" id="SalereturnDescription"
+                                                        class="form-control" placeholder="Enter Description"
+                                                        autocomplete="off">
+                                                    <div class="invalid-feedback">
+                                                        Should not be Empty!!
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                            <div class="col-md-12">
+                                                <label class="col-md-4 col-form-label">GrossAmount</label>
+
+                                                <div class="col-md-8">
+                                                    <input name="GrossAmount" id="GrossAmountId"
+                                                        class="form-control" placeholder="Enter Description"
+                                                        autocomplete="off">
+                                                    <div class="invalid-feedback">
+                                                        Should not be Empty!!
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                            <div class="col-md-12 m-3">
+
+                                                <div class="col-md-8">
+                                                    <button type="button" id="CreateSalesReturnsButtonId"
+                                                        class="btn btn-success">
+                                                        Save New
+                                                    </button>
+
+                                                </div>
+
+                                            </div>
+
+
+
+                                        </div>
+                                    </form>
+
+                                </div>
                             </div>
-                            <table id="table" data-toolbar="#toolbar" data-search="true" data-searchable="true"
-                                data-filter-control="true" data-pagination="true" data-show-footer="true">
-                                <thead>
-                                    <tr id="tableHeadRow">
-                                        <th data-field="id" data-formatter="jFGlobalSerialColumn">#</th>
-                                        <th data-field="pk">QRCode</th>
-                                        <th data-field="ProductName">ProductName</th>
-                                        <th data-field="SalePrice" data-footer-formatter="jFLocalColumnTotal"
-                                            data-align="right" data-formatter="RupeeFormatter">SalePrice
-                                        </th>
-                                        <th data-field="BillPk">BillPk</th>
-                                        <th data-field="UnitRate" data-footer-formatter="jFLocalColumnTotal"
-                                            data-align="right" data-formatter="RupeeFormatter">UnitRate
-                                        </th>
-                                        <th data-field="DisPercentage" data-align="right">DisPercentage</th>
-                                        <th data-field="DisRate" data-footer-formatter="jFLocalColumnTotal"
-                                            data-align="right" data-formatter="RupeeFormatter">DisRate</th>
-                                        <th data-field="GrossAmout" data-footer-formatter="jFLocalColumnTotal"
-                                            data-align="right" data-formatter="RupeeFormatter">GrossAmount</th>
-                                    </tr>
-                                </thead>
-                            </table>
+
+
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-
     </main>
     <!-- End #main -->
 
@@ -390,62 +599,6 @@
     <!-- Vendor JS Files -->
     <script>
 
-        function jFGlobalSerialColumn(value, row, index) {
-            return index + 1;
-        };
-
-        function operateFormatter(value, row, index) {
-            return [
-                `<a class="like" href="../../Scan/ShowAlert/ShowAlert.html?BranchName=${row.BranchName}&VoucherRef=${row.pk}" title="Scan">`,
-                '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-qr-code" viewBox="0 0 16 16">',
-                '<path d="M2 2h2v2H2V2Z"/>',
-                '<path d="M6 0v6H0V0h6ZM5 1H1v4h4V1ZM4 12H2v2h2v-2Z"/>',
-                '<path d="M6 10v6H0v-6h6Zm-5 1v4h4v-4H1Zm11-9h2v2h-2V2Z"/>',
-                '<path d="M10 0v6h6V0h-6Zm5 1v4h-4V1h4ZM8 1V0h1v2H8v2H7V1h1Zm0 5V4h1v2H8ZM6 8V7h1V6h1v2h1V7h5v1h-4v1H7V8H6Zm0 0v1H2V8H1v1H0V7h3v1h3Zm10 1h-1V7h1v2Zm-1 0h-1v2h2v-1h-1V9Zm-4 0h2v1h-1v1h-1V9Zm2 3v-1h-1v1h-1v1H9v1h3v-2h1Zm0 0h3v1h-2v1h-1v-2Zm-4-1v1h1v-2H7v1h2Z"/>',
-                '<path d="M7 12h1v3h4v1H7v-4Zm9 2v2h-3v-1h2v-1h1Z"/>',
-                '</svg>',
-                '</a>  '
-            ].join('')
-        }
-
-        function detailFormatter(index, row) {
-            var html = []
-            $.each(row, function (key, value) {
-                html.push('<p><b>' + key + ':</b> ' + value + '</p>')
-            })
-            return html.join('')
-        };
-
-        function priceFormatter(data) {
-            var field = this.field
-            return '' + data.map(function (row) {
-                return +row.ItemDetails
-            }).reduce(function (sum, i) {
-                return sum + i
-            }, 0)
-        }
-    </script>
-
-    <script>
-        function RupeeFormatter(value, row, index) {
-            if (value === undefined) {
-
-            } else {
-                return '₹' + value;
-            };
-        };
-        function jFLocalColumnTotal(data) {
-            var field = this.field
-            return '₹' + data.map(function (row) {
-                if (row[field] === undefined) {
-                    return 0;
-                } else {
-                    return +row[field];
-                };
-            }).reduce(function (sum, i) {
-                return sum + i
-            }, 0)
-        }
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
@@ -457,8 +610,6 @@
     <script src="https://unpkg.com/tableexport.jquery.plugin/tableExport.min.js"></script>
     <script
         src="https://unpkg.com/bootstrap-table@1.22.1/dist/extensions/export/bootstrap-table-export.min.js"></script>
-    <script
-        src="https://unpkg.com/bootstrap-table@1.22.1/dist/extensions/filter-control/bootstrap-table-filter-control.min.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
@@ -468,7 +619,7 @@
 
     <!-- Template Main JS File -->
     <script src="./assets/js/main.js"></script>
-    <script type="module" src="./Js/StartFunc.js"></script>
+    <script type="module" src="./Js/Create.js"></script>
 </body>
 
 </html>
