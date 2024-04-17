@@ -1,7 +1,9 @@
-import { StartFunc as StartFuncSaveButtonClickId } from "./SaveButtonClickId/EntryFile.js";
+import { StartFunc as StartFuncReturnAmountButtonId } from "./ReturnAmountButtonId/EntryFile.js";
+import { StartFunc as StartFuncUpdateButtonId } from "./UpdateButtonId/EntryFile.js";
 
 const StartFunc = () => {
-    StartFuncSaveButtonClickId();
+    StartFuncReturnAmountButtonId();
+    StartFuncUpdateButtonId();
 };
 
 export { StartFunc };

@@ -1,9 +1,9 @@
-import { StartFunc as StartFuncButtonClickFunc } from "./Addlisteners/SaveButtonClickId/ButtonClickFunc.js";
+import { StartFunc as StartFuncAddlisteners } from "./Addlisteners/EntryFile.js";
 import { StartFunc as StartFuncFormLoad } from "./FormLoad/EntryFile.js";
 
 const StartFunc = () => {
     StartFuncFormLoad();
-    StartFuncButtonClickFunc();
+    StartFuncAddlisteners();
 };
 
 StartFunc();

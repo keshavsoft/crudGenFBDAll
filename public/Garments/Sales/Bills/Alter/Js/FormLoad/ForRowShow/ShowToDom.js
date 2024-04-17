@@ -1,38 +1,16 @@
 let StartFunc = ({ inDataToShow }) => {
     let data = inDataToShow;
-
-    console.log("data : ", data);
-    jFLocalToInputAccountNameId(data.AccountName);
-    jFLocalToInputBSGroupId(data.BSGroup);
-    jFLocalToInputSubGroupId(data.SubGroup);
-
+    
+    jFLocalToInputBillNumberId(data.BillNumber);
 };
 
-let jFLocalToInputAccountNameId = (inValue) => {
-    let jVarLocalHtmlId = 'AccountNameId';
-    let jVarLocalAccountNameId = document.getElementById(jVarLocalHtmlId);
-
-    if (jVarLocalAccountNameId === null === false) {
-        jVarLocalAccountNameId.value = inValue;
-    };
-};
-
-let jFLocalToInputBSGroupId = (inValue) => {
-    let jVarLocalHtmlId = 'BSGroupId';
-    let jVarLocalBSGroupId = document.getElementById(jVarLocalHtmlId);
-
-    if (jVarLocalBSGroupId === null === false) {
-        jVarLocalBSGroupId.value = inValue;
-    };
-};
-
-let jFLocalToInputSubGroupId = (inValue) => {
-    let jVarLocalHtmlId = 'SubGroupId';
-    let jVarLocalSubGroupId = document.getElementById(jVarLocalHtmlId);
-
-    if (jVarLocalSubGroupId === null === false) {
-        jVarLocalSubGroupId.value = inValue;
-    };
+let jFLocalToInputBillNumberId = (inValue) => {
+    let jVarLocalHtmlId = 'BillNumberId';
+   let jVarLocalBillNumberId = document.getElementById(jVarLocalHtmlId);
+   
+   if (jVarLocalBillNumberId === null === false) {
+      jVarLocalBillNumberId.value = inValue;
+   };
 };
 
 export { StartFunc };

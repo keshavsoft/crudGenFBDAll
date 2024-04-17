@@ -1,7 +1,7 @@
 import { StartFunc as StartFuncShowToDom } from "./ShowToDom.js";
 
 let StartFunc = async () => {
-    let LocalRowPk = getUrlQueryParams({ inGetKey: "inRowPk" });
+    let LocalRowPk = getUrlQueryParams({ inGetKey: "RowPK" });
     let jVarLocalFetchUrl = `/bin/Bills2425/${LocalRowPk}`;
 
     let response = await fetch(jVarLocalFetchUrl);
