@@ -298,20 +298,19 @@
                     <span>Parent</span>
                 </a>
             </li>
-            
 
 
             <!-- End Dashboard Nav -->
 
 
-            <li class="nav-item ">
-                <a class="nav-link " href="#">
+            <li class="nav-item  ">
+                <a class="nav-link  collapsed" href="../ShowAll/ShowAll.html">
                     <i class="bi bi-table"></i></i>
                     <span>ShowAll</span>
                 </a>
             </li>
             <li class="nav-item ">
-                <a class="nav-link collapsed" href="../Show/Show.html">
+                <a class="nav-link " href="#">
                     <i class="bi bi-table"></i></i>
                     <span>Show</span>
                 </a>
@@ -348,20 +347,25 @@
                             <div class="spinner-border" id="SpinnerId" role="status">
                                 <span class="visually-hidden">Loading...</span>
                             </div>
-                            <table id="table" data-toolbar="#toolbar" data-search="true" data-searchable="true"
-                                data-filter-control="true" data-pagination="true" data-show-footer="true">
+                            <table id="table" data-toolbar="#toolbar" data-search="true" dat-pagination="true"
+                                data-show-footer="true" data-searchable="true" data-pagination="true"
+                                data-show-columns="true" data-show-columns-toggle-all="true" data-show-export="true"
+                                data-detail-view="true" data-detail-formatter="detailFormatter" data-id-field="pk"
+                                data-show-toggle="true" data-filter-control="true">
                                 <thead>
                                     <tr id="tableHeadRow">
-                                        <th data-field="id" data-formatter="jFGlobalSerialColumn">#</th>
-                                        <th data-field="pk">QRCode</th>
-                                        <th data-field="ProductName">ProductName</th>
-                                        <th data-field="SalePrice" data-footer-formatter="jFLocalColumnTotal">SalePrice
+                                        <th data-formatter="jFLocalSerialColumn" data-width="50">#</th>
+                                        <th data-field="pk" data-width="80">Qr Code</th>
+                                        <th data-field="ProductName" data-filter-control="select" data-width="210">
+                                            ProductName
                                         </th>
-                                        <th data-field="BillPk">BillPk</th>
-                                        <th data-field="UnitRate">UnitRate
-                                        </th>
-                                        <th data-field="DisPercentage">DisPercentage</th>
-                                        <th data-field="DisRate">DisRate</th>
+                                        <th data-field="PosOnlyYear" data-filter-control="select">Year</th>
+                                        <th data-field="PosOnlyMonth" data-filter-control="select">Month</th>
+                                        <th data-field="salePOSDateTime" data-filter-control="select">Day</th>
+                                        <th data-field="GrossAmout" data-filter-control="select"
+                                            data-footer-formatter="TotalItems"> ₹ GrossAmout</th>
+                                        <th data-field="PaymentMode" data-filter-control="select">PaymentMode</th>
+
                                     </tr>
                                 </thead>
                             </table>
@@ -385,7 +389,7 @@
     <!-- Vendor JS Files -->
     <script>
 
-        function jFGlobalSerialColumn(value, row, index) {
+        function jFLocalSerialColumn(value, row, index) {
             return index + 1;
         };
 
@@ -419,6 +423,10 @@
                 return sum + i
             }, 0)
         }
+        function TotalItems(value, row, index) {
+            let localGrossAmoutData = value.map(i => i.GrossAmout).reduce((a, b )=> a + b, 0);
+            return localGrossAmoutData;
+        };
     </script>
 
     <script>
