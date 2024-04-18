@@ -1,14 +1,6 @@
-let FromNode = async ({ inFolderName, inFileName, inItemName, inRowPK, inProjectName }) => {
+let FromNode = async ({ inRowPK }) => {
     try {
-        let inFetchPostData = {
-            FileNameOnly: inFileName,
-            FolderName: inFolderName,
-            ItemName: inItemName,
-            JsonPk: inRowPK,
-            Screenname: "Create"
-        };
-
-        let jVarLocalFetchUrl = `/bin/Bills2425/FilterData/pk/${inRowPK}`;
+        let jVarLocalFetchUrl = `/bin/pos/FilterData/pk/${inRowPK}`;
 
         const response = await fetch(jVarLocalFetchUrl);
         return await response;

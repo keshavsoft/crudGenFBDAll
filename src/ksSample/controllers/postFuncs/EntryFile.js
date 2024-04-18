@@ -45,8 +45,9 @@ let PostFuncGenUuId = async (req, res) => {
 
 let PostFilterFunc = async (req, res) => {
     let LocalBody = req.body;
+    let LocalFilterCondition = LocalBody.FilterCondition;
 
-    let LocalFromRepo = await PostFilterFuncRepo({ ...LocalBody });
+    let LocalFromRepo = await PostFilterFuncRepo({ inFilterCondition: LocalFilterCondition });
 
     if (LocalFromRepo.KTF === false) {
         res.status(500).send(LocalFromRepo.KReason);
@@ -128,6 +129,6 @@ let PostWithKeysCheckFunc = async (req, res) => {
 export {
     PostFunc, PostFromModalFunc,
     PostUploadFunc, PostGetSelectColumnsFunc,
-     PostUploadFromModalFunc, PostUploadImageFunc,
-     PostFilterFunc,PostWithKeysCheckFunc,PostFuncGenUuId
+    PostUploadFromModalFunc, PostUploadImageFunc,
+    PostFilterFunc, PostWithKeysCheckFunc, PostFuncGenUuId
 };

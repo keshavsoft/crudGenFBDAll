@@ -7,7 +7,7 @@ import { StartFunc as StartFuncTableFooterTotals } from "./TableFooterTotals/Sho
 
 let StartFunc = async ({ inFolderName, inFileName, inItemName, inProjectName, inShowSuccess }) => {
     let jVarLocalRowPk = ReturnRowPK();
-    console.log("jVarLocalRowPk : ", jVarLocalRowPk);
+    
     let jVarLocalData = await FromNode({
         inFolderName,
         inFileName,
