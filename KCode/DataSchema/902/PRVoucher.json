@@ -1,0 +1,23 @@
+{
+  "VocherNumber": {
+    "type": "STRING",
+    "allowNull": true,
+    "references": {
+      "model": {
+        "tableName": "pos"
+      }
+    }
+  },
+  "Date": {
+    "type": "STRING",
+    "allowNull": true
+  },
+  "CustomerName": {
+    "type": "STRING",
+    "allowNull": true
+  },
+  "Description": {
+    "type": "STRING",
+    "allowNull": true
+  }
+}
