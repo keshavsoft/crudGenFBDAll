@@ -6,7 +6,8 @@ import {
     GetIdFunc as GetIdFuncDal, GetBodyCheckFunc as GetBodyCheckFuncDal,
     GetFilterDataFunc as GetFilterDataFuncDal,
     GetColumnsSchemaFunc as GetColumnsSchemaFuncDal,
-    GetMaxWithKeyFunc as GetMaxWithKeyFuncDal
+    GetMaxWithKeyFunc as GetMaxWithKeyFuncDal,
+    GetMaxRowFunc as GetMaxRowFuncDal
 } from '../../dals/getFuncs/EntryFile.js';
 
 import {
@@ -81,9 +82,13 @@ let GetMaxWithKeyFunc = async ({ inKey }) => {
     return await GetMaxWithKeyFuncDal({ inKey });
 };
 
+let GetMaxRowFunc = () => {
+    return GetMaxRowFuncDal();
+};
+
 export {
     GetFunc, GetDataOnlyFunc, GetFromModalFunc,
     GetFromModalUuidFunc, GetFromModalUuidAndTSFunc,
     GetIdFunc, GetBodyCheckFunc, GetRowCountFunc,
-    GetColumnsSchemaFunc, GetfilterDataFunc,GetMaxWithKeyFunc
+    GetColumnsSchemaFunc, GetfilterDataFunc, GetMaxWithKeyFunc, GetMaxRowFunc
 };
