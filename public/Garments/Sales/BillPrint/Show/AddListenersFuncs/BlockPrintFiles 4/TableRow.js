@@ -1,6 +1,6 @@
 const StartFunc = () => {
-    let jVarLocalInventoryData = localStorage.getItem("InventoryData");
-    // let jVarLocalInventoryDataAsJson = JSON.parse(jVarLocalInventoryData);
+    let jVarLocalBillData = localStorage.getItem("BillData");
+    let jVarLocalHeadData = JSON.parse(jVarLocalBillData);
     let jVarLocalInventoryDataAsJson = jFLocalSortFunc();
 
     let k1 = document.getElementById("PrintDiv");
@@ -41,8 +41,10 @@ const StartFunc = () => {
 
     k1.innerHTML += `${" ".repeat(21)}<span style="font-size: 13px;">Gross Amount    :${jvarLocaltoatalUnitRate.toString().padStart(7, " ")}</span>\n`;
     k1.innerHTML += `${" ".repeat(21)}<span style="font-size: 13px;">Total Discount  :${jvarLocaltoatalDisRate.toString().padStart(7, " ")}</span>\n`;
+    k1.innerHTML += `${" ".repeat(21)}<span style="font-size: 13px;">Return Amount   :${("ReturnAmount" in jVarLocalHeadData) ? jVarLocalHeadData.ReturnAmount.toString().padStart(7, " ") : "0".padStart(7, " ")}</span>\n`;
+
     // k1.innerHTML += `${" ".repeat(21)}<span style="font-size: 13px;">Total Discount    :   ${jvarLocaltoatalDisRate}</span>\n`;
-    k1.innerHTML += `                       <span style="font-size: 16px; font-weight: bold;">Net Amt    :  ${localNetAmount}</span>\n`;
+    k1.innerHTML += `                       <span style="font-size: 16px; font-weight: bold;">Net Amt    :  ${("ReturnAmount" in jVarLocalHeadData) ? localNetAmount - jVarLocalHeadData.ReturnAmount : localNetAmount}</span>\n`;
 
 };
 
