@@ -5,16 +5,10 @@ import { StartFunc as StartFuncInventoryGrid } from "./InventoryGrid/PrepareData
 
 let StartFunc = async ({ inFolderName, inFileName, inItemName, inProjectName, inShowSuccess }) => {
     let jVarLocalRowPk = ReturnRowPK();
+    let jVarLocalData = await FromNode();
 
-    let jVarLocalData = await FromNode({
-        inFolderName,
-        inFileName,
-        inItemName,
-        inRowPK: jVarLocalRowPk.RowPK,
-        inProjectName
-    });
-
-    localStorage.setItem("BillData", JSON.stringify(jVarLocalData.JsonData));
+    let LocalBillsCollectionData = jVarLocalData.JsonData;
+    localStorage.setItem("BillData", JSON.stringify(LocalBillsCollectionData));
 
     if (jVarLocalData.KTF) {
         let localindataJson = jVarLocalData.JsonData
