@@ -7,7 +7,7 @@ import { StartFunc as StartFuncTableFooterTotals } from "./TableFooterTotals/Sho
 
 let StartFunc = async ({ inFolderName, inFileName, inItemName, inProjectName, inShowSuccess }) => {
     let jVarLocalRowPk = ReturnRowPK();
-
+    console.log("jVarLocalRowPk : ", jVarLocalRowPk);
     let jVarLocalData = await FromNode({
         inFolderName,
         inFileName,
@@ -48,7 +48,7 @@ let localInventeryShow = async ({ inFolderName, inFileName, inItemName, inProjec
     if (jVarLocalDataToShow.status === 500) {
         console.log("Status-500");
         let jVarLocalSnoid = document.getElementById("Snoid");
-        jVarLocalSnoid.value =  1;
+        jVarLocalSnoid.value = 1;
         return
 
     } else {
@@ -58,9 +58,7 @@ let localInventeryShow = async ({ inFolderName, inFileName, inItemName, inProjec
         await InvGridStartFunc({ inDataAsArray: localdata });
         jVarLocalShowInventorySerial({ inData: localdata });
         StartFuncTableFooterTotals({ inData: localdata });
-
-    }
-
+    };
 };
 
 let ShowOnDom = ({ inData, inShowSuccess }) => {
