@@ -15,8 +15,8 @@ let StartFunc = async ({ inFilterCondition }) => {
   const db = LocalStartFuncPullData.inDb;
   let LocalarrayOfObjects = db.data;
   // console.log("LocalarrayOfObjects : ", LocalarrayOfObjects);
-  let LocalFindId1 = LocalarrayOfObjects.filter(e => e.Date >= "2024-04-09" && e.Date <= "2024-04-10");
-  console.log("LocalFindId1 : ", LocalFindId1.length);
+  // let LocalFindId1 = LocalarrayOfObjects.filter(e => e.Date >= "2024-04-09" && e.Date <= "2024-04-10");
+  // console.log("LocalFindId1 : ", LocalFindId1.length);
 
   let LocalFindId = LocalarrayOfObjects.filter(e => eval(LocalFilterCondition));
 
