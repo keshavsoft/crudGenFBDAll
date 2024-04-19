@@ -23,20 +23,8 @@
     "type": "STRING",
     "allowNull": true
   },
-  "InventorySerial": {
+  "SRRef": {
     "type": "STRING",
-    "allowNull": true
-  },
-  "PurchasePk": {
-    "type": "STRING",
-    "allowNull": true
-  },
-  "SupplierName": {
-    "type": "STRING",
-    "allowNull": true
-  },
-  "BillNumber": {
-    "type": "STRING",
-    "allowNull": true
+    "allowNull": false
   }
 }

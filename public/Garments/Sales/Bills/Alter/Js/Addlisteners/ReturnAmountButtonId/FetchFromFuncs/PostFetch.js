@@ -1,13 +1,10 @@
-import { StartFunc as StartFuncFetchHeaders } from "./FetchHeaders/EntryFile.js";
 import ConfigJson from "../../../Config.json" assert { type: "json" };
 
 let StartFunc = async () => {
     let LocalroutePath = ConfigJson.routePath;
-    let LocaltableName = ConfigJson.tableName;
     let LocalRowId = jFLocalReturnVoucherId();
 
-    let jVarLocalFetchHeaders = StartFuncFetchHeaders();
-    let jVarLocalFetchUrl = `/${LocalroutePath}/SalesReturns/${LocalRowId}`;
+    let jVarLocalFetchUrl = `/${LocalroutePath}/SalesReturns/FilterData/SRRef/${LocalRowId}`;
     let response = await fetch(jVarLocalFetchUrl);
     let data = await response.json();
 

@@ -7,7 +7,7 @@ let StartFunc = async () => {
 
     if (jVarLocalDataNeeded !== null) {
         if (jVarLocalDataNeeded) {
-            StartFuncAfterFetch({ inFetchData: jVarLocalDataNeeded.JsonData });
+            StartFuncAfterFetch({ inFetchData: jVarLocalDataNeeded });
         };
     };
 };
