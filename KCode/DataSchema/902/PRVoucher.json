@@ -1,11 +1,13 @@
 {
-  "VocherNumber": {
+  "SalesRef": {
     "type": "STRING",
-    "allowNull": true,
+    "allowNull": false,
+    "unique": true,
     "references": {
       "model": {
         "tableName": "pos"
-      }
+      },
+      "key": "pk"
     }
   },
   "Date": {
