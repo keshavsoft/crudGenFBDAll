@@ -3,8 +3,8 @@ import { StartFunc as StartFuncFetchFromFuncs } from "./FetchFromFuncs/Entry.js"
 
 let StartFunc = async () => {
     let jVarLocalFromCheck = await StartFuncCheckFunc();
-    
-    if (jVarLocalFromCheck) {
+
+    if (true) {
         StartFuncFetchFromFuncs().then();
     };
 };

@@ -20,15 +20,15 @@ const StartFunc = ({ inFileName, NeededKey, inSearchKey }) => {
 
     let LocalDataNeeded = LocalFuncPullData({ inFileName: LocalinFileName });
 
-    let LocalFindValue = LocalDataNeeded.filter(element => {
-        return element[LocalSearchKey] == NeededKey;
-    });
+    let LocalFindValue = LocalDataNeeded.filter(element => element[LocalSearchKey] == NeededKey);
 
     if (LocalFindValue.length > 0) {
         LocalReturnData.KTF = true;
 
         return LocalReturnData;
     };
+
+    LocalReturnData.KReason = `${NeededKey} not found in ${LocalinFileName}.${LocalSearchKey}`;
     return LocalReturnData;
 
 }

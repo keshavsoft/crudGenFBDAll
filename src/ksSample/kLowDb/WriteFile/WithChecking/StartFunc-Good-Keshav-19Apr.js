@@ -14,7 +14,13 @@ let StartFunc = ({ inDataToInsert }) => {
 
     const LocalTableSchema = LocalStartFuncPullData.inTableSchema;
     const db = LocalStartFuncPullData.inDb;
-    let LocalKeysNeeded = LocalFuncReferenceObject({ inTableSchema: LocalTableSchema });
+    let LocalKeysNeeded = {};
+
+    for (const prop in LocalTableSchema.fileData) {
+        if ("references" in LocalTableSchema.fileData[prop]) {
+            LocalKeysNeeded[prop] = LocalTableSchema.fileData[prop];
+        };
+    };
 
     if ((Object.keys(LocalKeysNeeded).length === 0) === false) {
         let LocalKeyNeeded = Object.keys(LocalKeysNeeded)[0];
@@ -29,7 +35,7 @@ let StartFunc = ({ inDataToInsert }) => {
             return LocalReturnData;
         };
     };
-
+    
     let LocalStartFuncChecksQrCodeId = StartFuncUniqueKeyCheck({
         inData: db.data, inDataToInsert: LocalinDataToInsert,
         inTableSchema: LocalTableSchema.fileData
@@ -51,25 +57,11 @@ let StartFunc = ({ inDataToInsert }) => {
     };
 
     db.data.push(LocalDataWithUuid.InsertData);
-    db.write();
+    let LocalFromWrite = db.write();
 
     LocalReturnData.KTF = true;
     LocalReturnData.ScanNo = LocalDataWithUuid.InsertData.QrCodeId
     return LocalReturnData;
-};
-
-let LocalFuncReferenceObject = ({ inTableSchema }) => {
-    let LocalTableSchema = inTableSchema;
-    let LocalKeysNeeded = {};
-
-    for (const prop in LocalTableSchema.fileData) {
-        if ("references" in LocalTableSchema.fileData[prop]) {
-            LocalKeysNeeded[prop] = LocalTableSchema.fileData[prop];
-        };
-    };
-
-    return LocalKeysNeeded;
-
 };
 
 const LocalFuncGeneratePk = ({ inDataToInsert, inData, inTableSchema }) => {
