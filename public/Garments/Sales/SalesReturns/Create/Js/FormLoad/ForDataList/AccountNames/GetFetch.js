@@ -3,21 +3,23 @@ let StartFunc = async () => {
     // let response = await fetch(jVarLocalFetchUrl);
     // let data = await response.json();
     // localStorage.setItem("AccountNames", JSON.stringify(data));
-    // jFLocalToDataList();
+    jFLocalToDataList();
 };
 
 let jFLocalToDataList = () => {
-    let jVarLocalArray = localStorage.getItem("AccountNames");
-    let jVarLocalArrayJson = JSON.parse(jVarLocalArray);
-    let str = "";
+let jVarLocalSalesRef = getUrlQueryParams({ inGetKey: "SalesRef" });
 
-    for (var i = 0; i < jVarLocalArrayJson.length; ++i) {
-        str += '<option value="' + jVarLocalArrayJson[i].AccountName + '" />'; // Storing options in variable
-    };
+    let jVarLocalAccountNamesDataListId = document.getElementById("SalesRef");
+    jVarLocalAccountNamesDataListId.value = jVarLocalSalesRef;
 
-    let jVarLocalAccountNamesDataListId = document.getElementById("AccountNamesDataListId");
-    jVarLocalAccountNamesDataListId.innerHTML = str;
+};
 
+
+let getUrlQueryParams = ({ inGetKey }) => {
+    const queryString = window.location.search;
+    const parameters = new URLSearchParams(queryString);
+    const value = parameters.get(inGetKey);
+    return value;
 };
 
 export { StartFunc };
