@@ -1,7 +1,7 @@
 let FromNode = async () => {
     let LocalRowPk = ReturnRowPK();
     try {
-        let jVarLocalFetchUrl = `/bin/Bills2425/${LocalRowPk}`;
+        let jVarLocalFetchUrl = `/bin/pos/${LocalRowPk}`;
         const response = await fetch(jVarLocalFetchUrl);
         const data = await response.json();
 

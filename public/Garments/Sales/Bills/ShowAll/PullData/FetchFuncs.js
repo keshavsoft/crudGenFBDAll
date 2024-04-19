@@ -3,13 +3,10 @@ let FromNode = async ({ inFolderName, inFileName, inItemName, inProjectName }) =
         let LocalReturnObject = { KTF: false, KResult: "", JsonData: {} };
 
         // let jVarLocalFetchUrl = `/${inProjectName}/API/Data/FromFolder/FromFile/Items/FromDataFolder/AsArrayWithPK`;
-        let jVarLocalFetchUrl = "/bin/pos/DataOnly";
+        let jVarLocalFetchUrl = "/bin/pos/Filter";
 
         let inFetchPostData = {
-            inFolderName,
-            inFileNameOnly: inFileName,
-            inItemName,
-            inScreenName: "Create"
+            FilterCondition: "e.Date >='2024-04-01' && e.Date <='2025-03-31'"
         };
 
         let jVarLocalFetchHeaders = {
@@ -21,13 +18,9 @@ let FromNode = async ({ inFolderName, inFileName, inItemName, inProjectName }) =
             body: JSON.stringify(inFetchPostData)
         };
 
-        const response = await fetch(jVarLocalFetchUrl);
+        const response = await fetch(jVarLocalFetchUrl, jVarLocalFetchHeaders);
         const data = await response.json();
-
-        LocalReturnObject.JsonData = data;
-
-        LocalReturnObject.KTF = true;
-        return await LocalReturnObject;
+        return await data;
 
     } catch (error) {
         console.log("error:", error);

@@ -10,7 +10,7 @@ const StartFunc = async () => {
 
 const jFLocalFetch = async () => {
 
-    let responce = await fetch("/bin/Bills2425/Max/BillNumber");
+    let responce = await fetch("/bin/pos/Max/BillNumber2425");
     let data = await responce.json();
     return await data;
 
