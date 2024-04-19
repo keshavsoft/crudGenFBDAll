@@ -6,6 +6,7 @@ let StartFunc = async () => {
     let LocaltableName = ConfigJson.tableName;
 
     let jVarLocalFetchHeaders = StartFuncFetchHeaders();
+
     let jVarLocalFetchUrl = `/${LocalroutePath}/BillsQrCode/Filter`;
     let response = await fetch(jVarLocalFetchUrl, jVarLocalFetchHeaders);
     let data = await response.json();

@@ -1,6 +1,14 @@
-let StartFunc = async () => {
-    let jVarLocalQrCode = await jFLocalCheckQrCode();
+import { StartFunc as StartFuncFetchFromFuncs } from "./FetchFromFuncs/Entry.js";
 
+let StartFunc = async () => {
+    let jVarLocalGrossAmount = jFLocalGrossAmountId();
+
+    if (parseInt(jVarLocalGrossAmount) > 0 === false) {
+        return false;
+    };
+
+    let jVarLocalQrCode = await StartFuncFetchFromFuncs();
+    console.log("jVarLocalQrCode : ", jVarLocalQrCode);
     if (jVarLocalQrCode === false) {
         return false;
     };
