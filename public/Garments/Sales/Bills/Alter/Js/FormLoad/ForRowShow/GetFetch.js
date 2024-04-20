@@ -1,13 +1,30 @@
 import { StartFunc as StartFuncShowToDom } from "./ShowToDom.js";
 
 let StartFunc = async () => {
+    let jVarLocalPosData = await jFpos();
+    let jVarLocalBillsQrCode = await jFBillsQrCode();
+
+    StartFuncShowToDom({ inDataToShow: jVarLocalPosData.JsonData, inBillsQrCodeData: jVarLocalBillsQrCode });
+};
+
+const jFpos = async () => {
     let LocalRowPk = getUrlQueryParams({ inGetKey: "RowPK" });
     let jVarLocalFetchUrl = `/bin/pos/${LocalRowPk}`;
 
     let response = await fetch(jVarLocalFetchUrl);
     let data = await response.json();
+    return data;
 
-    StartFuncShowToDom({ inDataToShow: data.JsonData });
+};
+
+const jFBillsQrCode = async () => {
+    let LocalRowPk = getUrlQueryParams({ inGetKey: "RowPK" });
+    let jVarLocalFetchUrl = `/bin/BillsQrCode/FilterData/BillPk/${LocalRowPk}`;
+
+    let response = await fetch(jVarLocalFetchUrl);
+    let data = await response.json();
+    return data;
+
 };
 
 let getUrlQueryParams = ({ inGetKey }) => {

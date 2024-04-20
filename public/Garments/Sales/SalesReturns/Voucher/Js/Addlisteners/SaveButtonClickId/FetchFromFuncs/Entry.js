@@ -17,6 +17,8 @@ let StartFunc = async () => {
                 document.getElementById("SalesRef").focus();
             }
         });
+        document.getElementById("SalesRef").focus();
+
         // Swal.fire(jVarLocalReason);
     }
 };
