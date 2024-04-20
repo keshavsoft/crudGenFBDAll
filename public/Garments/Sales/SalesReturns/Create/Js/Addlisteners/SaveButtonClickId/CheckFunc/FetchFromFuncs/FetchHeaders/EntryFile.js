@@ -1,7 +1,10 @@
 import KeysJson from './Keys.json' assert {type: 'json'};
 
 let StartFunc = () => {
-    KeysJson.body.FilterCondition = `e.pk==='${jFLocalQrCode()}' && e.BillPk==='${jFLocalSRRefId()}'`;
+    let jVarLocalQrCode = jFLocalQrCode();
+    let jVarLocalSRRef = jFLocalSRRefId();
+
+    KeysJson.body.FilterCondition = `e.pk==='${jVarLocalQrCode}' && e.BillPk==='${jVarLocalSRRef}'`;
     KeysJson.body = JSON.stringify(KeysJson.body);
 
     return KeysJson;
