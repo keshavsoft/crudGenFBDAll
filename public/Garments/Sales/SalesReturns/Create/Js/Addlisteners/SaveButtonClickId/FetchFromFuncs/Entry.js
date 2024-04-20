@@ -7,7 +7,10 @@ let StartFunc = async () => {
 
     if (jVarLocalDataNeeded.status === 200) {
         StartFuncAfterFetch();
-    };
+    } else {
+        swal.fire({ icon: "error", title: "Duplicate" });
+
+    }
 };
 
 export { StartFunc }

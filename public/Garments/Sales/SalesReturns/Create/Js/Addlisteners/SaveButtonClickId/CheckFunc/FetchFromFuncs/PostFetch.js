@@ -9,9 +9,9 @@ let StartFunc = async () => {
 
     let jVarLocalFetchUrl = `/${LocalroutePath}/BillsQrCode/Filter`;
     let response = await fetch(jVarLocalFetchUrl, jVarLocalFetchHeaders);
-    let data = await response.json();
+    // let data = await response.json();
 
-    return await data;
+    return await response;
 };
 
 export { StartFunc };

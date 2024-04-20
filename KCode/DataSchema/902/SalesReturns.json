@@ -26,5 +26,10 @@
   "SRRef": {
     "type": "STRING",
     "allowNull": false
+  },
+  "QrCode": {
+    "type": "STRING",
+    "allowNull": false,
+    "unique": true
   }
 }

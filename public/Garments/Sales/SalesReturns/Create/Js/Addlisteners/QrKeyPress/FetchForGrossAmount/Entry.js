@@ -9,7 +9,10 @@ let StartFunc = async ({ inRowpk }) => {
         let jVarLocalFetchData = await jVarLocalDataNeeded.json();
 
         StartFuncAfterFetch({ inData: jVarLocalFetchData.JsonData });
-    };
+    }else{
+        swal.fire({ icon: "error", title: "Check and Scan" });
+
+    }
 };
 
 export { StartFunc }
