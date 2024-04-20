@@ -8,7 +8,14 @@ let StartFunc = async () => {
     };
 
     let jVarLocalQrCode = await StartFuncFetchFromFuncs();
-    if (jVarLocalQrCode.KTF === false) {
+
+    if (jVarLocalQrCode.status === 500) {
+        swal.fire({ icon: "erroe", title: "Check and Save" });
+
+        return false;
+    };
+    if (jVarLocalQrCode.json().KTF === false) {
+
         return false;
     };
 
