@@ -3,21 +3,16 @@ let StartFunc = async () => {
     // let response = await fetch(jVarLocalFetchUrl);
     // let data = await response.json();
     // localStorage.setItem("AccountNames", JSON.stringify(data));
-    // jFLocalToDataList();
+    jFShowDateTime();
 };
 
-let jFLocalToDataList = () => {
-    let jVarLocalArray = localStorage.getItem("AccountNames");
-    let jVarLocalArrayJson = JSON.parse(jVarLocalArray);
-    let str = "";
+const jFShowDateTime = () => {
+    var sevenDaysAgo = new Date();
+    sevenDaysAgo.setDate(sevenDaysAgo.getDate());
 
-    for (var i = 0; i < jVarLocalArrayJson.length; ++i) {
-        str += '<option value="' + jVarLocalArrayJson[i].AccountName + '" />'; // Storing options in variable
-    };
+    var formattedSevenDaysAgo = sevenDaysAgo.getFullYear() + '-' + ((sevenDaysAgo.getMonth() + 1) < 10 ? '0' : '') + (sevenDaysAgo.getMonth() + 1) + '-' + (sevenDaysAgo.getDate() < 10 ? '0' : '') + sevenDaysAgo.getDate();
 
-    let jVarLocalAccountNamesDataListId = document.getElementById("AccountNamesDataListId");
-    jVarLocalAccountNamesDataListId.innerHTML = str;
-
+    document.getElementById('Date').value = formattedSevenDaysAgo;
 };
 
 export { StartFunc };

@@ -1,25 +1,23 @@
 let StartFunc = async () => {
-    return await jFLocalGetFetch();
+    return await jFSalesRefCheck();
 };
 
-let jFLocalGetFetch = async () => {
-    let jVarLocalUrl = `/bin/pos/${jFLocalSalesRef()}`;
-    let jVarLocalResponse = await fetch(jVarLocalUrl);
 
-    if (jVarLocalResponse.status === 200) {
+
+const jFSalesRefCheck = () => {
+    let jVarLocalFactory = document.getElementById('SalesRef');
+
+    if (jVarLocalFactory.value === "") {
+        jVarLocalFactory.classList.add("is-invalid");
+        jVarLocalFactory.focus();
+        return false;
+    };
+
+    if ((jVarLocalFactory.value === "") === false) {
+        jVarLocalFactory.classList.remove("is-invalid");
         return true;
     };
-
-    return false;
-};
-
-let jFLocalSalesRef = () => {
-    let jVarLocalSalesRef = 'SalesRef'
-    let jVarLocalHtmlId = document.getElementById(jVarLocalSalesRef);
-
-    if (jVarLocalHtmlId === null === false) {
-        return jVarLocalHtmlId.value.trim();
-    };
+    return true;
 };
 
 export { StartFunc }
