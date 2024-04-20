@@ -41,7 +41,12 @@ const StartFunc = () => {
 
     k1.innerHTML += `${" ".repeat(21)}<span style="font-size: 13px;">Gross Amount    :${jvarLocaltoatalUnitRate.toString().padStart(7, " ")}</span>\n`;
     k1.innerHTML += `${" ".repeat(21)}<span style="font-size: 13px;">Total Discount  :${jvarLocaltoatalDisRate.toString().padStart(7, " ")}</span>\n`;
-    k1.innerHTML += `${" ".repeat(21)}<span style="font-size: 13px;">Return Amount   :${("ReturnAmount" in jVarLocalHeadData) ? jVarLocalHeadData.ReturnAmount.toString().padStart(7, " ") : "0".padStart(7, " ")}</span>\n`;
+    console.log("aaaaaa : ", jVarLocalHeadData);
+    let jVarLocalReturnAmount = ("ReturnAmount" in jVarLocalHeadData) ? (jVarLocalHeadData.ReturnAmount === null) ? "0".padStart(7, " ") : jVarLocalHeadData.ReturnAmount.toString().padStart(7, " ") : "0".padStart(7, " ");
+
+
+
+    k1.innerHTML += `${" ".repeat(21)}<span style="font-size: 13px;">Return Amount   :${jVarLocalReturnAmount}</span>\n`;
 
     // k1.innerHTML += `${" ".repeat(21)}<span style="font-size: 13px;">Total Discount    :   ${jvarLocaltoatalDisRate}</span>\n`;
     k1.innerHTML += `                       <span style="font-size: 16px; font-weight: bold;">Net Amt    :  ${("ReturnAmount" in jVarLocalHeadData) ? localNetAmount - jVarLocalHeadData.ReturnAmount : localNetAmount}</span>\n`;
