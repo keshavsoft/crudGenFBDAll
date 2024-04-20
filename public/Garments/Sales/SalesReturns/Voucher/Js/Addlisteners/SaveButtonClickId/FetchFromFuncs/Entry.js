@@ -9,7 +9,15 @@ let StartFunc = async () => {
         StartFuncAfterFetch();
     } else {
         let jVarLocalReason = await jVarLocalDataNeeded.text();
-        Swal.fire(jVarLocalReason);
+        Swal.fire({
+            title: `${jVarLocalReason}`,
+            confirmButtonText: "ok",
+        }).then((result) => {
+            if (result.isConfirmed) {
+                document.getElementById("SalesRef").focus();
+            }
+        });
+        // Swal.fire(jVarLocalReason);
     }
 };
 
