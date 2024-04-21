@@ -11,16 +11,16 @@ let StartFunc = async (row, $element, field) => {
             returnInputValueOnDismiss: true,
             confirmButtonText: "Yes, delete it!",
             // returnFocus:false,
-            reverseButtons:true,
-            focusCancel:true,
+            reverseButtons: true,
+            focusCancel: true,
             cancelButtonText: "Cancel"
         });
 
         if (jVarLocalFromSwal.isConfirmed) {
-            let jVarDeletedAccountName=row.AccountName;
-            document.getElementById("deletedAccountName").textContent=jVarDeletedAccountName;
+            let jVarDeletedAccountName = row.AccountName;
+            document.getElementById("deletedAccountName").textContent = jVarDeletedAccountName;
             await jFLocalClickRowForDelete(row);
-            document.getElementById("AlertId").style.display="block";
+            document.getElementById("AlertId").style.display = "block";
         };
     };
 };
