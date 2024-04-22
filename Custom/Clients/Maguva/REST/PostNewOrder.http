@@ -1,18 +1,6 @@
-POST http://localhost:7016/Custom/Clients/Washtex/Orders/NewOrder/AddItem/Kakinada
+POST http://localhost:7017/Custom/Clients/Maguva/Transactions/Sales/QrCodes
 content-type: application/json
 
 {
-    "Category": "BBB",
-    "ItemName": "M Shart",
-    "ItemNamePk": "1",
-    "WashType": "DryWash",
-    "WashTypePk": "1",
-    "locationPk": "Vizag",
-    "location": "Vizag",
-    "Pcs": 1,
-    "Rate": 46,
-    "DisPer": 0,
-    "AddOn": "0-0",
-    "DeliveryDateTime": "2024-04-23T10:25:09",
-    "Total": 46
+    "pk": "7777"
 }

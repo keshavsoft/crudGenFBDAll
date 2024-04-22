@@ -1,13 +1,12 @@
-import { StartFunc as StartFuncWriteTofile } from '../../kLowDb/WriteTofile/AsIs.js';
+// import { StartFunc as StartFuncWriteTofile } from '../../kLowDb/WriteTofile/AsIs.js';
+import { StartFunc as StartFuncWithChecking } from '../../kLowDb/WithChecking/StartFunc.js';
 
 let postFunc = ({ inPostBody }) => {
-    let LocalFromLowDb = StartFuncWriteTofile({
+    let LocalFromLowDb = StartFuncWithChecking({
         inDataToInsert: inPostBody
     });
 
-    if (LocalFromLowDb === false) {
-        return false;
-    };
+
 
     return LocalFromLowDb;
 };

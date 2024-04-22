@@ -49,7 +49,7 @@ app.use('/src', routerFromSrc);
 app.use('/bin', routerFromBin);
 app.use('/utility', routerForUtility);
 app.use('/Common', routerFromCommon);
-app.use('/Common', routerFromCustom);
+app.use('/Custom', routerFromCustom);
 
 StartFuncKWSServer(server);
 
