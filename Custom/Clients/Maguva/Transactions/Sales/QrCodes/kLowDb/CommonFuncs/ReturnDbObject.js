@@ -8,7 +8,7 @@ let StartFunc = ({ inFileName }) => {
 
     LocalReturnData.KTF = false;
 
-    LocalReturnData.UserDataFilePath = `${Configjson.jsonConfig.DataPath}/${Configjson.jsonConfig.DataPk}/Transactions/${inFileName}.json`;
+    LocalReturnData.UserDataFilePath = `${Configjson.jsonConfig.DataPath}/${Configjson.jsonConfig.DataPk}/${inFileName}.json`;
 
     const defaultData = { error: "From KLowDb" }
 
