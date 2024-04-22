@@ -6,26 +6,21 @@ const StartFunc = ({ inPk }) => {
     let LocalReturnData = { KTF: false, JSONFolderPath: "", CreatedLog: {} };
 
     let LocalInData = StartFuncReadFile();
-    let LocalFindData = LocalInData.find(e => e.pk == Localpk);
+    let LocalFilterSales = LocalInData.filter(e => e.pk == Localpk);
 
-    if (LocalFindData === undefined === false) {
+    if (LocalFilterSales.length > 0) {
         let LocalSalesReturns = StartFuncSalesReturns({ inPk: Localpk });
 
-        if (LocalSalesReturns.KTF === false) {
+        if ((LocalSalesReturns === LocalFilterSales.length) === false) {
             LocalReturnData.KReason = LocalSalesReturns.KReason;
             return LocalReturnData;
         };
 
-        if (LocalSalesReturns.KTF) {
-            LocalReturnData.KTF = true
-            return LocalReturnData;
-        };
-
-        LocalReturnData.KReason = "found in Sales"
-        return LocalReturnData;
     };
 
     LocalReturnData.KTF = true
     return LocalReturnData;
 };
+
+
 export { StartFunc };
