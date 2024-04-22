@@ -1,88 +1,39 @@
 import { StartFunc as StartFuncPullData } from "./PullData/EntryFile.js";
-import { StartFunc as StartFuncChecks } from "./Checks/QrCheck.js";
-import { StartFunc as StartFuncUniqueKeyCheck } from "./Checks/UniqueKeyCheck.js";
-
-import { StartFunc as StartFuncGenerate } from "./ChecksBeforeSave/EntryFile.js";
-// import { StartFunc as StartFuncGenerate } from "./ChecksBeforeSave/Bi";
+import { StartFunc as StartFuncChecksBeforeSave } from "./ChecksBeforeSave/EntryFile.js";
 
 let StartFunc = ({ inDataToInsert }) => {
     let LocalinDataToInsert = inDataToInsert;
     let LocalReturnData = { KTF: false, JSONFolderPath: "", CreatedLog: {} };
-    // let LocalStartFuncPullData = StartFuncPullData();
 
-    let LocalcheckBeforeSaveGenerate = StartFuncGenerate({ inPk: LocalinDataToInsert.pk });
-    
-    if (LocalcheckBeforeSaveGenerate.KTF === false) {
-        LocalReturnData.KReason = LocalcheckBeforeSaveGenerate.KReason;
+    let LocalFromChecksBeforeSave = StartFuncChecksBeforeSave({ inPk: LocalinDataToInsert.pk });
+
+    if (LocalFromChecksBeforeSave.KTF === false) {
+        LocalReturnData.KReason = LocalFromChecksBeforeSave.KReason;
         return LocalReturnData;
     };
-    
-    console.log("LocalcheckBeforeSaveGenerate::", LocalcheckBeforeSaveGenerate);
+    let LocalStartFuncPullData = StartFuncPullData();
 
-    // if ("error" in LocalStartFuncPullData) {
-    //     LocalReturnData.KReason = LocalStartFuncPullData.error;
-    //     return LocalReturnData;
-    // };
+    const LocalTableSchema = LocalStartFuncPullData.inTableSchema;
+    const db = LocalStartFuncPullData.inDb;
 
-    // const LocalTableSchema = LocalStartFuncPullData.inTableSchema;
-    // const db = LocalStartFuncPullData.inDb;
-    // let LocalKeysNeeded = LocalFuncReferenceObject({ inTableSchema: LocalTableSchema });
+    let LocalDataWithUuid = LocalFuncGeneratePk({
+        inDataToInsert: LocalinDataToInsert,
+        inData: db.data, inTableSchema: LocalTableSchema.fileData
+    });
 
-    // if ((Object.keys(LocalKeysNeeded).length === 0) === false) {
-    //     let LocalKeyNeeded = Object.keys(LocalKeysNeeded)[0];
-    //     let LocalValueNeeded = inDataToInsert[LocalKeyNeeded];
-
-    //     let LocalK1 = Object.values(LocalKeysNeeded)[0].references;
-    //     let localSarchKey = LocalK1.key;
-    //     let LocalDataNeeded = StartFuncChecks({ inFileName: LocalK1.model.tableName, NeededKey: LocalValueNeeded, inSearchKey: localSarchKey });
-
-    //     if (LocalDataNeeded.KTF === false) {
-    //         LocalReturnData.KReason = LocalDataNeeded.KReason;
-    //         return LocalReturnData;
-    //     };
-    // };
-
-    // let LocalStartFuncChecksQrCodeId = StartFuncUniqueKeyCheck({
-    //     inData: db.data, inDataToInsert: LocalinDataToInsert,
-    //     inTableSchema: LocalTableSchema.fileData
-    // });
-
-    // if (LocalStartFuncChecksQrCodeId.KTF === false) {
-    //     LocalReturnData.KReason = LocalStartFuncChecksQrCodeId.KReason;
-    //     return LocalReturnData;
-    // };
-
-    // let LocalDataWithUuid = LocalFuncGeneratePk({
-    //     inDataToInsert: LocalinDataToInsert,
-    //     inData: db.data, inTableSchema: LocalTableSchema.fileData
-    // });
-
-    // if (LocalDataWithUuid.KTF === false) {
-    //     LocalReturnData.KReason = LocalDataWithUuid.KReason;
-    //     return LocalReturnData;
-    // };
-
-    // db.data.push(LocalDataWithUuid.InsertData);
-    // db.write();
-
-    // LocalReturnData.KTF = true;
-    // LocalReturnData.ScanNo = LocalDataWithUuid.InsertData.QrCodeId
-    // return LocalReturnData;
-};
-
-let LocalFuncReferenceObject = ({ inTableSchema }) => {
-    let LocalTableSchema = inTableSchema;
-    let LocalKeysNeeded = {};
-
-    for (const prop in LocalTableSchema.fileData) {
-        if ("references" in LocalTableSchema.fileData[prop]) {
-            LocalKeysNeeded[prop] = LocalTableSchema.fileData[prop];
-        };
+    if (LocalDataWithUuid.KTF === false) {
+        LocalReturnData.KReason = LocalDataWithUuid.KReason;
+        return LocalReturnData;
     };
 
-    return LocalKeysNeeded;
+    db.data.push(LocalDataWithUuid.InsertData);
+    db.write();
 
+    LocalReturnData.KTF = true;
+    LocalReturnData.ScanNo = LocalDataWithUuid.InsertData.QrCodeId
+    return LocalReturnData;
 };
+
 
 const LocalFuncGeneratePk = ({ inDataToInsert, inData, inTableSchema }) => {
     let LocalInData = inData;
