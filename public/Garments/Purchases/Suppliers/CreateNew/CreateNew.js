@@ -1,5 +1,6 @@
 import { jFStartFunc as CheckUserFuncsjFStartFunc } from "../../../CommonFuncs/LoginFuncs/CheckUserFuncs.js"
-import { StartFunc as AddListenersStartFunc } from "../CreateNew/AddListeners.js";
+import { StartFunc as AddListenersStartFunc } from "./AddListeners/EntryFile.js";
+
 import { ConfigObject } from "../../../ApiConfig.js";
 import { KeysObject } from "../ConfigKeys.js";
 
@@ -14,7 +15,7 @@ let StartFunc = async () => {
     //     inKTokenKey: jVarCommonKToken
     // });
 
-    AddListenersStartFunc({ ...jVarCommonKeys, inProjectName: jVarCommonProjectName });
+    AddListenersStartFunc();
 };
 
 StartFunc().then();
