@@ -1,20 +1,11 @@
 import { StartFunc as PreparePostDataStartFunc } from "../PreparePostData.js";
 
-let StartFunc = async ({ inFolderName, inFileName, inItemName, inProjectName }) => {
+let StartFunc = async () => {
     try {
         let LocalReturnObject = { KTF: false, KResult: "", JsonData: {} };
 
-        let inFetchPostData = {
-            FolderName: inFolderName,
-            FileNameOnly: inFileName,
-            ItemName: inItemName,
-            ScreenName: "Create"
-        };
-
         let inPostData = PreparePostDataStartFunc();
-        
-        // let jVarLocalFetchUrl = `/${inProjectName}/Api/Data/FromFolder/FromFile/Items/FromDataFolder/WithScreens/WithChecking/Insert`;
-        let jVarLocalFetchUrl = `/bin/Vouchers`;
+        let jVarLocalFetchUrl = `/bin/Vouchers/WithCheckAndGenPk`;
 
         let jVarLocalFetchHeaders = {
             method: "post",
@@ -26,11 +17,13 @@ let StartFunc = async ({ inFolderName, inFileName, inItemName, inProjectName }) 
         };
 
         const response = await fetch(jVarLocalFetchUrl, jVarLocalFetchHeaders);
-        const data = await response.json();
-
-     //   LocalAfterSaveFunc({ inFetchPostData: data });
-     LocalReturnObject.KTF = true;
-        return await data;
+        if (response.status === 200) {
+            const data = await response.json();
+            LocalReturnObject.KTF = true;
+            return await data;
+        } else {
+            swal.fire({ icon: "error", title: "Duplicate Bill Number" })
+        }
 
     } catch (error) {
         console.log("error:", error);

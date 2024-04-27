@@ -6,7 +6,8 @@ import {
     PostUploadFromModalFunc as PostUploadFromModalFuncRepo,
     PostFilterFunc as PostFilterFuncRepo,
     PostWithKeysCheckFunc as PostWithKeysCheckFuncRepo,
-    PostFuncGenUuId as PostFuncGenUuIdRepo
+    PostFuncGenUuId as PostFuncGenUuIdRepo,
+    PostWithCheckAndGenPkFunc as PostWithCheckAndGenPkFuncRepo
 } from '../../repos/postFuncs/EntryFile.js';
 
 import {
@@ -130,9 +131,22 @@ let PostWithKeysCheckFunc = async (req, res) => {
     res.json(LocalFromRepo);
 };
 
+let PostWithCheckAndGenPkFunc = async (req, res) => {
+    let LocalBody = req.body;
+    let LocalFromRepo = await PostWithCheckAndGenPkFuncRepo({ ...LocalBody });
+
+    if (LocalFromRepo.KTF === false) {
+        res.status(500).send(LocalFromRepo.KReason);
+        return;
+    };
+
+    res.json(LocalFromRepo);
+};
+
 export {
     PostFunc, PostFromModalFunc,
     PostUploadFunc, PostGetSelectColumnsFunc,
     PostUploadFromModalFunc, PostUploadImageFunc,
-    PostFilterFunc, PostWithKeysCheckFunc, PostFuncGenUuId
+    PostFilterFunc, PostWithKeysCheckFunc, PostFuncGenUuId,
+    PostWithCheckAndGenPkFunc
 };

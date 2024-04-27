@@ -1,21 +1,21 @@
 let StartFunc = async ({ inBodyData }) => {
     let jVarLocalBodyData = inBodyData;
-    console.log("jVarLocalBodyData : ", jVarLocalBodyData);
-    let jVarLocalFetchUrl = `/JSONApi/API/Data/FromFolder/FromFile/Items/FromDataFolder/RowData`;
+    let jVarLocalRowPK = getUrlQueryParams({ inGetKey: "RowPK" });
 
-    let jVarLocalFetchHeaderObject = {
-        method: "post",
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(jVarLocalBodyData)
-    };
+    let jVarLocalFetchUrl = `/bin/Vouchers/FilterData/pk/${jVarLocalRowPK}`;
 
-    let response = await fetch(jVarLocalFetchUrl, jVarLocalFetchHeaderObject);
+    let response = await fetch(jVarLocalFetchUrl);
     let jVarLocalResponse = await response.json();
+    console.log("jVarLocalResponse",jVarLocalResponse);
 
     return jVarLocalResponse;
+};
+
+let getUrlQueryParams = ({ inGetKey }) => {
+    const queryString = window.location.search;
+    const parameters = new URLSearchParams(queryString);
+    const value = parameters.get(inGetKey);
+    return value;
 };
 
 export { StartFunc };

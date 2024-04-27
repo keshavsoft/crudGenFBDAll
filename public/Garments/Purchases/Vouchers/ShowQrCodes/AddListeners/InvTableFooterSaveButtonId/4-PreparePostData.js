@@ -1,6 +1,4 @@
-import { ReturnRowPK } from "../../../urlSearchParams.js";
-
-let LocalPreparePostData = () => {
+let StartFunc = () => {
     let jVarLocalItemNameId = document.getElementById("ItemsDataListId");
     let jVarLocalRateId = document.getElementById("RateId1");
     let jVarLocalQty = document.getElementById("QtyId1");
@@ -10,10 +8,12 @@ let LocalPreparePostData = () => {
     let jVarvalueMRP = document.getElementById("MRPId");
     let jVarvalueSaleValue = document.getElementById("SaleValueId");
     let jVarLocalAmountId = document.getElementById("AmountId");
+    let jVarLocalRowPK = getUrlQueryParams({ inGetKey: "RowPK" });
 
 
     let jVarLocalReturnData = {};
     jVarLocalReturnData.ItemName = jVarLocalItemNameId.value;
+    jVarLocalReturnData.FK = jVarLocalRowPK;
 
     if (!(jVarLocalRateId === null)) {
         jVarLocalReturnData.UnitRate = parseInt(jVarLocalRateId.value);
@@ -41,7 +41,7 @@ let LocalPreparePostData = () => {
     if (!(jVarvalueSaleValue === null)) {
         jVarLocalReturnData.SaleValue = parseInt(jVarvalueSaleValue.value);
     };
-    
+
     if (!(jVarLocalAmountId === null)) {
         jVarLocalReturnData.Amount = parseInt(jVarLocalAmountId.value);
     };
@@ -49,44 +49,12 @@ let LocalPreparePostData = () => {
     return jVarLocalReturnData;
 };
 
-let StartFunc = async ({ inFolderName, inFileName, inItemName, inProjectName }) => {
-    try {
-        let LocalReturnObject = { KTF: false, KResult: "", JsonData: {} };
-        let jVarLocalRowPK = ReturnRowPK().RowPK;
-        //  jVarLocalRowPK = 2;
 
-        let inFetchPostData = {
-            FileNameOnly: inFileName,
-            FolderName: inFolderName,
-            ItemName: inItemName,
-            JsonPk: jVarLocalRowPK,
-            ScreenName: "Create",
-            SubTableKey: "InvGrid"
-        };
-
-        inFetchPostData.DataToInsert = LocalPreparePostData();
-        let jVarLocalFetchUrl = `/${inProjectName}/Api/Data/FromFolder/FromFile/Items/FromDataFolder/WithScreens/SubTable/WithChecking/Insert`;
-
-        let jVarLocalFetchHeaders = {
-            method: "post",
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(inFetchPostData)
-        };
-
-        const response = await fetch(jVarLocalFetchUrl, jVarLocalFetchHeaders);
-        const data = await response.json();
-        LocalReturnObject.KTF = data.KTF;
-
-        LocalReturnObject.KTF = true;
-        return await LocalReturnObject;
-
-    } catch (error) {
-        console.log("error:", error);
-    }
-
+let getUrlQueryParams = ({ inGetKey }) => {
+    const queryString = window.location.search;
+    const parameters = new URLSearchParams(queryString);
+    const value = parameters.get(inGetKey);
+    return value;
 };
 
 export { StartFunc };

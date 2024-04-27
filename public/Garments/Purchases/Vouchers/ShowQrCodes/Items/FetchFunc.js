@@ -25,17 +25,14 @@ let StartFunc = async ({ inProjectName }) => {
 
         const response = await fetch(jVarLocalFetchUrl);
         const data = await response.json();
+        console.log('data',data);
         
-        if (data.KTF) {
-            LocalReturnObject.JsonData = data;
-        };
-
-        LocalReturnObject.KTF = true;
+        return await data;
+       
     } catch (error) {
         console.log("error:", error);
     };
 
-    return await LocalReturnObject;
 };
 
 let LocalAfterSaveFunc = ({ inFetchPostData }) => {
