@@ -302,18 +302,20 @@
 
             <!-- End Dashboard Nav -->
 
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="../WithYM/WithYM.html">
-                    <i class="bi bi-database-add"></i></i>
-                    <span>WithYM</span>
-                </a>
-            </li>
             <li class="nav-item ">
                 <a  class="nav-link " href="#" >
                     <i class="bi bi-table"></i></i>
+                    <span>WithYM</span>
+                </a>
+            </li>
+            
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="../ShowAll/ShowAll.html">
+                    <i class="bi bi-database-add"></i></i>
                     <span>ShowAll</span>
                 </a>
             </li>
+            
         </ul>
     </aside>
     <!-- End Sidebar-->
@@ -345,16 +347,17 @@
                                 <span class="visually-hidden">Loading...</span>
                             </div>
                             <table id="table" data-toolbar="#toolbar" data-search="true" data-searchable="true"
-                                data-show-footer="true" data-show-columns="true" data-show-columns-toggle-all="true"
-                                data-click-to-select="true" data-filter-control="true" data-show-export="true"
-                                data-detail-formatter="detailFormatter" data-id-field="pk" data-show-toggle="true"
-                                data-url="/bin/Accounts/DataOnly" data-pagination="true">
+                                 
+                                data-filter-control="true" 
+                                data-detail-formatter="detailFormatter" 
+                                data-pagination="true" >
                                 <thead>
                                     <tr id="tableHeadRow">
-                                        <th data-field="id" data-formatter="jFGlobalSerialColumn">#</th>
+                                        <th data-field="id" data-formatter="jFGlobalSerialColumn" >#</th>
                                         
+                                        <th data-field="da" data-formatter="jFGlobalForYear" data-filter-control="select">Year</th>
                                         <th data-field="da">Date</th>
-                                        <th data-field="nam">Account Name</th>
+                                        <th data-field="nam" data-filter-control="select">Account Name</th>
                                         <th data-field="amt">Amount</th>
                                         <th data-field="des">Description</th>
                                         <th data-field="nam4">Info</th>
@@ -387,6 +390,10 @@
 
         function jFGlobalSerialColumn(value, row, index) {
             return index + 1;
+        };
+        function jFGlobalForYear(value, row, index) {
+            return value.substring(0,4);
+
         };
 
         function operateFormatter(value, row, index) {
@@ -445,15 +452,10 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
     <script src="https://unpkg.com/bootstrap-table@1.22.1/dist/bootstrap-table.min.js"></script>
 
-    <script src="https://unpkg.com/tableexport.jquery.plugin/tableExport.min.js"></script>
+    
     <script
-        src="https://unpkg.com/bootstrap-table@1.22.1/dist/extensions/export/bootstrap-table-export.min.js"></script>
+        src="https://unpkg.com/bootstrap-table@1.22.1/dist/extensions/filter-control/bootstrap-table-filter-control.min.js"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js"
-        integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <!-- Template Main JS File -->
     <script src="./assets/js/main.js"></script>
