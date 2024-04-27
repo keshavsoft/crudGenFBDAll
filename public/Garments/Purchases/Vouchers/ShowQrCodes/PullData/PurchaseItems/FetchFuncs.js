@@ -1,11 +1,17 @@
-let FromNode = async () => {
+let StartFunc = async () => {
     try {
         let jVarLocalRowPK = getUrlQueryParams({ inGetKey: "RowPK" });
-        let jVarLocalFetchUrl = `/bin/Vouchers/FilterData/pk/${jVarLocalRowPK}`;
+        let jVarLocalFetchUrl = `/bin/PurchaseItems/FilterData/FK/${jVarLocalRowPK}`;
 
         const response = await fetch(jVarLocalFetchUrl);
-        const data = await response.json();
-        return await data;
+
+        if (response.status === 200) {
+            const data = await response.json();
+            return await data;
+        }else{
+            return await [];  
+        }
+
 
     } catch (error) {
         console.log("error:", error);
@@ -21,4 +27,4 @@ let getUrlQueryParams = ({ inGetKey }) => {
     return value;
 };
 
-export { FromNode };
+export { StartFunc };

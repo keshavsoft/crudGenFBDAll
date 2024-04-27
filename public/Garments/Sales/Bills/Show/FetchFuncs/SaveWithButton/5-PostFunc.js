@@ -14,11 +14,22 @@ const StartFunc = async ({ inFetchBody }) => {
     };
 
     let response = await fetch(jFetchUrl, jLocalFetchConfig);
-    console.log("response:::",response);
 
-    let jVarLocalResponseData = await response.json();
+    if (response.status === 200) {
+        let jVarLocalResponseData = await response.json();
 
-    StartFuncAfterFetchFunc({ inResponse: jVarLocalResponseData });
+        StartFuncAfterFetchFunc({ inResponse: jVarLocalResponseData });
+    } else {
+        Swal.fire({
+            title: "Ckeck and scan",
+            confirmButtonText: "ok",
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = ""
+            }
+        });
+    };
+
 
 };
 

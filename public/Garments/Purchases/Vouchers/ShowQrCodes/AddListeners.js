@@ -1,13 +1,12 @@
-import { StartFunc as SaveFuncsStartFunc } from "./ButtonFuncs/InvTable/Footer/SaveFuncs.js";
-// import { StartFunc as StartFuncKeyPressFuncs } from "./Pages/Pricing/KeyPressFuncs.js";
 import { StartFunc as StartFuncDeleteFuncs } from "./ButtonFuncsForDelete/DeleteFuncs.js";
 import { StartFunc as StartFuncQrCodeGeneration } from "./Pages/QrCodeGeneration/ButtonClicks.js";
 
 import { StartFunc as StartFuncKeyPressFuncs } from "./Pages/ProductsTab/KeyPressFuncs.js";
+import { StartFunc as StartFuncAddListeners } from "./AddListeners/EntryFile.js";
 
 let StartFunc = async ({ inFolderName, inFileName, inItemName, inProjectName }) => {
     LocalDeleteButtonClassAddFuncs({ inFolderName, inFileName, inItemName, inProjectName });
-    LocalInvTableFooterSaveButtonIdAddFuncs({ inFolderName, inFileName, inItemName, inProjectName });
+    StartFuncAddListeners();
 
     StartFuncKeyPressFuncs();
     StartFuncQrCodeGeneration();
@@ -27,28 +26,7 @@ let LocalDeleteButtonClassAddFuncs = ({ inFolderName, inFileName, inItemName, in
 
 };
 
-let LocalInvTableFooterSaveButtonIdAddFuncs = ({ inFolderName, inFileName, inItemName, inProjectName }) => {
-    let jVarLocalInvTableFooterSaveButtonId = document.getElementById("InvTableFooterSaveButtonId");
 
-    if (jVarLocalInvTableFooterSaveButtonId !== null) {
-        jVarLocalInvTableFooterSaveButtonId.addEventListener("click", async (event) => {
-            let LocalFromSave = await SaveFuncsStartFunc({
-                inFolderName, inFileName, inItemName, inProjectName,
-                inEvent: event
-            });
-
-            if (LocalFromSave.KTF) {
-                window.location.href += "&FromSave=true";
-                // await ShowOnDomStartFunc({
-                //     inFolderName, inFileName, inItemName, inProjectName,
-                //     inShowSuccess: true
-                // });
-
-            };
-        });
-    };
-
-};
 
 
 export { StartFunc };

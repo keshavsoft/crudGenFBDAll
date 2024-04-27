@@ -4,6 +4,7 @@ import { StartFunc as FormLoadFuncsStartFunc } from "./FormLoadFuncs.js";
 import { ConfigObject } from "../../../ApiConfig.js";
 import { KeysObject } from "../ConfigKeys.js";
 
+
 let jVarCommonKToken = ConfigObject.TokenName;
 let jVarLocalStorageKeyName = ConfigObject.LocalStorageKeyName;
 let jVarCommonKeys = KeysObject.CommonKeys;
@@ -15,7 +16,7 @@ let StartFunc = async () => {
         inKTokenKey: jVarCommonKToken
     });
 
-    AddListenersStartFunc({ ...jVarCommonKeys, inProjectName: jVarCommonProjectName });   
+    AddListenersStartFunc();
     await FormLoadFuncsStartFunc({ ...jVarCommonKeys, inProjectName: jVarCommonProjectName });
 };
 

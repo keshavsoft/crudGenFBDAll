@@ -1,33 +1,10 @@
 {
-  "VoucherName": {
-    "type": "STRING",
-    "allowNull": false
-  },
   "BillNumber": {
     "type": "STRING",
-    "allowNull": true
+    "allowNull": true,
+    "unique": true
   },
   "Date": {
-    "type": "STRING",
-    "allowNull": true
-  },
-  "VoucherValue": {
-    "type": "INTEGER",
-    "allowNull": true
-  },
-  "VoucherSign": {
-    "type": "STRING",
-    "allowNull": true
-  },
-  "ParentVoucherName": {
-    "type": "STRING",
-    "allowNull": true
-  },
-  "AccountCode": {
-    "type": "STRING",
-    "allowNull": true
-  },
-  "AccountName": {
     "type": "STRING",
     "allowNull": true
   },
@@ -40,10 +17,6 @@
     "allowNull": true
   },
   "TotalAmount": {
-    "type": "STRING",
-    "allowNull": true
-  },
-  "InvGrid": {
     "type": "STRING",
     "allowNull": true
   }

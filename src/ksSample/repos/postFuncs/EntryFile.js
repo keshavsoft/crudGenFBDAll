@@ -4,7 +4,8 @@ import {
     PostUploadFunc as PostUploadFuncDal, PostGetSelectColumnsFunc as PostGetSelectColumnsFuncDal,
     PostUploadFromModalFunc as PostUploadFromModalFuncDal,
     PostWithKeysCheckFunc as PostWithKeysCheckFuncDal,
-    PostFuncGenUuId as PostFuncGenUuIdDal, PostFilterFunc as PostFilterFuncDal
+    PostFuncGenUuId as PostFuncGenUuIdDal, PostFilterFunc as PostFilterFuncDal,
+    PostWithCheckAndGenPkFunc as PostWithCheckAndGenPkFuncDal
 } from '../../dals/postFuncs/EntryFile.js';
 
 import {
@@ -58,9 +59,14 @@ let PostWithKeysCheckFunc = async (inModalObject) => {
     return PostWithKeysCheckFuncDal({ inBodyKeys: inModalObject });
 };
 
+let PostWithCheckAndGenPkFunc = async (inModalObject) => {
+    return PostWithCheckAndGenPkFuncDal({ inBodyKeys: inModalObject });
+};
+
 export {
     PostFunc, PostFromModalFunc,
     PostUploadFunc, PostGetSelectColumnsFunc,
     PostUploadFromModalFunc, PostFilterFunc,
-    PostWithKeysCheckFunc, PostFuncGenUuId
+    PostWithKeysCheckFunc, PostFuncGenUuId,
+    PostWithCheckAndGenPkFunc
 };

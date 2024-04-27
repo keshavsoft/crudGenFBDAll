@@ -5,7 +5,7 @@ var router = express.Router();
 import {
     PostFunc, PostFromModalFunc,
     PostUploadFunc, PostGetSelectColumnsFunc, PostUploadFromModalFunc,
-    PostUploadImageFunc, PostFilterFunc, PostWithKeysCheckFunc, PostFuncGenUuId
+    PostUploadImageFunc, PostFilterFunc, PostWithKeysCheckFunc, PostFuncGenUuId,PostWithCheckAndGenPkFunc
 } from '../../controllers/postFuncs/EntryFile.js';
 
 import { PostFunc as PostFuncmiddleware } from '../../middlewares/postFuncs/EntryFile.js';
@@ -18,6 +18,7 @@ router.post('/GetSelectColumns', PostGetSelectColumnsFunc);
 router.post('/', PostFunc);
 router.post('/GenUuId', PostFuncGenUuId);
 router.post('/WithKeysCheck', PostWithKeysCheckFunc);
+router.post('/WithCheckAndGenPk', PostWithCheckAndGenPkFunc);
 
 router.post('/Filter', PostFilterFunc);
 router.post('/FromModal', PostFromModalFunc);

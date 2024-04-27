@@ -7,6 +7,7 @@ import { StartFunc as StartFuncWriteTofile } from '../../kLowDb/WriteTofile/With
 import { StartFunc as StartFuncWriteFileKeysCheck } from '../../kLowDb/WriteFile/WithChecking/StartFunc.js';
 import { StartFunc as StartFuncGenUuId } from '../../kLowDb/WriteFile/GenUuId.js';
 import { StartFunc as StartFuncFilterAsObject } from '../../kLowDb/ReadFile/FilterAsObject.js';
+import { StartFunc as StartFuncCheckGeneratePk } from '../../kLowDb/WriteFile/WithChecking/StartFuncGeneratePk.js';
 
 let PostFunc = (inPostBody) => {
     return StartFuncWriteTofile({ inDataToInsert: inPostBody });
@@ -40,9 +41,14 @@ let PostWithKeysCheckFunc = ({ inBodyKeys }) => {
     return StartFuncWriteFileKeysCheck({ inDataToInsert: inBodyKeys });
 };
 
+let PostWithCheckAndGenPkFunc = ({ inBodyKeys }) => {
+    return StartFuncCheckGeneratePk({ inDataToInsert: inBodyKeys });
+};
+
 export {
     PostFunc, PostFromModalFunc,
     PostUploadFunc, PostGetSelectColumnsFunc,
     PostUploadFromModalFunc, PostWithKeysCheckFunc,
-    PostFuncGenUuId, PostFilterFunc
+    PostFuncGenUuId, PostFilterFunc,
+    PostWithCheckAndGenPkFunc
 };

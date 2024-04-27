@@ -13,11 +13,12 @@ let StartFunc = async ({ inFolderName, inFileName, inItemName, inProjectName }) 
     // };
 
     let localStartFuncgetUrlQueryParams = await StartFuncgetUrlQueryParams();
-    console.log("localStartFuncgetUrlQueryParams",localStartFuncgetUrlQueryParams);
-    
+    console.log("localStartFuncgetUrlQueryParams", localStartFuncgetUrlQueryParams);
+
     let jVarLocalAliasName = document.getElementById('AliasNameId');
     let jVarLocalSupplierNameSelect = document.getElementById('SupplierNameSelectId');
     let jVarLocalBillNumberId = document.getElementById('BillNumberId');
+    let jVarLocalDateId = document.getElementById('DateId');
 
     if ("inAliasName" in localStartFuncgetUrlQueryParams) {
         jVarLocalAliasName.value = localStartFuncgetUrlQueryParams.inAliasName;
@@ -26,10 +27,14 @@ let StartFunc = async ({ inFolderName, inFileName, inItemName, inProjectName }) 
     if ("inSupplierName" in localStartFuncgetUrlQueryParams) {
         jVarLocalSupplierNameSelect.value = localStartFuncgetUrlQueryParams.inSupplierName;
     };
+    if (jVarLocalDateId) {
+        jVarLocalDateId.value = new Date().toLocaleDateString('en-GB').split('/').reverse().join('-');
+    }
 
     if ("BillNumber" in LocalDataFromFetch.JsonData) {
         jVarLocalBillNumberId.value = LocalDataFromFetch.JsonData.BillNumber;
     };
+    
 
 
 
@@ -51,13 +56,13 @@ let ShowOnDomDefaultValuesFromFetch = async ({ inFolderName, inFileName, inItemN
 
     if (LocalDataFromFetch.KTF) {
         let jVarLocalDateId = document.getElementById('DateId');
-      
+
 
         if ("Date" in LocalDataFromFetch.JsonData) {
             jVarLocalDateId.value = LocalDataFromFetch.JsonData.Date;
         };
 
-      
+
     };
 };
 
