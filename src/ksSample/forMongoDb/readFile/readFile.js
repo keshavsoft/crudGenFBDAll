@@ -9,12 +9,13 @@ let StartFunc = async () => {
             return await false;
         };
 
+        const password = encodeURIComponent(process.env.KS_PASSWORD_FORMONGODB);
+
         let url = configJson.mongoDbConfig.url;
         const dbName = configJson.mongoDbConfig.DbName;
         const LocalcollectionName = configJson.mongoDbConfig.collectionName;
 
-        url = url.replace("<password>", process.env.KS_PASSWORD_FORMONGODB);
-        // "mongodb+srv://nknnkumar:UIcMiTMOhfVupJFF@cluster0.xafoxqs.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+        url = url.replace("<password>", password);
 
         const client = new MongoClient(url);
 
@@ -26,6 +27,7 @@ let StartFunc = async () => {
         // console.log('serverData successfully to server', serverData);
         return await serverData;
     } catch (error) {
+        console.log("error : ", error);
         return await {
             KTF: false,
             KReason: { ErrorFrom: process.cwd(), sequelizeError: error },
