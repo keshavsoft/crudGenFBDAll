@@ -87,6 +87,11 @@ This project focuses on automating CRUD operations for JSON files, making it eas
 ├── .env
 └── README.md
 ```
+
+Database location :
+
+KData/JSON
+
 ### <a name="purpose-of-the-project"></a>## **Purpose of the Project** 🎯
 The primary objective is to simplify the process of managing and interacting with JSON files. By automating CRUD operations, this project aims to enhance efficiency and reduce the complexity of handling JSON data.
 ### <a name="important-points"></a>## **Important Points** 
