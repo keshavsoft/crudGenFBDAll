@@ -3,13 +3,13 @@ let StartFunc = async (row, $element, field) => {
     if (field === 4) {
         let jVarLocalFromSwal = await Swal.fire({
             title: "Are you sure?",
-            text: "You won't be able to revert this!",
-            icon: "warning",
+            text: "You want to alter this!",
+            icon: "info",
             showCancelButton: true,
-            confirmButtonColor: "#d33",
+            confirmButtonColor: "blue",
             cancelButtonColor: "grey",
             returnInputValueOnDismiss: true,
-            confirmButtonText: "Yes, delete it!",
+            confirmButtonText: "Yes, alter it!",
             // returnFocus:false,
             reverseButtons: true,
             focusCancel: true,
