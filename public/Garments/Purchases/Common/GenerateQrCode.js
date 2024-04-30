@@ -46,7 +46,8 @@ let GetFunc = async ({ inRowPk, inProjectName }) => {
     try {
         let LocalReturnObject = { KTF: false, KResult: "", JsonData: {} };
 
-        let jVarLocalFetchUrl = `/${inProjectName}/API/Data/FromFolder/FromFile/ScreensFromDisplayJson/Items/Custom/PostFromPk/${inRowPk}`;
+        // let jVarLocalFetchUrl = `/${inProjectName}/API/Data/FromFolder/FromFile/ScreensFromDisplayJson/Items/Custom/PostFromPk/${inRowPk}`;
+        let jVarLocalFetchUrl = `/Custom/Clients/Maguva/Generate/Qrcodes/${inRowPk}`;
 
         const response = await fetch(jVarLocalFetchUrl);
         const data = await response.json();

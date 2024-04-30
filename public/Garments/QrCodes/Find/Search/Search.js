@@ -10,10 +10,10 @@ let jVarCommonKeys = KeysObject.CommonKeys;
 let jVarCommonProjectName = ConfigObject.ProjectName;
 
 let jFStartFunc = () => {
-    CheckUserFuncsjFStartFunc({
-        inUserKey: jVarLocalStorageKeyName,
-        inKTokenKey: jVarCommonKToken
-    });
+    // CheckUserFuncsjFStartFunc({
+    //     inUserKey: jVarLocalStorageKeyName,
+    //     inKTokenKey: jVarCommonKToken
+    // });
 
     ShowOnDomStartFunc({ ...jVarCommonKeys, inProjectName: jVarCommonProjectName });
 
