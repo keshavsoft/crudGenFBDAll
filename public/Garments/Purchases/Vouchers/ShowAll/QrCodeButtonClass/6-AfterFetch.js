@@ -24,26 +24,26 @@ let StartFunc = async ({ inFromFetch }) => {
             });
         } else {
             Swal.fire({
-                    icon: 'success',
-                    title: 'Raised',
-                    text: inFromFetch.QrCodesRaised + ' QrCodes raised successfully'
-                });
-                // title: 'QR Code Generatimg..!',
-                // html: 'Generating QR <b></b>',
-                // timer: 2000,
-                // timerProgressBar: true,
-                // didOpen: () => {
-                //     Swal.showLoading()
-                //     const b = Swal.getHtmlContainer().querySelector('b')
-                //     timerInterval = setInterval(() => {
-                //         b.textContent = Swal.getTimerLeft()
-                //     }, 100)
-                // },
-                // willClose: () => {
-                //     clearInterval(timerInterval)
-                // }
-            
-            
+                icon: 'success',
+                title: 'Raised',
+                text: ' QrCodes raised successfully'
+            });
+            // title: 'QR Code Generatimg..!',
+            // html: 'Generating QR <b></b>',
+            // timer: 2000,
+            // timerProgressBar: true,
+            // didOpen: () => {
+            //     Swal.showLoading()
+            //     const b = Swal.getHtmlContainer().querySelector('b')
+            //     timerInterval = setInterval(() => {
+            //         b.textContent = Swal.getTimerLeft()
+            //     }, 100)
+            // },
+            // willClose: () => {
+            //     clearInterval(timerInterval)
+            // }
+
+
         };
     };
 
