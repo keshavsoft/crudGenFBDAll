@@ -1,7 +1,11 @@
+import { StartFunc as StartFuncOnClickRowFunc } from "../onClickRow/EntryFile.js";
+
 let StartFunc = () => {
     jFLocalHideSpinner();
     var $table = $('#table');
-    $table.bootstrapTable();
+    $table.bootstrapTable({
+        onClickRow: StartFuncOnClickRowFunc
+    });
 };
 
 let jFLocalHideSpinner = () => {
