@@ -2,28 +2,10 @@ let FromNode = async ({ inProjectName, inValueToCheck }) => {
     try {
         let LocalReturnObject = { KTF: false, KResult: "", JsonData: {} };
 
-        let inFetchPostData = {
-            inFolderName: "QrCodes",
-            inFileNameOnly: "Generate",
-            inItemName: "Barcodes",
-            inColumnName: "PurchasePk",
-            inValueToCheck: {"pk": inValueToCheck}
-            // inValueToCheck
-        };
+        // let jVarLocalFetchUrl = `/${inProjectName}/Api/Data/FromFolder/FromFile/Items/FromDataFolder/FilterData/ByColumn/IsEqual`;
+        let jVarLocalFetchUrl = `/bin/Generate/FilterData/pk/${inValueToCheck}`;
 
-        // let jVarLocalFetchUrl = `/${inProjectName}/API/Data/FromFolder/FromFile/Items/FromDataFolder/RowData`;
-        let jVarLocalFetchUrl = `/${inProjectName}/Api/Data/FromFolder/FromFile/Items/FromDataFolder/FilterData/ByColumn/IsEqual`;
-
-        let jVarLocalFetchHeaders = {
-            method: "post",
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(inFetchPostData)
-        };
-
-        const response = await fetch(jVarLocalFetchUrl, jVarLocalFetchHeaders);
+        const response = await fetch(jVarLocalFetchUrl);
         const data = await response.json();
 
         if (data.KTF === false) {
@@ -31,7 +13,7 @@ let FromNode = async ({ inProjectName, inValueToCheck }) => {
             return await LocalReturnObject;
         };
 
-        LocalReturnObject.JsonData = data.JsonData;
+        LocalReturnObject.JsonData = data;
 
         LocalReturnObject.KTF = true;
         return await LocalReturnObject;

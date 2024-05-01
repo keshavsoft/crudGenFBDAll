@@ -2,7 +2,8 @@ let FromNode = async ({ inFolderName, inFileName, inItemName, inRowPK, inProject
     try {
         let LocalReturnObject = { KTF: false, KResult: "", JsonData: {} };
 
-        let jVarLocalFetchUrl = `/bin/Generate/DataOnly`;
+        // let jVarLocalFetchUrl = `/bin/Generate/DataOnly`;
+        let jVarLocalFetchUrl = `/bin/BillsQrCode/FilterData/pk/${inRowPK}`;
 
         const response = await fetch(jVarLocalFetchUrl);
         const data = await response.json();
