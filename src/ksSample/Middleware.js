@@ -1,6 +1,6 @@
 import ModalDataJson from './{{ksSample}}Data.json' assert { type: 'json' };
 
-let GetFunc = (req, res, next) => {
+let GetFunc = async (req, res, next) => {
     let LocalRequestBody = req.body;
 
     if (Object.keys(LocalRequestBody).length === 0) {
@@ -15,4 +15,4 @@ let GetFunc = (req, res, next) => {
     next();
 };
 
-export { PostFunc };
+export { GetFunc };
