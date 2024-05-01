@@ -31,7 +31,7 @@ let ShowOnDomTableBody = async ({ inData }) => {
             console.log("LoopIndex : ", LoopIndex);
             return item + 1;
         });
-
+        inData.reverse();
         inData.forEach(element => {
 
             let jVarLocalToShowHtml = template(element);
