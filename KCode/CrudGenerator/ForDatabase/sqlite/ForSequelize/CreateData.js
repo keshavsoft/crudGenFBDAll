@@ -6,6 +6,6 @@ let StartFunc = async () => {
     sequelize.sync({ force: true });
 };
 
-// export { StartFunc }
+export { StartFunc }
 
-StartFunc().then();
+// StartFunc().then();
