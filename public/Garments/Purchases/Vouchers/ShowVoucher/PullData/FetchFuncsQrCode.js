@@ -1,33 +1,25 @@
-let FromNode = async ({ inProjectName, inFolderName, inFileNameOnly, inItemName, inColumnName, inValueToCheck }) => {
+let FromNode = async () => {
     try {
-        let LocalReturnObject = { KTF: false, KResult: "", JsonData: {} };
-
-        let inFetchPostData = { inFolderName, inFileNameOnly, inItemName, inColumnName, inValueToCheck };
-        console.log("inValueToCheck : ", inValueToCheck);
-        // let jVarLocalFetchUrl = `/${inProjectName}/Api/Data/FromFolder/FromFile/Items/FromDataFolder/FilterData/ByColumn/IsEqual`;
-        let jVarLocalFetchUrl = `/bin/Vouchers/${inValueToCheck.PurchasePk}`;
-
-        let jVarLocalFetchHeaders = {
-            method: "post",
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(inFetchPostData)
-        };
+        let jVarLocalRowPK = getUrlQueryParams({ inGetKey: "RowPK" });
+        let jVarLocalFetchUrl = `/bin/Generate/FilterData/PurchasePk/${jVarLocalRowPK}`;
 
         const response = await fetch(jVarLocalFetchUrl);
         const data = await response.json();
 
-        LocalReturnObject.JsonData = data;
-
-        LocalReturnObject.KTF = true;
-        return await LocalReturnObject;
+        return await data;
 
     } catch (error) {
         console.log("error:", error);
     }
 
+};
+
+
+let getUrlQueryParams = ({ inGetKey }) => {
+    const queryString = window.location.search;
+    const parameters = new URLSearchParams(queryString);
+    const value = parameters.get(inGetKey);
+    return value;
 };
 
 export { FromNode };

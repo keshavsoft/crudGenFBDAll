@@ -2,31 +2,31 @@ import { StartFunc as TableRowStartFunc } from "../FetchFuncs/HtmlPull/TableRow.
 
 let StartFunc = async ({ inData }) => {
     await ShowOnDomTableBody({ inData });
-    LocalTotalFunc({inData});
+    LocalTotalFunc({ inData });
 };
 
 let LocalTotalFunc = ({ inData }) => {
-    let jVarLocalInvArrayNeeded = Object.values(inData.InvGrid).map(element => element.Qty);
+    let jVarLocalInvArrayNeeded = inData.map(element => element.Qty);
 
     let jVarLocalItemsQtyTotal = document.getElementById("ItemsQtyTotal");
     jVarLocalItemsQtyTotal.innerHTML = jVarLocalInvArrayNeeded.reduce((a, b) => a + b, 0);;
 
-    let jVarLocalInvArrayAmount = Object.values(inData.InvGrid).map(element => element.Amount);
+    let jVarLocalInvArrayAmount = inData.map(element => element.Amount);
 
     let jVarLocalAmountTotal = document.getElementById("AmountTotal");
     jVarLocalAmountTotal.innerHTML = jVarLocalInvArrayAmount.reduce((a, b) => a + b, 0);;
 
-    let jVarLocalInvArrayRate = Object.values(inData.InvGrid).map(element => element.UnitRate);
+    let jVarLocalInvArrayRate = inData.map(element => element.UnitRate);
 
     let jVarLocalRateTotal = document.getElementById("rateTotal");
     jVarLocalRateTotal.innerHTML = jVarLocalInvArrayRate.reduce((a, b) => a + b, 0);;
 
-    let jVarLocalInvArrayMRP = Object.values(inData.InvGrid).map(element => element.MRP);
+    let jVarLocalInvArrayMRP = inData.map(element => element.MRP);
 
     let jVarLocalMRPTotal = document.getElementById("MRPTotal");
     jVarLocalMRPTotal.innerHTML = jVarLocalInvArrayMRP.reduce((a, b) => a + b, 0);;
 
-    
+
 };
 
 let ShowOnDomTableBody = async ({ inData }) => {
@@ -37,23 +37,14 @@ let ShowOnDomTableBody = async ({ inData }) => {
         if ((jVarLocalTableBodyId === null) === false) {
             jVarLocalTableBodyId.innerHTML = "";
             var template = Handlebars.compile(jVarLocalTemplate.HtmlString);
-            let jVarLocalLoopIndex = 1;
 
-            Object.entries(inData.InvGrid).forEach(
-                ([key, value]) => {
-                    value.KSNo = jVarLocalLoopIndex;
-                    value.pk = key;
-                    value.FK = inData.pk;
-                    value.SupplierName = inData.SupplierName;
-                    value.AliasName = inData.AliasName;
-                    value.BillNumber = inData.BillNumber;
-                    value.Date = inData.Date;
+            inData.forEach((value, index) => {
+                value.index = index + 1
 
-                    let jVarLocalToShowHtml = template(value);
+                let jVarLocalToShowHtml = template(value);
 
-                    jVarLocalTableBodyId.insertAdjacentHTML("afterbegin", jVarLocalToShowHtml);
-                    jVarLocalLoopIndex += 1;
-                }
+                jVarLocalTableBodyId.insertAdjacentHTML("afterbegin", jVarLocalToShowHtml);
+            }
             );
         };
     };

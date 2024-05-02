@@ -1,12 +1,9 @@
-let StartFunc = async ({ inBodyData }) => {
-    let jVarLocalBodyData = inBodyData;
+let StartFunc = async () => {
     let jVarLocalRowPK = getUrlQueryParams({ inGetKey: "RowPK" });
-
     let jVarLocalFetchUrl = `/bin/Vouchers/FilterData/pk/${jVarLocalRowPK}`;
 
     let response = await fetch(jVarLocalFetchUrl);
     let jVarLocalResponse = await response.json();
-    console.log("jVarLocalResponse",jVarLocalResponse);
 
     return jVarLocalResponse;
 };

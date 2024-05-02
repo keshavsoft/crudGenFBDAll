@@ -1,22 +1,9 @@
 import { FromNode } from "../../PullData/FetchFuncsQrCode.js";
-import { ReturnRowPK } from "../../urlSearchParams.js";
 
-let StartFunc = async ({ inProjectName }) => {
-    let localurlSearchParams = ReturnRowPK().RowPK;
+let StartFunc = async () => {
+    let jVarLocalData = await FromNode();
 
-    let jVarLocalData = await FromNode({
-        inProjectName,
-        inFolderName: "QrCodes",
-        inFileNameOnly: "Generate",
-        inItemName: "Barcodes",
-        inColumnName: "PurchasePk",
-        inValueToCheck: {"PurchasePk": localurlSearchParams}
-    });
-
-    if (jVarLocalData.KTF) {
-        localStorage.setItem("PurchaseQrCodesData", JSON.stringify(jVarLocalData.JsonData));
-    };
+    localStorage.setItem("PurchaseQrCodesData", JSON.stringify(jVarLocalData));
 };
-
 
 export { StartFunc };

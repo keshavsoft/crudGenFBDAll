@@ -1,25 +1,22 @@
-// import { FromNode } from "../PullData/FetchFuncs.js";
+import { StartFunc as StartFuncPurchaseItems } from "../PullData/FetchFuncs.js";
 import { ReturnRowPK } from "../urlSearchParams.js";
 import { StartFunc as InvGridStartFunc } from "./InvGrid.js";
 import { StartFunc as TableFootSuccessStartFunc } from "../FetchFuncs/HtmlPull/TableFootSuccess.js";
 import { StartFunc as StartFuncQrCodesData } from "../FetchFuncs/QrCodesData/ToLocalStorage.js";
 import { StartFunc as StartFuncButtonClickFunc } from "../PullData/ShowOnDom/2-ButtonClickFunc.js";
+
 let StartFunc = async ({ inFolderName, inFileName, inItemName, inProjectName, inShowSuccess }) => {
     let jVarLocalRowPk = ReturnRowPK();
-    console.log("jVarLocalRowPk : ", jVarLocalRowPk);
-    // let jVarLocalData = await FromNode({
-    //     inFolderName,
-    //     inFileName,
-    //     inItemName,
-    //     inRowPK: jVarLocalRowPk.RowPK,
-    //     inProjectName
-    // });
     let jVarLocalData = await StartFuncButtonClickFunc();
+    let jVarLocalPurchaseItems = await StartFuncPurchaseItems();
 
-    if (jVarLocalData.KTF) {
-        jVarLocalData.JsonData.pk = jVarLocalRowPk.RowPK;
-        await ShowOnDom({ inData: jVarLocalData.JsonData, inShowSuccess });
-        jVarGlobalData = jVarLocalData.JsonData;
+
+    if (jVarLocalData) {
+        jVarLocalData.pk = jVarLocalRowPk.RowPK;
+        await ShowOnDom({ inData: jVarLocalData[0], inShowSuccess });
+        await InvGridStartFunc({ inData: jVarLocalPurchaseItems });
+
+        jVarGlobalData = jVarLocalData;
     };
 
     await StartFuncQrCodesData({ inProjectName });
@@ -32,8 +29,6 @@ let ShowOnDom = async ({ inData, inShowSuccess }) => {
     let jVarLocalAliasName = document.getElementById("AliesNameId");
     let jVarLocalTotalAmount = document.getElementById("TotalAmountId");
     let jVarLocalPurchasePkId = document.getElementById("PurchasePkId");
-
-    // pk
 
     if (jVarLocalPurchasePkId !== null) {
         jVarLocalPurchasePkId.innerHTML = inData.pk;
@@ -57,7 +52,6 @@ let ShowOnDom = async ({ inData, inShowSuccess }) => {
         jVarLocalTotalAmount.innerHTML = inData.TotalAmount;
     };
 
-    await InvGridStartFunc({ inData });
     await ShowSuccessFunc({ inShowSuccess });
 };
 

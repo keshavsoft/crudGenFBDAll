@@ -2,7 +2,8 @@
     "BillNumber": {
       "type": "INTEGER",
       "allowNull": false,
-      "primaryKey": true
+      "primaryKey": true,
+      "unique": true
     },
     "Date": {
       "type": "STRING",

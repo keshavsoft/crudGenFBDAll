@@ -5,6 +5,7 @@ let StartFunc = async ({ inData }) => {
 };
 
 let ShowOnDomTableBody = async ({ inData }) => {
+    console.log("ppppppppppppppppppppp");
     let jVarLocalPrintQrCodesTableBodyId = document.getElementById("PrintQrCodesTableBodyId");
 
     let jVarLocalLoopIndex = 1;
