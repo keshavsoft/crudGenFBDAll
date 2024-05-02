@@ -444,6 +444,24 @@
     <div class="container-fluid py-4">
       <div class="row">
         <div class="col-lg-9 col-12 mx-auto" id="VerticalId">
+
+          <div class="card card-body mt-4">
+            <h6 class="mb-0">Items</h6>
+            <p class="text-sm mb-0">Create new Item</p>
+            <hr class="horizontal dark my-3">
+        
+            <label for="ItemNameId" class="form-label">Item Name</label>
+            <input type="text" class="form-control" id="ItemNameId" autofocus="" autocomplete="off" style="width: 50%;">
+        
+            <label for="GSTId" class="form-label ">GST%</label>
+            <input type="number" class="form-control" min="0" max="100" id="GSTId" autocomplete="off" style="width: 50%;">
+        
+            <div class="d-flex justify-content-end mt-4">
+                <button type="button" name="button" class="btn btn-light m-0">Cancel</button>
+                <button type="button" name="button" id="CreateNewButtonId" class="btn bg-gradient-primary m-0 ms-2">Create
+                    Item</button>
+            </div>
+        </div>
          
         </div>
       </div>
@@ -591,7 +609,7 @@
   <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="../../../assets/js/argon-dashboard.min.js?v=2.0.5"></script>
 
-  <script src="./CreateNew.js" type="module"></script>
+  <script src="./Js/StartFunc.js" type="module"></script>
 
 </body>
 
