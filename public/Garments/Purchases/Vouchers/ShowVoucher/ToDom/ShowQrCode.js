@@ -4,15 +4,7 @@ import { ReturnRowPK } from "../urlSearchParams.js";
 let StartFunc = async ({ inProjectName }) => {
     let localurlSearchParams = ReturnRowPK().RowPK;
 
-    let jVarLocalData = await FromNode({
-        inProjectName,
-        inFolderName: "QrCodes",
-        inFileNameOnly: "Generate",
-        inItemName: "Barcodes",
-        inColumnName: "PurchasePk",
-        inValueToCheck:{PurchasePk:localurlSearchParams}
-        // inValueToCheck: localurlSearchParams
-    });
+    let jVarLocalData = await FromNode();
 
     return await jVarLocalData;
     // if (jVarLocalData.KTF) {

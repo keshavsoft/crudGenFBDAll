@@ -9,8 +9,8 @@ let StartFunc = ({ inProjectName }) => {
         jVarLocalSowDataID.addEventListener("click", async (event) => {
             let jVarFromStartFuncFromShowQrCode = await StartFuncFromShowQrCode({ inProjectName });
 
-            if (jVarFromStartFuncFromShowQrCode.KTF) {
-                await StartFuncShowQrCode({ inData: jVarFromStartFuncFromShowQrCode.JsonData });
+            if (jVarFromStartFuncFromShowQrCode) {
+                await StartFuncShowQrCode({ inData: jVarFromStartFuncFromShowQrCode });
                 LocalModalButtonForImageDownloadFuncs();
                 localPrintButtonClass();
             };
