@@ -11,5 +11,10 @@
   "SubGroup": {
     "type": "STRING",
     "allowNull": true
+  },
+  "pk":{
+    "type":"INTERGER",
+    "primaryKey":true,
+    "autoIncrement":true
   }
 }
