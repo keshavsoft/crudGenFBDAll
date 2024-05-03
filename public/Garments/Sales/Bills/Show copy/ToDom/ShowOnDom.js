@@ -58,7 +58,7 @@ let localInventeryShow = async ({ inFolderName, inFileName, inItemName, inProjec
         let localdata = data;
 
         await InvGridStartFunc({ inDataAsArray: localdata });
-        // jVarLocalShowInventorySerial({ inData: localdata });
+        jVarLocalShowInventorySerial({ inData: localdata });
         StartFuncTableFooterTotals({ inData: localdata });
     };
 };

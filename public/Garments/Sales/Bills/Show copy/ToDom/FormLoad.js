@@ -16,8 +16,8 @@ let jVarLocalToTab = () => {
         let jVarLocalFirstTabNextButtonId = document.getElementById("FirstTabNextButtonId");
         jVarLocalFirstTabNextButtonId.click();
 
-        /* let jVarLocalQrCode = document.getElementById("QrCode");
-        jVarLocalQrCode.focus(); */
+        let jVarLocalQrCode = document.getElementById("QrCode");
+        jVarLocalQrCode.focus();
     };
 };
 
