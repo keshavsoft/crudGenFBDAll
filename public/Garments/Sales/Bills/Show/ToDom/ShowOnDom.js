@@ -26,14 +26,15 @@ let StartFunc = async ({ inFolderName, inFileName, inItemName, inProjectName, in
         let localindataJson = data
 
         ShowOnDom({ inData: localindataJson, inShowSuccess });
-        await localInventeryShow({ inFolderName, inFileName, inItemName, inProjectName, inShowSuccess, inRowPk: jVarLocalRowPk.RowPK })
+        localStorage.setItem("RowPk", localindataJson.pk)
+        await localInventeryShow({ inFolderName, inFileName, inItemName, inProjectName, inShowSuccess, inRowPk: localindataJson.pk })
     }
 
-    if (jVarLocalData.KTF) {
-        let localindataJson = jVarLocalData.JsonData
-        ShowOnDom({ inData: localindataJson, inShowSuccess });
-        await localInventeryShow({ inFolderName, inFileName, inItemName, inProjectName, inShowSuccess, inRowPk: jVarLocalRowPk.RowPK })
-    };
+    // if (jVarLocalData.KTF) {
+    //     let localindataJson = jVarLocalData.JsonData
+    //     ShowOnDom({ inData: localindataJson, inShowSuccess });
+    //     await localInventeryShow({ inFolderName, inFileName, inItemName, inProjectName, inShowSuccess, inRowPk: localindataJson.pk })
+    // };
 };
 
 let localInventeryShow = async ({ inFolderName, inFileName, inItemName, inProjectName, inRowPk }) => {
@@ -58,7 +59,7 @@ let localInventeryShow = async ({ inFolderName, inFileName, inItemName, inProjec
         let localdata = data;
 
         await InvGridStartFunc({ inDataAsArray: localdata });
-        // jVarLocalShowInventorySerial({ inData: localdata });
+        jVarLocalShowInventorySerial({ inData: localdata });
         StartFuncTableFooterTotals({ inData: localdata });
     };
 };
@@ -84,7 +85,7 @@ let ShowOnDom = ({ inData, inShowSuccess }) => {
 
 let jVarLocalShowInventorySerial = ({ inData }) => {
     let jVarLocalSnoid = document.getElementById("Snoid");
-    jVarLocalSnoid.value = Object.keys(inData).length + 1;
+    jVarLocalSnoid.value = inData.length + 1;
 
 };
 

@@ -7,7 +7,6 @@ let StartFunc = ({ inFetchData, inBodyData }) => {
     let NewURl = new URL("../LastBill/LastBill.html",url);
     const new_url = new URL(`${NewURl.href}?${params1}`);
 
-    new_url.searchParams.append("RowPK", LocalinFetchData)
     new_url.searchParams.append("ToProducts", true)
     window.location.href = new_url.href;
     return;
