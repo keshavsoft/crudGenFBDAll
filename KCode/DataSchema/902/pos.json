@@ -1,5 +1,5 @@
 {
-    "BillNumber": {
+    "BillNumber2425": {
       "type": "INTEGER",
       "allowNull": false,
       "primaryKey": true,
