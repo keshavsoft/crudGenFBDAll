@@ -23,7 +23,7 @@ let jFLocalQty = () => {
     let jVarLocalHtmlId = document.getElementById(jVarLocalQty);
 
     if (jVarLocalHtmlId === null === false) {
-    return jVarLocalHtmlId.value.trim();
+        return jVarLocalHtmlId.value.trim();
     };
 };
 
@@ -37,7 +37,7 @@ let StartFunc = () => {
     let jVarLocalGrossAmout = document.getElementById("GrossAmout");
     let jVarLocalQty = jFLocalQty();
 
-    let jVarLocalRowPK = ReturnRowPK().RowPK;
+    let jVarLocalRowPK = localStorage.getItem("RowPk");
 
     let jVarLocalReturnData = {};
     jVarLocalReturnData.ProductName = jVarLocalItemNameId.value;
@@ -52,7 +52,7 @@ let StartFunc = () => {
 
         let localpk = (jVarLocalQrCodeArrayFirstValue).substring(2);
 
-        jVarLocalReturnData.pk = localpk;
+        jVarLocalReturnData.pk = parseInt(localpk);
     };
 
     if (!(jVarLocalSno === null)) {
