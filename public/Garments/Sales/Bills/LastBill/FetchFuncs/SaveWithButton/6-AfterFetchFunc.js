@@ -2,10 +2,10 @@ import { ReturnRowPK } from "../../urlSearchParams.js";
 let localRowPK = ReturnRowPK().RowPK;
 
 let StartFunc = ({ inResponse }) => {
-    if (inResponse.KTF) {
-        window.location.href = `?RowPK=${localRowPK}&FromSave=true`;
+    if (inResponse.status === 200) {
+        window.location.href = `?FromSave=true`;
     } else {
-        Swal.fire(inResponse.KReason);
+        Swal.fire("Check and scan");
     };
 };
 

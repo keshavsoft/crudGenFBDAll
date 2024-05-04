@@ -1,20 +1,11 @@
-import { FromNode } from "../PullData/FetchFuncs.js";
+import { StartFunc as StartFuncPOS } from "../PullData/FetchFuncs.js";
 import { FromNode as FetchFuncForBillsQrCode } from "../PullData/FetchFuncForBillsQrCode.js";
-import { ReturnRowPK } from "../urlSearchParams.js";
 import { StartFunc as InvGridStartFunc } from "./InvGrid.js";
-import { StartFunc as TableFootSuccessStartFunc } from "../FetchFuncs/HtmlPull/TableFootSuccess.js";
 import { StartFunc as StartFuncTableFooterTotals } from "./TableFooterTotals/ShowToDom.js";
 
-let StartFunc = async ({ inFolderName, inFileName, inItemName, inProjectName, inShowSuccess }) => {
-    let jVarLocalRowPk = ReturnRowPK();
+let StartFunc = async () => {
 
-    let jVarLocalData = await FromNode({
-        inFolderName,
-        inFileName,
-        inItemName,
-        inRowPK: jVarLocalRowPk.RowPK,
-        inProjectName
-    });
+    let jVarLocalData = await StartFuncPOS();
 
     if (jVarLocalData.status === 500) {
         console.log("Status-500");
@@ -22,36 +13,18 @@ let StartFunc = async ({ inFolderName, inFileName, inItemName, inProjectName, in
     } else {
         const data = await jVarLocalData.json();
 
-        // let localdata = data;
-        let localindataJson = data
+        ShowOnDom({ inData: data[0] });
+        await localInventeryShow();
+    };
 
-        ShowOnDom({ inData: localindataJson, inShowSuccess });
-        localStorage.setItem("RowPk", localindataJson.pk)
-        await localInventeryShow({ inFolderName, inFileName, inItemName, inProjectName, inShowSuccess, inRowPk: localindataJson.pk })
-    }
-
-    // if (jVarLocalData.KTF) {
-    //     let localindataJson = jVarLocalData.JsonData
-    //     ShowOnDom({ inData: localindataJson, inShowSuccess });
-    //     await localInventeryShow({ inFolderName, inFileName, inItemName, inProjectName, inShowSuccess, inRowPk: localindataJson.pk })
-    // };
 };
 
-let localInventeryShow = async ({ inFolderName, inFileName, inItemName, inProjectName, inRowPk }) => {
-    let localpk = inRowPk
+let localInventeryShow = async () => {
 
-    let jVarLocalDataToShow = await FetchFuncForBillsQrCode({
-        inFolderName,
-        inFileName,
-        inItemName,
-        inRowPK: localpk,
-        inProjectName
-    });
+    let jVarLocalDataToShow = await FetchFuncForBillsQrCode();
 
     if (jVarLocalDataToShow.status === 500) {
         console.log("Status-500");
-        let jVarLocalSnoid = document.getElementById("Snoid");
-        jVarLocalSnoid.value = 1;
         return
 
     } else {
@@ -59,12 +32,11 @@ let localInventeryShow = async ({ inFolderName, inFileName, inItemName, inProjec
         let localdata = data;
 
         await InvGridStartFunc({ inDataAsArray: localdata });
-        jVarLocalShowInventorySerial({ inData: localdata });
         StartFuncTableFooterTotals({ inData: localdata });
     };
 };
 
-let ShowOnDom = ({ inData, inShowSuccess }) => {
+let ShowOnDom = ({ inData }) => {
     let jVarLocalVoucherNameId = document.getElementById("VoucherNameId");
     let jVarLocalBillNumberId = document.getElementById("BillNumberId");
     let jVarLocalDateId = document.getElementById("DateId");
@@ -80,24 +52,6 @@ let ShowOnDom = ({ inData, inShowSuccess }) => {
         jVarLocalDateId.innerHTML = inData.Date;
     };
 
-    ShowSuccessFunc({ inShowSuccess });
-};
-
-let jVarLocalShowInventorySerial = ({ inData }) => {
-    let jVarLocalSnoid = document.getElementById("Snoid");
-    jVarLocalSnoid.value = inData.length + 1;
-
-};
-
-let ShowSuccessFunc = ({ inShowSuccess }) => {
-    if (inShowSuccess) {
-        let LocalFromHtml = TableFootSuccessStartFunc();
-        let LocalTableFooterSuccessId = document.getElementById("TableFooterSuccessId");
-
-        if (LocalFromHtml.KTF) {
-            LocalTableFooterSuccessId.innerHTML = LocalFromHtml.HtmlString;
-        };
-    };
 };
 
 export { StartFunc };

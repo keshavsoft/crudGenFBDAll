@@ -1,27 +1,21 @@
-//import { StartFunc as VeticalStartFunc } from "./FetchFuncs/HtmlPull/Vetical.js";
 import { StartFunc as ForCreateNewStartFunc } from "./FetchFuncs/ForCreateNew.js";
 
 let StartFunc = async ({ inFolderName, inFileName, inItemName, inProjectName }) => {
-    // await ShowOnDom();
-    
-   
-
-
     await ShowOnDomDefaultValuesFromFetch({ inFolderName, inFileName, inItemName, inProjectName });
 };
 
-let ShowOnDomDefaultValuesFromFetch = async ({ inFolderName, inFileName, inItemName, inProjectName }) => {
-    let LocalDataFromFetch = await ForCreateNewStartFunc({ inFolderName, inFileName, inItemName, inProjectName });
+let ShowOnDomDefaultValuesFromFetch = async () => {
+    let LocalDataFromFetch = await ForCreateNewStartFunc();
     if (LocalDataFromFetch.KTF) {
-        // let jVarLocalDateId = document.getElementById('DateId');
+        let jVarLocalPaymentModeId = document.getElementById('PaymentModeId');
         let jVarLocalBillNumberId = document.getElementById('BillNumberId');
 
-        // if ("Date" in LocalDataFromFetch.JsonData) {
-        //     jVarLocalDateId.value = LocalDataFromFetch.JsonData.Date;
-        // };
+        if ("pk" in LocalDataFromFetch.JsonData) {
+            jVarLocalBillNumberId.innerHTML = LocalDataFromFetch.JsonData.pk;
+        };
 
-        if ("BillNumber" in LocalDataFromFetch.JsonData) {
-            jVarLocalBillNumberId.innerHTML = LocalDataFromFetch.JsonData.BillNumber;
+        if ("PaymentMode" in LocalDataFromFetch.JsonData) {
+            jVarLocalPaymentModeId.value = LocalDataFromFetch.JsonData.PaymentMode;
         };
     };
 };

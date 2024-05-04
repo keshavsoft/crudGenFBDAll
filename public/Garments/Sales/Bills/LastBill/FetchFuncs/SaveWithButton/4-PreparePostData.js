@@ -13,7 +13,7 @@ let StartFunc = () => {
     let jVarLocalGrossAmout = document.getElementById("GrossAmout");
     let jVarLocalQty = document.getElementById("Qty");
 
-    let jVarLocalRowPK = ReturnRowPK().RowPK;
+    let jVarLocalRowPK = localStorage.getItem("RowPk");
 
     let jVarLocalReturnData = {};
     jVarLocalReturnData.ProductName = jVarLocalItemNameId.value;
@@ -28,7 +28,7 @@ let StartFunc = () => {
 
         let localpk = (jVarLocalQrCodeArrayFirstValue).substring(2);
 
-        jVarLocalReturnData.pk = localpk;
+        jVarLocalReturnData.pk = parseInt(localpk);
     };
 
     if (!(jVarLocalSno === null)) {
@@ -40,11 +40,11 @@ let StartFunc = () => {
     };
 
     if (!(jVarLocalDisPersantage === null)) {
-        jVarLocalReturnData.DisPercentage = parseInt(jVarLocalDisPersantage.value);
+        jVarLocalReturnData.DisPercentage = jVarLocalDisPersantage.value === "" ? 0 : parseInt(jVarLocalDisPersantage.value);
     };
 
     if (!(jVarLocalDisRate === null)) {
-        jVarLocalReturnData.DisRate = parseInt(jVarLocalDisRate.value);
+        jVarLocalReturnData.DisRate = jVarLocalDisRate.value === "" ? 0 : parseInt(jVarLocalDisRate.value);
     };
 
     if (!(jVarLocalGrossAmout === null)) {
@@ -52,14 +52,15 @@ let StartFunc = () => {
     };
 
     if (!(jVarLocalQty === null)) {
-        jVarLocalReturnData.Qty = parseFloat(jVarLocalQty.value);
+        jVarLocalReturnData.Qty = jVarLocalQty.value === "" ? 0 : parseFloat(jVarLocalQty.value);
+        // jVarLocalReturnData.Qty = 0
     };
 
     jVarLocalReturnData.BillPk = jVarLocalRowPK;
 
     // return jVarLocalReturnData;
     return jVarLocalReturnData
-    
+
 };
 
 
