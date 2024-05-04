@@ -10,7 +10,7 @@ let StartFunc = ({ inFolderName, inFileName, inItemName, inProjectName }) => {
     StartFuncSaveWithButton();
     QrCodeKeyPressAssign({ inFolderName, inFileName, inItemName, inProjectName });
     StartFuncinvKeyPressCal();
-    localprintBurronClickFuncc();
+    localprintButtononClickFunc();
     LocalModalButtonForImageDownloadFuncs();
     localPaymentModeIdBurronClickFuncc();
 };
@@ -22,7 +22,7 @@ let QrCodeKeyPressAssign = ({ inFolderName, inFileName, inItemName, inProjectNam
         if (event.keyCode === 13) { // key code of the keybord key
             event.preventDefault();
             let jVarLocalQrCodeValue = jVarLocalQrCode.value
-            let Rowpk = parseInt(jVarLocalQrCodeValue.substring(2));
+            let Rowpk = localStorage.getItem("RowPk");
 
             await KeyPressStartFunc({
                 inFolderName, inFileName, inItemName, inProjectName, inJsonPK: Rowpk
@@ -32,11 +32,11 @@ let QrCodeKeyPressAssign = ({ inFolderName, inFileName, inItemName, inProjectNam
 };
 
 
-let localprintBurronClickFuncc = () => {
+let localprintButtononClickFunc = () => {
     let jvarLocalPrinButtonId = document.getElementById("PrintId");
 
     jvarLocalPrinButtonId.addEventListener("click", () => {
-        let localRowPK = ReturnRowPK().RowPK;
+        let localRowPK = localStorage.getItem("RowPk");
         window.location.href = `/Garments/Sales/BillPrint/Show/Show.html?RowPK=${localRowPK}`;
     })
 };
@@ -53,7 +53,8 @@ let localPaymentModeIdBurronClickFuncc = () => {
     let jvarLocalPrinButtonId = document.getElementById("PaymentModeId");
 
     jvarLocalPrinButtonId.addEventListener("click", () => {
-        let localRowPK = ReturnRowPK().RowPK;
+        let localRowPK = localStorage.getItem("RowPk");
+
         // window.location.href = `/Garments/Sales/BillPrint/Show/Show.html?RowPK=${localRowPK}`;
         window.location.href = `/Garments/Sales/Bills/PaymentMode/PaymentMode.html?RowPK=${localRowPK}`;
     })

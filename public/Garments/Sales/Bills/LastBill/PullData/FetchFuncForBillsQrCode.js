@@ -1,22 +1,10 @@
-let FromNode = async ({ inFolderName, inFileName, inItemName, inRowPK, inProjectName }) => {
+let FromNode = async () => {
     try {
-        let LocalReturnObject = { KTF: false, KResult: "", JsonData: {} };
-
-        let localItemName = "BillsQrCode";
-
-        let fetchBodyObj = {
-            inFolderName: inFolderName,
-            inFileNameOnly: inFileName,
-            inItemName: "BillsQrCode",
-            inColumnName: "BillPk",
-            inValueToCheck: { "BillPk": inRowPK }
-        };
-
-        // let jVarLocalFetchUrl = `/${inProjectName}/API/Data/FromFolder/FromFile/Items/FromDataFolder/AsArrayWithPK`;
-        let jVarLocalFetchUrl = `/bin/BillsQrCode/FilterData/BillPk/${inRowPK}`;
+        let LocalRowpk = localStorage.getItem("RowPk")
+        let jVarLocalFetchUrl = `/bin/BillsQrCode/FilterData/BillPk/${LocalRowpk}`;
 
         const response = await fetch(jVarLocalFetchUrl);
-       
+
         return await response;
 
     } catch (error) {

@@ -15,9 +15,7 @@ const StartFunc = async ({ inFetchBody }) => {
 
     let response = await fetch(jFetchUrl, jLocalFetchConfig);
 
-    let jVarLocalResponseData = await response.json();
-
-    StartFuncAfterFetchFunc({ inResponse: jVarLocalResponseData });
+    StartFuncAfterFetchFunc({ inResponse: response });
 
 };
 

@@ -1,6 +1,5 @@
 import { jFStartFunc as CheckUserFuncsjFStartFunc } from "../../../CommonFuncs/LoginFuncs/CheckUserFuncs.js";
-import { StartFunc as ShowOnDomStartFunc } from "../Show/ToDom/ShowOnDom.js";
-import { StartFunc as AddListenersStartFunc } from "../Show/AddListeners.js";
+import { StartFunc as ShowOnDomStartFunc } from "./ToDom/ShowOnDom.js";
 import { ConfigObject } from "../../../ApiConfig.js";
 import { KeysObject } from "../ConfigKeys.js";
 import { StartFunc as FormLoadStartFunc } from "../Show/ToDom/FormLoad.js";
@@ -18,8 +17,7 @@ let jFStartFunc = async () => {
 
     await FormLoadStartFunc({ inProjectName: jVarCommonProjectName });
 
-    await ShowOnDomStartFunc({ ...jVarCommonKeys, inProjectName: jVarCommonProjectName });
-    AddListenersStartFunc({ ...jVarCommonKeys, inProjectName: jVarCommonProjectName });
+    await ShowOnDomStartFunc();
 };
 
 jFStartFunc().then(() => {

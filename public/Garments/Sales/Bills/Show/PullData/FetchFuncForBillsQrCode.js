@@ -1,28 +1,25 @@
-let FromNode = async ({ inFolderName, inFileName, inItemName, inRowPK, inProjectName }) => {
+let FromNode = async () => {
     try {
-        let LocalReturnObject = { KTF: false, KResult: "", JsonData: {} };
+        let jVarLocalRowPK = getUrlQueryParams({ inGetKey: "RowPK" });
 
-        let localItemName = "BillsQrCode";
-
-        let fetchBodyObj = {
-            inFolderName: inFolderName,
-            inFileNameOnly: inFileName,
-            inItemName: "BillsQrCode",
-            inColumnName: "BillPk",
-            inValueToCheck: { "BillPk": inRowPK }
-        };
-
-        // let jVarLocalFetchUrl = `/${inProjectName}/API/Data/FromFolder/FromFile/Items/FromDataFolder/AsArrayWithPK`;
-        let jVarLocalFetchUrl = `/bin/BillsQrCode/FilterData/BillPk/${inRowPK}`;
+        let jVarLocalFetchUrl = `/bin/BillsQrCode/FilterData/BillPk/${jVarLocalRowPK}`;
 
         const response = await fetch(jVarLocalFetchUrl);
-       
+
         return await response;
 
     } catch (error) {
         console.log("error:", error);
     }
 
+};
+
+
+let getUrlQueryParams = ({ inGetKey }) => {
+    const queryString = window.location.search;
+    const parameters = new URLSearchParams(queryString);
+    const value = parameters.get(inGetKey);
+    return value;
 };
 
 export { FromNode };

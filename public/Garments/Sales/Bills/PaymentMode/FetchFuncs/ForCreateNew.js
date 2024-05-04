@@ -1,41 +1,16 @@
-let StartFunc = async ({ inFolderName, inFileName, inItemName, inProjectName }) => {
-    let LocalReturnObject = { KTF: false, KResult: "", JsonData: {} };
+let StartFunc = async () => {
     let jVarLocalRowPK = getUrlQueryParams({ inGetKey: "RowPK" });
 
-
     try {
-        let inFetchPostData = {
-            FolderName: inFolderName,
-            FileNameOnly: inFileName,
-            ItemName: inItemName,
-            ScreenName: "Create",
-            JsonPk: jVarLocalRowPK
-        };
-
-        let jVarLocalFetchUrl = `/bin/Bills2425/${jVarLocalRowPK}`;
-
-        let jVarLocalFetchHeaders = {
-            method: "post",
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(inFetchPostData)
-        };
+        let jVarLocalFetchUrl = `/bin/pos/${jVarLocalRowPK}`;
 
         const response = await fetch(jVarLocalFetchUrl);
         const data = await response.json();
-
-        if (data) {
-            LocalReturnObject.JsonData = data;
-        };
-
-        LocalReturnObject.KTF = true;
+        return await data;
     } catch (error) {
         console.log("error:", error);
     };
 
-    return await LocalReturnObject;
 };
 
 let getUrlQueryParams = ({ inGetKey }) => {

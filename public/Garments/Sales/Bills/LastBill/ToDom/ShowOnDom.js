@@ -8,47 +8,26 @@ import { StartFunc as StartFuncTableFooterTotals } from "./TableFooterTotals/Sho
 let StartFunc = async ({ inFolderName, inFileName, inItemName, inProjectName, inShowSuccess }) => {
     let jVarLocalRowPk = ReturnRowPK();
 
-    let jVarLocalData = await FromNode({
-        inFolderName,
-        inFileName,
-        inItemName,
-        inRowPK: jVarLocalRowPk.RowPK,
-        inProjectName
-    });
+    let jVarLocalData = await FromNode();
 
     if (jVarLocalData.status === 500) {
         console.log("Status-500");
 
     } else {
         const data = await jVarLocalData.json();
-        // let localdata = data;
-        let localindataJson = data[0]
-        ShowOnDom({ inData: localindataJson, inShowSuccess });
-        await localInventeryShow({ inFolderName, inFileName, inItemName, inProjectName, inShowSuccess, inRowPk: jVarLocalRowPk.RowPK })
-    }
-
-    if (jVarLocalData.KTF) {
-        let localindataJson = jVarLocalData.JsonData
-        ShowOnDom({ inData: localindataJson, inShowSuccess });
-        await localInventeryShow({ inFolderName, inFileName, inItemName, inProjectName, inShowSuccess, inRowPk: jVarLocalRowPk.RowPK })
+        localStorage.setItem("RowPk", data.pk)
+        ShowOnDom({ inData: data, inShowSuccess });
+        await localInventeryShow()
     };
 };
 
-let localInventeryShow = async ({ inFolderName, inFileName, inItemName, inProjectName, inRowPk }) => {
-    let localpk = inRowPk
-
-    let jVarLocalDataToShow = await FetchFuncForBillsQrCode({
-        inFolderName,
-        inFileName,
-        inItemName,
-        inRowPK: localpk,
-        inProjectName
-    });
+let localInventeryShow = async () => {
+    let jVarLocalDataToShow = await FetchFuncForBillsQrCode();
 
     if (jVarLocalDataToShow.status === 500) {
         console.log("Status-500");
         let jVarLocalSnoid = document.getElementById("Snoid");
-        jVarLocalSnoid.value =  1;
+        jVarLocalSnoid.value = 1;
         return
 
     } else {
