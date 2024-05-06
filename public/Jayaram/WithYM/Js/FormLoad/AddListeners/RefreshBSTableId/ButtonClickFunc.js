@@ -1,20 +1,19 @@
 import { StartFunc as StartFuncGetFetch } from "./GetFetch.js";
 
 let StartFunc = async () => {
-    jFLocalHideSpinner();
     let jVarLocalFetchData = await StartFuncGetFetch();
     var $table = $('#table');
+    const costPerPersonUsd = pipe(jFLocalInsertYear, jFLocalInsertMonth, jFLocalInsertDay);
     // $table.bootstrapTable();
-    $table.bootstrapTable("load", jFLocalTransformData({ inData: jVarLocalFetchData }));
+    $table.bootstrapTable("load", costPerPersonUsd( jVarLocalFetchData ));
+    jFLocalHideSpinner();
 };
-let jFLocalTransformData = ({ inData }) => {
-    let jVarLocalAfterYear  = jFLocalInsertYear({ inData });
-    let jVarLocalAfterMonth = jFLocalInsertMonth({ inData: jVarLocalAfterYear });
-    let jVarLocalAfterDay  = jFLocalInsertDay({ inData: jVarLocalAfterMonth });
-    return jVarLocalAfterDay;  
-};
+const _pipe = (a, b) => (arg) => b(a(arg));
 
-let jFLocalInsertYear = ({ inData }) => {
+// Refactored
+const pipe = (...ops) => ops.reduce(_pipe);
+
+let jFLocalInsertYear = ( inData ) => {
     let jVarLocalReturnArray = [];
 
     jVarLocalReturnArray = inData.map(element => {
@@ -25,7 +24,7 @@ let jFLocalInsertYear = ({ inData }) => {
 
     return jVarLocalReturnArray;
 };
-let jFLocalInsertMonth = ({ inData }) => {
+let jFLocalInsertMonth = ( inData ) => {
     let jVarLocalReturnArray = [];
 
     jVarLocalReturnArray = inData.map(element => {
@@ -36,7 +35,7 @@ let jFLocalInsertMonth = ({ inData }) => {
 
     return jVarLocalReturnArray;
 };
-let jFLocalInsertDay = ({ inData }) => {
+let jFLocalInsertDay = ( inData ) => {
     let jVarLocalReturnArray = [];
 
     jVarLocalReturnArray = inData.map(element => {
@@ -47,7 +46,6 @@ let jFLocalInsertDay = ({ inData }) => {
 
     return jVarLocalReturnArray;
 }
-
 
 let jFLocalHideSpinner = () => {
     let jVarLocalSpinnerId = document.getElementById("SpinnerId");
