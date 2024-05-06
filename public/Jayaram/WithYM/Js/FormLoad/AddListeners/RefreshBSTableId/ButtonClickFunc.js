@@ -5,7 +5,13 @@ let StartFunc = async () => {
     let jVarLocalFetchData = await StartFuncGetFetch();
     var $table = $('#table');
     // $table.bootstrapTable();
-    $table.bootstrapTable("load", jFLocalInsertYear({ inData: jVarLocalFetchData }));
+    $table.bootstrapTable("load", jFLocalTransformData({ inData: jVarLocalFetchData }));
+};
+let jFLocalTransformData = ({ inData }) => {
+    let jVarLocalAfterYear  = jFLocalInsertYear({ inData });
+    let jVarLocalAfterMonth = jFLocalInsertMonth({ inData: jVarLocalAfterYear });
+    let jVarLocalAfterDay  = jFLocalInsertDay({ inData: jVarLocalAfterMonth });
+    return jVarLocalAfterDay;  
 };
 
 let jFLocalInsertYear = ({ inData }) => {
@@ -19,6 +25,29 @@ let jFLocalInsertYear = ({ inData }) => {
 
     return jVarLocalReturnArray;
 };
+let jFLocalInsertMonth = ({ inData }) => {
+    let jVarLocalReturnArray = [];
+
+    jVarLocalReturnArray = inData.map(element => {
+        element.Month = element.da.substring(5, 7);
+
+        return element;
+    });
+
+    return jVarLocalReturnArray;
+};
+let jFLocalInsertDay = ({ inData }) => {
+    let jVarLocalReturnArray = [];
+
+    jVarLocalReturnArray = inData.map(element => {
+        element.Day = element.da.substring(8, 10);
+
+        return element;
+    });
+
+    return jVarLocalReturnArray;
+}
+
 
 let jFLocalHideSpinner = () => {
     let jVarLocalSpinnerId = document.getElementById("SpinnerId");
