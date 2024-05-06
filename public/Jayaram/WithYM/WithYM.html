@@ -355,7 +355,9 @@
                                         <th data-field="id" data-formatter="jFGlobalSerialColumn">#</th>
 
                                         <th data-field="Year" data-filter-control="select">Year</th>
-                                        <th data-field="da">Date</th>
+                                        <th data-field="Month" data-filter-control="select">Month</th>
+                                        <th data-field="Day" data-filter-control="select">Day</th>
+                                        <th data-field="da" data-formatter="jFGlobalForDate">Date</th>
                                         <th data-field="nam" data-filter-control="select">Account Name</th>
                                         <th data-field="amt">Amount</th>
                                         <th data-field="des">Description</th>
@@ -392,6 +394,10 @@
         };
         function jFGlobalForYear(value, row, index) {
             return value.substring(0, 4);
+
+        };
+        function jFGlobalForDate(value, row, index) {
+            return value.substring(0, 10);
 
         };
 
