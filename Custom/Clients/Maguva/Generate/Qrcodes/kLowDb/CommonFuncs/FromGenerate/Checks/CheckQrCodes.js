@@ -1,6 +1,6 @@
-import { StartFunc as StartFuncCommonFuncs } from '../../../../../../../bin/Generate/kLowDb/PullData/EntryFile.js';
+import { StartFunc as StartFuncCommonFuncs } from '../PullData/EntryFile.js';
 
-const StartFuncForBookings = ({ inId }) => {
+const StartFunc = ({ inId }) => {
     let LocalId = inId;
 
     let LocalReturnData = { KTF: false };
@@ -15,4 +15,4 @@ const StartFuncForBookings = ({ inId }) => {
 
     return LocalReturnData;
 };
-export { StartFuncForBookings };
+export { StartFunc };
