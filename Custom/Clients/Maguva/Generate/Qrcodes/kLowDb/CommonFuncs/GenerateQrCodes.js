@@ -1,7 +1,7 @@
-import { StartFunc as StartFuncVouchers } from '../../../../../../../bin/Vouchers/kLowDb/ReadFile/FilterInKeyInValue.js';
-import { StartFunc as StartFuncPurchaseItems } from '../../../../../../../bin/PurchaseItems/kLowDb/ReadFile/FilterInKeyInValue.js';
-import { StartFunc as StartFuncwriteFileFromModal } from '../../../../../../../bin/Generate/kLowDb/WriteFile/WithChecking/StartFuncGeneratePk.js';
-import { StartFuncForBookings as StartFuncCheck } from "./CheckQrCodes.js";
+import { StartFunc as StartFuncVouchers } from './FromVouchers/EntryFile.js';
+import { StartFunc as StartFuncPurchaseItems } from './FromPurchase/EntryFile.js';
+import { StartFunc as StartFuncwriteFileFromModal } from './FromGenerate/EntryFile.js';
+import { StartFunc as StartFuncCheck } from "./FromGenerate/Checks/CheckQrCodes.js";
 
 let StartFunc = async ({ inId }) => {
     let LocalId = inId;
