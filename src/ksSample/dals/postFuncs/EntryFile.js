@@ -9,6 +9,8 @@ import { StartFunc as StartFuncGenUuId } from '../../kLowDb/WriteFile/GenUuId.js
 import { StartFunc as StartFuncFilterAsObject } from '../../kLowDb/ReadFile/FilterAsObject.js';
 import { StartFunc as StartFuncCheckGeneratePk } from '../../kLowDb/WriteFile/WithChecking/StartFuncGeneratePk.js';
 
+import { StartFunc as StartFuncBulkInsert } from '../../kLowDb/WriteTofile/BulkInsert.js';
+
 let PostFunc = (inPostBody) => {
     return StartFuncWriteTofile({ inDataToInsert: inPostBody });
 };
@@ -30,7 +32,7 @@ let PostUploadFunc = ({ LocalBodyAsModal }) => {
 };
 
 let PostUploadFromModalFunc = ({ LocalBodyAsModal }) => {
-    return StartFuncUploadToFile({ LocalBodyAsModal });
+    return StartFuncBulkInsert({ LocalBodyAsModal });
 };
 
 let PostGetSelectColumnsFunc = ({ LocalBodyAsModal }) => {
