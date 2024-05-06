@@ -17,8 +17,19 @@ let StartFunc = () => {
     });
 
     let LocalColumnsOnly = Object.keys(LocalFindColumns.fileData);
-
-    return LocalColumnsOnly;
+    let LocalReturnObject = convertArrayToObject(LocalColumnsOnly);
+    
+    return LocalReturnObject;
 };
+
+const convertArrayToObject = (array ) => {
+    const initialValue = {};
+    return array.reduce((obj, item) => {
+      return {
+        ...obj,
+        [item]: "",
+      };
+    }, initialValue);
+  };
 
 export { StartFunc };
