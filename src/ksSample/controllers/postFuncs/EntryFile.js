@@ -101,7 +101,7 @@ let LocalFromArray = ({ inArray }) => {
 let PostUploadFromModalFunc = async (req, res) => {
     let LocalBodyData = req.body;
 
-    let LocalFromRepo = await PostUploadFromModalFuncRepo(LocalBodyData);
+    let LocalFromRepo = await PostUploadFromModalFuncRepo({ inArrayFromRequest: LocalBodyData });
 
     if (LocalFromRepo.KTF === false) {
         res.status(500).send(LocalFromRepo.KReason);

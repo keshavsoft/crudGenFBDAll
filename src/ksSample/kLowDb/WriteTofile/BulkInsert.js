@@ -2,8 +2,8 @@ import Configjson from '../../../Config.json' assert { type: 'json' };
 import tableNameJson from '../../tableName.json' assert { type: 'json' };
 import { StartFunc as StartFuncPullData } from "../PullData/EntryFile.js";
 
-let StartFunc = ({ LocalBodyAsModal }) => {
-    let LocalinDataToInsert = LocalBodyAsModal;
+let StartFunc = ({ inArrayFromRequest }) => {
+    let LocalinDataToInsert = inArrayFromRequest;
     let LocaltableName = tableNameJson.tableName;
 
     let LocalReturnData = { KTF: false, JSONFolderPath: "", CreatedLog: {} };

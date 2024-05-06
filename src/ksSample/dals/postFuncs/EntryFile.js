@@ -1,56 +1,72 @@
-import { StartFunc as StartFuncReadFileFromModal } from '../../kLowDb/ReadFileList/readFileFromModal.js';
-// import { StartFunc as StartFuncwriteFile } from '../../kLowDb/WriteFileList/writeFile.js';
-import { StartFunc as StartFuncWriteFileFromModal } from '../../kLowDb/WriteFileList/writeFileFromModal.js';
-import { StartFunc as StartFuncImportToFile } from '../../kLowDb/WriteFileList/ImportToFile.js';
-import { StartFunc as StartFuncUploadToFile } from '../../kLowDb/WriteFileList/UploadToFile.js';
-import { StartFunc as StartFuncWriteTofile } from '../../kLowDb/WriteTofile/WithChecking/StartFunc.js';
-import { StartFunc as StartFuncWriteFileKeysCheck } from '../../kLowDb/WriteFile/WithChecking/StartFunc.js';
-import { StartFunc as StartFuncGenUuId } from '../../kLowDb/WriteFile/GenUuId.js';
-import { StartFunc as StartFuncFilterAsObject } from '../../kLowDb/ReadFile/FilterAsObject.js';
-import { StartFunc as StartFuncCheckGeneratePk } from '../../kLowDb/WriteFile/WithChecking/StartFuncGeneratePk.js';
+import {
+    PostFunc as PostFuncDal,
+    PostFromModalFunc as PostFromModalFuncDal,
+    PostUploadFunc as PostUploadFuncDal, PostGetSelectColumnsFunc as PostGetSelectColumnsFuncDal,
+    PostUploadFromModalFunc as PostUploadFromModalFuncDal,
+    PostWithKeysCheckFunc as PostWithKeysCheckFuncDal,
+    PostFuncGenUuId as PostFuncGenUuIdDal, PostFilterFunc as PostFilterFuncDal,
+    PostWithCheckAndGenPkFunc as PostWithCheckAndGenPkFuncDal
+} from '../../dals/postFuncs/EntryFile.js';
 
-import { StartFunc as StartFuncBulkInsert } from '../../kLowDb/WriteTofile/BulkInsert.js';
+import {
+    PostFunc as PostFuncDalsForSequelize,
+    PostUploadFromModalFunc as PostUploadFromModalFuncDalsForSequelize
+} from '../../dalsForSequelize/postFuncs/EntryFile.js';
 
-let PostFunc = (inPostBody) => {
-    return StartFuncWriteTofile({ inDataToInsert: inPostBody });
+import ConfigJson from '../../../Config.json' assert {type: 'json'};
+
+let PostFunc = async (inPostBody) => {
+    if (ConfigJson.isSequelize) {
+        return PostFuncDalsForSequelize(inPostBody);
+    };
+
+    return PostFuncDal(inPostBody);
 };
 
-let PostFilterFunc = ({ inFilterCondition }) => {
-    return StartFuncFilterAsObject({ inFilterCondition });
+let PostFuncGenUuId = async (inPostBody) => {
+    if (ConfigJson.isSequelize) {
+        return PostFuncDalsForSequelize(inPostBody);
+    };
+
+    return PostFuncGenUuIdDal(inPostBody);
 };
 
-let PostFuncGenUuId = (inPostBody) => {
-    return StartFuncGenUuId({ inDataToInsert: inPostBody });
+let PostFilterFunc = async ({ inFilterCondition }) => {
+    return PostFilterFuncDal({ inFilterCondition });
 };
 
 let PostFromModalFunc = ({ LocalBodyAsModal }) => {
-    return StartFuncWriteFileFromModal({ LocalBodyAsModal });
+    return PostFromModalFuncDal({ LocalBodyAsModal });
 };
 
 let PostUploadFunc = ({ LocalBodyAsModal }) => {
-    return StartFuncImportToFile({ LocalBodyAsModal });
+    return PostUploadFuncDal({ LocalBodyAsModal });
 };
 
-let PostUploadFromModalFunc = ({ LocalBodyAsModal }) => {
-    return StartFuncBulkInsert({ LocalBodyAsModal });
+let PostUploadFromModalFunc = async ({ inArrayFromRequest }) => {
+    if (ConfigJson.isSequelize) {
+        return await PostUploadFromModalFuncDalsForSequelize(inPostBody);
+    };
+
+    return PostUploadFromModalFuncDal({ inArrayFromRequest });
 };
 
 let PostGetSelectColumnsFunc = ({ LocalBodyAsModal }) => {
-    return StartFuncReadFileFromModal();
+    return PostGetSelectColumnsFuncDal({ LocalBodyAsModal });
 };
 
-let PostWithKeysCheckFunc = ({ inBodyKeys }) => {
-    return StartFuncWriteFileKeysCheck({ inDataToInsert: inBodyKeys });
+let PostWithKeysCheckFunc = async (inModalObject) => {
+    return PostWithKeysCheckFuncDal({ inBodyKeys: inModalObject });
 };
 
-let PostWithCheckAndGenPkFunc = ({ inBodyKeys }) => {
-    return StartFuncCheckGeneratePk({ inDataToInsert: inBodyKeys });
+let PostWithCheckAndGenPkFunc = async (inModalObject) => {
+    return PostWithCheckAndGenPkFuncDal({ inBodyKeys: inModalObject });
 };
 
 export {
     PostFunc, PostFromModalFunc,
     PostUploadFunc, PostGetSelectColumnsFunc,
-    PostUploadFromModalFunc, PostWithKeysCheckFunc,
-    PostFuncGenUuId, PostFilterFunc,
+    PostUploadFromModalFunc, PostFilterFunc,
+    PostWithKeysCheckFunc, PostFuncGenUuId,
     PostWithCheckAndGenPkFunc
 };

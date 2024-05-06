@@ -43,12 +43,12 @@ let PostUploadFunc = ({ LocalBodyAsModal }) => {
     return PostUploadFuncDal({ LocalBodyAsModal });
 };
 
-let PostUploadFromModalFunc = async (inPostBody) => {
+let PostUploadFromModalFunc = async ({ inArrayFromRequest }) => {
     if (ConfigJson.isSequelize) {
         return await PostUploadFromModalFuncDalsForSequelize(inPostBody);
     };
 
-    return PostUploadFromModalFuncDal(inPostBody);
+    return PostUploadFromModalFuncDal({ inArrayFromRequest });
 };
 
 let PostGetSelectColumnsFunc = ({ LocalBodyAsModal }) => {
