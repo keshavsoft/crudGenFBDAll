@@ -13,7 +13,8 @@ let ShowOnDomTableBody = async ({ inDataAsArray }) => {
         jVarLocalTableBodyId.innerHTML = "";
         var template = Handlebars.compile(jVarLocalTemplate.HtmlString);
 
-        inDataAsArray.forEach(element => {
+        inDataAsArray.forEach((element, index) => {
+            element.index = index + 1;
             let jVarLocalToShowHtml = template(element);
 
             jVarLocalTableBodyId.insertAdjacentHTML("afterbegin", jVarLocalToShowHtml);
