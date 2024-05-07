@@ -1,6 +1,6 @@
 import { StartFunc as StartFuncReadFileFromModal } from '../../kLowDb/ReadFileList/readFileFromModal.js';
 
-import { StartFunc as StartFuncwriteFile } from '../../kSequelize/WriteFileList/writeFile.js';
+import { StartFunc as StartFuncwriteFile } from '../../forMongoDb/writeToCollection/insert.js';
 import { StartFunc as StartFuncImportToFile } from '../../kSequelize/WriteFileList/ImportToFile.js';
 
 // import { StartFunc as StartFuncwriteFile } from '../../kLowDb/WriteFileList/writeFile.js';
