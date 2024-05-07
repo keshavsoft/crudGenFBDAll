@@ -1,9 +1,10 @@
-import { MongoClient } from "mongodb";
+import { MongoClient, ObjectId } from "mongodb";
 import { startFunc as startFuncForPassword } from "../commonFuncs/forPassword.js";
+// const { ObjectId } = require('mongodb');
 
 import configJson from '../../../Config.json' assert {type: 'json'};
 
-let StartFunc = async (inPostBody) => {
+let StartFunc = async ({ inId }) => {
     try {
 
         const password = startFuncForPassword();
@@ -20,7 +21,9 @@ let StartFunc = async (inPostBody) => {
         // console.log('Connected successfully to server');
         const db = client.db(dbName);
         const collection = db.collection(LocalcollectionName);
-        const insertResult = await collection.insertOne(inPostBody);
+        // let objID = new ObjectId(inId);
+        console.log('inId : ', inId);
+        const insertResult = await collection.deleteOne( { _id: new ObjectId(inId) } );
         // let serverData = await collection.find().toArray();
         // console.log('serverData successfully to server', serverData);
         return await insertResult;
