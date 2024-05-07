@@ -2,17 +2,17 @@ import ConfigJson from "../../../Config.json" assert { type: "json" };
 
 let StartFunc = async () => {
     let LocalroutePath = ConfigJson.routePath;
-    let LocaltableName = "pos";
+    let LocaltableName = "StichingPOS";
     let JvarLocalCustomerNumber = jFLocalCustomerNumber();
 
-    let jVarLocalFetchUrl = `/${LocalroutePath}/${LocaltableName}/FilterData/pk/${JvarLocalCustomerNumber}`;
+    let jVarLocalFetchUrl = `/${LocalroutePath}/${LocaltableName}/FilterData/CustomerNumber/${JvarLocalCustomerNumber}`;
     let response = await fetch(jVarLocalFetchUrl);
 
     return await response;
 };
 
 let jFLocalCustomerNumber = () => {
-    let jVarLocalCustomerNumber = 'SalesRef'
+    let jVarLocalCustomerNumber = 'CustomerNumber'
     let jVarLocalHtmlId = document.getElementById(jVarLocalCustomerNumber);
 
     if (jVarLocalHtmlId === null === false) {

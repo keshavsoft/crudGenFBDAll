@@ -1,15 +1,11 @@
 let StartFunc = async () => {
-    let jVarLocalSalesRef = getUrlQueryParams({ inGetKey: "SalesRef" });
+    let LocalUrl = `/bin/StichingPOS/MaxRow`
+    let localfetch = await fetch(LocalUrl);
+    let data = await localfetch.json();
+    let jVarLocalSalesRef = data.pk;
 
-    let jVarLocalAccountNamesDataListId = document.getElementById("SRRefId");
+    let jVarLocalAccountNamesDataListId = document.getElementById("FK");
     jVarLocalAccountNamesDataListId.value = jVarLocalSalesRef;
-};
-
-let getUrlQueryParams = ({ inGetKey }) => {
-    const queryString = window.location.search;
-    const parameters = new URLSearchParams(queryString);
-    const value = parameters.get(inGetKey);
-    return value;
 };
 
 export { StartFunc };
