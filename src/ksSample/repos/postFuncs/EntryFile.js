@@ -12,6 +12,9 @@ import {
     PostFunc as PostFuncDalsForSequelize,
     PostUploadFromModalFunc as PostUploadFromModalFuncDalsForSequelize
 } from '../../dalsForSequelize/postFuncs/EntryFile.js';
+import {
+    PostFunc as PostFuncDalsForMongoDB
+} from '../../dalsForMongoDb/postFuncs/EntryFile.js';
 
 import ConfigJson from '../../../Config.json' assert {type: 'json'};
 
@@ -20,6 +23,9 @@ let PostFunc = async (inPostBody) => {
         return PostFuncDalsForSequelize(inPostBody);
     };
 
+    if (ConfigJson.isMongoDb) {
+        return PostFuncDalsForMongoDB(inPostBody);
+    };
     return PostFuncDal(inPostBody);
 };
 
