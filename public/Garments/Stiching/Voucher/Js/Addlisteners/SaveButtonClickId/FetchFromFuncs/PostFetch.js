@@ -6,11 +6,8 @@ let StartFunc = async () => {
     let LocaltableName = ConfigJson.tableName;
 
     let jVarLocalFetchHeaders = StartFuncFetchHeaders();
-    let jVarLocalFetchUrl = `/${LocalroutePath}/${LocaltableName}/WithKeysCheck`;
+    let jVarLocalFetchUrl = `/${LocalroutePath}/${LocaltableName}/WithCheckAndGenPk`;
     let response = await fetch(jVarLocalFetchUrl, jVarLocalFetchHeaders);
-
-    // console.log("response : ", response);
-    // let data = await response.json();
 
     return await response;
 };

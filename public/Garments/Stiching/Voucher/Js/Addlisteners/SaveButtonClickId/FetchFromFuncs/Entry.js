@@ -14,12 +14,10 @@ let StartFunc = async () => {
             confirmButtonText: "ok",
         }).then((result) => {
             if (result.isConfirmed) {
-                document.getElementById("SalesRef").focus();
+                document.getElementById("CustomerNumber").focus();
             }
         });
-        document.getElementById("SalesRef").focus();
-
-        // Swal.fire(jVarLocalReason);
+        document.getElementById("CustomerNumber").focus();
     }
 };
 

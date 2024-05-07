@@ -286,14 +286,14 @@
 
         <ul class="sidebar-nav" id="sidebar-nav">
             <li class="nav-item">
-                <a class="nav-link collapsed" href="../../../Dashboard/Dashboard.html">
+                <a class="nav-link collapsed" href="../../Dashboard/Dashboard.html">
                     <i class="bi bi-house-door-fill"></i>
                     <span>Home</span>
                 </a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="../../../Dashboard/Dashboard.html">
+                <a class="nav-link collapsed" href="../../Dashboard/Dashboard.html">
                     <i class="bi bi-arrow-90deg-left"></i>
                     <span>Parent</span>
                 </a>
@@ -318,6 +318,12 @@
                 <a  class="nav-link " href="#" >
                     <i class="bi bi-table"></i></i>
                     <span>ShowAll</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="../Create/Create.html">
+                    <i class="bi bi-database"></i></i>
+                    <span>LastItems-Create</span>
                 </a>
             </li>
 
@@ -401,20 +407,15 @@
                                 data-show-footer="true" data-show-columns="true" data-show-columns-toggle-all="true"
                                 data-click-to-select="true" data-filter-control="true" data-show-export="true"
                                 data-detail-formatter="detailFormatter" data-id-field="pk" data-show-toggle="true"
-                                data-url="/bin/SalesReturns/DataOnly">
+                                data-url="/bin/BillsStiching/DataOnly">
                                 <thead>
                                     <tr id="tableHeadRow">
                                         <th data-field="id" data-formatter="jFGlobalSerialColumn">#</th>
                                         
-                                        <th data-field="QrCode">QrCode</th>
                                         <th data-field="ProductName">ProductName</th>
-                                        <!-- <th data-field="CostPrice">CostPrice</th> -->
-                                        <!-- <th data-field="PurchasePk">PurchasePk</th> -->
-                                        <th data-field="SalePrice">SalePrice</th>
                                         <th data-field="GrossAmount">GrossAmount</th>
+                                        <th data-field="FK">StichRef</th>
                                         <th data-field="DateTime">DateTime</th>
-                                        <th data-field="SRRef">SalesRef</th>
-                                        <th data-field="UuId">UuId</th>
                                     </tr>
                                 </thead>
                             </table>

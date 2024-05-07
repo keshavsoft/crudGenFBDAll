@@ -6,7 +6,7 @@ let StartFunc = () => {
     return true;
 };
 const jFCustomerNumber = () => {
-    let jVarLocalSalesRef = document.getElementById('SalesRef');
+    let jVarLocalSalesRef = document.getElementById('CustomerNumber');
 
     if (jVarLocalSalesRef.value === "") {
         jVarLocalSalesRef.classList.add("is-invalid");
