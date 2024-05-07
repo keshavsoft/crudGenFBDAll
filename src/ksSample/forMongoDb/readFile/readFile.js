@@ -1,17 +1,12 @@
 import { MongoClient } from "mongodb";
 
 import configJson from '../../../Config.json' assert {type: 'json'};
-
+import { startFunc as startFuncForPassword } from "../commonFuncs/forPassword.js";
+import { startFunc as startFuncForUrl } from "../commonFuncs/ForUrl.js";
 let StartFunc = async () => {
     try {
-        if ("KS_PASSWORD_FORMONGODB" in process.env === false) {
-            console.log("KS_PASSWORD_FORMONGODB not found in .env file");
-            return await false;
-        };
-
-        const password = encodeURIComponent(process.env.KS_PASSWORD_FORMONGODB);
-
-        let url = configJson.mongoDbConfig.url;
+        const password = startFuncForPassword();
+        let url = startFuncForUrl();
         const dbName = configJson.mongoDbConfig.DbName;
         const LocalcollectionName = configJson.mongoDbConfig.collectionName;
 

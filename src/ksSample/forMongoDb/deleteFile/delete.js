@@ -1,15 +1,15 @@
 import { MongoClient, ObjectId } from "mongodb";
 import { startFunc as startFuncForPassword } from "../commonFuncs/forPassword.js";
+import { startFunc as startFuncForUrl } from "../commonFuncs/ForUrl.js";
+
 // const { ObjectId } = require('mongodb');
 
 import configJson from '../../../Config.json' assert {type: 'json'};
 
 let StartFunc = async ({ inId }) => {
     try {
-
         const password = startFuncForPassword();
-
-        let url = configJson.mongoDbConfig.url;
+        let url = startFuncForUrl();
         const dbName = configJson.mongoDbConfig.DbName;
         const LocalcollectionName = configJson.mongoDbConfig.collectionName;
 
