@@ -363,20 +363,17 @@
                                 <div class="col-md-6">
                                     <input kvs1="" id="DateId" name="date" type="date" class="form-control">
                                 </div>
-                                <div class="col-md-1">
-                                    <button type="button" class="btn btn-primary" id="RefreshBSTableId">Show</button>
-                                </div>
-                                <div class="col-md-1">
-                                    <button class="btn btn-primary" type="button" disabled="" id="SpinnerId">
-                                        <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+                                <div class="col-md-2">
+                                    <button class="btn btn-primary" type="button" id="RefreshBSTableId">
+                                        <span class="spinner-border spinner-border-sm" id="SpinnerId"
+                                            aria-hidden="true"></span>
+                                        <span role="status">Show</span>
                                     </button>
                                 </div>
                             </div>
 
 
-                            <table id="table" data-toolbar="#toolbar" data-search="true" data-searchable="true"
-                                data-search-highlight="true" data-filter-control="true"
-                                data-detail-formatter="detailFormatter" data-pagination="true">
+                            <table id="table">
                                 <thead>
                                     <tr id="tableHeadRow">
                                         <th data-field="id" data-formatter="jFGlobalSerialColumn">#</th>
@@ -384,13 +381,13 @@
                                         <th data-field="Month" data-filter-control="select">Month</th>
                                         <th data-field="Day" data-filter-control="select">Day</th> -->
                                         <th data-field="da" data-formatter="jFGlobalForDate">Date</th>
-                                        <th data-field="nam" data-filter-control="input">Account Name</th>
+                                        <th id="AccountNameId">Account Name</th>
+                                        <th data-field="acc_cod">No</th>
                                         <th data-field="des">Description</th>
                                         <th data-field="nam4">Info</th>
-                                        <th data-field="acc_cod">No</th>
                                         <!-- <th data-field="amt" data-halign="left" data-align="right" >Amount</th> -->
-                                        <th data-field="Credit" data-halign="left" data-align="right" >Credit</th>
-                                        <th data-field="Debit" data-halign="left" data-align="right">Debit</th>
+                                        <th id="CreditId" data-footer-formatter="priceFormatterSum">Credit</th>
+                                        <th id="DebitId" data-footer-formatter="priceFormatterSum">Debit</th>
                                     </tr>
                                 </thead>
                             </table>
@@ -448,13 +445,17 @@
             return html.join('')
         };
 
-        function priceFormatter(data) {
-            var field = this.field
-            return '' + data.map(function (row) {
-                return +row.ItemDetails
+        function priceFormatterSum(data) {
+            var field = this.field;
+            return data.map(function (row) {
+                return parseFloat(row[field]);
             }).reduce(function (sum, i) {
-                return sum + i
-            }, 0)
+                if (isNaN(i)) {
+                    return sum;
+                } else {
+                    return sum + i;
+                }
+            }, 0);
         }
     </script>
 

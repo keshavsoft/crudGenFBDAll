@@ -6,7 +6,7 @@ let StartFunc = async () => {
     var $table = $('#table');
 
     const costPerPersonUsd = pipe(jFLocalInsertYear, jFLocalInsertMonth, jFLocalInsertDay, jFLocalInsertCredit, jFLocalInsertDebit);
-    
+
     $table.bootstrapTable("load", costPerPersonUsd(jVarLocalFetchData));
     jFLocalHideSpinner();
 };
@@ -53,8 +53,8 @@ let jFLocalInsertDebit = (inData) => {
     let jVarLocalReturnArray = [];
 
     jVarLocalReturnArray = inData.map(element => {
-        if (element.amt<0){
-            element.Debit=element.amt*-1;
+        if (element.amt < 0) {
+            element.Debit = element.amt * -1;
         }
         // else{
         //     element.Debit="" 
@@ -70,8 +70,8 @@ let jFLocalInsertCredit = (inData) => {
     let jVarLocalReturnArray = [];
 
     jVarLocalReturnArray = inData.map(element => {
-        if (element.amt>0){
-            element.Credit=element.amt;
+        if (element.amt > 0) {
+            element.Credit = element.amt;
         }
         // else{
         //     element.Credit="" 
@@ -90,6 +90,6 @@ let jFLocalHideSpinner = () => {
 
 let jFLocalShowSpinner = () => {
     let jVarLocalSpinnerId = document.getElementById("SpinnerId");
-    jVarLocalSpinnerId.style.display="block";
+    jVarLocalSpinnerId.style.display = "inline-block";
 };
 export { StartFunc };
