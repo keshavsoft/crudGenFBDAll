@@ -1,11 +1,11 @@
 import { StartFunc as StartFuncGetFetch } from "./FetchFromFuncs/Entry.js";
 
 let StartFunc = async () => {
-
+    jFLocalShowSpinner();
     let jVarLocalFetchData = await StartFuncGetFetch();
     var $table = $('#table');
 
-    const costPerPersonUsd = pipe(jFLocalInsertYear, jFLocalInsertMonth, jFLocalInsertDay);
+    const costPerPersonUsd = pipe(jFLocalInsertYear, jFLocalInsertMonth, jFLocalInsertDay, jFLocalInsertCredit, jFLocalInsertDebit);
     
     $table.bootstrapTable("load", costPerPersonUsd(jVarLocalFetchData));
     jFLocalHideSpinner();
@@ -49,9 +49,47 @@ let jFLocalInsertDay = (inData) => {
     return jVarLocalReturnArray;
 }
 
+let jFLocalInsertDebit = (inData) => {
+    let jVarLocalReturnArray = [];
+
+    jVarLocalReturnArray = inData.map(element => {
+        if (element.amt<0){
+            element.Debit=element.amt*-1;
+        }
+        // else{
+        //     element.Debit="" 
+        // }
+
+        return element;
+    });
+
+    return jVarLocalReturnArray;
+}
+
+let jFLocalInsertCredit = (inData) => {
+    let jVarLocalReturnArray = [];
+
+    jVarLocalReturnArray = inData.map(element => {
+        if (element.amt>0){
+            element.Credit=element.amt;
+        }
+        // else{
+        //     element.Credit="" 
+        // }
+
+        return element;
+    });
+
+    return jVarLocalReturnArray;
+}
+
 let jFLocalHideSpinner = () => {
     let jVarLocalSpinnerId = document.getElementById("SpinnerId");
     jVarLocalSpinnerId.style.display = "none";
 };
 
+let jFLocalShowSpinner = () => {
+    let jVarLocalSpinnerId = document.getElementById("SpinnerId");
+    jVarLocalSpinnerId.style.display="block";
+};
 export { StartFunc };

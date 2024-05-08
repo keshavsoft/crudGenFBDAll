@@ -42,9 +42,9 @@
     <header id="header" class="header fixed-top d-flex align-items-center">
 
         <div class="d-flex align-items-center justify-content-between">
-            <a href="index.html" class="logo d-flex align-items-center">
+            <a href="../DateFilter/DateFilter.html" class="logo d-flex align-items-center">
                 <img src="./assets/img/logo.png" alt="">
-                <span class="d-none d-lg-block" id="BranchNameId">{{Branch}}</span>
+                <span class="d-none d-lg-block" id="BranchNameId">JayaRam</span>
             </a>
             <i class="bi bi-list toggle-sidebar-btn"></i>
         </div>
@@ -338,12 +338,13 @@
 
 
             <nav>
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="../../../../index.html">Home</a></li>
-                    <li class="breadcrumb-item"><a href="../../../index.html">Accounts</a></li>
-                    <li class="breadcrumb-item"><a href="../../index.html">Masters</a></li>
-                    <li class="breadcrumb-item active">Accounts</li>
-                </ol>
+                <nav>
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+                        <li class="breadcrumb-item"><a href="../DateFilter/DateFilter.html">JayaRam</a></li>
+                        <li class="breadcrumb-item active">WithAccountFilter</li>
+                    </ol>
+                </nav>
             </nav>
         </div>
         <!-- End Page Title -->
@@ -357,8 +358,17 @@
                             <div class="spinner-border" id="SpinnerId" role="status">
                                 <span class="visually-hidden">Loading...</span>
                             </div>
-                            <input type="number" placeholder="Enter Account Number" name="Account" id="AccountId">
-                            <button id="ShowButtonId">Show</button>
+
+                            <!-- <input type="number" placeholder="Enter Account Number" name="Account" id="AccountId">
+                            <button id="ShowButtonId">Show</button> -->
+                            <div class="row m-2">
+                                <div class="col-md-6">
+                                    <input kvs1="" id="AccountId" name="Account" type="number" class="form-control" placeholder="Enter Account Number">
+                                </div>
+                                <div class="col-md-6">
+                                    <button type="button" class="btn btn-primary" id="ShowButtonId">Show</button>
+                                </div>
+                            </div>
 
                             <table id="table" data-toolbar="#toolbar" data-search="true" data-searchable="true" data-search-highlight="true"
                                 data-filter-control="true" data-detail-formatter="detailFormatter"
