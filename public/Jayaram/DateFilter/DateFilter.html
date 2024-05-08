@@ -42,9 +42,9 @@
     <header id="header" class="header fixed-top d-flex align-items-center">
 
         <div class="d-flex align-items-center justify-content-between">
-            <a href="index.html" class="logo d-flex align-items-center">
+            <a href="../DateFilter/DateFilter.html" class="logo d-flex align-items-center">
                 <img src="./assets/img/logo.png" alt="">
-                <span class="d-none d-lg-block" id="BranchNameId">{{Branch}}</span>
+                <span class="d-none d-lg-block" id="BranchNameId">JayaRam</span>
             </a>
             <i class="bi bi-list toggle-sidebar-btn"></i>
         </div>
@@ -340,10 +340,9 @@
 
             <nav>
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="../../../../index.html">Home</a></li>
-                    <li class="breadcrumb-item"><a href="../../../index.html">Accounts</a></li>
-                    <li class="breadcrumb-item"><a href="../../index.html">Masters</a></li>
-                    <li class="breadcrumb-item active">Accounts</li>
+                    <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+                    <li class="breadcrumb-item active"><a href="../DateFilter/DateFilter.html">Jayaram</a></li>
+                    <li class="breadcrumb-item active">DateFilter</li>
                 </ol>
             </nav>
         </div>
@@ -358,13 +357,19 @@
                             <!-- <div class="spinner-border" id="SpinnerId" role="status">
                                 <span class="visually-hidden">Loading...</span>
                             </div> -->
+
                             <!-- Top Label input -->
-                            <div class="row m-2">
+                            <div class="row m-3">
                                 <div class="col-md-6">
                                     <input kvs1="" id="DateId" name="date" type="date" class="form-control">
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-1">
                                     <button type="button" class="btn btn-primary" id="RefreshBSTableId">Show</button>
+                                </div>
+                                <div class="col-md-1">
+                                    <button class="btn btn-primary" type="button" disabled="" id="SpinnerId">
+                                        <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+                                    </button>
                                 </div>
                             </div>
 
@@ -375,15 +380,17 @@
                                 <thead>
                                     <tr id="tableHeadRow">
                                         <th data-field="id" data-formatter="jFGlobalSerialColumn">#</th>
-                                        <th data-field="Year" data-filter-control="select">Year</th>
+                                        <!-- <th data-field="Year" data-filter-control="select">Year</th>
                                         <th data-field="Month" data-filter-control="select">Month</th>
-                                        <th data-field="Day" data-filter-control="select">Day</th>
+                                        <th data-field="Day" data-filter-control="select">Day</th> -->
                                         <th data-field="da" data-formatter="jFGlobalForDate">Date</th>
                                         <th data-field="nam" data-filter-control="input">Account Name</th>
-                                        <th data-field="amt">Amount</th>
                                         <th data-field="des">Description</th>
                                         <th data-field="nam4">Info</th>
                                         <th data-field="acc_cod">No</th>
+                                        <!-- <th data-field="amt" data-halign="left" data-align="right" >Amount</th> -->
+                                        <th data-field="Credit" data-halign="left" data-align="right" >Credit</th>
+                                        <th data-field="Debit" data-halign="left" data-align="right">Debit</th>
                                     </tr>
                                 </thead>
                             </table>
