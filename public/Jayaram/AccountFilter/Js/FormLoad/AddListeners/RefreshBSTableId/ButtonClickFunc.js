@@ -1,20 +1,21 @@
 import { StartFunc as StartFuncGetFetch } from "./GetFetch.js";
 
 let StartFunc = async () => {
+    jFLocalShowSpinner();
     let jVarLocalFetchData = await StartFuncGetFetch();
     var $table = $('#table');
     const costPerPersonUsd = pipe(jFLocalInsertYear, jFLocalInsertMonth, jFLocalInsertDay, jFLocalInsertCredit, jFLocalInsertDebit);
     // $table.bootstrapTable();
-    $table.bootstrapTable("load", costPerPersonUsd( jVarLocalFetchData ));
-    console.log("data:",jVarLocalFetchData);
-    //jFLocalHideSpinner();
+    $table.bootstrapTable("load", costPerPersonUsd(jVarLocalFetchData));
+    console.log("data:", jVarLocalFetchData);
+    jFLocalHideSpinner();
 };
 const _pipe = (a, b) => (arg) => b(a(arg));
 
 // Refactored
 const pipe = (...ops) => ops.reduce(_pipe);
 
-let jFLocalInsertYear = ( inData ) => {
+let jFLocalInsertYear = (inData) => {
     let jVarLocalReturnArray = [];
 
     jVarLocalReturnArray = inData.map(element => {
@@ -25,7 +26,7 @@ let jFLocalInsertYear = ( inData ) => {
 
     return jVarLocalReturnArray;
 };
-let jFLocalInsertMonth = ( inData ) => {
+let jFLocalInsertMonth = (inData) => {
     let jVarLocalReturnArray = [];
 
     jVarLocalReturnArray = inData.map(element => {
@@ -36,7 +37,7 @@ let jFLocalInsertMonth = ( inData ) => {
 
     return jVarLocalReturnArray;
 };
-let jFLocalInsertDay = ( inData ) => {
+let jFLocalInsertDay = (inData) => {
     let jVarLocalReturnArray = [];
 
     jVarLocalReturnArray = inData.map(element => {
@@ -48,17 +49,12 @@ let jFLocalInsertDay = ( inData ) => {
     return jVarLocalReturnArray;
 }
 
-let jFLocalHideSpinner = () => {
-    let jVarLocalSpinnerId = document.getElementById("SpinnerId");
-    jVarLocalSpinnerId.style.display = "none";
-};
-
 let jFLocalInsertDebit = (inData) => {
     let jVarLocalReturnArray = [];
 
     jVarLocalReturnArray = inData.map(element => {
-        if (element.amt<0){
-            element.Debit=element.amt*-1;
+        if (element.amt < 0) {
+            element.Debit = element.amt * -1;
             element.DebitTotal += element.Debit;
         }
         // else{
@@ -75,8 +71,8 @@ let jFLocalInsertCredit = (inData) => {
     let jVarLocalReturnArray = [];
 
     jVarLocalReturnArray = inData.map(element => {
-        if (element.amt>0){
-            element.Credit=element.amt;
+        if (element.amt > 0) {
+            element.Credit = element.amt;
             element.CreditTotal += element.Credit;
         }
         // else{
@@ -88,4 +84,14 @@ let jFLocalInsertCredit = (inData) => {
 
     return jVarLocalReturnArray;
 }
+
+let jFLocalHideSpinner = () => {
+    let jVarLocalSpinnerId = document.getElementById("SpinnerId");
+    jVarLocalSpinnerId.style.display = "none";
+};
+
+let jFLocalShowSpinner = () => {
+    let jVarLocalSpinnerId = document.getElementById("SpinnerId");
+    jVarLocalSpinnerId.style.display = "inline-block";
+};
 export { StartFunc };
