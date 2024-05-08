@@ -4,7 +4,7 @@ let startFunc = () => {
         return false;
     };
 
-    const url = encodeURIComponent(process.env.KS_URL_FORMONGODB);
+    const url = process.env.KS_URL_FORMONGODB;
     return url;
 };
 
