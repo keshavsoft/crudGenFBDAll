@@ -3,11 +3,11 @@ import { StartFunc as StartFuncGetFetch } from "./GetFetch.js";
 let StartFunc = async () => {
     let jVarLocalFetchData = await StartFuncGetFetch();
     var $table = $('#table');
-    const costPerPersonUsd = pipe(jFLocalInsertYear, jFLocalInsertMonth, jFLocalInsertDay);
+    const costPerPersonUsd = pipe(jFLocalInsertYear, jFLocalInsertMonth, jFLocalInsertDay, jFLocalInsertCredit, jFLocalInsertDebit);
     // $table.bootstrapTable();
     $table.bootstrapTable("load", costPerPersonUsd( jVarLocalFetchData ));
     console.log("data:",jVarLocalFetchData);
-    jFLocalHideSpinner();
+    //jFLocalHideSpinner();
 };
 const _pipe = (a, b) => (arg) => b(a(arg));
 
@@ -53,4 +53,39 @@ let jFLocalHideSpinner = () => {
     jVarLocalSpinnerId.style.display = "none";
 };
 
+let jFLocalInsertDebit = (inData) => {
+    let jVarLocalReturnArray = [];
+
+    jVarLocalReturnArray = inData.map(element => {
+        if (element.amt<0){
+            element.Debit=element.amt*-1;
+            element.DebitTotal += element.Debit;
+        }
+        // else{
+        //     element.Debit= 0;
+        // }
+
+        return element;
+    });
+
+    return jVarLocalReturnArray;
+}
+
+let jFLocalInsertCredit = (inData) => {
+    let jVarLocalReturnArray = [];
+
+    jVarLocalReturnArray = inData.map(element => {
+        if (element.amt>0){
+            element.Credit=element.amt;
+            element.CreditTotal += element.Credit;
+        }
+        // else{
+        //      element.Credit=0;
+        //  }
+
+        return element;
+    });
+
+    return jVarLocalReturnArray;
+}
 export { StartFunc };
