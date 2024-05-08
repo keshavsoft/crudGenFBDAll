@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>To factory Dashboard</title>
+    <title>KS Items</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -44,7 +44,7 @@
         <div class="d-flex align-items-center justify-content-between">
             <a href="index.html" class="logo d-flex align-items-center">
                 <img src="./assets/img/logo.png" alt="">
-                <span class="d-none d-lg-block">keshavSoft</span>
+                <span class="d-none d-lg-block" id="BranchNameId">{{Branch}}</span>
             </a>
             <i class="bi bi-list toggle-sidebar-btn"></i>
         </div>
@@ -286,112 +286,105 @@
 
         <ul class="sidebar-nav" id="sidebar-nav">
             <li class="nav-item">
-                <a class="nav-link collapsed" href="../../Dashboard/Dashboard.html">
-                    <i class="bi-house-door-fill"></i>
+                <a class="nav-link collapsed" href="../../../../index.html">
+                    <i class="bi bi-house-door-fill"></i>
                     <span>Home</span>
                 </a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="./Accounts/index.html">
-                    <i class="bi bi-person-fill-add"></i></i>
-                    <span>Accounts</span>
+                <a class="nav-link collapsed" href="../../index.html">
+                    <i class="bi bi-arrow-90deg-left"></i>
+                    <span>Parent</span>
                 </a>
             </li>
 
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="./Garments/Dashboard/Dashboard.html">
-                    <i class="bi bi-person-fill-add"></i></i>
-                    <span>Maguvaa</span>
-                </a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="./Garments/AddOns/Reports/index.html">
-                    <i class="bi bi-person-fill-add"></i></i>
-                    <span>Reports</span>
-                </a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="./Stiching/POS/ShowAll/ShowAll.html">
-                    <i class="bi bi-person-fill-add"></i></i>
-                    <span>Stiching</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="./ToLocalStroge/ShowAll/ShowAll.html">
-                    <i class="bi bi-person-fill-add"></i></i>
-                    <span>ToLocalStroge</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="./Jayaram/DateFilter/DateFilter.html">
-                    <i class="bi bi-person-fill-add"></i></i>
-                    <span>Jayaram</span>
-                </a>
-            </li>
 
             <!-- End Dashboard Nav -->
 
+            <li class="nav-item ">
+                <a class="nav-link " href="#">
+                    <i class="bi bi-calendar"></i></i>
+                    <span>WithDateFilter</span>
+                </a>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link collapsed " href="../AccountFilter/AccountFilter.html">
+                    <i class="bi bi-person"></i></i>
+                    <span>WithAccountFilter</span>
+                </a>
+            </li>
 
+            <li class="nav-item ">
+                <a class="nav-link collapsed" href="../WithYM/WithYM.html">
+                    <i class="bi bi-table"></i></i>
+                    <span>WithYM</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="../ShowAll/ShowAll.html">
+                    <i class="bi bi-database-add"></i></i>
+                    <span>ShowAll</span>
+                </a>
+            </li>
 
-            <!-- End Create Nav -->
-
-
-
-            <!-- End Today Qrcodes Nav -->
         </ul>
     </aside>
     <!-- End Sidebar-->
 
-
     <main id="main" class="main">
-        <template id="Temp1">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">First</th>
-                        <th scope="col">Last</th>
-                        <th scope="col">Handle</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td class="k1">Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td colspan="2">Larry the Bird</td>
-                        <td>@twitter</td>
-                    </tr>
-                </tbody>
-            </table>
-        </template>
-        <table id="table" data-detail-formatter="detailFormatter" data-detail-view="true"></table>
 
-        <table id="table1">
-            <thead>
-                <th>#</th>
-                <th data-field="ItemGroup">Item Group</th>
-                <th data-field="ItemName">Item Name</th>
-                <th>Add Ons</th>
-                <th data-field="Rate">Rate</th>
-                <th data-field="Pcs">Pcs</th>
-                <th data-field="Factory">Factory</th>
-                <th data-field="Delivery">Delivery</th>
-            </thead>
-        </table>
+        <div class="pagetitle">
+            <h1> <a href="#" id="RefreshBSTableId">ShowAll</a></h1>
+
+
+            <nav>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="../../../../index.html">Home</a></li>
+                    <li class="breadcrumb-item"><a href="../../../index.html">Accounts</a></li>
+                    <li class="breadcrumb-item"><a href="../../index.html">Masters</a></li>
+                    <li class="breadcrumb-item active">Accounts</li>
+                </ol>
+            </nav>
+        </div>
+        <!-- End Page Title -->
+
+        <section class="section">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-body">
+
+                            <div class="spinner-border" id="SpinnerId" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                            <input type="date" placeholder="Enter Date" name="Date" id="DateId">
+                            <button id="ShowButtonId">Show</button>
+
+                            <table id="table" data-toolbar="#toolbar" data-search="true" data-searchable="true" data-search-highlight="true"
+                                data-filter-control="true" data-detail-formatter="detailFormatter"
+                                data-pagination="true">
+                                <thead>
+                                    <tr id="tableHeadRow">
+                                        <th data-field="id" data-formatter="jFGlobalSerialColumn">#</th>
+                                        <th data-field="Year" data-filter-control="select">Year</th>
+                                        <th data-field="Month" data-filter-control="select">Month</th>
+                                        <th data-field="Day" data-filter-control="select">Day</th>
+                                        <th data-field="da" data-formatter="jFGlobalForDate">Date</th>
+                                        <th data-field="nam" data-filter-control="input">Account Name</th>
+                                        <th data-field="amt">Amount</th>
+                                        <th data-field="des">Description</th>
+                                        <th data-field="nam4">Info</th>
+                                        <th data-field="acc_cod">No</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </main>
     <!-- End #main -->
 
@@ -404,67 +397,32 @@
     </footer>
     <!-- End Footer -->
     <!-- Vendor JS Files -->
-
-
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
-        integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
-        crossorigin="anonymous"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
-    <script src="https://unpkg.com/bootstrap-table@1.22.1/dist/bootstrap-table.min.js"></script>
-
     <script>
-        var $table = $('#table')
 
-        function buildTable($el, cells, rows) {
-            var i; var j; var row
-            var columns = []
-            var data = []
+        function jFGlobalSerialColumn(value, row, index) {
+            return index + 1;
+        };
+        function jFGlobalForYear(value, row, index) {
+            return value.substring(0, 4);
 
-            for (i = 0; i < cells; i++) {
-                columns.push({
-                    field: 'field' + i,
-                    title: 'Cell' + i,
-                    sortable: true
-                })
-            }
-            for (i = 0; i < rows; i++) {
-                row = {}
-                for (j = 0; j < cells; j++) {
-                    row['field' + j] = 'Row-' + i + '-' + j
-                }
-                data.push(row);
-                data.push(row);
-                data.push(row);
+        };
+        function jFGlobalForDate(value, row, index) {
+            return value.substring(0, 10);
 
-            }
-            $el.bootstrapTable({
-                columns: columns,
-                data: data,
-                detailView: cells > 1,
-                onExpandRow: (index, row, $detail) => {
-                    let template = document.getElementById("Temp1");
+        };
 
-
-                    const clone = template.content.cloneNode(true);
-                    let k2 = clone.querySelector(".k1");
-                    k2.innerHTML="6666666"
-                    console.log("aaaaaaa : ", k2);
-                    const s = new XMLSerializer();
-                    const str = s.serializeToString(clone);
-
-                    $detail.html(str);
-
-
-                    // console.log(index, row, $detail.html(document.querySelector("#Temp1").innerHTML));
-                }
-            });
-
-
-
+        function operateFormatter(value, row, index) {
+            return [
+                `<a class="like" href="../../Scan/ShowAlert/ShowAlert.html?BranchName=${row.BranchName}&VoucherRef=${row.pk}" title="Scan">`,
+                '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-qr-code" viewBox="0 0 16 16">',
+                '<path d="M2 2h2v2H2V2Z"/>',
+                '<path d="M6 0v6H0V0h6ZM5 1H1v4h4V1ZM4 12H2v2h2v-2Z"/>',
+                '<path d="M6 10v6H0v-6h6Zm-5 1v4h4v-4H1Zm11-9h2v2h-2V2Z"/>',
+                '<path d="M10 0v6h6V0h-6Zm5 1v4h-4V1h4ZM8 1V0h1v2H8v2H7V1h1Zm0 5V4h1v2H8ZM6 8V7h1V6h1v2h1V7h5v1h-4v1H7V8H6Zm0 0v1H2V8H1v1H0V7h3v1h3Zm10 1h-1V7h1v2Zm-1 0h-1v2h2v-1h-1V9Zm-4 0h2v1h-1v1h-1V9Zm2 3v-1h-1v1h-1v1H9v1h3v-2h1Zm0 0h3v1h-2v1h-1v-2Zm-4-1v1h1v-2H7v1h2Z"/>',
+                '<path d="M7 12h1v3h4v1H7v-4Zm9 2v2h-3v-1h2v-1h1Z"/>',
+                '</svg>',
+                '</a>  '
+            ].join('')
         }
 
         function detailFormatter(index, row) {
@@ -473,35 +431,50 @@
                 html.push('<p><b>' + key + ':</b> ' + value + '</p>')
             })
             return html.join('')
-        }
-        function expandTable($detail, cells) {
-            buildTable($detail.html('<table></table>').find('table'), cells, 1)
-        }
-        buildTable($table, 8, 1)
+        };
 
-        // $table.bootstrapTable({
-        //     data: [{
-        //         "ItemGroup": "Men",
-        //         "ItemName": "M Shirt DW",
-        //         "Rate": 60,
-        //         "Pcs": 6,
-        //         "Factory": "Vizag",
-        //         "Delivery": "17-04-2024"
-        //     },
-        //     {
-        //         "ItemGroup": "Women",
-        //         "ItemName": "W Shirt DW",
-        //         "Rate": 60,
-        //         "Pcs": 1,
-        //         "Factory": "Vizag",
-        //         "Delivery": "17-04-2024"
-        //     }]
-        // })
-
+        function priceFormatter(data) {
+            var field = this.field
+            return '' + data.map(function (row) {
+                return +row.ItemDetails
+            }).reduce(function (sum, i) {
+                return sum + i
+            }, 0)
+        }
     </script>
+
+    <script>
+        function ItemsFormatter(value, row, index) {
+            // console.log("row:", row);
+            return [
+                `<a class="like btn btn-primary" href="../../Scan/DcQrs/DcQrs.html?VoucherRef=${row.pk}" title="Show">`,
+                '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">',
+                '<path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z"/>',
+                '<path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"/>',
+                '</svg>',
+                ' ',
+                row.ItemDetails,
+                '</a>',
+
+            ].join('')
+
+        };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+    <script src="https://unpkg.com/bootstrap-table@1.22.1/dist/bootstrap-table.min.js"></script>
+
+
+    <script
+        src="https://unpkg.com/bootstrap-table@1.22.1/dist/extensions/filter-control/bootstrap-table-filter-control.min.js"></script>
+
 
     <!-- Template Main JS File -->
     <script src="./assets/js/main.js"></script>
+    <script type="module" src="./Js/StartFunc.js"></script>
 </body>
 
 </html>
