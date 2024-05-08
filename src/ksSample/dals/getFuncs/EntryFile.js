@@ -65,8 +65,7 @@ let GetMaxWithKeyFunc = async ({ inKey }) => {
 };
 
 let GetUniqueWithKeyFunc = async ({ inKey }) => {
-    return await StartFuncUniqueWithKey({ inKey });
-
+    return await StartFuncUniqueWithKey({ inKeyName: inKey });
 };
 
 let GetMaxRowFunc = () => {
@@ -77,6 +76,6 @@ export {
     GetFunc, GetDataOnlyFunc, GetFromModalFunc,
     GetFromModalUuidFunc, GetFromModalUuidAndTSFunc,
     GetIdFunc, GetBodyCheckFunc, GetRowCountFunc, GetFilterDataFunc,
-    GetColumnsSchemaFunc,GetMaxWithKeyFunc,GetMaxRowFunc,
+    GetColumnsSchemaFunc, GetMaxWithKeyFunc, GetMaxRowFunc,
     GetUniqueWithKeyFunc
 };

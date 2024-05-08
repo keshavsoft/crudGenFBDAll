@@ -4,7 +4,6 @@ let StartFunc = async ({ inKeyName }) => {
   let LocalKeyName = inKeyName;
   let LocalReturnData = { KTF: false, JSONFolderPath: "", CreatedLog: {} };
 
-
   let LocalStartFuncPullData = StartFuncPullData();
 
   if (LocalStartFuncPullData === false) {
@@ -23,12 +22,14 @@ let StartFunc = async ({ inKeyName }) => {
   return await LocalReturnData;
 };
 
-function getUniqueArr(arr, inId){
+function getUniqueArr(arr, inId) {
   const mapObj = {};
-  arr.forEach(a => { 
-     mapObj[a[inId]] = a
-  })
-  return Object.values(mapObj);
+
+  arr.forEach(a => {
+    mapObj[a[inId]] = a
+  });
+
+  return Object.keys(mapObj, inId);
 };
 
 export { StartFunc };
