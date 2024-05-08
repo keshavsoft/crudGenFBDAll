@@ -4,12 +4,10 @@ const OnClickRow = (row, $element, field) => {
     console.log(field);
 };
 
-const StartFunc = () => {
-    const handleClick = (row, $element, field) => {
-        OnClickRow(row, $element, field);
-    };
-
-    return handleClick;
+const StartFunc = (row, $element, field) => {
+    if(field === "KS-Delete"){
+        console.log(row);
+    }
 };
 
 export { StartFunc };

@@ -11,7 +11,7 @@ const jFLocalInitialize = () => {
 
     $table.bootstrapTable({
         data: [],
-        onClickRow: StartFuncOnClickRow()
+        onClickRow: StartFuncOnClickRow
     });
 };
 
