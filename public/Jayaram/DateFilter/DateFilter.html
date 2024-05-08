@@ -335,7 +335,7 @@
     <main id="main" class="main">
 
         <div class="pagetitle">
-            <h1> <a href="#" id="RefreshBSTableId">ShowAll</a></h1>
+            <!-- <h1> <a href="#" id="RefreshBSTableId">ShowAll</a></h1> -->
 
 
             <nav>
@@ -355,15 +355,23 @@
                     <div class="card">
                         <div class="card-body">
 
-                            <div class="spinner-border" id="SpinnerId" role="status">
+                            <!-- <div class="spinner-border" id="SpinnerId" role="status">
                                 <span class="visually-hidden">Loading...</span>
+                            </div> -->
+                            <!-- Top Label input -->
+                            <div class="row m-2">
+                                <div class="col-md-6">
+                                    <input kvs1="" id="DateId" name="date" type="date" class="form-control">
+                                </div>
+                                <div class="col-md-6">
+                                    <button type="button" class="btn btn-primary" id="RefreshBSTableId">Show</button>
+                                </div>
                             </div>
-                            <input type="date" placeholder="Enter Date" name="Date" id="DateId">
-                            <button id="ShowButtonId">Show</button>
 
-                            <table id="table" data-toolbar="#toolbar" data-search="true" data-searchable="true" data-search-highlight="true"
-                                data-filter-control="true" data-detail-formatter="detailFormatter"
-                                data-pagination="true">
+
+                            <table id="table" data-toolbar="#toolbar" data-search="true" data-searchable="true"
+                                data-search-highlight="true" data-filter-control="true"
+                                data-detail-formatter="detailFormatter" data-pagination="true">
                                 <thead>
                                     <tr id="tableHeadRow">
                                         <th data-field="id" data-formatter="jFGlobalSerialColumn">#</th>
