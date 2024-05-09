@@ -404,6 +404,7 @@
                                         <th data-field="acc_cod">No</th>
                                         <th id="CreditId" data-footer-formatter="priceFormatterSum">Credit</th>
                                         <th id="DebitId" data-footer-formatter="priceFormatterSum">Debit</th>
+                                        <th data-field="Balance" data-footer-formatter="priceBalance">Balance</th>
                                     </tr>
                                 </thead>
                             </table>
@@ -467,12 +468,30 @@
                 return parseFloat(row[field]);
             }).reduce(function (sum, i) {
                 if (isNaN(i)) {
+                    sum = parseFloat(sum.toFixed(4));
                     return sum;
                 } else {
+                    sum = parseFloat(sum.toFixed(4));
                     return sum + i;
                 }
             }, 0);
         }
+
+        function priceBalance(data) {
+            var field = this.field;
+            var values = data.map(function(row) {
+                return parseFloat(row[field]);
+            });
+        
+            var lastValue = values[values.length - 1];
+        
+            if (isNaN(lastValue)) {
+                return 0;
+            } else {
+                return parseFloat(lastValue.toFixed(4));
+            }
+        }
+        
 
         function UniqueNames() {
             for (var i = 0; i < jsonData.length; i++) {
