@@ -2,8 +2,9 @@ import { MongoClient, ObjectId } from "mongodb";
 import { startFunc as startFuncForPassword } from "../commonFuncs/forPassword.js";
 import { startFunc as startFuncForUrl } from "../commonFuncs/ForUrl.js";
 // const { ObjectId } = require('mongodb');
-
+import  path  from "path";
 import configJson from '../../../Config.json' assert {type: 'json'};
+import tableJson from "../../tableName.json" assert {type: 'json'};
 
 let StartFunc = async ({ inDataToUpdate, inId }) => {
     try {
@@ -12,7 +13,9 @@ let StartFunc = async ({ inDataToUpdate, inId }) => {
 
         let url = startFuncForUrl();
         const dbName = configJson.mongoDbConfig.DbName;
-        const LocalcollectionName = configJson.mongoDbConfig.collectionName;
+        // const LocalcollectionName = configJson.mongoDbConfig.collectionName;
+        // const LocalcollectionName = tableJson.tableName.slice(0,-5);
+        const LocalcollectionName = path.parse(tableJson.tableName).name;
 
         url = url.replace("<password>", password);
 
