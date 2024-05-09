@@ -18,10 +18,10 @@ let StartFunc = ({ inArrayFromRequest }) => {
         LocalReturnData.KReason = LocalStartFuncPullData.KReason;
         return LocalReturnData;
     };
-
+    
     const db = LocalStartFuncPullData.inDb;
 
-    let LocalArrayAfterUuid = LocalFuncForArray({ inDataToInsert: LocalinDataToInsert });
+    let LocalArrayAfterUuid = LocalFuncForArray({ inDataToInsert: LocalinDataToInsert, inData: db.data});
 
     db.data.push(...LocalArrayAfterUuid);
     db.write();
@@ -31,9 +31,10 @@ let StartFunc = ({ inArrayFromRequest }) => {
     return LocalReturnData;
 };
 
-const LocalFuncForArray = ({ inDataToInsert }) => {
-    let LocalReturnData = inDataToInsert.map(element => {
-        let LocalReturnData = LocalFunc({ inDataToInsert: element });
+const LocalFuncForArray = ({ inDataToInsert, inData }) => {
+    let LocalReturnData = inDataToInsert.map((element, index) => {
+        let localIndex = index+1;
+        let LocalReturnData = LocalFuncGenPk({ inDataToInsert: element, inData, index:localIndex});
 
         return LocalReturnData
     });
@@ -41,9 +42,19 @@ const LocalFuncForArray = ({ inDataToInsert }) => {
     return LocalReturnData;
 };
 
-const LocalFunc = ({ inDataToInsert }) => {
+const LocalFuncGenPk = ({ inDataToInsert, inData, index }) => {
 
-    let LocalReturnData = { ...inDataToInsert, UuId: uuidv4(), DateTime: Timestamp() };
+    let LocalArrayPk = inData.map(element => element.pk);
+
+    let LocalRemoveUndefined = LocalArrayPk.filter(function (element) {
+        return element !== undefined;
+    });
+
+    let numberArray = LocalRemoveUndefined.map(Number);
+
+    let MaxPk = (Math.max(...numberArray, 0) + index);
+    
+    let LocalReturnData = { ...inDataToInsert, UuId: uuidv4(), pk: MaxPk, DateTime: Timestamp() };
     return LocalReturnData
 };
 
