@@ -34,7 +34,7 @@ let StartFunc = ({ inArrayFromRequest }) => {
 const LocalFuncForArray = ({ inDataToInsert, inData }) => {
     let LocalReturnData = inDataToInsert.map((element, index) => {
         let localIndex = index+1;
-        let LocalReturnData = LocalFunc({ inDataToInsert: element, inData, index:localIndex});
+        let LocalReturnData = LocalFuncGenPk({ inDataToInsert: element, inData, index:localIndex});
 
         return LocalReturnData
     });
@@ -42,7 +42,7 @@ const LocalFuncForArray = ({ inDataToInsert, inData }) => {
     return LocalReturnData;
 };
 
-const LocalFunc = ({ inDataToInsert, inData, index }) => {
+const LocalFuncGenPk = ({ inDataToInsert, inData, index }) => {
 
     let LocalArrayPk = inData.map(element => element.pk);
 
@@ -54,7 +54,7 @@ const LocalFunc = ({ inDataToInsert, inData, index }) => {
 
     let MaxPk = (Math.max(...numberArray, 0) + index);
     
-    let LocalReturnData = { ...inDataToInsert, UuId: MaxPk, pk: MaxPk, DateTime: Timestamp() };
+    let LocalReturnData = { ...inDataToInsert, UuId: uuidv4(), pk: MaxPk, DateTime: Timestamp() };
     return LocalReturnData
 };
 
