@@ -13,7 +13,7 @@
     "allowNull": true
   },
   "pk":{
-    "type":"INTERGER",
+    "type":"INTEGER",
     "primaryKey":true,
     "autoIncrement":true
   }
