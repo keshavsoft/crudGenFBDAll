@@ -309,17 +309,18 @@
                 </a>
             </li>
             <li class="nav-item ">
-                <a class="nav-link collapsed" href="../BetweenDates/BetwwnDates.html">
+                <a class="nav-link " href="#">
                     <i class="bi bi-calendar-range"></i></i>
                     <span>BetweenDateFilter</span>
                 </a>
             </li>
             <li class="nav-item ">
-                <a class="nav-link " href="#">
+                <a class="nav-link collapsed " href="../AccountFilter/AccountFilter.html">
                     <i class="bi bi-person"></i></i>
                     <span>WithAccountFilter</span>
                 </a>
             </li>
+
             <li class="nav-item ">
                 <a class="nav-link collapsed" href="../WithYM/WithYM.html">
                     <i class="bi bi-table"></i></i>
@@ -340,17 +341,15 @@
     <main id="main" class="main">
 
         <div class="pagetitle">
-            <h1> <a href="#" id="RefreshBSTableId">Account Filter</a></h1>
+            <!-- <h1> <a href="#" id="RefreshBSTableId">ShowAll</a></h1> -->
 
 
             <nav>
-                <nav>
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
-                        <li class="breadcrumb-item"><a href="../DateFilter/DateFilter.html">JayaRam</a></li>
-                        <li class="breadcrumb-item active">WithAccountFilter</li>
-                    </ol>
-                </nav>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+                    <li class="breadcrumb-item active"><a href="../DateFilter/DateFilter.html">Jayaram</a></li>
+                    <li class="breadcrumb-item active">BetweenDateFilter</li>
+                </ol>
             </nav>
         </div>
         <!-- End Page Title -->
@@ -365,35 +364,22 @@
                                 <span class="visually-hidden">Loading...</span>
                             </div> -->
 
-                            <!-- <input type="number" placeholder="Enter Account Number" name="Account" id="AccountId">
-                            <button id="ShowButtonId">Show</button> -->
-                            <div class="row m-2">
-                                <div class="form-group mx-sm-3 mb-10">
-                                    <!-- <select class="form-select" aria-label="Default select example" id="AccountId">
-                                        <option select="selected">Select Account Name</option>
-                                    </select> -->
-                                    <label for="Account" class="col-sm-2 col-form-label">Choose Account Name:</label>
-                                    <input list="AccountId" name="Account" id="AccountId1">
-                                    <datalist id="AccountId"></datalist>
-                                    <button class="btn btn-primary" type="button" id="ShowButtonId">
+                            <!-- Top Label input -->
+                            <div class="row m-3">
+                                <div class="col-md-2">
+                                    <input kvs1="" id="DateId" name="date" type="date" class="form-control">
+                                </div>
+                                <div class="col-md-2">
+                                    <input kvs1="" id="DateId1" name="date" type="date" class="form-control">
+                                </div>
+                                <div class="col-md-2">
+                                    <button class="btn btn-primary" type="button" id="RefreshBSTableId">
                                         <span class="spinner-border spinner-border-sm" id="SpinnerId"
                                             aria-hidden="true"></span>
                                         <span role="status">Show</span>
                                     </button>
                                 </div>
                             </div>
-
-
-                            <!-- <input type="number" placeholder="Enter Account Number" name="Account" id="AccountId">
-                            <button id="ShowButtonId">Show</button> -->
-                            <!-- <div class="row m-2">
-                                <div class="col-md-6">
-                                    <input kvs1="" id="AccountId" name="Account" type="number" class="form-control" placeholder="Enter Account Number">
-                                </div>
-                                <div class="col-md-6">
-                                    <button type="button" class="btn btn-primary" id="ShowButtonId">Show</button>
-                                </div>
-                            </div> -->
 
 
                             <table id="table">
@@ -403,12 +389,12 @@
                                         <!-- <th data-field="Year" data-filter-control="select">Year</th>
                                         <th data-field="Month" data-filter-control="select">Month</th>
                                         <th data-field="Day" data-filter-control="select">Day</th> -->
-                                        <th data-formatter="jFGlobalForDate" id="DateId">Date</th>
-                                        <th data-field="nam">Account Name</th>
-                                        <th data-field="nam4">Info</th>
-                                        <!-- <th data-field="amt">Amount</th> -->
-                                        <th data-field="des">Description</th>
+                                        <th id="DateFilterId" data-formatter="jFGlobalForDate">Date</th>
+                                        <th id="AccountNameId">Account Name</th>
                                         <th data-field="acc_cod">No</th>
+                                        <th data-field="des">Description</th>
+                                        <th data-field="nam4">Info</th>
+                                        <!-- <th data-field="amt" data-halign="left" data-align="right" >Amount</th> -->
                                         <th id="CreditId" data-footer-formatter="priceFormatterSum">Credit</th>
                                         <th id="DebitId" data-footer-formatter="priceFormatterSum">Debit</th>
                                         <th data-field="Balance" data-footer-formatter="priceBalance">Balance</th>
@@ -486,23 +472,16 @@
 
         function priceBalance(data) {
             var field = this.field;
-            var values = data.map(function (row) {
+            var values = data.map(function(row) {
                 return parseFloat(row[field]);
             });
-
+        
             var lastValue = values[values.length - 1];
-
+        
             if (isNaN(lastValue)) {
                 return 0;
             } else {
                 return parseFloat(lastValue.toFixed(4));
-            }
-        }
-
-
-        function UniqueNames() {
-            for (var i = 0; i < jsonData.length; i++) {
-                $("#AccountId").append('<option value="' + jsonData[i] + '">' + jsonData[i] + '</option>');
             }
         }
 
