@@ -20,7 +20,7 @@ const jFLocalToTableTag = () => {
     $table.attr("data-searchable", "true");
     $table.attr("data-show-footer", "true");
     $table.attr("data-filter-control", "true");
-
+    $table.attr("data-show-columns", "true");
 };
 
 const jFPrepareColumns = () => {

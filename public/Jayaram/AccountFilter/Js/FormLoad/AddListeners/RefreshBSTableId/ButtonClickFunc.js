@@ -4,7 +4,7 @@ let StartFunc = async () => {
     jFLocalShowSpinner();
     let jVarLocalFetchData = await StartFuncGetFetch();
     var $table = $('#table');
-    const costPerPersonUsd = pipe(jFLocalInsertYear, jFLocalInsertMonth, jFLocalInsertDay, jFLocalInsertCredit, jFLocalInsertDebit);
+    const costPerPersonUsd = pipe(jFLocalInsertYear, jFLocalInsertMonth, jFLocalInsertDay, jFLocalInsertCredit, jFLocalInsertDebit, jFLocalBalance);
     // $table.bootstrapTable();
     $table.bootstrapTable("load", costPerPersonUsd(jVarLocalFetchData));
     console.log("data:", jVarLocalFetchData);
@@ -79,6 +79,26 @@ let jFLocalInsertCredit = (inData) => {
         //      element.Credit=0;
         //  }
 
+        return element;
+    });
+
+    return jVarLocalReturnArray;
+}
+
+let jFLocalBalance = (inData) => {
+    let jVarLocalReturnArray = [];
+    let previousBalance = 0;
+
+    jVarLocalReturnArray = inData.map(element => {
+        const debit = isNaN(element.Debit) ? 0 : element.Debit;
+        const credit = isNaN(element.Credit) ? 0 : element.Credit;
+        
+        let balance = previousBalance + debit - credit;
+        previousBalance = balance;
+
+        balance = parseFloat(balance.toFixed(4));
+
+        element.Balance = balance;
         return element;
     });
 
