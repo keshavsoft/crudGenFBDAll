@@ -22,7 +22,7 @@ let QrCodeKeyPressAssign = ({ inFolderName, inFileName, inItemName, inProjectNam
         if (event.keyCode === 13) { // key code of the keybord key
             event.preventDefault();
             let jVarLocalQrCodeValue = jVarLocalQrCode.value
-            let Rowpk = localStorage.getItem("RowPk");
+            let Rowpk = parseInt(jVarLocalQrCodeValue.substring(2));
 
             await KeyPressStartFunc({
                 inFolderName, inFileName, inItemName, inProjectName, inJsonPK: Rowpk
