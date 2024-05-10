@@ -8,7 +8,6 @@ let StartFunc = async ({ inFolderName, inFileName, inItemName, inProjectName }) 
         inRowPK: parseInt(jVarLocalRowPk.RowPK),
         inProjectName
     });
-    console.log("jVarLocalData------ : ", jVarLocalRowPk, jVarLocalData);
     if (jVarLocalData.KTF) {
         if (jVarLocalData.JsonData.length > 0) {
             ShowOnDom();

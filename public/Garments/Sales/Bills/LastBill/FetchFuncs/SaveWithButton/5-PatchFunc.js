@@ -2,7 +2,7 @@ import { StartFunc as StartFuncAfterFetchFunc } from "./6-AfterFetchFunc.js";
 
 
 const StartFunc = async ({ inFetchBody }) => {
-    let jFetchUrl = `/bin/BillsQrCode/WithKeysCheck`;
+    let jFetchUrl = `/Custom/Clients/Maguva/Transactions/Sales/QrCodes`;
 
     let jLocalFetchConfig = {
         method: "post",
