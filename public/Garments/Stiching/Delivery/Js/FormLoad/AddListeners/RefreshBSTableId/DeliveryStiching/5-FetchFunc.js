@@ -9,8 +9,12 @@ let StartFunc = async () => {
 
     let response = await fetch(jVarLocalFetchUrl);
     
+    if (response.status === 200) {
+        return await response.json();
+    }else {
+        return []
+    }
 
-    return response;
 };
 
 
