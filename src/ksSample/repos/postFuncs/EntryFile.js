@@ -5,7 +5,8 @@ import {
     PostUploadFromModalFunc as PostUploadFromModalFuncDal,
     PostWithKeysCheckFunc as PostWithKeysCheckFuncDal,
     PostFuncGenUuId as PostFuncGenUuIdDal, PostFilterFunc as PostFilterFuncDal,
-    PostWithCheckAndGenPkFunc as PostWithCheckAndGenPkFuncDal
+    PostWithCheckAndGenPkFunc as PostWithCheckAndGenPkFuncDal,
+    MultiInsertWithCheckFunc as MultiInsertWithCheckFuncDal
 } from '../../dals/postFuncs/EntryFile.js';
 
 import {
@@ -57,6 +58,14 @@ let PostUploadFromModalFunc = async ({ inArrayFromRequest }) => {
     return PostUploadFromModalFuncDal({ inArrayFromRequest });
 };
 
+let MultiInsertWithCheckFunc = async ({ inArrayFromRequest }) => {
+    if (ConfigJson.isSequelize) {
+        return await PostUploadFromModalFuncDalsForSequelize(inPostBody);
+    };
+
+    return MultiInsertWithCheckFuncDal({ inArrayFromRequest });
+};
+
 let PostGetSelectColumnsFunc = ({ LocalBodyAsModal }) => {
     return PostGetSelectColumnsFuncDal({ LocalBodyAsModal });
 };
@@ -74,5 +83,5 @@ export {
     PostUploadFunc, PostGetSelectColumnsFunc,
     PostUploadFromModalFunc, PostFilterFunc,
     PostWithKeysCheckFunc, PostFuncGenUuId,
-    PostWithCheckAndGenPkFunc
+    PostWithCheckAndGenPkFunc,MultiInsertWithCheckFunc
 };

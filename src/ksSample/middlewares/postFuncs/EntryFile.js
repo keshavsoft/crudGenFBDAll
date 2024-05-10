@@ -15,4 +15,19 @@ let PostFunc = (req, res, next) => {
     next();
 };
 
-export { PostFunc };
+let MultiInsertWithCheck = (req, res, next) => {
+    let LocalRequestBody = req.body;
+
+    if (LocalRequestBody.length === 0) {
+        res.status(404).json({
+            KTF: false,
+            KReason: "post requst body should contain : ",
+            body: "Send Array Only "
+        });
+        return;
+    };
+
+    next();
+};
+
+export { PostFunc, MultiInsertWithCheck };

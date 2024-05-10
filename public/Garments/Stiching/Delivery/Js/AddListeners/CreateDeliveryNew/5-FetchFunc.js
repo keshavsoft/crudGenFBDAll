@@ -1,7 +1,7 @@
 let StartFunc = async ({ inBodyData }) => {
     let jVarLocalBodyData = inBodyData;
     console.log("jVarLocalBodyData::",jVarLocalBodyData);
-    let jVarLocalFetchUrl = `/bin/DeliveryStiching/UploadFromModal`;
+    let jVarLocalFetchUrl = `/bin/DeliveryStiching/MultiInsertWithCheck`;
 
     let jVarLocalFetchHeaderObject = {
         method: "POST",
