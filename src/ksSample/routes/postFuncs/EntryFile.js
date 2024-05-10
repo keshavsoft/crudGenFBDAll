@@ -5,10 +5,14 @@ var router = express.Router();
 import {
     PostFunc, PostFromModalFunc,
     PostUploadFunc, PostGetSelectColumnsFunc, PostUploadFromModalFunc,
-    PostUploadImageFunc, PostFilterFunc, PostWithKeysCheckFunc, PostFuncGenUuId,PostWithCheckAndGenPkFunc
+    PostUploadImageFunc, PostFilterFunc, PostWithKeysCheckFunc, PostFuncGenUuId, PostWithCheckAndGenPkFunc, MultiInsertWithCheckFunc
 } from '../../controllers/postFuncs/EntryFile.js';
 
-import { PostFunc as PostFuncmiddleware } from '../../middlewares/postFuncs/EntryFile.js';
+import {
+    PostFunc as PostFuncmiddleware,
+    MultiInsertWithCheck as MultiInsertWithCheckMiddleware
+
+} from '../../middlewares/postFuncs/EntryFile.js';
 import { PostFunc as PostFuncPostUploadFunc } from '../../middlewares/postFuncs/PostUploadFunc.js';
 
 import { upload as uploadFromMulter } from '../../dals/postFuncs/UsingMulter.js';
@@ -19,6 +23,7 @@ router.post('/', PostFunc);
 router.post('/GenUuId', PostFuncGenUuId);
 router.post('/WithKeysCheck', PostWithKeysCheckFunc);
 router.post('/WithCheckAndGenPk', PostWithCheckAndGenPkFunc);
+router.post('/MultiInsertWithCheck', MultiInsertWithCheckMiddleware, MultiInsertWithCheckFunc);
 
 router.post('/Filter', PostFilterFunc);
 router.post('/FromModal', PostFromModalFunc);

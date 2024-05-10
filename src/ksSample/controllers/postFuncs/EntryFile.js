@@ -7,7 +7,8 @@ import {
     PostFilterFunc as PostFilterFuncRepo,
     PostWithKeysCheckFunc as PostWithKeysCheckFuncRepo,
     PostFuncGenUuId as PostFuncGenUuIdRepo,
-    PostWithCheckAndGenPkFunc as PostWithCheckAndGenPkFuncRepo
+    PostWithCheckAndGenPkFunc as PostWithCheckAndGenPkFuncRepo,
+    MultiInsertWithCheckFunc as MultiInsertWithCheckFuncRepo
 } from '../../repos/postFuncs/EntryFile.js';
 
 import {
@@ -111,6 +112,19 @@ let PostUploadFromModalFunc = async (req, res) => {
     res.json(LocalFromRepo);
 };
 
+let MultiInsertWithCheckFunc = async (req, res) => {
+    let LocalBodyData = req.body;
+
+    let LocalFromRepo = await MultiInsertWithCheckFuncRepo({ inArrayFromRequest: LocalBodyData });
+
+    if (LocalFromRepo.KTF === false) {
+        res.status(500).send(LocalFromRepo.KReason);
+        return;
+    };
+
+    res.json(LocalFromRepo);
+};
+
 let PostGetSelectColumnsFunc = (req, res) => {
     let LocalBodyData = req.body;
     let LocalBodyAsModal = ColumnsPullFunc()(LocalBodyData);
@@ -148,5 +162,5 @@ export {
     PostUploadFunc, PostGetSelectColumnsFunc,
     PostUploadFromModalFunc, PostUploadImageFunc,
     PostFilterFunc, PostWithKeysCheckFunc, PostFuncGenUuId,
-    PostWithCheckAndGenPkFunc
+    PostWithCheckAndGenPkFunc,MultiInsertWithCheckFunc
 };

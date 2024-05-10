@@ -6,6 +6,7 @@ let StartFunc = () => {
             ProductName: row.ProductName,
             GrossAmount: row.GrossAmount,
             ItemDescription: row.ItemDescription,
+            FK: row.FK,
             Itempk: row.pk,
             delivery: row.delivery
         };
