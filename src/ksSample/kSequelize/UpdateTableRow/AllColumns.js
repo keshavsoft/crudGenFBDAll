@@ -1,53 +1,34 @@
-import { ColumnsPullFunc } from "../../DataColumns.js";
 import { StartFunc as StartFuncInitializeSequelizeWithTableName } from "../modals/initializeSequelizeWithTableName.js";
+import { StartFunc as StartFuncPrimaryKey } from "../modals/GetTableInfo/PrimaryKey.js";
 
 let StartFunc = async ({ inDataToUpdate, inId }) => {
-  let LocalDataToUpdate = inDataToUpdate;
+  let localInDataToUpdate = inDataToUpdate;
 
   const LocalTableData = await StartFuncInitializeSequelizeWithTableName();
-
-  // const LocalFromBuild = LocalTableData.build(localInDataToInsert);
-  let LocalReturnObject = {};
-  LocalReturnObject.KTF = false;
-
+  const LocalPrimaryKeyName= await StartFuncPrimaryKey();
+  const LocalPrimaryKeyValue = inId;
   try {
-    await LocalTableData.update(
-      LocalDataToUpdate,
-      { where: { id: inId } }
-    );
-
-    LocalReturnObject.KTF = true;
+    const recordToUpdate = await LocalTableData.findOne({
+      where: {
+        [LocalPrimaryKeyName]: LocalPrimaryKeyValue
+      }
+    });
+    //console.log("recordToUpdate:",recordToUpdate);
+    if (!recordToUpdate) {
+      return {
+        KTF: false,
+        KReason: "Record not found"
+      };
+    }
+    await recordToUpdate.update(localInDataToUpdate);
+    //await recordToUpdate.destroy();
+    return recordToUpdate;
   } catch (error) {
-    return await {
+    return {
       KTF: false,
-      KReason: { ErrorFrom: process.cwd(), sqliteError: error },
+      KReason: { ErrorFrom: process.cwd(), sqliteError: error}
     };
   }
-
-  return await LocalReturnObject;
-};
-
-
-let StartFunc1 = async ({ inDataToUpdate, inId }) => {
-  let LocalDataToUpdate = ColumnsPullFunc()(inDataToUpdate);
-
-  const LocalTableData = await StartFuncInitializeSequelizeWithTableName();
-
-  const LocalFindId = await LocalTableData.findAll({
-    where: {
-      id: inId,
-    },
-  });
-
-  if (LocalFindId.length === 0) {
-    return await { KTF: false, KReason: "Id not found in data" };
-  }
-
-  const LocalAfterUpdate = await LocalTableData.update(LocalDataToUpdate, {
-    where: { id: inId },
-  });
-
-  return await LocalAfterUpdate;
 };
 
 export { StartFunc };
