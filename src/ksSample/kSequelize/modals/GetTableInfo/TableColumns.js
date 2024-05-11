@@ -18,9 +18,9 @@ let AllColumns = async () => {
                 LocalColumnsInfo[key] = "";
             };
 
-            if (value.type === "INTEGER") {
-                LocalColumnsInfo[key] = 0;
-            };
+            // if (value.type === "INTEGER") {
+            //     LocalColumnsInfo[key] = 0;
+            // };
 
         }
     );
