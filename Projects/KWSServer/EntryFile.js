@@ -1,4 +1,5 @@
 import { WebSocketServer } from 'ws';
+import { StartFunc as CommoninsertToClients } from './insertToClients.js';
 
 let wss;
 
@@ -17,10 +18,10 @@ let StartFunc = (server) => {
 };
 
 let WsOnConnection = (ws, req) => {
-    // CommoninsertToClients({
-    //     inClients: clients,
-    //     ws
-    // });
+    CommoninsertToClients({
+        inClients: clients,
+        ws
+    });
 
     // CommonSaveToJsonOnConnections({
     //     inVerifyToken: LocalFromVerifyToken,
@@ -30,6 +31,8 @@ let WsOnConnection = (ws, req) => {
     // });
 
     ws.on('message', (data, isBinary) => {
+        let k1 = clients.get(ws);
+        console.log(data.toString(), clients.keys.length, k1);
         // CommonOnMessage({
         //     inData: data
         // });
